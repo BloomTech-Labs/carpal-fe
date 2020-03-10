@@ -1,3 +1,6 @@
+body, header head {
+    font-family: 'Lato', sans-serif;
+}
 body {
     margin: 0;
     display: flex;
@@ -57,11 +60,23 @@ li a :hover {
 .container {   
     width: 100%;
 }
-.first {
-display: flex;
-flex-flow: column;
-justify-content: center;
-flex-wrap: wrap;
+#first {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#second {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#third {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 .imgone {
     display: block;
@@ -92,4 +107,18 @@ align-items: center;
 }
 h2 {
     margin: 15px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    background-color: #85FFF5;
+    border: none;
+    border-radius: 12px;
+    width: 12rem;
+    height: 2.5rem;
 }
