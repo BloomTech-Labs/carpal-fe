@@ -202,3 +202,8 @@ These contribution guidelines have been adapted from [this good-Contributing.md-
 ## Documentation
 
 See [Backend Documentation](🚫_link to your backend readme here_) for details on the backend of our project.
+
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/4f1dd34b22f62530932b/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/carpal-fe/maintainability)
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/4f1dd34b22f62530932b/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/carpal-fe/test_coverage)1
