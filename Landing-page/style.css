@@ -10,8 +10,8 @@ body {
 nav {
     display: flex;
     /* width: 100%;     */
-    justify-content: space-evenly;
-    background-color: #C4C4C4;
+    justify-content: center;
+    background-color: #04CCBB;
 }
 .logo {
     width: 5.5rem;
@@ -113,12 +113,51 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #04CCBB;
+    text-transform: uppercase;
+    margin-top: 5rem;
+    height: 4rem;
 }
 
 button {
-    background-color: #85FFF5;
+    background-color: #04CCBB;
     border: none;
     border-radius: 12px;
-    width: 12rem;
+    width: 15rem;
+    font-size: larger;
+    text-transform: uppercase;
+    height: 4.5rem;
+    color: white;
+}
+.hero {
+    display: inline-block;
+    position: relative;
+}
+
+.hero .slider {
+    width: 100%;
+    height: 40rem;
+   
+}
+.hero .overlaybutton {
+    position: absolute;
+    background-color: #04ccbb;
+    bottom: 4em;
+    right: 4em;
+    font-size: larger;
+    color: white;
+    text-transform: uppercase;
+    padding: 1em 1.5em;
+    border-radius: 12px;
+    width: 12rem;    
     height: 2.5rem;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}.logoname {
+    color: white;
+    font-size: 55px;
+    font-weight: 700;
+    margin: 0;
 }
