@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { withFormik, Form, Field } from "formik";
+import * as Yup from "yup";
+// import "./Login.scss";
 
-function Login() {
+function Login(props) {
+const { errors, touched } = props
+
     return (
         <div className="login-container">
             <div className="module-nav">
@@ -13,56 +17,44 @@ function Login() {
                 <NavLink className="signup-link" to="/signup">
                     Sign Up
                 </NavLink>
-                <p>login</p>
+                <p role="login-component">login</p>
             </div>
+
+        {/* form container */}
+            <Form className='formik-container'>
+
+             {touched.email && errors.email && <p>{errors.email}</p>}
+            <label>
+            <Field className='formik-fields' type='email' name='email' />
+            </label>
+            {touched.password && errors.password && <p>{errors.password}</p>}            
+            <label>
+            <Field className='formik-fields' type='password' name='password' />
+            </label>
+
+            <button className='form-btn' type='submit'>
+              Submit
+            </button>
+          </Form>
         </div>
-    );
+    )}
+
+export default withFormik({
+mapPropsToValues: values  => {
+    return {
+        email: values.email || '',
+        password: values.password || '',
+    } 
+},
+validationSchema: Yup.object().shape({
+    email: Yup.string().email("Please enter a valid email.").required("Please enter your email."),
+    password: Yup.string().min(10, "Password must be at least 10 characters.").required("Please enter your password."),
+}),
+handleSubmit(values) {
+    console.log(values)
 }
 
-export default Login;
+})(Login);
 
-// const Login = () => (
-//     <div className='login-form'>
-//       <div className="module-nav">
-//       <NavLink className='login-title'>Login</NavLink>
-//       {/* signup container */}
-//       <NavLink className='signup-link' to='/registration'>
-//         Sign Up
-//       </NavLink>
-//       </div>
 
-//       {/* Formik form */}
-//       <Formik
-//         initialValues={{ email: "", password: "" }}
-//         validate={values => {
-//           const errors = {};
-//           if (!values.email) {
-//             errors.email = "Required";
-//           } else if (
-//             !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-//           ) {
-//             errors.email = "Invalid email";
-//           }
-//           return errors;
-//         }}
-//         onSubmit={(values, { setSubmitting }) => {
-//           setTimeout(() => {
-//             alert(JSON.stringify(values, null, 2));
-//             setSubmitting(false);
-//           }, 400);
-//         }}
-//       >
-//         {({ isSubmitting }) => (
-//           <Form className='formik-container'>
-//             <Field className='formik-fields' type='email' name='email' />
-//             <ErrorMessage name='username' component='div' />
-//             <Field className='formik-fields' type='password' name='password' />
-//             <ErrorMessage name='password' component='div' />
-//             <button className='form-btn' type='submit' disabled={isSubmitting}>
-//               Submit
-//             </button>
-//           </Form>
-//         )}
-//       </Formik>
-//     </div>
-//   );
+
