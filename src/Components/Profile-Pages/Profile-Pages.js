@@ -13,7 +13,7 @@ function ProfilePage() {
             axios
                 .get(`https://carpal-${process.NODE_ENV}.herokuapp.com/}`)
                 .then(res => {
-                    setUser([...users, status]);
+                    setUser([...user, user]);
                     setLoad(true);
                 })
                 .catch(err => {
@@ -34,4 +34,4 @@ function ProfilePage() {
     );
 }
 
-module.exports = ProfilePage;
+export default ProfilePage;
