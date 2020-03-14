@@ -13,7 +13,7 @@ const { errors, touched } = props
                 <NavLink className="login-title" to="/login">
                     Login
                 </NavLink>
-                {/* signup container */}
+                {/* signup link */}
                 <NavLink className="signup-link" to="/signup">
                     Sign Up
                 </NavLink>

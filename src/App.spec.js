@@ -10,7 +10,7 @@ describe("renders without crashing", () => {
     test("displays CarPal", () => {
         const wrapper = rtl.render(<Router><App /></Router>);
 
-        const title = wrapper.queryByText(/carpal/i);
+        const title = wrapper.queryByRole(/app/i);
         expect(title).toBeInTheDocument();
         expect(title).toBeVisible();
     });
