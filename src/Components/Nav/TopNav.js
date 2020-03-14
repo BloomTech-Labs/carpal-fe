@@ -1,21 +1,27 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Login from "../Login-SignUp/Login";
+import SignUp from "../Login-SignUp/SignUp";
 // import "./TopNav.scss";
 
 export default function TopNav() {
     // temp hamburger animation
     const hideElement = event => {
         event.preventDefault();
-        let element = document.getElementById("hamburger");
-        element.classList.toggle("change");
+        let hamburger = document.getElementById("hamburger");
+        let topnav = document.getElementById("top-nav");
+        hamburger.classList.toggle("change");
+        topnav.classList.toggle("show");
     };
 
     return (
         <>
+            <Link to="/">CarPal</Link>
             <nav className="top-nav" id="top-nav">
-                <NavLink to="/">CarPal</NavLink>
+                <Link to="/login">Login</Link>
+                <Link to="/signup">Sign Up</Link>
             </nav>
-            
+
             <button onClick={hideElement} className="hamburger" id="hamburger">
                 <div className="navicon bar1"></div>
                 <div className="navicon bar2"></div>

@@ -25,11 +25,11 @@ const { errors, touched } = props
 
              {touched.email && errors.email && <p>{errors.email}</p>}
             <label>
-            <Field className='formik-fields' type='email' name='email' />
+            <Field className='formik-fields' type='email' name='email' placeholder='email@email.com' />
             </label>
             {touched.password && errors.password && <p>{errors.password}</p>}            
             <label>
-            <Field className='formik-fields' type='password' name='password' />
+            <Field className='formik-fields' type='password' name='password' placeholder='password' />
             </label>
 
             <button className='form-btn' type='submit'>
