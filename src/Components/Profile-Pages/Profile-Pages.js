@@ -5,10 +5,20 @@ import axios from "axios";
 
 const userEndpoint = `https://carpal-${process.NODE_ENV}.herokuapp.com/}`;
 const ProfilePage = ({ errors, status, touched }) => {
-    const [user, setUser] = useState({});
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [user, setUser] = useState({
+        first_name: "steven",
+        last_name: "van",
+        phone_number: "5555555555",
+        email: "steve@steve.com",
+        isDriver: false,
+        hobbies: ["sports", "music", "dancing"],
+        audio_love: ["electronic"],
+        audio_hate: ["news"]
+    });
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
     const [load, setLoad] = useState(false);
     const [error, setError] = useState("");
+    const [isEditing, setIsEditing] = useState(false);
 
     useEffect(() => {
         if (!user) {
@@ -27,15 +37,14 @@ const ProfilePage = ({ errors, status, touched }) => {
 
     //TODO - Setup input for image, and coordinate with BE for storage via S3 bucket
 
+    function onEditProfileSubmit(e) {
+        e.preventDefault();
+        setIsEditing(!isEditing);
+    }
+
     return (
         <>
-            {isLoggedIn ? (
-                <>
-                    <div>
-                        <img src="/Landing-page/Logo.png" alt="img"></img>
-                    </div>
-                </>
-            ) : (
+            {isEditing ? (
                 <>
                     <img src="/Landing-page/Logo.png" alt="img"></img>
                     <div></div>
@@ -64,7 +73,7 @@ const ProfilePage = ({ errors, status, touched }) => {
                             <option value="true">Yes</option>
                             <option value="false">No</option>
                         </Field>
-                        <Field name="Hobbies" component="select">
+                        <Field name="hobbies" component="select">
                             <option value="" disabled>
                                 Select your Hobby:
                             </option>
@@ -90,8 +99,49 @@ const ProfilePage = ({ errors, status, touched }) => {
 
                         {/* Mapbox will go here */}
 
-                        <button type="submit">Save Profile</button>
+                        <button type="submit" onClick={onEditProfileSubmit}>
+                            Save Profile
+                        </button>
                     </Form>
+                </>
+            ) : (
+                <>
+                    <div>
+                        <div>
+                            <img src="/Landing-page/Logo.png" alt="img"></img>
+                        </div>
+                        <div>
+                            <h3>
+                                {user.first_name}
+                                {user.last_name}
+                            </h3>
+                            <h3>{user.email}</h3>
+                            <h3>{user.phone_number}</h3>
+                        </div>
+                    </div>
+                    <div>
+                        {user.isDriver ? (
+                            <h2>You are a Driver</h2>
+                        ) : (
+                            <h2>You are a Rider</h2>
+                        )}
+                        <h2>Hobbies</h2>
+                        {user.hobbies.map(hobby => (
+                            <h2>{hobby}</h2>
+                        ))}
+                        <h2>Audio I Love</h2>
+                        {user.audio_love.map(audioLove => (
+                            <h2>{audioLove}</h2>
+                        ))}
+                        <h2>Audio I Hate</h2>
+                        {user.audio_hate.map(audioHate => (
+                            <h2>{audioHate}</h2>
+                        ))}
+                        {/* Mapbox will go here */}
+                        <button onClick={onEditProfileSubmit}>
+                            Edit Profile
+                        </button>
+                    </div>
                 </>
             )}
         </>
