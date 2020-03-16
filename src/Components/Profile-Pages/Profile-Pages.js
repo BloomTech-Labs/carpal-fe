@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Form, withFormik, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-
 import "./Profile-Pages.scss";
 
 //TODO - Test Use Effect with Seed Data
@@ -48,7 +47,7 @@ const ProfilePage = ({ errors, status, touched }) => {
     }
 
     return (
-        <>
+        <div className="contanier">
             {isEditing ? (
                 <>
                     <img src="/Landing-page/Logo.png" alt="img"></img>
@@ -164,7 +163,7 @@ const ProfilePage = ({ errors, status, touched }) => {
                     )}
                 </>
             )}
-        </>
+        </div>
     );
 };
 
