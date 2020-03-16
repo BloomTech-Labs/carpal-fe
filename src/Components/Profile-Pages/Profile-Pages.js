@@ -3,6 +3,12 @@ import { Form, withFormik, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 
+import "./Profile-Pages.scss";
+
+//TODO - Test Use Effect with Seed Data
+//TODO - Setup input for image, and coordinate with BE for storage via S3 bucket
+//TODO - Create Loading Spinner Component
+
 const userEndpoint = `https://carpal-${process.NODE_ENV}.herokuapp.com/}`;
 const ProfilePage = ({ errors, status, touched }) => {
     const [user, setUser] = useState({
@@ -35,8 +41,6 @@ const ProfilePage = ({ errors, status, touched }) => {
                 });
         }
     }, [user]);
-
-    //TODO - Setup input for image, and coordinate with BE for storage via S3 bucket
 
     function onEditProfileSubmit(e) {
         e.preventDefault();
@@ -114,11 +118,11 @@ const ProfilePage = ({ errors, status, touched }) => {
                 <>
                     {user.first_name ? (
                         <>
-                            <div>
-                                <div>
+                            <div className="profileHeader">
+                                <div className="profileImage">
                                     <img
-                                        src="/Landing-page/Logo.png"
-                                        alt="img"
+                                        src="https://pbs.twimg.com/profile_images/1232869769013014535/iwN5kET4_400x400.jpg"
+                                        alt="img1"
                                     ></img>
                                 </div>
                                 <div>
