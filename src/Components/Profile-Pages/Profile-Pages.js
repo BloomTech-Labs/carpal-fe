@@ -50,7 +50,7 @@ const ProfilePage = ({ errors, status, touched }) => {
     return (
         <>
             {isEditing ? (
-                <>
+                <div className="container">
                     <img src="/Landing-page/Logo.png" alt="img"></img>
                     <div></div>
                     <Form>
@@ -113,19 +113,19 @@ const ProfilePage = ({ errors, status, touched }) => {
                             </button>
                         )}
                     </Form>
-                </>
+                </div>
             ) : (
-                <>
+                <div className="container">
                     {user.first_name ? (
                         <>
                             <div className="profileHeader">
-                                <div className="profileImage">
+                                <div className="headerImage">
                                     <img
                                         src="https://pbs.twimg.com/profile_images/1232869769013014535/iwN5kET4_400x400.jpg"
                                         alt="img1"
                                     ></img>
                                 </div>
-                                <div>
+                                <div className="headerDetails">
                                     <h3>
                                         {user.first_name}
                                         {user.last_name}
@@ -134,23 +134,25 @@ const ProfilePage = ({ errors, status, touched }) => {
                                     <h3>{user.phone_number}</h3>
                                 </div>
                             </div>
-                            <div>
+                            <div className="profileDetails">
                                 {user.isDriver ? (
                                     <h2>You are a Driver</h2>
                                 ) : (
                                     <h2>You are a Rider</h2>
                                 )}
-                                <h2>Hobbies</h2>
-                                {user.hobbies.map(hobby => (
-                                    <h2>{hobby}</h2>
-                                ))}
+                                <div className="profileSection">
+                                    <h2>Hobbies</h2>
+                                    {user.hobbies.map(hobby => (
+                                        <div className="bubble">{hobby}</div>
+                                    ))}
+                                </div>
                                 <h2>Audio I Love</h2>
                                 {user.audio_love.map(audioLove => (
-                                    <h2>{audioLove}</h2>
+                                    <h2 className="bubble">{audioLove}</h2>
                                 ))}
                                 <h2>Audio I Hate</h2>
                                 {user.audio_hate.map(audioHate => (
-                                    <h2>{audioHate}</h2>
+                                    <h2 className="bubble">{audioHate}</h2>
                                 ))}
                                 {/* Mapbox will go here */}
                                 <button onClick={onEditProfileSubmit}>
@@ -162,7 +164,7 @@ const ProfilePage = ({ errors, status, touched }) => {
                         // <LoadingSpinner />
                         <h1>Pretend this is a loading spinner</h1>
                     )}
-                </>
+                </div>
             )}
         </>
     );

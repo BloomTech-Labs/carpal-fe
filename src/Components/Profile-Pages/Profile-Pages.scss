@@ -1,12 +1,40 @@
+// .container {
+//     width: 500px;
+//     margin: 0 auto;
+// }
+
 img {
-    width: 33%;
     border-radius: 50%;
+    float: left;
 }
 
 .profileHeader {
-    width: 90%;
+    width: 80%;
+    display: flex;
 }
 
-.profileImage {
-    width: 33%;
+.headerImage {
+    width: 30%;
+}
+
+.headerDetails {
+    width: 50%;
+}
+
+.profileSection {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.5rem 0;
+}
+
+h2 {
+    font-size: 1.25rem;
+}
+
+.bubble {
+    background-color: #04ccbb;
+    color: white;
+    border-radius: 33%;
+    width: 20%;
+    text-align: center;
 }
