@@ -15,13 +15,14 @@ const ProfilePage = ({ errors, status, touched }) => {
         audio_love: ["electronic"],
         audio_hate: ["news"]
     });
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [load, setLoad] = useState(false);
     const [error, setError] = useState("");
     const [isEditing, setIsEditing] = useState(false);
 
     useEffect(() => {
-        if (!user) {
+        if (isLoggedIn && !user) {
+            console.log("use effect works");
             axios
                 .get(`${userEndpoint}`)
                 .then(res => {
@@ -98,50 +99,65 @@ const ProfilePage = ({ errors, status, touched }) => {
                         </Field>
 
                         {/* Mapbox will go here */}
-
-                        <button type="submit" onClick={onEditProfileSubmit}>
-                            Save Profile
-                        </button>
+                        {user.first_name ? (
+                            <button type="submit" onClick={onEditProfileSubmit}>
+                                Update Profile
+                            </button>
+                        ) : (
+                            <button type="submit" onClick={onEditProfileSubmit}>
+                                Save Profile
+                            </button>
+                        )}
                     </Form>
                 </>
             ) : (
                 <>
-                    <div>
-                        <div>
-                            <img src="/Landing-page/Logo.png" alt="img"></img>
-                        </div>
-                        <div>
-                            <h3>
-                                {user.first_name}
-                                {user.last_name}
-                            </h3>
-                            <h3>{user.email}</h3>
-                            <h3>{user.phone_number}</h3>
-                        </div>
-                    </div>
-                    <div>
-                        {user.isDriver ? (
-                            <h2>You are a Driver</h2>
-                        ) : (
-                            <h2>You are a Rider</h2>
-                        )}
-                        <h2>Hobbies</h2>
-                        {user.hobbies.map(hobby => (
-                            <h2>{hobby}</h2>
-                        ))}
-                        <h2>Audio I Love</h2>
-                        {user.audio_love.map(audioLove => (
-                            <h2>{audioLove}</h2>
-                        ))}
-                        <h2>Audio I Hate</h2>
-                        {user.audio_hate.map(audioHate => (
-                            <h2>{audioHate}</h2>
-                        ))}
-                        {/* Mapbox will go here */}
-                        <button onClick={onEditProfileSubmit}>
-                            Edit Profile
-                        </button>
-                    </div>
+                    {user.first_name ? (
+                        <>
+                            <div>
+                                <div>
+                                    <img
+                                        src="/Landing-page/Logo.png"
+                                        alt="img"
+                                    ></img>
+                                </div>
+                                <div>
+                                    <h3>
+                                        {user.first_name}
+                                        {user.last_name}
+                                    </h3>
+                                    <h3>{user.email}</h3>
+                                    <h3>{user.phone_number}</h3>
+                                </div>
+                            </div>
+                            <div>
+                                {user.isDriver ? (
+                                    <h2>You are a Driver</h2>
+                                ) : (
+                                    <h2>You are a Rider</h2>
+                                )}
+                                <h2>Hobbies</h2>
+                                {user.hobbies.map(hobby => (
+                                    <h2>{hobby}</h2>
+                                ))}
+                                <h2>Audio I Love</h2>
+                                {user.audio_love.map(audioLove => (
+                                    <h2>{audioLove}</h2>
+                                ))}
+                                <h2>Audio I Hate</h2>
+                                {user.audio_hate.map(audioHate => (
+                                    <h2>{audioHate}</h2>
+                                ))}
+                                {/* Mapbox will go here */}
+                                <button onClick={onEditProfileSubmit}>
+                                    Edit Profile
+                                </button>
+                            </div>
+                        </>
+                    ) : (
+                        // <LoadingSpinner />
+                        <h1>Pretend this is a loading spinner</h1>
+                    )}
                 </>
             )}
         </>
