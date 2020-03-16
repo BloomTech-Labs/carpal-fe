@@ -1,14 +1,101 @@
+// .container {
+//     width: 500px;
+//     margin: 0 auto;
+// }
 
-
-img {
-    width: 153%;
-    border-radius: 50%;
-}
+// img {
+//     border-radius: 50%;
+//     float: left;
+    
+// }
 
 .profileHeader {
-    width: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-.profileImage {
-    width: 33%;
+.headerDetails {
+    width: 50%;
+    font-size: x-large;
+}
+
+.profileSection {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 0.5rem 0;
+}
+.bar {
+    width: 100%;
+    background-color: #04ccbb;
+    height: 2rem;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+
+.bubble {    
+    position: relative;
+    margin-right: 1em;
+    margin-left: 1em;
+    max-width: 145px;
+    height: 100px;
+    text-align: center;
+    padding: 0px;
+    background: #04ccbb;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // flex-direction: row;
+}
+
+
+.edit {
+    background-color: #04CCBB;
+    border: none;
+    border-radius: 12px;
+    width: 75%;
+    font-size: larger;
+    text-transform: uppercase;
+    height: 4rem;
+    color: white;
+    margin-top: 12px;
+
+}
+.headerImage {
+    display: inline-block;
+    position: relative;
+}
+.headerImage .profilePic {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 55%;
+}
+.headerImage .overlaybutton {
+    position: absolute;
+    background-color: whitesmoke;
+    font-size: 10px;
+    bottom: 2em;
+    right: 4em;    
+    color: #04ccbb;
+    text-transform: uppercase;
+    padding: 1em 1.5em;
+    border-radius: 12px;
+    width: 5rem;    
+    height: 0rem;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }
