@@ -1,0 +1,45 @@
+// //body of component
+.singup-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 100%;
+    min-width: 400px;
+    margin: auto;
+    padding: auto;
+    //media breakpoint for desktop
+    //login container for ppl already a user.
+    .module-nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 10px;
+        margin-top: 50px;
+        .login-p {
+            color: #04ccbb;
+        }
+        .login-link {
+            border-radius: 11px;
+            background-color: #f3f4f4;
+            color: #04ccbb;
+            text-decoration: none;
+            padding: 10px 30px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .login-link:hover {
+            background-color: #fbb4b4;
+            color: #f3f4f4;
+            transition: 0.5s;
+        }
+        .login-link:active {
+            background-color: #04ccbb;
+            color: #f3f4f4;
+        }
+    }
+    //////////////////end of login link styles
+}
