@@ -125,7 +125,7 @@ const ProfilePage = ({ errors, status, touched }) => {
                                     <a className="overlaybutton" href="#" alt="Profile">Upload Image</a>
                                 </div>
                                 <div className="headerDetails">
-                                    <h3>
+                                    <h3 className="bold">
                                         {user.first_name}
                                         {user.last_name}
                                     </h3>
@@ -140,19 +140,28 @@ const ProfilePage = ({ errors, status, touched }) => {
                                 ) : (
                                     <h2>You are a Rider</h2>
                                 )}
-                                <div className="profileSection">
+                                <div className="profileSection">                                    
                                     <h2>Hobbies</h2>
+                                    <div className="flexContainer">
                                         {user.hobbies.map(hobby => (
                                             <div className="bubble">{hobby}</div>
-                                        ))}
+                                            ))}
+                                    </div>
+                                        
                                     <h2>Audio I Love</h2>
-                                    {user.audio_love.map(audioLove => (
-                                        <div className="bubble">{audioLove}</div>
-                                    ))}
+                                    <div className="flexContainer">
+                                        {user.audio_love.map(audioLove => (
+                                            <div className="bubble">{audioLove}</div>
+                                            ))}
+                                    </div>
+                                    
                                     <h2>Audio I Hate</h2>
-                                    {user.audio_hate.map(audioHate => (
-                                        <div className="bubble">{audioHate}</div>
-                                    ))}
+                                    <div className="flexContainer">
+                                        {user.audio_hate.map(audioHate => (
+                                            <div className="bubble">{audioHate}</div>
+                                            ))}
+                                    </div>
+                                    
                                 </div>
                                 {/* Mapbox will go here */}
                                 <button className="edit" onClick={onEditProfileSubmit}>
