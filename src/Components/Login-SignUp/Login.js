@@ -42,12 +42,15 @@ function Login(props) {
                 </button>
             </Form>
             <div className="module-nav">
-                <p role="login-component" className="signup-p">
-                    New to the website? Let's go!
+                <p className="signup-p">
+                    New to the website?
+                    <NavLink className="signup-link" to="/signup">
+                        Sign Up Here!
+                    </NavLink>
                 </p>
-                <NavLink className="signup-link" to="/signup">
+                {/* <NavLink className="signup-link" to="/signup">
                     Sign Up
-                </NavLink>
+                </NavLink> */}
             </div>
         </div>
     );

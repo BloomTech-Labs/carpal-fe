@@ -69,36 +69,36 @@
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        background-image: url("../../img/unsplash/Jerome-CarPal-OG.jpg");
+        background-image: url("../../img/Cutie-Triov2.0.png");
         background-repeat: no-repeat;
         background-size: cover;
-        background-color: #f3f4f4;
         border-radius: 10px;
         height: 150px;
         width: 100%;
-        padding: 10px;
+        padding-bottom: 30px;
         //// new to the website? lets go!
         .signup-p {
-            color: #04ccbb;
+            color: #f3f4f4;
         }
         // signup button / link
         .signup-link {
-            border-radius: 11px;
+            border: none;
             background-color: #04ccbb;
             color: #f3f4f4;
             text-decoration: none;
-            padding: 10px 30px;
-            margin: 10px;
+            padding: 2px 5px;
+            margin-bottom: 30px;
             cursor: pointer;
         }
         .signup-link:hover {
-            background-color: #fbb4b4;
-            color: #f3f4f4;
+            border-bottom: 2px solid #f3f4f4;
+            outline: none;
+            appearance: none;
             transition: 0.5s;
         }
         .signup-link:active {
-            background-color: #04ccbb;
-            color: #f3f4f4;
+            border-bottom: 2px solid #fbb4b4;
+            color: #fbb4b4;
         }
     }
 }
