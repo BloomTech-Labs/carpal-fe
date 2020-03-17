@@ -1,0 +1,17 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .welcome-msg {
+        color: #04ccbb;
+        font-size: 2rem;
+        padding: 20px;
+        margin-top: 20px;
+    }
+    .patchy-container {
+        width: 75%;
+        height: 75%;
+        padding: 30px;
+    }
+}
