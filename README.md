@@ -43,26 +43,70 @@
 
 ## Project Overview
 
-1️⃣ [Trello Board](🚫add link to trello board here)
+1️⃣ [Trello Board](https://trello.com/b/61U4A461/labspt8-carpal)
 
-1️⃣ [Product Canvas](🚫add link to product canvas here)
+1️⃣ [Product Canvas](https://www.notion.so/69bb693ef3c64001819f1f5e883c6e04?v=28f3724c63774c2691731ba2648a36c6)
 
-1️⃣ [UX Design files](🚫add link to design files here) - 🚫 delete if not applicable
 
-🚫 Replace lorem ipsum with a description of your project
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+## Carpal
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+## Persona(s)
+
+Karen has a 40-mile commute in Los Angeles, which equates to a 90-minute drive each way.  Karen is burning through her money and beating up her car.  She'd really love to carpool with someone who lives near her, but she doesn't know how or where or how to meet them.
+
+Someone who cares about traffic
+
+Someone who does not have reliable transport and need to carpool.
+
+Someone who cares about the environment.  
+
+## Problem
+
+Karen is not making enough to finance her commute.  The wear and tear on her car and the rising cost of gas is bankrupting her.  
+
+- Problem 1 - People spend money on their cars and gas in long and rough stop and go commutes. All the while wear and tear adds up on their cars.
+- Problem 2 - Environmental impact of cars on the road
+- Problem 3 - Lack of current transportation/car
+- Problem 4 - Person concerned with impact on aging US infrastructure
+- Problem 5 - Stressed out by commute
+- Problem 6- Wants to Meet People
+- Problem 7- Karen scored a DUI and still needs to get to work
+
+## Mission
+
+To safely connect communities and commuters going in the same direction living in the same area to save money, reduce environmental & infrastructural impact by CarPalling.
 
 
 ### 4️⃣ Key Features
 
--    feature one
--    feature two
--    feature three
--    feature four
--    feature five
+### Basic Features
+
+## Marketing page
+- Ability to sign up / log in /log out and connect via Passport.JS
+    - Google account (drive)
+    - Others? Github, LinkedIn, etc.
+
+## User profile
+    - address
+    - bio
+    - profile picture
+## Ride request
+    - SMS messaging (alerts)
+    - recurring/preplanned
+    - driver's imminent arrival (countdown or user based ETA)
+
+### Advanced Features
+
+- Payment system
+- Driver/passenger ratings
+- Friends list
+- Chat
+- Mobile native app
+- Gamification (user stats/point system)
+- Driver real time location
+- Ad hoc ride requests
+- Safety features (user verification)
 
 ## 1️⃣ Tech Stack
 
