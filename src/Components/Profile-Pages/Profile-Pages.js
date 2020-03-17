@@ -49,7 +49,7 @@ const ProfilePage = ({ errors, status, touched }) => {
     return (
         <div className="contanier">
             {isEditing ? (
-                <div>                                     
+                <div>
                     <Form>
                         {touched.name && errors.name}
                         <Field
@@ -122,7 +122,13 @@ const ProfilePage = ({ errors, status, touched }) => {
                                         src="https://pbs.twimg.com/profile_images/1232869769013014535/iwN5kET4_400x400.jpg"
                                         alt="img1"
                                     ></img>
-                                    <a className="overlaybutton" href="#" alt="Profile">Upload Image</a>
+                                    <a
+                                        className="overlaybutton"
+                                        href="#"
+                                        alt="Profile"
+                                    >
+                                        Upload Image
+                                    </a>
                                 </div>
                                 <div className="headerDetails">
                                     <h3 className="bold">
@@ -140,33 +146,43 @@ const ProfilePage = ({ errors, status, touched }) => {
                                 ) : (
                                     <h2>You are a Rider</h2>
                                 )}
-                                <div className="profileSection">                                    
+                                <div className="profileSection">
                                     <h2>Hobbies</h2>
                                     <div className="flexContainer">
                                         {user.hobbies.map(hobby => (
-                                            <div className="bubble">{hobby}</div>
-                                            ))}
+                                            <div className="bubble">
+                                                {hobby}
+                                            </div>
+                                        ))}
                                     </div>
-                                        
+
                                     <h2>Audio I Love</h2>
                                     <div className="flexContainer">
                                         {user.audio_love.map(audioLove => (
-                                            <div className="bubble">{audioLove}</div>
-                                            ))}
+                                            <div className="bubble">
+                                                {audioLove}
+                                            </div>
+                                        ))}
                                     </div>
-                                    
+
                                     <h2>Audio I Hate</h2>
                                     <div className="flexContainer">
                                         {user.audio_hate.map(audioHate => (
-                                            <div className="bubble">{audioHate}</div>
-                                            ))}
+                                            <div className="bubble">
+                                                {audioHate}
+                                            </div>
+                                        ))}
                                     </div>
-                                    
                                 </div>
                                 {/* Mapbox will go here */}
-                                <button className="edit" onClick={onEditProfileSubmit}>
-                                    Edit Profile
-                                </button>
+                                <div className="buttonContainer">
+                                    <button
+                                        className="edit"
+                                        onClick={onEditProfileSubmit}
+                                    >
+                                        Edit Profile
+                                    </button>
+                                </div>
                             </div>
                         </>
                     ) : (

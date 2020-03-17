@@ -9,15 +9,14 @@
     width: 50%;
     font-size: x-large;
     margin: 10px 0 10px 1em;
-    
-h3 {
-margin: 10px 0;
-    }
-.bold {
-font-weight: 600;
-}
-}
 
+    h3 {
+        margin: 10px 0;
+    }
+    .bold {
+        font-weight: 600;
+    }
+}
 
 .profileSection {
     display: flex;
@@ -40,8 +39,7 @@ h2 {
     margin-bottom: 10px;
 }
 
-
-.bubble { 
+.bubble {
     text-align: center;
     padding: 5px;
     background: #04ccbb;
@@ -49,19 +47,16 @@ h2 {
     -moz-border-radius: 20px;
     border-radius: 20px;
     margin: 0 10px;
-    
 }
 .flexContainer {
     display: flex;
     justify-content: space-evenl;
     align-items: center;
     flex-direction: row;
-
 }
 
-
 .edit {
-    background-color: #04CCBB;
+    background-color: #04ccbb;
     border: none;
     border-radius: 12px;
     width: 75%;
@@ -70,35 +65,35 @@ h2 {
     height: 4rem;
     color: white;
     margin-top: 12px;
-
-
 }
 .headerImage {
     display: inline-block;
     position: relative;
 }
 .headerImage .profilePic {
-    width: 12rem;
-    height: 12rem;
+    width: 10rem;
+    height: 10rem;
     border-radius: 55%;
-   
 }
 .headerImage .overlaybutton {
     position: absolute;
     background-color: whitesmoke;
     font-size: 10px;
-    bottom: 2em;
-    right: 4em;    
+    bottom: 6em;
+    right: 3em;
     color: #04ccbb;
     text-transform: uppercase;
-    padding: 1em 1.5em;
+    padding: 1em 1.25em;
     border-radius: 12px;
-    width: 5rem;    
+    width: 5rem;
     height: 0rem;
     margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    
+}
+
+.buttonContainer {
+    text-align: center;
 }
