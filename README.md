@@ -41,9 +41,9 @@
 
 ## Project Overview
 
-1️⃣ [Trello Board](https://trello.com/b/61U4A461/labspt8-carpal)
+[Trello Board](https://trello.com/b/61U4A461/labspt8-carpal)
 
-1️⃣ [Product Canvas](https://www.notion.so/69bb693ef3c64001819f1f5e883c6e04?v=28f3724c63774c2691731ba2648a36c6)
+[Product Canvas](https://www.notion.so/69bb693ef3c64001819f1f5e883c6e04?v=28f3724c63774c2691731ba2648a36c6)
 
 
 
@@ -82,17 +82,17 @@ To safely connect communities and commuters going in the same direction living i
 
 ## Marketing page
 - Ability to sign up / log in /log out and connect via Passport.JS
-    - Google account (drive)
-    - Others? Github, LinkedIn, etc.
+- Google account (drive)
+- Others? Github, LinkedIn, etc.
 
 ## User profile
-    - address
-    - bio
-    - profile picture
+- address
+- bio
+- profile picture
 ## Ride request
-    - SMS messaging (alerts)
-    - recurring/preplanned
-    - driver's imminent arrival (countdown or user based ETA)
+- SMS messaging (alerts)
+- recurring/preplanned
+- driver's imminent arrival (countdown or user based ETA)
 
 ### Advanced Features
 
@@ -109,6 +109,7 @@ To safely connect communities and commuters going in the same direction living i
 ## 1️⃣ Tech Stack
 
 ### Front end built using:
+- Web App: React
 
 #### _Front end framework goes here_
 
@@ -121,9 +122,9 @@ To safely connect communities and commuters going in the same direction living i
 
 🚫List the rest of the front end features and libraries in the same format as the framework above.
 
-#### Front end deployed to `🚫insert service here`
+#### Front end deployed to `https://www.letscarpal.com/`
 
-#### [Back end](🚫link to back end repo here) built using:
+#### [Back end](https://carpal-production.herokuapp.com/) built using:
 
 #### 🚫 back end framework goes here
 
