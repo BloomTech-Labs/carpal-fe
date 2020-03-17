@@ -164,7 +164,7 @@ const ProfilePage = ({ errors, status, touched }) => {
                                     </a>
                                 </div>
                                 <div className="headerDetails">
-                                    <h3 className="bold">
+                                    <h3 role="header name" className="bold">
                                         {user.first_name}
                                         {user.last_name}
                                     </h3>
