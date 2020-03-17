@@ -3,6 +3,7 @@ import { Form, withFormik, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import "./Profile-Pages.scss";
+import "../../index.scss";
 
 //TODO - Test Use Effect with Seed Data
 //TODO - Setup input for image, and coordinate with BE for storage via S3 bucket
@@ -50,32 +51,48 @@ const ProfilePage = ({ errors, status, touched }) => {
         <div className="contanier">
             {isEditing ? (
                 <div>
-                    <Form>
+                    <Form className="formik-container">
                         {touched.name && errors.name}
                         <Field
                             name="first_name"
                             type="text"
                             placeholder="First name"
+                            className="formik-fields"
                         />
                         <Field
                             name="last_name"
                             type="text"
                             placeholder="Last name"
+                            className="formik-fields"
                         />
-                        <Field name="email" type="email" placeholder="Email" />
+                        <Field
+                            name="email"
+                            type="email"
+                            placeholder="Email"
+                            className="formik-fields"
+                        />
                         <Field
                             name="phone_number"
                             type=""
                             placeholder="Phone Number"
+                            className="formik-fields"
                         />
-                        <Field name="role" component="select">
+                        <Field
+                            name="role"
+                            component="select"
+                            className="formik-fields"
+                        >
                             <option value="" disabled>
                                 Would you like to be a driver:
                             </option>
                             <option value="true">Yes</option>
                             <option value="false">No</option>
                         </Field>
-                        <Field name="hobbies" component="select">
+                        <Field
+                            name="hobbies"
+                            component="select"
+                            className="formik-fields"
+                        >
                             <option value="" disabled>
                                 Select your Hobby:
                             </option>
@@ -84,14 +101,22 @@ const ProfilePage = ({ errors, status, touched }) => {
                             <option value="Sports">Sports</option>
                             <option value="Gardening">Gardening</option>
                         </Field>
-                        <Field name="audio_love" component="select">
+                        <Field
+                            name="audio_love"
+                            component="select"
+                            className="formik-fields"
+                        >
                             <option value="" disabled>
                                 Audio I love:
                             </option>
                             <option value="Pop">Pop</option>
                             <option value="Classical">Classical</option>
                         </Field>
-                        <Field name="audio_hate" component="select">
+                        <Field
+                            name="audio_hate"
+                            component="select"
+                            className="formik-fields"
+                        >
                             <option value="" disabled>
                                 Audio I Hate:
                             </option>
@@ -101,11 +126,19 @@ const ProfilePage = ({ errors, status, touched }) => {
 
                         {/* Mapbox will go here */}
                         {user.first_name ? (
-                            <button type="submit" onClick={onEditProfileSubmit}>
+                            <button
+                                type="submit"
+                                className="form-btn"
+                                onClick={onEditProfileSubmit}
+                            >
                                 Update Profile
                             </button>
                         ) : (
-                            <button type="submit" onClick={onEditProfileSubmit}>
+                            <button
+                                type="submit"
+                                className="form-btn"
+                                onClick={onEditProfileSubmit}
+                            >
                                 Save Profile
                             </button>
                         )}
