@@ -1,0 +1,94 @@
+// //body of component
+.singup-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 100%;
+    min-width: 400px;
+    margin: auto;
+    padding: auto;
+    //media breakpoint for desktop
+    //login container for ppl already a user.
+    .module-nav {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 10px;
+      margin-top: 50px;
+      .login-p {
+        color: #04ccbb;
+      }
+      .login-link {
+        border-radius: 11px;
+        background-color: #f3f4f4;
+        color: #04ccbb;
+        text-decoration: none;
+        padding: 10px 30px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      .login-link:hover {
+        background-color: #fbb4b4;
+        color: #f3f4f4;
+        transition: 0.5s;
+      }
+      .login-link:active {
+        background-color: #04ccbb;
+        color: #f3f4f4;
+      }
+    }
+    //////////////////end of login link styles
+    //////////////////form container
+    .formik-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-width: 200px;
+      width: 400px;
+      height: 400px;
+      background-color: #04ccbb;
+      border-radius: 10px;
+      padding: 10px;
+    }
+    .signup-p {
+      color: #f3f4f4;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    /////////////// fields
+    .formik-fields {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: none;
+      background-color: #04ccbb;
+      border-bottom: 2px solid #f3f4f4;
+      outline: none;
+    }
+    /////////////// from submit button
+    button.form-btn {
+      border-radius: 11px;
+      background-color: #f3f4f4;
+      color: #04ccbb;
+      padding: 10px 30px;
+      margin: 10px;
+      cursor: pointer;
+      // text-decoration: none;
+    }
+    .form-btn:hover {
+      background-color: #fbb4b4;
+      color: #f3f4f4;
+      transition: 0.5s;
+    }
+    .form-btn:active {
+      background-color: #04ccbb;
+      color: #f3f4f4;
+    }
+  }
+  

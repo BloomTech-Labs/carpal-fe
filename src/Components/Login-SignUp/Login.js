@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-// import "./Login.scss";
+import "./Login.scss";
 
 function Login(props) {
 const { errors, touched } = props
