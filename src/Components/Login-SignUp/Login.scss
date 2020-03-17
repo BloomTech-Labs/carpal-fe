@@ -39,9 +39,14 @@
         outline: none;
         appearance: none;
     }
+    ////// field placeholder text styling. ///////////
+    .formik-fields::placeholder {
+        color: #f3f4f4;
+    }
+
     // error styling
     .form-error {
-        color: #f3f4f4;
+        color: #f3e962;
     }
     ///// submit button styling
     .form-btn {
@@ -85,17 +90,21 @@
             border: none;
             background-color: #04ccbb;
             color: #f3f4f4;
+            border-bottom: 2px solid #f3f4f4;
             text-decoration: none;
             padding: 2px 5px;
             margin-bottom: 30px;
+            margin-left: 5px;
             cursor: pointer;
         }
+        ////// changes border-bottom color
         .signup-link:hover {
-            border-bottom: 2px solid #f3f4f4;
+            border-bottom: 2px solid #fbb4b4;
             outline: none;
             appearance: none;
             transition: 0.5s;
         }
+        /////// onclick/active highlights entire NavLink.
         .signup-link:active {
             border-bottom: 2px solid #fbb4b4;
             color: #fbb4b4;

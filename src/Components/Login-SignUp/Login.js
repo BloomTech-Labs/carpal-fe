@@ -18,7 +18,7 @@ function Login(props) {
                 {touched.email && errors.email && (
                     <p className="form-error">{errors.email}</p>
                 )}
-                <label>
+                <label className="field-label">
                     <Field
                         className="formik-fields"
                         type="email"
@@ -45,7 +45,7 @@ function Login(props) {
                 <p className="signup-p">
                     New to the website?
                     <NavLink className="signup-link" to="/signup">
-                        Sign Up Here!
+                        Sign Up!
                     </NavLink>
                 </p>
                 {/* <NavLink className="signup-link" to="/signup">
