@@ -11,13 +11,11 @@
 
 🚫 Each student has a required minimum number of meaningful PRs each week per the rubric. Contributing to docs does NOT count as a PR to meet your weekly requirements.
 
-# 1️⃣ CarPal
+# CarPal
 
-1️⃣ You can find the deployed project at [https://www.letscarpal.com/].
+ You can find the deployed project at [https://www.letscarpal.com/].
 
-## 4️⃣ Contributors
-
-🚫Add contributor info below, make sure add images and edit the social links for each member. Add to or delete these place-holders as needed
+##  Contributors
 
 |                                       [Carl Redding](https://github.com/miklo88)                                        |                                       [Ruth Poliakon](https://github.com/rupol)                                        |                                       [Steven Vandenburg](https://github.com/smv5047)                                        |                                       [Darren Angus](https://github.com/dangus1924)                                        |
 | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
