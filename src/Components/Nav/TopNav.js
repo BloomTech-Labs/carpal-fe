@@ -2,22 +2,28 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Login from "../Login-SignUp/Login";
 import SignUp from "../Login-SignUp/SignUp";
-// import "./TopNav.scss";
+import Patchy from "../../img/Patchyv2.0.png";
+
+import "./TopNav.scss";
 
 export default function TopNav() {
     // temp hamburger animation
     const hideElement = event => {
         event.preventDefault();
         let hamburger = document.getElementById("hamburger");
-        let topnav = document.getElementById("top-nav");
+        let topnav = document.getElementById("hamburger-nav");
         hamburger.classList.toggle("change");
         topnav.classList.toggle("show");
     };
 
     return (
-        <>
+        <div className="top-nav">
+            <Link to="/profilepage">
+                <img className="profilePic" src={Patchy} alt="Patchy" />
+            </Link>
             <Link to="/">CarPal</Link>
-            <nav className="top-nav" id="top-nav">
+            {/* Anything in this NAV is within the Hamburger Menu */}
+            <nav className="hamburger-nav" id="hamburger-nav">
                 <Link to="/login">Login</Link>
                 <Link to="/signup">Sign Up</Link>
             </nav>
@@ -28,6 +34,6 @@ export default function TopNav() {
                 <div className="navicon bar3"></div>
                 <div className="hidden-text">Menu</div>
             </button>
-        </>
+        </div>
     );
 }

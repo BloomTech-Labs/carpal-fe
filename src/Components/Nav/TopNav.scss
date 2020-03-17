@@ -1,0 +1,104 @@
+/////////// NAVIGATION ////////////
+// topnav navicon
+// starting navicon "three line"
+.top-nav {
+    background-color: #04ccbb;
+    transition      : 0.7s;
+    width           : 100%;
+    height          : 70px;
+    padding-top     : 0;
+    display         : flex;
+    flex-wrap       : wrap;
+    justify-content : space-between;
+    align-items     : center;
+
+    a {
+        color          : white;
+        text-decoration: none;
+        font-size      : 3rem;
+        padding        : 0 10px;
+    }
+
+    .hamburger {
+        background: none;
+        border    : 0;
+        z-index   : 1200;
+        padding   : 0 10px;
+
+        .navicon {
+            width     : 35px;
+            height    : 5px;
+            background: white;
+            margin    : 6px 0;
+            transition: 0.4s;
+        }
+
+        .bar1 {
+            -webkit-transform: rotate(0deg) translate(0, 0);
+            transform        : rotate(0deg) translate(0, 0);
+        }
+
+        .bar2 {
+            opacity: 1;
+        }
+
+        .bar3 {
+            -webkit-transform: rotate(0deg) translate(0, 0);
+            transform        : rotate(0deg) translate(0, 0);
+        }
+
+        .hidden-text {
+            border  : 0;
+            clip    : rect(0 0 0 0);
+            height  : 1px;
+            margin  : -1px;
+            overflow: hidden;
+            padding : 0;
+            position: absolute;
+            width   : 1px;
+        }
+    }
+
+    // onclick navicon animate into "X'
+    .change {
+        .bar1 {
+            -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+            transform        : rotate(-45deg) translate(-9px, 6px);
+            box-shadow       : none;
+            background       : red;
+        }
+
+        .bar2 {
+            opacity   : 0;
+            box-shadow: none;
+        }
+
+        .bar3 {
+            -webkit-transform: rotate(45deg) translate(-8px, -8px);
+            transform        : rotate(45deg) translate(-8px, -8px);
+            box-shadow       : none;
+            background       : red;
+        }
+    }
+
+    .hamburger-nav {
+        display: none;
+    }
+
+    .show {
+        display         : block !important;
+        width           : 100%;
+        z-index         : 998;
+        position        : absolute;
+        background-color: #04ccbb;
+        top             : 0;
+        left            : 0;
+        padding         : 15px;
+        text-align      : center;
+
+        a {
+            display: block;
+            padding: 10px 5px;
+        }
+    }
+}

@@ -1,10 +1,11 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import TopNav from '../src/Components/Nav/TopNav';
-import Nav from '../src/Components/Nav/Nav';
+import TopNav from "../src/Components/Nav/TopNav";
+import Nav from "../src/Components/Nav/Nav";
 import Login from "../src/Components/Login-SignUp/Login";
 import SignUp from "../src/Components/Login-SignUp/SignUp";
-import Dashboard from "../src/Components/Dashboards/Dashboard"
+import Dashboard from "../src/Components/Dashboards/Dashboard";
+import ProfilePage from "../src/Components/Profile-Pages/Profile-Pages";
 
 function App() {
     return (
@@ -12,9 +13,9 @@ function App() {
             <TopNav />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
-            <Route exact path="/" component={Dashboard} /> 
+            <Route exact path="/profilepage" component={ProfilePage} />
+            <Route exact path="/" component={Dashboard} />
             <Nav />
-            
         </div>
     );
 }
