@@ -5,42 +5,70 @@ import axios from "axios";
 import "./Profile-Pages.scss";
 import "../../index.scss";
 
+import { connect } from "react-redux";
+
+import { SetUserAction } from "../../Redux/Actions/UserAction";
+
 //TODO - Test Use Effect with Seed Data
 //TODO - Setup input for image, and coordinate with BE for storage via S3 bucket
 //TODO - Create Loading Spinner Component
 
 const userEndpoint = `https://carpal-${process.NODE_ENV}.herokuapp.com/}`;
-const ProfilePage = ({ errors, status, touched }) => {
+const ProfilePage = ({ errors, status, touched }, props) => {
     const [user, setUser] = useState({
-        first_name: "Steveen ",
-        last_name: "Van",
-        phone_number: "(555) 555-5555",
-        email: "steve@steve.com",
+        first_name: "test",
+        last_name: "",
+        phone_number: "",
+        email: "",
         isDriver: false,
-        hobbies: ["sports", "music", "dancing"],
-        audio_love: ["electronic"],
-        audio_hate: ["news"]
+        hobbies: [],
+        audio_love: [],
+        audio_hate: []
     });
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [load, setLoad] = useState(false);
     const [error, setError] = useState("");
     const [isEditing, setIsEditing] = useState(false);
 
+    // useEffect(() => {
+    //     if (isLoggedIn && !user) {
+    //         console.log("use effect works");
+    //         axios
+    //             .get(`${userEndpoint}`)
+    //             .then(res => {
+    //                 setUser([...user, user]);
+    //                 setLoad(true);
+    //             })
+    //             .catch(err => {
+    //                 setError(err.message);
+    //                 setLoad(true);
+    //             });
+    //     }
+    // }, [user]);
+
     useEffect(() => {
-        if (isLoggedIn && !user) {
-            console.log("use effect works");
-            axios
-                .get(`${userEndpoint}`)
-                .then(res => {
-                    setUser([...user, user]);
-                    setLoad(true);
-                })
-                .catch(err => {
-                    setError(err.message);
-                    setLoad(true);
-                });
-        }
-    }, [user]);
+        console.log(props.user);
+        setUser({
+            ...user,
+            first_name: props.user.first_name,
+            last_name: props.user.last_name,
+            phone_number: props.user.phone_number,
+            email: props.user.email,
+            isDriver: props.user.isDriver,
+            hobbies: props.user.hobbies,
+            audio_love: props.user.audio_love,
+            audio_hate: props.user.audio_hate
+        });
+    }, []);
+
+    // setCampaign({
+    //     ...campaign,
+    //     title: props.title,
+    //     location: props.location,
+    //     species: props.species,
+    //     urgency: props.urgency,
+    //     image_url: props.image_url
+    //   });
 
     function onEditProfileSubmit(e) {
         e.preventDefault();
@@ -228,7 +256,7 @@ const ProfilePage = ({ errors, status, touched }) => {
     );
 };
 
-export default withFormik({
+const ProfileForm = withFormik({
     mapPropsToValues: values => {
         return {
             first_name: values.first_name || "",
@@ -257,7 +285,7 @@ export default withFormik({
         audio_hate: Yup.string(),
         audio_love: Yup.string()
     }),
-    handleSubmit: (values, { setStatus }) => {
+    handleSubmit: (values, { setStatus, props }) => {
         // axios.post(`${userEndpoint}`, values)
         // .then((res) => {
         //     setStatus(res.data)
@@ -265,6 +293,13 @@ export default withFormik({
         // .catch((err) => {
         //     console.log('Error:', err)
         // })
-        alert("this will work", values);
+        props.SetUserAction(values);
+        // alert("this will work", values);
     }
 })(ProfilePage);
+
+const mapStateToProps = state => ({
+    user: state.user
+});
+
+export default connect(mapStateToProps, { SetUserAction })(ProfileForm);

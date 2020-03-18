@@ -1,12 +1,23 @@
 import {
     REQUEST_START,
     REQUEST_SUCCESS,
-    REQUEST_ERROR
+    REQUEST_ERROR,
+    SET_USER
 } from "../Actions/UserAction";
 
 const initialState = {
     isLoading: false,
-    error: null
+    error: null,
+    user: {
+        first_name: "Steveen ",
+        last_name: "Van",
+        phone_number: "(555) 555-5555",
+        email: "steve@steve.com",
+        isDriver: false,
+        hobbies: ["sports", "music", "dancing"],
+        audio_love: ["electronic"],
+        audio_hate: ["news"]
+    }
 };
 
 export function UserReducer(state = initialState, action) {
@@ -29,6 +40,12 @@ export function UserReducer(state = initialState, action) {
                 isLoading: false,
                 error: action.payload
             };
+        case SET_USER:
+            return {
+                ...state,
+                user: action.payload
+            };
+
         default:
             return state;
     }
