@@ -22,7 +22,7 @@ function Login(props) {
                         className="formik-fields"
                         type="email"
                         name="email"
-                        placeholder="email@email.com"
+                        placeholder="Email@email.com"
                     />
                 </label>
                 <label className="field-label">
@@ -33,7 +33,7 @@ function Login(props) {
                         className="formik-fields"
                         type="password"
                         name="password"
-                        placeholder="password"
+                        placeholder="Password"
                     />
                 </label>
                 <button className="form-btn" type="submit">

@@ -8,7 +8,7 @@ function SignUp(props) {
     const { errors, touched } = props;
 
     return (
-        <div className="login-container">
+        <div className="signup-container">
             {/* form container */}
             <Form className="formik-container">
                 <p role="signup-component" className="signup-p">

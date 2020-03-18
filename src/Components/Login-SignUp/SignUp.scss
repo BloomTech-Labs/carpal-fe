@@ -8,7 +8,7 @@ input:-webkit-autofill:focus {
 }
 
 // //body of component
-.singup-container {
+.signup-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,7 +19,7 @@ input:-webkit-autofill:focus {
     border-radius: 20px;
     margin: auto;
     padding: auto;
-    margin-top: 50px;
+    margin-top: 25px;
     //media breakpoint for desktop
     //////////////////form container
     .formik-container {
@@ -29,65 +29,64 @@ input:-webkit-autofill:focus {
         align-items: center;
         min-width: 200px;
         width: 100%;
-        height: 400px;
+        height: 100%;
         border-radius: 20px;
-        padding: 10px;
+        padding-top: 10%;
+        .signup-p {
+            color: #f3f4f4;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        ////////////////// Field Labels
+        .field-label {
+            display: flex;
+            flex-direction: column;
+            font-family: inherit;
+            font-size: 1.6rem;
+            transition: all 0.3s;
+            padding: 5px;
+        }
+        // error styling
+        .form-error {
+            color: #f3e962;
+        }
+        /////////////// fields input styling
+        .formik-fields {
+            font-family: inherit;
+            font-size: 1.6rem;
+            width: 100%;
+            padding: 10px 20px;
+            margin: 10px 0px;
+            border-bottom: 2px solid #f3f4f4;
+            color: #f3f4f4;
+            outline: none;
+        }
+        ////// field placeholder text styling. ///////////
+        .formik-fields::placeholder {
+            color: #f3f4f4;
+        }
+        ///// submit button styling
+        .form-btn {
+            font-family: inherit;
+            font-size: 1.6rem;
+            background-color: #f3f4f4;
+            color: #04ccbb;
+            padding: 10px 30px;
+            margin: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 20px;
+        }
+        .form-btn:hover {
+            background-color: #fbb4b4;
+            color: #f3f4f4;
+            transition: 0.5s;
+        }
+        .form-btn:active {
+            background-color: #04ccbb;
+            color: #f3f4f4;
+        }
     }
-    // .signup-p {
-    //     color: #f3f4f4;
-    //     font-size: 24px;
-    //     margin-bottom: 10px;
-    // }
-    ////////////////// Field Labels
-    .field-label {
-        display: flex;
-        flex-direction: column;
-        font-family: inherit;
-        font-size: 1.6rem;
-        transition: all 0.3s;
-        padding: 5px;
-    }
-    // error styling
-    .form-error {
-        color: #f3e962;
-    }
-    /////////////// fields input styling
-    .formik-fields {
-        font-family: inherit;
-        font-size: 1.6rem;
-        width: 100%;
-        padding: 10px 20px;
-        margin: 10px 0px;
-        border-bottom: 2px solid #f3f4f4;
-        color: #f3f4f4;
-        outline: none;
-    }
-    ////// field placeholder text styling. ///////////
-    .formik-fields::placeholder {
-        color: #f3f4f4;
-    }
-    ///// submit button styling
-    .form-btn {
-        font-family: inherit;
-        font-size: 1.6rem;
-        background-color: #f3f4f4;
-        color: #04ccbb;
-        padding: 10px 30px;
-        margin: 10px;
-        cursor: pointer;
-        text-decoration: none;
-        border-radius: 20px;
-    }
-    .form-btn:hover {
-        background-color: #fbb4b4;
-        color: #f3f4f4;
-        transition: 0.5s;
-    }
-    .form-btn:active {
-        background-color: #04ccbb;
-        color: #f3f4f4;
-    }
-
     //login container for ppl already a user.
     .module-nav {
         display: flex;
