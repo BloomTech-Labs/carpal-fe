@@ -1,3 +1,12 @@
+/* Change autocomplete styles in WebKit */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #f3f4f4;
+    -webkit-box-shadow: 0 0 0px 1000px #04ccbb inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
 // //body of component
 .singup-container {
     display: flex;
@@ -10,35 +19,117 @@
     margin: auto;
     padding: auto;
     //media breakpoint for desktop
+    //////////////////form container
+    .formik-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-width: 200px;
+        width: 100%;
+        height: 400px;
+        border-radius: 20px;
+        padding: 10px;
+    }
+    .signup-p {
+        color: #f3f4f4;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    ////////////////// Field Labels
+    .field-label {
+        display: flex;
+        flex-direction: column;
+        font-family: inherit;
+        font-size: 1.6rem;
+        transition: all 0.3s;
+        padding: 5px;
+    }
+    /////////////// fields input styling
+    .formik-fields {
+        font-family: inherit;
+        font-size: 1.6rem;
+        width: 100%;
+        padding: 10px 20px;
+        margin: 10px 0px;
+        border-bottom: 2px solid #f3f4f4;
+        color: #f3f4f4;
+        outline: none;
+    }
+    ////// field placeholder text styling. ///////////
+    .formik-fields::placeholder {
+        color: #f3f4f4;
+
+        // .formik-fields:placeholder-shown + .formik-fields {
+        //     opacity: 0;
+        //     color: #f3f4f4;
+        //     visibility: hidden;
+        //     transform: translateY(-4rem);
+        // }
+    }
+    ///// submit button styling
+    .form-btn {
+        font-family: inherit;
+        font-size: 1.6rem;
+        background-color: #f3f4f4;
+        color: #04ccbb;
+        padding: 10px 30px;
+        margin: 10px;
+        cursor: pointer;
+        text-decoration: none;
+        border-radius: 20px;
+    }
+    .form-btn:hover {
+        background-color: #fbb4b4;
+        color: #f3f4f4;
+        transition: 0.5s;
+    }
+    .form-btn:active {
+        background-color: #04ccbb;
+        color: #f3f4f4;
+    }
+    // error styling
+    .form-error {
+        color: #f3e962;
+    }
     //login container for ppl already a user.
     .module-nav {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
+        background-image: url("../../img/Cutie-Triov2.0.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 10px;
+        height: 150px;
         width: 100%;
-        padding: 10px;
-        margin-top: 50px;
-        .login-p {
+        padding-bottom: 30px;
+        ////// already a user?
+        .login-signup {
             color: #04ccbb;
         }
         .login-link {
-            border-radius: 11px;
-            background-color: #f3f4f4;
-            color: #04ccbb;
+            border: none;
+            background-color: #04ccbb;
+            color: #f3f4f4;
+            border-bottom: solid #f3f4f4;
+            border-bottom-width: thin;
             text-decoration: none;
-            padding: 10px 30px;
-            margin: 10px;
+            padding: 2px 5px;
+            margin-bottom: 30px;
+            margin-left: 5px;
             cursor: pointer;
         }
         .login-link:hover {
-            background-color: #fbb4b4;
-            color: #f3f4f4;
+            border-bottom: 2px solid #fbb4b4;
+            outline: none;
+            appearance: none;
             transition: 0.5s;
         }
         .login-link:active {
-            background-color: #04ccbb;
-            color: #f3f4f4;
+            border-bottom: 2px solid #fbb4b4;
+            color: #fbb4b4;
         }
     }
     //////////////////end of login link styles

@@ -15,10 +15,10 @@ function Login(props) {
                     Login
                 </p>
 
-                {touched.email && errors.email && (
-                    <p className="form-error">{errors.email}</p>
-                )}
                 <label className="field-label">
+                    {touched.email && errors.email && (
+                        <p className="form-error">{errors.email}</p>
+                    )}
                     <Field
                         className="formik-fields"
                         type="email"
@@ -26,10 +26,10 @@ function Login(props) {
                         placeholder="email@email.com"
                     />
                 </label>
-                {touched.password && errors.password && (
-                    <p className="form-error">{errors.password}</p>
-                )}
-                <label>
+                <label className="field-label">
+                    {touched.password && errors.password && (
+                        <p className="form-error">{errors.password}</p>
+                    )}
                     <Field
                         className="formik-fields"
                         type="password"
@@ -48,9 +48,6 @@ function Login(props) {
                         Sign Up!
                     </NavLink>
                 </p>
-                {/* <NavLink className="signup-link" to="/signup">
-                    Sign Up
-                </NavLink> */}
             </div>
         </div>
     );
