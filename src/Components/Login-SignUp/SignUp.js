@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
 import "../../index.scss";
 import "./SignUp.scss";
+
+import { SignUpAction } from "../../Redux/Actions/UserAction";
 
 function SignUp(props) {
     const { errors, touched } = props;
@@ -75,7 +78,7 @@ function SignUp(props) {
     );
 }
 
-export default withFormik({
+const SignUpForm = withFormik({
     mapPropsToValues: values => {
         return {
             first_name: values.first_name || "",
@@ -94,7 +97,9 @@ export default withFormik({
             .min(10, "Password must be at least 10 characters.")
             .required("Please enter your password.")
     }),
-    handleSubmit(values) {
-        console.log(values);
+    handleSubmit(values, { props }) {
+        props.SignUpAction(values);
     }
 })(SignUp);
+
+export default connect(null, { SignUpAction })(SignUpForm);

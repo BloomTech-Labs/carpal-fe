@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Login from "../Login-SignUp/Login";
-import SignUp from "../Login-SignUp/SignUp";
 import Patchy from "../../img/Patchyv2.0.png";
 
 import "./TopNav.scss";
