@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Form, withFormik, Field } from "formik";
+import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
+import { hobby, hatedAudio, lovedAudio } from './data';
+import { customStyles } from './Select-Style'
 import * as Yup from "yup";
 import axios from "axios";
 import "./Profile-Pages.scss";
@@ -9,6 +13,7 @@ import "../../index.scss";
 //TODO - Setup input for image, and coordinate with BE for storage via S3 bucket
 //TODO - Create Loading Spinner Component
 
+const animatedComponents = makeAnimated();
 const userEndpoint = `https://carpal-${process.NODE_ENV}.herokuapp.com/}`;
 const ProfilePage = ({ errors, status, touched }) => {
     const [user, setUser] = useState({
@@ -21,6 +26,7 @@ const ProfilePage = ({ errors, status, touched }) => {
         audio_love: ["electronic"],
         audio_hate: ["news"]
     });
+    
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [load, setLoad] = useState(false);
     const [error, setError] = useState("");
@@ -88,10 +94,12 @@ const ProfilePage = ({ errors, status, touched }) => {
                             <option value="true">Yes</option>
                             <option value="false">No</option>
                         </Field>
+                        
                         <Field
                             name="hobbies"
-                            component="select"
-                            className="formik-fields"
+                            as="select"
+                            multiple
+                            className="formik-fields-multi"
                         >
                             <option value="" disabled>
                                 Select your Hobby:
@@ -103,10 +111,11 @@ const ProfilePage = ({ errors, status, touched }) => {
                         </Field>
                         <Field
                             name="audio_love"
-                            component="select"
-                            className="formik-fields"
+                            as="select"
+                            multiple
+                            className="formik-fields-multi"
                         >
-                            <option value="" disabled>
+                            <option disabled>
                                 Audio I love:
                             </option>
                             <option value="Pop">Pop</option>
@@ -114,16 +123,16 @@ const ProfilePage = ({ errors, status, touched }) => {
                         </Field>
                         <Field
                             name="audio_hate"
-                            component="select"
-                            className="formik-fields"
+                            as="select"
+                            multiple
+                            className="formik-fields-multi"
                         >
                             <option value="" disabled>
                                 Audio I Hate:
                             </option>
                             <option value="Pop">Pop</option>
                             <option value="Classical">Classical</option>
-                        </Field>
-
+                        </Field>                       
                         {/* Mapbox will go here */}
                         {user.first_name ? (
                             <button
@@ -143,6 +152,7 @@ const ProfilePage = ({ errors, status, touched }) => {
                             </button>
                         )}
                     </Form>
+                    
                 </div>
             ) : (
                 <div className="container">
