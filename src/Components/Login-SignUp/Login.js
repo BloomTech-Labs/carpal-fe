@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import "./Login.scss";
@@ -14,7 +14,6 @@ function Login(props) {
                 <p role="login-component" className="login-p">
                     Login
                 </p>
-
                 <label className="field-label">
                     {touched.email && errors.email && (
                         <p className="form-error">{errors.email}</p>
@@ -41,12 +40,13 @@ function Login(props) {
                     Submit
                 </button>
             </Form>
+
             <div className="module-nav">
-                <p className="signup-p">
+                <p className="module-p">
                     New to the website?
-                    <NavLink className="signup-link" to="/signup">
+                    <Link className="signup-link" to="/signup">
                         Sign Up!
-                    </NavLink>
+                    </Link>
                 </p>
             </div>
         </div>

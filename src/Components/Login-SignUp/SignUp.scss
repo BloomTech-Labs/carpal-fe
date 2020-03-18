@@ -1,4 +1,4 @@
-/* Change autocomplete styles in WebKit */
+/* Change autocomplete styles in WebKit / talk about with team. spidey sense says this is no bueno. global? */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
@@ -13,11 +13,13 @@ input:-webkit-autofill:focus {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 600px;
-    height: 100%;
+    width: 500px;
     min-width: 400px;
+    background-color: #04ccbb;
+    border-radius: 20px;
     margin: auto;
     padding: auto;
+    margin-top: 50px;
     //media breakpoint for desktop
     //////////////////form container
     .formik-container {
@@ -31,11 +33,11 @@ input:-webkit-autofill:focus {
         border-radius: 20px;
         padding: 10px;
     }
-    .signup-p {
-        color: #f3f4f4;
-        font-size: 24px;
-        margin-bottom: 10px;
-    }
+    // .signup-p {
+    //     color: #f3f4f4;
+    //     font-size: 24px;
+    //     margin-bottom: 10px;
+    // }
     ////////////////// Field Labels
     .field-label {
         display: flex;
@@ -44,6 +46,10 @@ input:-webkit-autofill:focus {
         font-size: 1.6rem;
         transition: all 0.3s;
         padding: 5px;
+    }
+    // error styling
+    .form-error {
+        color: #f3e962;
     }
     /////////////// fields input styling
     .formik-fields {
@@ -59,13 +65,6 @@ input:-webkit-autofill:focus {
     ////// field placeholder text styling. ///////////
     .formik-fields::placeholder {
         color: #f3f4f4;
-
-        // .formik-fields:placeholder-shown + .formik-fields {
-        //     opacity: 0;
-        //     color: #f3f4f4;
-        //     visibility: hidden;
-        //     transform: translateY(-4rem);
-        // }
     }
     ///// submit button styling
     .form-btn {
@@ -88,15 +87,12 @@ input:-webkit-autofill:focus {
         background-color: #04ccbb;
         color: #f3f4f4;
     }
-    // error styling
-    .form-error {
-        color: #f3e962;
-    }
+
     //login container for ppl already a user.
     .module-nav {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
         background-image: url("../../img/Cutie-Triov2.0.png");
         background-repeat: no-repeat;
@@ -106,8 +102,10 @@ input:-webkit-autofill:focus {
         width: 100%;
         padding-bottom: 30px;
         ////// already a user?
-        .login-signup {
-            color: #04ccbb;
+        .module-p {
+            color: #f3f4f4;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
         }
         .login-link {
             border: none;
@@ -116,8 +114,7 @@ input:-webkit-autofill:focus {
             border-bottom: solid #f3f4f4;
             border-bottom-width: thin;
             text-decoration: none;
-            padding: 2px 5px;
-            margin-bottom: 30px;
+            padding-bottom: 2px;
             margin-left: 5px;
             cursor: pointer;
         }

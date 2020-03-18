@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-
-import "../../index.scss";
 import "./SignUp.scss";
 
 function SignUp(props) {
@@ -68,12 +66,13 @@ function SignUp(props) {
                     Submit
                 </button>
             </Form>
+
             <div className="module-nav">
-                <p className="login-signup">
+                <p className="module-p">
                     Already a user?
-                    <NavLink className="login-link" to="/login">
+                    <Link className="login-link" to="/login">
                         Login
-                    </NavLink>
+                    </Link>
                 </p>
             </div>
         </div>
