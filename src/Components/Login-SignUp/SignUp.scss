@@ -1,43 +1,15 @@
-/* Change autocomplete styles in WebKit / talk about with team. spidey sense says this is no bueno. global? */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-    -webkit-text-fill-color: #f3f4f4;
-    -webkit-box-shadow: 0 0 0px 1000px #04ccbb inset;
-    transition: background-color 5000s ease-in-out 0s;
-}
-
-// //body of component
+@import "../Styles/_variables.scss";
+////////////////////body of component
 .signup-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 500px;
-    min-width: 400px;
-    background-color: #04ccbb;
-    border-radius: 20px;
-    margin: 20px auto;
-    padding: auto;
-    // margin-top: 20px;
-    margin-bottom: 20px;
+    @include pageBody;
     //media breakpoint for desktop
     //////////////////form container
     .formik-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: #04ccbb;
-        min-width: 200px;
-        width: 100%;
-        height: 100%;
-        border-radius: 20px;
-        padding-top: 10%;
+        @include formContainer;
+        @include formWebKit;
+
         .signup-p {
-            color: #f3f4f4;
-            font-size: 24px;
-            margin-bottom: 10px;
+            @include formTitle;
         }
         ////////////////// Field Labels
         .field-label {
