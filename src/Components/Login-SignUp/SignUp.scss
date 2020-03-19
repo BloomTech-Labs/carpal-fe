@@ -17,9 +17,10 @@ input:-webkit-autofill:focus {
     min-width: 400px;
     background-color: #04ccbb;
     border-radius: 20px;
-    margin: auto;
+    margin: 20px auto;
     padding: auto;
-    margin-top: 25px;
+    // margin-top: 20px;
+    margin-bottom: 20px;
     //media breakpoint for desktop
     //////////////////form container
     .formik-container {
@@ -27,6 +28,7 @@ input:-webkit-autofill:focus {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        background-color: #04ccbb;
         min-width: 200px;
         width: 100%;
         height: 100%;
