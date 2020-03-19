@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { Form, withFormik, Field } from "formik";
-import * as Yup from "yup";
-import axios from "axios";
+import UpdateProfile from "./UpdateProfile";
+
 import "./Profile-Pages.scss";
-import "../../index.scss";
 
 import { connect } from "react-redux";
 
-import { SetUserAction } from "../../Redux/Actions/UserAction";
+import {
+    SetUserAction,
+    EditProfileAction
+} from "../../Redux/Actions/UserAction";
 
 //TODO - Test Use Effect with Seed Data
 //TODO - Setup input for image, and coordinate with BE for storage via S3 bucket
 //TODO - Create Loading Spinner Component
 
-const userEndpoint = `https://carpal-${process.NODE_ENV}.herokuapp.com/}`;
-const ProfilePage = ({ errors, status, touched }, props) => {
+function ProfilePage(props) {
+    const { errors, touched } = props;
     const [user, setUser] = useState({
         first_name: "test",
         last_name: "",
@@ -25,10 +26,6 @@ const ProfilePage = ({ errors, status, touched }, props) => {
         audio_love: [],
         audio_hate: []
     });
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [load, setLoad] = useState(false);
-    const [error, setError] = useState("");
-    const [isEditing, setIsEditing] = useState(false);
 
     // useEffect(() => {
     //     if (isLoggedIn && !user) {
@@ -47,7 +44,6 @@ const ProfilePage = ({ errors, status, touched }, props) => {
     // }, [user]);
 
     useEffect(() => {
-        console.log(props.user);
         setUser({
             ...user,
             first_name: props.user.first_name,
@@ -61,120 +57,21 @@ const ProfilePage = ({ errors, status, touched }, props) => {
         });
     }, []);
 
-    // setCampaign({
-    //     ...campaign,
-    //     title: props.title,
-    //     location: props.location,
-    //     species: props.species,
-    //     urgency: props.urgency,
-    //     image_url: props.image_url
-    //   });
-
     function onEditProfileSubmit(e) {
         e.preventDefault();
-        setIsEditing(!isEditing);
+        props.EditProfileAction();
     }
 
     return (
         <div className="contanier">
-            {isEditing ? (
-                <div>
-                    <Form className="formik-container">
-                        {touched.name && errors.name}
-                        <Field
-                            name="first_name"
-                            type="text"
-                            placeholder="First name"
-                            className="formik-fields"
-                        />
-                        <Field
-                            name="last_name"
-                            type="text"
-                            placeholder="Last name"
-                            className="formik-fields"
-                        />
-                        <Field
-                            name="email"
-                            type="email"
-                            placeholder="Email"
-                            className="formik-fields"
-                        />
-                        <Field
-                            name="phone_number"
-                            type=""
-                            placeholder="Phone Number"
-                            className="formik-fields"
-                        />
-                        <Field
-                            name="role"
-                            component="select"
-                            className="formik-fields"
-                        >
-                            <option value="" disabled>
-                                Would you like to be a driver:
-                            </option>
-                            <option value="true">Yes</option>
-                            <option value="false">No</option>
-                        </Field>
-                        <Field
-                            name="hobbies"
-                            component="select"
-                            className="formik-fields"
-                        >
-                            <option value="" disabled>
-                                Select your Hobby:
-                            </option>
-                            <option value="Jogging">Jogging</option>
-                            <option value="Video games">Video games</option>
-                            <option value="Sports">Sports</option>
-                            <option value="Gardening">Gardening</option>
-                        </Field>
-                        <Field
-                            name="audio_love"
-                            component="select"
-                            className="formik-fields"
-                        >
-                            <option value="" disabled>
-                                Audio I love:
-                            </option>
-                            <option value="Pop">Pop</option>
-                            <option value="Classical">Classical</option>
-                        </Field>
-                        <Field
-                            name="audio_hate"
-                            component="select"
-                            className="formik-fields"
-                        >
-                            <option value="" disabled>
-                                Audio I Hate:
-                            </option>
-                            <option value="Pop">Pop</option>
-                            <option value="Classical">Classical</option>
-                        </Field>
-
-                        {/* Mapbox will go here */}
-                        {user.first_name ? (
-                            <button
-                                type="submit"
-                                className="form-btn"
-                                onClick={onEditProfileSubmit}
-                            >
-                                Update Profile
-                            </button>
-                        ) : (
-                            <button
-                                type="submit"
-                                className="form-btn"
-                                onClick={onEditProfileSubmit}
-                            >
-                                Save Profile
-                            </button>
-                        )}
-                    </Form>
-                </div>
+            {/* if isEditing is set to true, form displays */}
+            {props.isEditing ? (
+                <UpdateProfile />
             ) : (
+                // if isEditing is false, display profile page
                 <div className="container">
-                    {user.first_name ? (
+                    {user.phone_number ? (
+                        // on profile page, if user already has a phone number (stand in for profile),
                         <>
                             <div className="profileHeader">
                                 <div className="headerImage">
@@ -211,7 +108,7 @@ const ProfilePage = ({ errors, status, touched }, props) => {
                                     <h2>Hobbies</h2>
                                     <div className="flexContainer">
                                         {user.hobbies.map(hobby => (
-                                            <div className="bubble">
+                                            <div className="bubble" key={hobby}>
                                                 {hobby}
                                             </div>
                                         ))}
@@ -220,7 +117,10 @@ const ProfilePage = ({ errors, status, touched }, props) => {
                                     <h2>Audio I Love</h2>
                                     <div className="flexContainer">
                                         {user.audio_love.map(audioLove => (
-                                            <div className="bubble">
+                                            <div
+                                                className="bubble"
+                                                key={audioLove}
+                                            >
                                                 {audioLove}
                                             </div>
                                         ))}
@@ -229,7 +129,10 @@ const ProfilePage = ({ errors, status, touched }, props) => {
                                     <h2>Audio I Hate</h2>
                                     <div className="flexContainer">
                                         {user.audio_hate.map(audioHate => (
-                                            <div className="bubble">
+                                            <div
+                                                className="bubble"
+                                                key={audioHate}
+                                            >
                                                 {audioHate}
                                             </div>
                                         ))}
@@ -247,59 +150,22 @@ const ProfilePage = ({ errors, status, touched }, props) => {
                             </div>
                         </>
                     ) : (
-                        // <LoadingSpinner />
-                        <h1>Pretend this is a loading spinner</h1>
+                        // on profile page, if user doesn't have phone number (stand in for profile), redirect to form?
+                        <UpdateProfile />
                     )}
                 </div>
             )}
         </div>
     );
-};
-
-const ProfileForm = withFormik({
-    mapPropsToValues: values => {
-        return {
-            first_name: values.first_name || "",
-            last_name: values.last_name || "",
-            email: values.email || "",
-            phone_number: values.phone_number || "",
-            role: values.role || "",
-            hobbies: values.hobbies || "",
-            audio_hate: values.audio_hate || "",
-            audio_love: values.audio_love || ""
-        };
-    },
-    validationSchema: Yup.object().shape({
-        first_name: Yup.string().required("First Name Required"),
-        last_name: Yup.string().required("Last Name Required"),
-        email: Yup.string()
-            .email()
-            .required("Email Required"),
-        phone_number: Yup.number()
-            .integer()
-            .positive()
-            .min(10)
-            .required(),
-        role: Yup.boolean().required("You must select a role"),
-        hobbies: Yup.string(),
-        audio_hate: Yup.string(),
-        audio_love: Yup.string()
-    }),
-    handleSubmit: (values, { setStatus, props }) => {
-        // axios.post(`${userEndpoint}`, values)
-        // .then((res) => {
-        //     setStatus(res.data)
-        // })
-        // .catch((err) => {
-        //     console.log('Error:', err)
-        // })
-        props.SetUserAction(values);
-        // alert("this will work", values);
-    }
-})(ProfilePage);
+}
 
 const mapStateToProps = state => ({
-    user: state.user
+    user: state.user.user,
+    isLoading: state.user.isLoading,
+    error: state.user.error,
+    isEditing: state.user.isEditing
 });
 
-export default connect(mapStateToProps, { SetUserAction })(ProfileForm);
+export default connect(mapStateToProps, { SetUserAction, EditProfileAction })(
+    ProfilePage
+);

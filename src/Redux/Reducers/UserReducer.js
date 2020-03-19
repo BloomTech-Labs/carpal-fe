@@ -2,7 +2,8 @@ import {
     REQUEST_START,
     REQUEST_SUCCESS,
     REQUEST_ERROR,
-    SET_USER
+    SET_USER,
+    SET_EDITING
 } from "../Actions/UserAction";
 
 const initialState = {
@@ -17,7 +18,8 @@ const initialState = {
         hobbies: ["sports", "music", "dancing"],
         audio_love: ["electronic"],
         audio_hate: ["news"]
-    }
+    },
+    isEditing: false
 };
 
 export function UserReducer(state = initialState, action) {
@@ -45,7 +47,11 @@ export function UserReducer(state = initialState, action) {
                 ...state,
                 user: action.payload
             };
-
+        case SET_EDITING:
+            return {
+                ...state,
+                isEditing: !state.isEditing
+            };
         default:
             return state;
     }

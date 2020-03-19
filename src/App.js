@@ -7,6 +7,8 @@ import SignUp from "../src/Components/Login-SignUp/SignUp";
 import Dashboard from "../src/Components/Dashboards/Dashboard";
 import ProfilePage from "../src/Components/Profile-Pages/Profile-Pages";
 
+//TODO: update app to include loader if isLoading
+
 function App() {
     return (
         <div className="App" role="App">
