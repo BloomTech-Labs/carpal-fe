@@ -54,7 +54,7 @@ const ProfilePage = ({ errors, status, touched }) => {
     }
 
     return (
-        <div className="contanier">
+        <div className="contanie">
             {isEditing ? (
                 <div>
                     <Form className="formik-container">
@@ -97,17 +97,17 @@ const ProfilePage = ({ errors, status, touched }) => {
                         
                         <Field
                             name="hobbies"
-                            as="select"
+                            component="select"
                             multiple
                             className="formik-fields-multi"
                         >
-                            <option value="" disabled>
+                            <option className='two'  disabled>
                                 Select your Hobby:
-                            </option>
-                            <option value="Jogging">Jogging</option>
-                            <option value="Video games">Video games</option>
-                            <option value="Sports">Sports</option>
-                            <option value="Gardening">Gardening</option>
+                            </option >
+                            <option className='one' value="Jogging">Jogging</option>
+                            <option className='one' value="Video games">Video games</option>
+                            <option className='one' value="Sports">Sports</option>
+                            <option className='one' value="Gardening">Gardening</option>
                         </Field>
                         <Field
                             name="audio_love"
@@ -115,11 +115,11 @@ const ProfilePage = ({ errors, status, touched }) => {
                             multiple
                             className="formik-fields-multi"
                         >
-                            <option disabled>
+                            <option className='two' disabled>
                                 Audio I love:
                             </option>
-                            <option value="Pop">Pop</option>
-                            <option value="Classical">Classical</option>
+                            <option className='one' value="Pop">Pop</option>
+                            <option className='one' value="Classical">Classical</option>
                         </Field>
                         <Field
                             name="audio_hate"
@@ -127,11 +127,11 @@ const ProfilePage = ({ errors, status, touched }) => {
                             multiple
                             className="formik-fields-multi"
                         >
-                            <option value="" disabled>
+                            <option className='two' disabled>
                                 Audio I Hate:
                             </option>
-                            <option value="Pop">Pop</option>
-                            <option value="Classical">Classical</option>
+                            <option className='one' value="Pop">Pop</option>
+                            <option className='one' value="Classical">Classical</option>
                         </Field>                       
                         {/* Mapbox will go here */}
                         {user.first_name ? (
@@ -155,7 +155,7 @@ const ProfilePage = ({ errors, status, touched }) => {
                     
                 </div>
             ) : (
-                <div className="container">
+                <div className="second-container">
                     {user.first_name ? (
                         <>
                             <div className="profileHeader">
