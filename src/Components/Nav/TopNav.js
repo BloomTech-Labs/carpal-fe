@@ -11,7 +11,7 @@ export default function TopNav() {
     const hideElement = event => {
         event.preventDefault();
         let hamburger = document.getElementById("hamburger");
-        let topnav = document.getElementById("top-nav");
+        let topnav = document.getElementById("hamburger-nav");
         hamburger.classList.toggle("change");
         topnav.classList.toggle("show");
     };
