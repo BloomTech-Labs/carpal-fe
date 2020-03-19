@@ -31,17 +31,8 @@ $carpalRose: #fbb4b4;
         color: $carpalWhite;
     }
 }
-// Form Styling
-// Fields, lables submits etc. think
-// $formBorder:
-//     border-radius: 20px;
 
-// body {
-//   font: 100% $font-stack;
-//   color: $primary-color;
-// }
-
-/// FORM MIXINS ////////////////////////////////////////////////////////////////////////
+/// FORM STYLE MIXINS ////////////////////////////////////////////////////////////////////////
 //// WEBKIT STYLING Changes autocomplete styles in WebKit */
 @mixin formWebKit {
     input:-webkit-autofill,
@@ -60,9 +51,7 @@ $carpalRose: #fbb4b4;
     align-items: center;
     width: 100%;
     height: 100%;
-    background-color: $carpalGreen;
-    border-radius: 20px;
-    margin: 50px auto 50px;
+    margin: 20px auto 10px;
 }
 ////////////////// Form Container
 @mixin formContainer {
@@ -71,7 +60,7 @@ $carpalRose: #fbb4b4;
     justify-content: center;
     align-items: center;
     background-color: $carpalGreen;
-    width: 100%;
+    width: 80%;
     height: 100%;
     padding-top: 10px;
 }
@@ -118,8 +107,9 @@ $carpalRose: #fbb4b4;
     background-repeat: no-repeat;
     background-size: 100%;
     border-radius: 10px;
+    background-color: $carpalGreen;
     height: 150px;
-    width: 100%;
+    width: 80%;
     padding: 10px;
 }
 //////////////////signup/login link

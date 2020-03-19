@@ -1,6 +1,7 @@
 // variables/mixins file path "importing your global styles."
 @import "../Styles/_variables.scss";
 
+/////////////OVERIDES DEFAULT BROWSER STYLING
 @include formWebKit;
 ////////////////////body of component
 .login-container {
@@ -30,7 +31,7 @@
             @include formButton;
         }
     }
-    //// Signup create account box/link/container
+    //////////////////// Signup create account box/link/container
     .module-nav {
         @include modelNav;
         //// new to the website? lets go!
