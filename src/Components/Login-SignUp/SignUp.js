@@ -1,33 +1,23 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-
-import "../../index.scss";
 import "./SignUp.scss";
 
 function SignUp(props) {
     const { errors, touched } = props;
 
     return (
-        <div className="login-container">
-            <div className="module-nav">
-                <NavLink className="login-title" to="/login">
-                    Login
-                </NavLink>
-                {/* signup container */}
-                <NavLink className="signup-link" to="/signup">
-                    Sign Up
-                </NavLink>
-                <p role="signup-component">Sign Up</p>
-            </div>
-
+        <div className="signup-container">
             {/* form container */}
             <Form className="formik-container">
-                {touched.last_name && errors.last_name && (
-                    <p>{errors.last_name}</p>
-                )}
-                <label>
+                <p role="signup-component" className="signup-p">
+                    Sign Up
+                </p>
+                <label className="field-label">
+                    {touched.first_name && errors.first_name && (
+                        <p className="form-error">{errors.first_name}</p>
+                    )}
                     <Field
                         className="formik-fields"
                         type="text"
@@ -35,10 +25,11 @@ function SignUp(props) {
                         placeholder="First Name"
                     />
                 </label>
-                {touched.first_name && errors.first_name && (
-                    <p>{errors.first_name}</p>
-                )}
-                <label>
+
+                <label className="field-label">
+                    {touched.last_name && errors.last_name && (
+                        <p className="form-error">{errors.last_name}</p>
+                    )}
                     <Field
                         className="formik-fields"
                         type="text"
@@ -46,19 +37,23 @@ function SignUp(props) {
                         placeholder="Last Name"
                     />
                 </label>
-                {touched.email && errors.email && <p>{errors.email}</p>}
-                <label>
+
+                <label className="field-label">
+                    {touched.email && errors.email && (
+                        <p className="form-error">{errors.email}</p>
+                    )}
                     <Field
                         className="formik-fields"
                         type="email"
                         name="email"
-                        placeholder="email@email.com"
+                        placeholder="Email@email.com"
                     />
                 </label>
-                {touched.password && errors.password && (
-                    <p>{errors.password}</p>
-                )}
-                <label>
+
+                <label className="field-label">
+                    {touched.password && errors.password && (
+                        <p className="form-error">{errors.password}</p>
+                    )}
                     <Field
                         className="formik-fields"
                         type="password"
@@ -71,6 +66,15 @@ function SignUp(props) {
                     Submit
                 </button>
             </Form>
+
+            <div className="module-nav">
+                <p className="module-p">
+                    Already a user?
+                    <Link className="login-link" to="/login">
+                        Login
+                    </Link>
+                </p>
+            </div>
         </div>
     );
 }
