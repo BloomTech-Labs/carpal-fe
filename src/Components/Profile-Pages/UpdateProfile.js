@@ -86,6 +86,7 @@ function UpdateProfile(props) {
                     name="hobbies"
                     component="select"
                     className="formik-fields"
+                    multiple="true"
                 >
                     <option value="" disabled>
                         Select your Hobby:
@@ -99,6 +100,7 @@ function UpdateProfile(props) {
                     name="audio_love"
                     component="select"
                     className="formik-fields"
+                    multiple="true"
                 >
                     <option value="" disabled>
                         Audio I love:
@@ -110,6 +112,7 @@ function UpdateProfile(props) {
                     name="audio_hate"
                     component="select"
                     className="formik-fields"
+                    multiple="true"
                 >
                     <option value="" disabled>
                         Audio I Hate:

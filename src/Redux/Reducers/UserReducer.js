@@ -10,7 +10,7 @@ const initialState = {
     isLoading: false,
     error: null,
     user: {
-        first_name: "Steveen ",
+        first_name: "Steveen",
         last_name: "Van",
         phone_number: "(555) 555-5555",
         email: "steve@steve.com",
