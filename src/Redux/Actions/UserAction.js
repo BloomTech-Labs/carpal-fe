@@ -1,6 +1,8 @@
 export const REQUEST_START = "REQUEST_START";
 export const REQUEST_SUCCESS = "REQUEST_SUCCESS";
 export const REQUEST_ERROR = "REQUEST_ERROR";
+export const SET_USER = "SET_USER";
+export const SET_EDITING = "SET_EDITING";
 
 export function SignUpAction(user, history) {
     return dispatch => {
@@ -23,5 +25,18 @@ export function LogInAction(user) {
     return dispatch => {
         dispatch({ type: REQUEST_START });
         console.log(user);
+    };
+}
+
+export function SetUserAction(user) {
+    return dispatch => {
+        dispatch({ type: SET_USER, payload: user });
+        console.log(user);
+    };
+}
+
+export function EditProfileAction() {
+    return dispatch => {
+        dispatch({ type: SET_EDITING });
     };
 }

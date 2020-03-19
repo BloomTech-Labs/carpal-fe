@@ -11,20 +11,21 @@
 
 🚫 Each student has a required minimum number of meaningful PRs each week per the rubric. Contributing to docs does NOT count as a PR to meet your weekly requirements.
 
-# 1️⃣ Title of project goes here
+# CarPal
 
-1️⃣ You can find the deployed project at [🚫URL NAME GOES HERE](🚫copy and paste URL here).
+ You can find the deployed project at [https://www.letscarpal.com/].
 
-## 4️⃣ Contributors
+##  Contributors
 
-🚫Add contributor info below, make sure add images and edit the social links for each member. Add to or delete these place-holders as needed
-
-|                                       [Student 1](https://github.com/)                                        |                                       [Student 2](https://github.com/)                                        |                                       [Student 3](https://github.com/)                                        |                                       [Student 4](https://github.com/)                                        |                                       [Student 5](https://github.com/)                                        |
-| :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
-|                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |
+|                                       [Carl Redding](https://github.com/miklo88)                                        |                                       [Ruth Poliakon](https://github.com/rupol)                                        |                                       [Steven Vandenburg](https://github.com/smv5047)                                        |                                       [Darren Angus](https://github.com/dangus1924)                                        |
+| :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
+|                      [<img src="https://avatars2.githubusercontent.com/u/22805035?s=400&u=48ef0886ccbd54e1b9f3e7a4044a04399383be6a&v=4" width = "200" />](https://github.com/)                       |                      [<img src="https://avatars0.githubusercontent.com/u/47793431?s=400&v=4" width = "200" />](https://github.com/)                       |                      [<img src="https://avatars2.githubusercontent.com/u/38800900?s=400&u=17c5530465f41f0b845f3467536d81a9cb5b76bd&v=4" width = "200" />](https://github.com/)                       |                      [<img src="https://avatars1.githubusercontent.com/u/51095136?s=400&u=2640b17ebe699ccc1c50732308244f6865411986&v=4" width = "200" />](https://github.com/)                       |                      [<img src="https://avatars1.githubusercontent.com/u/50638483?s=400&u=c24e178de825b9f6c8f0700e0be617a0e73e3dd7&v=4" width = "200" />](https://github.com/)                       |
 |                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)             |
-| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
 
+|                                       [Dang Lu](https://github.com/dangnlu18)                                        |                                       [Lesley Banadzem](https://github.com/lesleyfon)                                        |                                       [Daniel Martin](https://github.com/ohfr)                                        |
+|:-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
+|                      [<img src="https://avatars1.githubusercontent.com/u/38761634?s=400&u=8c35a92a5e96c65004cd08d31a3a375151d53ba5&v=4" width = "200" />](https://github.com/)                       |                      [<img src="https://avatars0.githubusercontent.com/u/35934525?s=400&u=3e098b80a62cf119686c5abb955c401d175c505c&v=4" width = "200" />](https://github.com/)                       |                      [<img src="https://avatars1.githubusercontent.com/u/50638483?s=400&u=c24e178de825b9f6c8f0700e0be617a0e73e3dd7&v=4" width = "200" />](https://github.com/)                       |                      [<img src="https://avatars1.githubusercontent.com/u/51095136?s=400&u=2640b17ebe699ccc1c50732308244f6865411986&v=4" width = "200" />](https://github.com/)                       |                      [<img src="https://avatars1.githubusercontent.com/u/50638483?s=400&u=c24e178de825b9f6c8f0700e0be617a0e73e3dd7&v=4" width = "200" />](https://github.com/)                       |
+|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)           |
 <br>
 <br>
 
@@ -40,30 +41,75 @@
 
 ## Project Overview
 
-1️⃣ [Trello Board](🚫add link to trello board here)
+[Trello Board](https://trello.com/b/61U4A461/labspt8-carpal)
 
-1️⃣ [Product Canvas](🚫add link to product canvas here)
+[Product Canvas](https://www.notion.so/69bb693ef3c64001819f1f5e883c6e04?v=28f3724c63774c2691731ba2648a36c6)
 
-1️⃣ [UX Design files](🚫add link to design files here) - 🚫 delete if not applicable
 
-🚫 Replace lorem ipsum with a description of your project
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+## Carpal
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+## Persona(s)
+
+Karen has a 40-mile commute in Los Angeles, which equates to a 90-minute drive each way.  Karen is burning through her money and beating up her car.  She'd really love to carpool with someone who lives near her, but she doesn't know how or where or how to meet them.
+
+Someone who cares about traffic
+
+Someone who does not have reliable transport and need to carpool.
+
+Someone who cares about the environment.  
+
+## Problem
+
+Karen is not making enough to finance her commute.  The wear and tear on her car and the rising cost of gas is bankrupting her.  
+
+- Problem 1 - People spend money on their cars and gas in long and rough stop and go commutes. All the while wear and tear adds up on their cars.
+- Problem 2 - Environmental impact of cars on the road
+- Problem 3 - Lack of current transportation/car
+- Problem 4 - Person concerned with impact on aging US infrastructure
+- Problem 5 - Stressed out by commute
+- Problem 6- Wants to Meet People
+- Problem 7- Karen scored a DUI and still needs to get to work
+
+## Mission
+
+To safely connect communities and commuters going in the same direction living in the same area to save money, reduce environmental & infrastructural impact by CarPalling.
 
 
 ### 4️⃣ Key Features
 
--    feature one
--    feature two
--    feature three
--    feature four
--    feature five
+### Basic Features
+
+## Marketing page
+- Ability to sign up / log in /log out and connect via Passport.JS
+- Google account (drive)
+- Others? Github, LinkedIn, etc.
+
+## User profile
+- address
+- bio
+- profile picture
+## Ride request
+- SMS messaging (alerts)
+- recurring/preplanned
+- driver's imminent arrival (countdown or user based ETA)
+
+### Advanced Features
+
+- Payment system
+- Driver/passenger ratings
+- Friends list
+- Chat
+- Mobile native app
+- Gamification (user stats/point system)
+- Driver real time location
+- Ad hoc ride requests
+- Safety features (user verification)
 
 ## 1️⃣ Tech Stack
 
 ### Front end built using:
+- Web App: React
 
 #### _Front end framework goes here_
 
@@ -76,9 +122,9 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 
 🚫List the rest of the front end features and libraries in the same format as the framework above.
 
-#### Front end deployed to `🚫insert service here`
+#### Front end deployed to `https://www.letscarpal.com/`
 
-#### [Back end](🚫link to back end repo here) built using:
+#### [Back end](https://carpal-production.herokuapp.com/) built using:
 
 #### 🚫 back end framework goes here
 
