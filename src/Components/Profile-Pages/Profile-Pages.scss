@@ -97,3 +97,49 @@ h2 {
 .buttonContainer {
     text-align: center;
 }
+.formik-fields-multi {    
+    width: 100%;
+    padding: 2px 20px;
+    margin: 10px 0px;
+    box-sizing: border-box;
+    min-height: 100px;
+    border: none;
+    background-color: #04ccbb;
+    border-bottom: 2px solid #f3f4f4;
+    outline: none;  
+    height: 250px; 
+    border-radius: 20px;
+  }
+.container {
+    display: flex;
+    padding-top: 300px;
+}
+  .formik-fields {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 10px 0px;
+    box-sizing: border-box;
+    border: none;
+    background-color: #04ccbb;
+    border-bottom: 2px solid #f3f4f4;
+    outline: none; 
+    border-radius: 20px;  
+  }
+  .formik-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 200px;
+    // width: 100%;
+    margin: 20px;
+    height: 67em;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;    
+  }
+  .one {
+      padding: 5px;
+      border-radius: 25px;
+  }
+ 
