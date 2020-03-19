@@ -98,7 +98,7 @@ const ProfilePage = ({ errors, status, touched }) => {
                         <Field
                             name="hobbies"
                             component="select"
-                            multiple
+                            multiple='true'
                             className="formik-fields-multi"
                         >
                             <option className='two'  disabled>
@@ -112,7 +112,7 @@ const ProfilePage = ({ errors, status, touched }) => {
                         <Field
                             name="audio_love"
                             as="select"
-                            multiple
+                            multiple='true'
                             className="formik-fields-multi"
                         >
                             <option className='two' disabled>
@@ -124,7 +124,7 @@ const ProfilePage = ({ errors, status, touched }) => {
                         <Field
                             name="audio_hate"
                             as="select"
-                            multiple
+                            multiple='true'
                             className="formik-fields-multi"
                         >
                             <option className='two' disabled>
