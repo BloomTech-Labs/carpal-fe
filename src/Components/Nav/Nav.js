@@ -1,13 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-// import "./Nav.scss";
+import "./Nav.scss";
 
 export default function Nav() {
     return (
-        <nav role="nav">
-                {/* <NavLink className="fas fa-car" to="/" /> */}
-                <NavLink className="fas fa-home" to="/" />
-                {/* <NavLink className="fas fa-comments" to="/" /> */}
-            </nav>
+        <nav className="bottom-nav" role="nav">
+
+            {/* <NavLink className="fas fa-car" to="/" /> */}
+            <NavLink className="fas fa-home" to="/" />
+            {/* <NavLink className="fas fa-comments" to="/" /> */}
+        </nav>
     );
 }

@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Login from "../Login-SignUp/Login";
-import SignUp from "../Login-SignUp/SignUp";
 import Patchy from "../../img/Patchyv2.0.png";
 
 import "./TopNav.scss";
@@ -11,7 +9,7 @@ export default function TopNav() {
     const hideElement = event => {
         event.preventDefault();
         let hamburger = document.getElementById("hamburger");
-        let topnav = document.getElementById("top-nav");
+        let topnav = document.getElementById("hamburger-nav");
         hamburger.classList.toggle("change");
         topnav.classList.toggle("show");
     };
