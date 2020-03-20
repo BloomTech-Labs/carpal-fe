@@ -46,7 +46,7 @@ function Login(props) {
                     className="form-btn"
                     href="https://staging-carpal.herokuapp.com/auth/google/testing"
                 >
-                    Sign In With Google
+                    Login With Google
                 </a>
             </Form>
             <div className="module-nav">
