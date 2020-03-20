@@ -64,6 +64,12 @@ function SignUp(props) {
                 <button className="form-btn" type="submit">
                     Submit
                 </button>
+                <a
+                    className="form-btn"
+                    href="https://staging-carpal.herokuapp.com/auth/google/testing"
+                >
+                    Signup With Google
+                </a>
             </Form>
             <div className="module-nav">
                 <p className="module-p">
