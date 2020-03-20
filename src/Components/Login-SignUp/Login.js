@@ -73,11 +73,11 @@ const LoginForm = withFormik({
             .email("Please enter a valid email.")
             .required("Please enter your email."),
         password: Yup.string()
-            .min(10, "Password must be at least 10 characters.")
+            .min(5, "Password must be at least 10 characters.")
             .required("Please enter your password.")
     }),
     handleSubmit(values, { props }) {
-        props.LogInAction(values);
+        props.LogInAction(values, { props });
     }
 })(Login);
 
