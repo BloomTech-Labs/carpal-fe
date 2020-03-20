@@ -5,10 +5,12 @@
 ////////////////////body of component
 .login-container {
     @include pageBody;
+    background-color: $carpalGreen;
     //media breakpoint for desktop
     //////////////////form container
     .formik-container {
         @include formContainer;
+        background-color: $carpalGreen;
         ////////////////// Login form title
         .login-p {
             @include formTitle;
@@ -33,6 +35,9 @@
     //////////////////// Signup create account box/link/container
     .module-nav {
         @include modelNav;
+        background-image: url("../../img/Cutie-Triov2.0.png");
+        background-repeat: no-repeat;
+        background-size: cover;
         //// new to the website? lets go!
         .module-p {
             @include formTitle;
