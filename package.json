@@ -21,7 +21,7 @@
         "yup": "^0.28.3"
     },
     "scripts": {
-        "start": "react-scripts start",
+        "start": "cross-env NODE_ENV=staging react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
@@ -51,6 +51,8 @@
         ]
     },
     "devDependencies": {
+        "cross-env": "^7.0.2",
+        "dotenv": "^8.2.0",
         "eslint-config-airbnb": "^18.0.1",
         "eslint-plugin-import": "^2.18.2",
         "eslint-plugin-jsx-a11y": "^6.2.3",

@@ -1,13 +1,22 @@
 import axios from "axios";
-
+import dotenv from 'dotenv'
+dotenv.config()
 export default function() {
-    if (process.NODE_ENV === "staging") {
+    console.log(process.env.NODE_ENV)
+
+    if (process.env.NODE_ENV === "development") {
         return axios.create({
-            baseURL: "https://staging-carpal.herokuapp.com/"
+            baseURL: "https://staging-carpal.herokuapp.com/",
+            headers: {
+                authorization: localStorage.getItem("token")
+            }
         });
-    } else if (process.NODE_ENV === "production") {
+    } else if (process.env.NODE_ENV === "production") {
         return axios.create({
-            baseURL: "https://carpal-production.herokuapp.com/"
+            baseURL: "https://carpal-production.herokuapp.com/",
+            headers: {
+                authorization: localStorage.getItem("token")
+            }
         });
     }
 }

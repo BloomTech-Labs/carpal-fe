@@ -8,7 +8,8 @@ import { connect } from "react-redux";
 
 import {
     SetUserAction,
-    EditProfileAction
+    EditProfileAction,
+    SetProfileUpdate
 } from "../../Redux/Actions/UserAction";
 
 //TODO - Test Use Effect with Seed Data
@@ -22,11 +23,14 @@ function UpdateProfile(props) {
         last_name: "",
         phone_number: "",
         email: "",
-        isDriver: false,
+        is_driver: false
+    });
+    const [userDetails, setUserDetails] = useState({
         hobbies: [],
         audio_love: [],
         audio_hate: []
     });
+
 
     useEffect(() => {
         setUser({
@@ -35,15 +39,16 @@ function UpdateProfile(props) {
             last_name: props.user.last_name,
             phone_number: props.user.phone_number,
             email: props.user.email,
-            isDriver: props.user.isDriver,
-            hobbies: props.user.hobbies,
-            audio_love: props.user.audio_love,
-            audio_hate: props.user.audio_hate
+            is_driver: props.user.is_driver,
+            // hobbies: userDetails.hobbies,
+            // audio_love: userDetails.audio_love,
+            // audio_hate: userDetails.audio_hate
         });
     }, []);
 
     function onEditProfileSubmit(e) {
         e.preventDefault();
+        console.log("hello");
         props.EditProfileAction();
     }
 
@@ -75,7 +80,11 @@ function UpdateProfile(props) {
                     placeholder="Phone Number"
                     className="formik-fields"
                 />
-                <Field name="role" component="select" className="formik-fields">
+                <Field
+                    name="is_driver"
+                    component="select"
+                    className="formik-fields"
+                >
                     <option value="" disabled>
                         Would you like to be a driver:
                     </option>
@@ -127,16 +136,12 @@ function UpdateProfile(props) {
                     <button
                         type="submit"
                         className="form-btn"
-                        onClick={onEditProfileSubmit}
+                        // onClick={onEditProfileSubmit}
                     >
                         Update Profile
                     </button>
                 ) : (
-                    <button
-                        type="submit"
-                        className="form-btn"
-                        onClick={onEditProfileSubmit}
-                    >
+                    <button type="submit" className="form-btn">
                         Save Profile
                     </button>
                 )}
@@ -153,10 +158,12 @@ const ProfileForm = withFormik({
             last_name: values.user.last_name || "",
             email: values.user.email || "",
             phone_number: values.user.phone_number || "",
-            role: values.user.role || "",
-            hobbies: values.user.hobbies || "",
-            audio_hate: values.user.audio_hate || "",
-            audio_love: values.user.audio_love || ""
+            is_driver: values.user.role || "",
+            //make another form for user hobbies/audio
+
+            // hobbies: values.userDetails.hobbies || "",
+            // audio_hate: values.userDetails.audio_hate || "",
+            // audio_love: values.userDetails.audio_love || ""
         };
     },
     validationSchema: Yup.object().shape({
@@ -170,13 +177,16 @@ const ProfileForm = withFormik({
             .positive()
             .min(10)
             .required(),
-        role: Yup.boolean().required("You must select a role"),
-        hobbies: Yup.string(),
-        audio_hate: Yup.string(),
-        audio_love: Yup.string()
+        is_driver: Yup.boolean().required("You must select a role"),
+        //make another form for user hobbies/audio
+
+        // hobbies: Yup.string(),
+        // audio_hate: Yup.string(),
+        // audio_love: Yup.string()
     }),
     handleSubmit: (values, { setStatus, props }) => {
-        props.SetUserAction(values);
+        console.log(values);
+        props.SetProfileUpdate(values);
     }
 })(UpdateProfile);
 
@@ -187,6 +197,8 @@ const mapStateToProps = state => ({
     isEditing: state.user.isEditing
 });
 
-export default connect(mapStateToProps, { SetUserAction, EditProfileAction })(
-    ProfileForm
-);
+export default connect(mapStateToProps, {
+    SetUserAction,
+    EditProfileAction,
+    SetProfileUpdate
+})(ProfileForm);

@@ -3,21 +3,22 @@ import {
     REQUEST_SUCCESS,
     REQUEST_ERROR,
     SET_USER,
-    SET_EDITING
+    SET_EDITING,
+    SET_PROFILE_UPDATE
 } from "../Actions/UserAction";
 
 const initialState = {
     isLoading: false,
     error: null,
     user: {
-        first_name: "Steveen",
-        last_name: "Van",
-        phone_number: "(555) 555-5555",
-        email: "steve@steve.com",
+        first_name: "",
+        last_name: "",
+        phone_number: "",
+        email: "",
         isDriver: false,
-        hobbies: ["sports", "music", "dancing"],
-        audio_love: ["electronic"],
-        audio_hate: ["news"]
+        hobbies: [],
+        audio_love: [],
+        audio_hate: []
     },
     isEditing: false
 };
@@ -51,6 +52,11 @@ export function UserReducer(state = initialState, action) {
             return {
                 ...state,
                 isEditing: !state.isEditing
+            };
+        case SET_PROFILE_UPDATE:
+            return {
+                ...state,
+                user: action.payload
             };
         default:
             return state;

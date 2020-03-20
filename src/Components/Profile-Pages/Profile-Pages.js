@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import UpdateProfile from "./UpdateProfile";
-
 import "./Profile-Pages.scss";
 
 import { connect } from "react-redux";
@@ -17,14 +16,14 @@ import {
 function ProfilePage(props) {
     const { errors, touched } = props;
     const [user, setUser] = useState({
-        first_name: "test",
-        last_name: "",
-        phone_number: "",
-        email: "",
-        isDriver: false,
-        hobbies: [],
-        audio_love: [],
-        audio_hate: []
+        // first_name: "",
+        // last_name: "",
+        // phone_number: "",
+        // email: "",
+        // is_driver: false,
+        // hobbies: [],
+        // audio_love: [],
+        // audio_hate: []
     });
 
     // useEffect(() => {
@@ -44,6 +43,9 @@ function ProfilePage(props) {
     // }, [user]);
 
     useEffect(() => {
+        if (!props.user.first_name) {
+            props.SetUserAction();
+        }
         setUser({
             ...user,
             first_name: props.user.first_name,
@@ -55,7 +57,8 @@ function ProfilePage(props) {
             audio_love: props.user.audio_love,
             audio_hate: props.user.audio_hate
         });
-    }, []);
+        console.log(user)
+    }, [props.user]);
 
     function onEditProfileSubmit(e) {
         e.preventDefault();
@@ -107,7 +110,7 @@ function ProfilePage(props) {
                                 <div className="profileSection">
                                     <h2>Hobbies</h2>
                                     <div className="flexContainer">
-                                        {user.hobbies.map(hobby => (
+                                        {user.hobbies && user.hobbies.map(hobby => (
                                             <div className="bubble" key={hobby}>
                                                 {hobby}
                                             </div>
@@ -116,7 +119,7 @@ function ProfilePage(props) {
 
                                     <h2>Audio I Love</h2>
                                     <div className="flexContainer">
-                                        {user.audio_love.map(audioLove => (
+                                        {user.audio_love && user.audio_love.map(audioLove => (
                                             <div
                                                 className="bubble"
                                                 key={audioLove}
@@ -128,7 +131,7 @@ function ProfilePage(props) {
 
                                     <h2>Audio I Hate</h2>
                                     <div className="flexContainer">
-                                        {user.audio_hate.map(audioHate => (
+                                        {user.audio_hate && user.audio_hate.map(audioHate => (
                                             <div
                                                 className="bubble"
                                                 key={audioHate}
