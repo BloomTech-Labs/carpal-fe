@@ -14,7 +14,7 @@ $carpalRose: #fbb4b4;
     font-family: inherit;
     font-size: 1.6rem;
     background-color: $carpalWhite;
-    color: #04ccbb;
+    color: $carpalGreen;
     padding: 10px 30px;
     margin: 10px;
     cursor: pointer;
@@ -49,16 +49,17 @@ $carpalRose: #fbb4b4;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: $carpalGreen;
     width: 100%;
     height: 100%;
     margin: 20px auto 10px;
 }
 ////////////////// Form Container
 @mixin formContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
     background-color: $carpalGreen;
     width: 80%;
     height: 100%;
