@@ -4,6 +4,7 @@ dotenv.config()
 export default function() {
     console.log(process.env.NODE_ENV)
 
+    //react starts in development mode automatically
     if (process.env.NODE_ENV === "development") {
         return axios.create({
             baseURL: "https://staging-carpal.herokuapp.com/",

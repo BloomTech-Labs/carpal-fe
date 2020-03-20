@@ -21,7 +21,7 @@
         "yup": "^0.28.3"
     },
     "scripts": {
-        "start": "cross-env NODE_ENV=staging react-scripts start",
+        "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
