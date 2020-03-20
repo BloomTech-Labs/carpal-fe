@@ -1,0 +1,138 @@
+///// GLOBAL FILE FOR STYLING
+//Font Fam-Bam
+$font-stack: Lato, sans-serif;
+
+//Colors
+$carpalGreen: #04ccbb;
+$carpalWhite: #f3f4f4;
+$carpalYellow: #f3e962;
+$carpalRose: #fbb4b4;
+
+// Button Styling
+/// signup/login forms "submit" button as example. with styling.
+@mixin formButton {
+    font-family: inherit;
+    font-size: 1.6rem;
+    background-color: $carpalWhite;
+    color: #04ccbb;
+    padding: 10px 30px;
+    margin: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 20px;
+
+    &:hover {
+        background-color: $carpalRose;
+        color: $carpalWhite;
+        transition: 0.5s;
+    }
+    &:active {
+        background-color: $carpalGreen;
+        color: $carpalWhite;
+    }
+}
+
+/// FORM STYLE MIXINS ////////////////////////////////////////////////////////////////////////
+//// WEBKIT STYLING Changes autocomplete styles in WebKit */
+@mixin formWebKit {
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus {
+        -webkit-text-fill-color: #f3f4f4;
+        // -webkit-box-shadow: 0 0 0px 1000px #04ccbb inset;
+        transition: background-color 5000s ease-in-out 0s;
+    }
+}
+//////////////////FORM PAGE BODY LAYOUT
+@mixin pageBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 20px auto 10px;
+}
+////////////////// Form Container
+@mixin formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $carpalGreen;
+    width: 80%;
+    height: 100%;
+    padding-top: 10px;
+}
+@mixin formTitle {
+    color: #f3f4f4;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+////////////////// Field Labels The Field Inputs container
+@mixin formLabel {
+    display: flex;
+    flex-direction: column;
+    font-family: inherit;
+    font-size: 1.6rem;
+    transition: all 0.3s;
+    padding: 5px;
+}
+////////////////// Form Error Msg
+@mixin formError {
+    color: #f3e962;
+}
+////////////////// fields input styling
+@mixin formikFields {
+    font-family: inherit;
+    font-size: 1.6rem;
+    width: 100%;
+    padding: 10px 20px;
+    margin: 10px 0px;
+    border-bottom: 2px solid #f3f4f4;
+    color: #f3f4f4;
+    outline: none;
+    //////////////////field placeholder text styling
+    &::placeholder {
+        color: #f3f4f4;
+    }
+}
+//////////////////Signup create account box/link/container
+@mixin modelNav {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-image: url("../../img/Cutie-Triov2.0.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border-radius: 10px;
+    background-color: $carpalGreen;
+    height: 150px;
+    width: 80%;
+    padding: 10px;
+}
+//////////////////signup/login link
+@mixin Link {
+    border: none;
+    background-color: #04ccbb;
+    color: #f3f4f4;
+    border-bottom: solid #f3f4f4;
+    border-bottom-width: thin;
+    text-decoration: none;
+    padding-bottom: 2px;
+    margin-left: 5px;
+    cursor: pointer;
+    //////////////////changes border-bottom color
+    &:hover {
+        border-bottom: 2px solid #fbb4b4;
+        outline: none;
+        appearance: none;
+        transition: 0.5s;
+    }
+    //////////////////onclick/active highlights entire Link.
+    &:active {
+        border-bottom: 2px solid #fbb4b4;
+        color: #fbb4b4;
+    }
+}

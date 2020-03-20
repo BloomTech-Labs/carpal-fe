@@ -1,8 +1,8 @@
+// variables/mixins file path "importing your global styles."
+@import "../Styles/_variables.scss";
+
 .dashboard-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include pageBody;
     /////// desktop maintenance png
     .desktop-crew {
         display: none;
