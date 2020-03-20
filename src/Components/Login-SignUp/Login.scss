@@ -10,7 +10,7 @@
     //////////////////form container
     .formik-container {
         @include formContainer;
-        background-color: $carpalGreen;
+        background-color: inherit;
         ////////////////// Login form title
         .login-p {
             @include formTitle;

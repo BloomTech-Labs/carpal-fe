@@ -7,11 +7,15 @@
 .signup-container {
     @include pageBody;
     background-color: $carpalGreen;
+
     //media breakpoint for desktop
     //////////////////form container
+    // opacity: 0.5;
     .formik-container {
         @include formContainer;
-        background-color: $carpalGreen;
+        background-color: inherit;
+        max-width: 800px;
+        ////////////////// signup form title
         .signup-p {
             @include formTitle;
         }
@@ -38,6 +42,8 @@
         background-image: url("../../img/Cutie-Triov2.0.png");
         background-repeat: no-repeat;
         background-size: cover;
+        background-position: 25% 25%;
+        // margin-bottom: 10px;
         //// already a user? lets go!
         .module-p {
             @include formTitle;

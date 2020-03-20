@@ -62,6 +62,7 @@ $carpalBlack: #1e1318;
     padding-top: 5%;
     margin-top: 5%;
 }
+//////////////////// Title P of FORM
 @mixin formTitle {
     color: $carpalWhite;
     font-size: 2.2rem;
@@ -74,7 +75,7 @@ $carpalBlack: #1e1318;
     font-family: inherit;
     font-size: 1.6rem;
     transition: all 0.3s;
-    padding: 5px;
+    padding: 1%;
 }
 ////////////////// Form Error Msg
 @mixin formError {
