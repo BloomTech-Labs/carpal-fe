@@ -42,6 +42,12 @@ function Login(props) {
                 <button className="form-btn" type="submit">
                     Submit
                 </button>
+                <a
+                    className="form-btn"
+                    href="https://staging-carpal.herokuapp.com/auth/google/testing"
+                >
+                    Login With Google
+                </a>
             </Form>
             <div className="module-nav">
                 <p className="module-p">
