@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Form, withFormik, Field } from "formik";
 import * as Yup from "yup";
+import axios from 'axios';
+
+import InputTags from "./InputTags"
 
 import "./Profile-Pages.scss";
 
@@ -11,6 +14,16 @@ import {
     EditProfileAction,
     SetProfileUpdate
 } from "../../Redux/Actions/UserAction";
+
+//testing api for local host
+const api = () => {
+    return  axios.create({
+        baseURL: "http://localhost:3001/users",
+        headers: {
+            authorization: localStorage.getItem("token")
+        }
+    })
+}
 
 //TODO - Test Use Effect with Seed Data
 //TODO - Setup input for image, and coordinate with BE for storage via S3 bucket
@@ -23,33 +36,45 @@ function UpdateProfile(props) {
         last_name: "",
         phone_number: "",
         email: "",
-        is_driver: false
-    });
-    const [userDetails, setUserDetails] = useState({
+        is_driver: false,
         hobbies: [],
-        audio_love: [],
-        audio_hate: []
+        audioLikes: [],
+        audioDislikes: []
     });
+
 
 
     useEffect(() => {
-        setUser({
-            ...user,
-            first_name: props.user.first_name,
-            last_name: props.user.last_name,
-            phone_number: props.user.phone_number,
-            email: props.user.email,
-            is_driver: props.user.is_driver,
-            // hobbies: userDetails.hobbies,
-            // audio_love: userDetails.audio_love,
-            // audio_hate: userDetails.audio_hate
-        });
+        // setUser({
+        //     ...user,
+        //     first_name: props.user.first_name,
+        //     last_name: props.user.last_name,
+        //     phone_number: props.user.phone_number,
+        //     email: props.user.email,
+        //     is_driver: props.user.is_driver,
+        //     hobbies: props.user.hobbies,
+        //     audioLikes: props.user.audioLikes,
+        //     audioDislikes: props.user.audioDislikes
+        // });
     }, []);
 
     function onEditProfileSubmit(e) {
         e.preventDefault();
         console.log("hello");
         props.EditProfileAction();
+    }
+
+    const handleInput = (e) => {
+        if (e.key === "Enter" && e.target.value) {
+            console.log(e.target.value)
+            console.log(e.target.name)
+            setUser({
+                ...user,
+                // [e.target.name]: [...e.target.name, e.target.value]
+                [e.target.name]: e.target.value
+            })
+            console.log(user)
+        }
     }
 
     return (
@@ -88,9 +113,10 @@ function UpdateProfile(props) {
                     <option value="" disabled>
                         Would you like to be a driver:
                     </option>
-                    <option value="true">Yes</option>
-                    <option value="false">No</option>
+                    <option value={true}>Yes</option>
+                    <option value={false}>No</option>
                 </Field>
+                <InputTags handleInput={handleInput} name="hobbies"/>
                 <Field
                     name="hobbies"
                     component="select"
@@ -106,7 +132,7 @@ function UpdateProfile(props) {
                     <option value="Gardening">Gardening</option>
                 </Field>
                 <Field
-                    name="audio_love"
+                    name="audioLikes"
                     component="select"
                     className="formik-fields"
                     multiple="true"
@@ -118,7 +144,7 @@ function UpdateProfile(props) {
                     <option value="Classical">Classical</option>
                 </Field>
                 <Field
-                    name="audio_hate"
+                    name="audioDislikes"
                     component="select"
                     className="formik-fields"
                     multiple="true"
@@ -152,7 +178,7 @@ function UpdateProfile(props) {
 
 const ProfileForm = withFormik({
     mapPropsToValues: values => {
-        console.log("hello from mapProps", values);
+        // console.log("hello from mapProps", values);
         return {
             first_name: values.user.first_name || "",
             last_name: values.user.last_name || "",
@@ -160,10 +186,10 @@ const ProfileForm = withFormik({
             phone_number: values.user.phone_number || "",
             is_driver: values.user.role || "",
             //make another form for user hobbies/audio
-
-            // hobbies: values.userDetails.hobbies || "",
-            // audio_hate: values.userDetails.audio_hate || "",
-            // audio_love: values.userDetails.audio_love || ""
+            //or possibly throw this into props and return it on backend ?
+            hobbies: values.user.hobbies || "",
+            audioDislikes: values.user.audioDislikes || "",
+            audioLikes: values.user.audioLikes || ""
         };
     },
     validationSchema: Yup.object().shape({
@@ -180,13 +206,18 @@ const ProfileForm = withFormik({
         is_driver: Yup.boolean().required("You must select a role"),
         //make another form for user hobbies/audio
 
-        // hobbies: Yup.string(),
-        // audio_hate: Yup.string(),
-        // audio_love: Yup.string()
+        hobbies: Yup.string(),
+        audioDislikes: Yup.string(),
+        audioLikes: Yup.string()
     }),
     handleSubmit: (values, { setStatus, props }) => {
-        console.log(values);
-        props.SetProfileUpdate(values);
+        // we can seperate values here, values.first_name, etc
+        //so we are able to make different calls depending on what changed
+        //this could be an insane wait time.. 
+        api().put("/update", values)
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
+        // props.SetProfileUpdate(user);
     }
 })(UpdateProfile);
 
