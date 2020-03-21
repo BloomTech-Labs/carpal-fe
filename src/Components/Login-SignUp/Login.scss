@@ -5,12 +5,14 @@
 ////////////////////body of component
 .login-container {
     @include pageBody;
-    background-color: $carpalGreen;
+    // background-color: $carpalGreen;
     //media breakpoint for desktop
     //////////////////form container
     .formik-container {
         @include formContainer;
-        background-color: inherit;
+        background-color: $carpalGreen;
+        max-width: 800px;
+
         ////////////////// Login form title
         .login-p {
             @include formTitle;
@@ -37,10 +39,14 @@
         @include modelNav;
         background-image: url("../../img/Cutie-Triov2.0.png");
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: 40%;
+        background-position: 50% 80%;
+        background-color: $carpalGreen;
+        max-width: 800px;
         //// new to the website? lets go!
         .module-p {
             @include formTitle;
+            margin-bottom: 5px;
         }
         // signup button / link
         .signup-link {
