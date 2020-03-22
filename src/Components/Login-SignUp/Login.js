@@ -48,6 +48,9 @@ function Login(props) {
                 >
                     Login With Google
                 </a>
+                <Link className="forgot-password" to="/signup">
+                    Forgot your password?
+                </Link>
             </Form>
             <div className="module-nav">
                 <p className="module-p">

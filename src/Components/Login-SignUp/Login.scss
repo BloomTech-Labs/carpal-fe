@@ -5,14 +5,22 @@
 ////////////////////body of component
 .login-container {
     @include pageBody;
-    // background-color: $carpalGreen;
+    background-color: $carpalGreen;
+    max-width: 800px;
     //media breakpoint for desktop
     //////////////////form container
+    .module-nav {
+        @include modelNav;
+        background-image: url("../../img/Cutie-Trio.png");
+        background-repeat: no-repeat;
+        background-size: 40%;
+        background-position: 50% 80%;
+        background-color: $carpalGreen;
+        height: 200px;
+    }
     .formik-container {
         @include formContainer;
         background-color: $carpalGreen;
-        max-width: 800px;
-
         ////////////////// Login form title
         .login-p {
             @include formTitle;
@@ -28,22 +36,39 @@
         /////////////// fields input styling
         .formik-fields {
             @include formikFields;
+            border-radius: 0px;
         }
-        ///// submit button styling
-        .form-btn {
+        ///// submit button google login styling
+        .form-btn,
+        a {
             @include formButton;
+        }
+        //////// forgot password link. links to signup for now.
+        .forgot-password {
+            color: $carpalWhite;
+            background-color: $carpalGreen;
+        }
+        .forgot-password:hover {
+            color: $carpalRose;
+            background-color: $carpalGreen;
+        }
+        .module-p {
+            @include formTitle;
+            margin-bottom: 5px;
+        }
+        // signup button / link
+        .signup-link {
+            @include Link;
         }
     }
     //////////////////// Signup create account box/link/container
     .module-nav {
         @include modelNav;
-        background-image: url("../../img/Cutie-Triov2.0.png");
+        background-image: url("../../img/Cutie-Trio.png");
         background-repeat: no-repeat;
         background-size: 40%;
         background-position: 50% 80%;
-        background-color: $carpalGreen;
-        max-width: 800px;
-        //// new to the website? lets go!
+        // new to the website? lets go!
         .module-p {
             @include formTitle;
             margin-bottom: 5px;

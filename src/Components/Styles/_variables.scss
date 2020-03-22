@@ -10,11 +10,38 @@ $carpalRose: #fbb4b4;
 $carpalBlack: #1e1318;
 
 //////////////////////Media Breakpoints
+$breakpoints: (
+    "mobile": (
+        min-width 300px
+    ),
+    "tablet": (
+        min-width 800px
+    ),
+    "desktop": (
+        min-width 1024px
+    ),
+    "lrgdesktop": (
+        min-width 1200px
+    )
+);
 
-//LrgDesktop 1280x1024
-//Desktop 1024x768
-//Tablet 800x600
-//Mobile 600-
+// @mixin respond-to($name) {
+//     @mixin respond-to($name) {
+//         // If the key exists in the map
+//         @if map-has-key($breakpoints, $name) {
+//             // Prints a media query based on the value
+//             @media #{inspect(map-get($breakpoints, $name))} {
+//                 @content;
+//             }
+//         }
+//         // If the key doesn't exist in the map
+//         @else {
+//             @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+//           + "Please make sure it is defined in `$breakpoints` map.";
+//         }
+//     }
+// }
+//////////////////////Media Breakpoints
 
 // Button Styling
 /// signup/login forms "submit" button as example. with styling.
@@ -59,15 +86,15 @@ $carpalBlack: #1e1318;
     align-items: center;
     width: 100%;
     height: 100%;
+    padding-bottom: 70px;
     // top-px, width-auto, bottom-px;
-    margin: 20px auto 10px;
+    margin: 0px auto 70px;
 }
 ////////////////// Form Container
 @mixin formContainer {
     width: 100%;
     height: 100%;
-    padding-top: 5%;
-    margin-top: 5%;
+    padding-top: 20px;
 }
 //////////////////// Title P of FORM
 @mixin formTitle {
@@ -109,7 +136,6 @@ $carpalBlack: #1e1318;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    border-radius: 10px;
     height: 200px;
     width: 100%;
     padding: 10px;

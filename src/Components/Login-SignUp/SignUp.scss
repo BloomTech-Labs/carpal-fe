@@ -2,18 +2,16 @@
 @import "../Styles/_variables.scss";
 /////////////OVERIDES DEFAULT BROWSER STYLING
 @include formWebKit;
-
 // //body of component
 .signup-container {
     @include pageBody;
-    // background-color: $carpalGreen;
+    background-color: $carpalGreen;
+    max-width: 800px;
     // Breakpoint for desktop
     //////////////////form container
-    // opacity: 0.5;
     .formik-container {
         @include formContainer;
         background-color: $carpalGreen;
-        max-width: 800px;
         ////////////////// signup form title
         .signup-p {
             @include formTitle;
@@ -29,6 +27,7 @@
         /////////////// fields input styling
         .formik-fields {
             @include formikFields;
+            border-radius: 0px;
         }
         ///// submit button styling
         .form-btn {
@@ -38,12 +37,10 @@
     //login container for ppl already a user.
     .module-nav {
         @include modelNav;
-        background-image: url("../../img/Cutie-Triov2.0.png");
+        background-image: url("../../img/Cutie-Trio.png");
         background-repeat: no-repeat;
         background-size: 40%;
         background-position: 50% 80%;
-        background-color: $carpalGreen;
-        max-width: 800px;
         //// already a user? lets go!
         .module-p {
             @include formTitle;
