@@ -45,10 +45,7 @@
     //login container for ppl already a user.
     .module-nav {
         @include modelNav;
-        background-image: url("../../img/background/Cutie-Trio-Bckgrnd.png");
-        background-repeat: no-repeat;
-        background-size: 100%;
-        background-position: 50% 50%;
+        @include modelBackIMG;
         @include respond-to("tablet") {
             background-position: 50% 50%;
         }
@@ -61,6 +58,7 @@
         //// already a user? lets go!
         .module-p {
             @include formTitle;
+            font-size: 2rem;
             margin-bottom: 5px;
         }
         // signup button / link

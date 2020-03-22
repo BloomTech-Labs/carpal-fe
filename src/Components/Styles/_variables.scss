@@ -120,6 +120,13 @@ $breakpoints: (
     width: 100%;
     padding: 10px;
 }
+/// Login/Signup Form bckgrndIMG
+@mixin modelBackIMG {
+    background-image: url("../../img/background/Cutie-Trio-Bckgrnd.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 50% 50%;
+}
 //////////////////signup/login link
 @mixin Link {
     color: $carpalWhite;
