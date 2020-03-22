@@ -13,31 +13,14 @@
             height: auto;
             padding: 30px;
         }
-        @include respond-to("desktop") {
-            background-color: blue;
-        }
-        @include respond-to("large") {
-            background-color: lightblue;
-        }
     }
     ////mobile maintenance png
     .mobile-crew {
         width: auto;
         height: auto;
         padding: 10px;
-
         @include respond-to("tablet") {
             display: none;
         }
     }
 }
-
-// @include respond-to("tablet") {
-//     background-color: red;
-// }
-// @include respond-to("desktop") {
-//     background-color: blue;
-// }
-// @include respond-to("large") {
-//     background-color: lightblue;
-// }
