@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 // placeholder images
-import Crew from "../../img/CarPal-Construction-Desktop.png";
-import MobileCrew from "../../img/Mobile-Construction.png";
+import Crew from "../../img/maintenence/CarPal-Construction-Desktop.png";
+import MobileCrew from "../../img/maintenence/Mobile-Construction.png";
 
 import "./Dashboard.scss";
 
@@ -25,7 +25,7 @@ export default function Dashboard(props) {
     }, []);
 
     return (
-        <div className="dashboard-container">
+        <div role="dashboard" className="dashboard-container">
             <img className="desktop-crew" src={Crew} alt="" />
             <img className="mobile-crew" src={MobileCrew} alt="" />
         </div>

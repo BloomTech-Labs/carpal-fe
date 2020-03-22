@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Patchy from "../../img/Patchyv2.0.png";
+import Patchy from "../../img/logos/Patchyv2.0.png";
 
 import "./TopNav.scss";
 

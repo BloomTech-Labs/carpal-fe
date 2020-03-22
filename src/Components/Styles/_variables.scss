@@ -1,45 +1,62 @@
-///// GLOBAL FILE FOR STYLING
-//Font Fam-Bam
+////////////////////// GLOBAL FILE FOR STYLING
+//////////////////////Font Fam-Bam
 $font-stack: Lato, sans-serif;
-
-//Colors
+//////////////////////CarPal Colors
 $carpalGreen: #04ccbb;
 $carpalWhite: #f3f4f4;
 $carpalYellow: #f3e962;
 $carpalRose: #fbb4b4;
-
-// Button Styling
-/// signup/login forms "submit" button as example. with styling.
+$carpalBlack: #1e1318;
+//////////////////////Media Breakpoints START
+$breakpoints: (
+    "mobile": 300px,
+    "tablet": 800px,
+    "desktop": 1000px,
+    "large": 1200px
+) !default;
+@mixin respond-to($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (min-width: map-get($breakpoints, $breakpoint )) {
+            @content;
+        }
+    } @else {
+        @warn "no value could be retrieved from `#{$breakpoint}`. " + "Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+}
+//////////////////////// Button Styling
+/// signup/login forms "submit" button as example. with hover and active styles.
 @mixin formButton {
     font-family: inherit;
     font-size: 1.6rem;
-    background-color: $carpalWhite;
-    color: #04ccbb;
+    color: $carpalWhite;
+    background-color: $carpalGreen;
+    border: 1px solid $carpalWhite;
+    border-radius: 20px;
     padding: 10px 30px;
     margin: 10px;
     cursor: pointer;
     text-decoration: none;
-    border-radius: 20px;
-
     &:hover {
         background-color: $carpalRose;
         color: $carpalWhite;
+        border: 1px solid $carpalRose;
         transition: 0.5s;
+        opacity: 0.9;
     }
     &:active {
-        background-color: $carpalGreen;
-        color: $carpalWhite;
+        background-color: $carpalWhite;
+        color: $carpalGreen;
+        border: 1px solid $carpalWhite;
     }
 }
-
 /// FORM STYLE MIXINS ////////////////////////////////////////////////////////////////////////
-//// WEBKIT STYLING Changes autocomplete styles in WebKit */
+//// WEBKIT STYLING stops basic default browswer styles in your inputs aka "formik-fields" WebKit */
 @mixin formWebKit {
     input:-webkit-autofill,
     input:-webkit-autofill:hover,
     input:-webkit-autofill:focus {
-        -webkit-text-fill-color: #f3f4f4;
-        // -webkit-box-shadow: 0 0 0px 1000px #04ccbb inset;
+        -webkit-text-fill-color: $carpalWhite;
+        // -webkit-box-shadow: 0 0 0px 1000px $carpalGreen inset;
         transition: background-color 5000s ease-in-out 0s;
     }
 }
@@ -51,23 +68,21 @@ $carpalRose: #fbb4b4;
     align-items: center;
     width: 100%;
     height: 100%;
-    margin: 20px auto 10px;
+    padding-bottom: 30px;
+    // top-px, width-auto, bottom-px;
+    margin: 0px auto 70px;
 }
 ////////////////// Form Container
 @mixin formContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: $carpalGreen;
-    width: 80%;
+    width: 100%;
     height: 100%;
-    padding-top: 10px;
+    padding-top: 30px;
 }
+//////////////////// Title P of FORM
 @mixin formTitle {
-    color: #f3f4f4;
+    color: $carpalWhite;
     font-size: 2.2rem;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 ////////////////// Field Labels The Field Inputs container
 @mixin formLabel {
@@ -76,11 +91,11 @@ $carpalRose: #fbb4b4;
     font-family: inherit;
     font-size: 1.6rem;
     transition: all 0.3s;
-    padding: 5px;
+    padding: 1%;
 }
 ////////////////// Form Error Msg
 @mixin formError {
-    color: #f3e962;
+    color: $carpalYellow;
 }
 ////////////////// fields input styling
 @mixin formikFields {
@@ -89,12 +104,12 @@ $carpalRose: #fbb4b4;
     width: 100%;
     padding: 10px 20px;
     margin: 10px 0px;
-    border-bottom: 2px solid #f3f4f4;
-    color: #f3f4f4;
+    border-bottom: 2px solid $carpalWhite;
+    color: $carpalWhite;
     outline: none;
     //////////////////field placeholder text styling
     &::placeholder {
-        color: #f3f4f4;
+        color: $carpalWhite;
     }
 }
 //////////////////Signup create account box/link/container
@@ -103,36 +118,33 @@ $carpalRose: #fbb4b4;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background-image: url("../../img/Cutie-Triov2.0.png");
+    height: 200px;
+    width: 100%;
+    padding: 10px;
+}
+//////////////////Login/Signup Form bckgrndIMG
+@mixin modelBackIMG {
+    background-image: url("../../img/background/Cutie-Trio-Bckgrnd.png");
     background-repeat: no-repeat;
     background-size: 100%;
-    border-radius: 10px;
-    background-color: $carpalGreen;
-    height: 150px;
-    width: 80%;
-    padding: 10px;
+    background-position: 50% 50%;
 }
 //////////////////signup/login link
 @mixin Link {
-    border: none;
-    background-color: #04ccbb;
-    color: #f3f4f4;
-    border-bottom: solid #f3f4f4;
+    color: $carpalWhite;
+    border-bottom: solid $carpalWhite;
     border-bottom-width: thin;
-    text-decoration: none;
+    text-decoration: none !important;
     padding-bottom: 2px;
     margin-left: 5px;
     cursor: pointer;
     //////////////////changes border-bottom color
     &:hover {
-        border-bottom: 2px solid #fbb4b4;
-        outline: none;
-        appearance: none;
+        border-bottom: 2px solid $carpalRose;
         transition: 0.5s;
     }
     //////////////////onclick/active highlights entire Link.
     &:active {
-        border-bottom: 2px solid #fbb4b4;
-        color: #fbb4b4;
+        color: $carpalRose;
     }
 }

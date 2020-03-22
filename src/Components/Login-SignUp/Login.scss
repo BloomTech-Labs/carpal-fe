@@ -1,15 +1,27 @@
 // variables/mixins file path "importing your global styles."
 @import "../Styles/_variables.scss";
-
-/////////////OVERIDES DEFAULT BROWSER STYLING
+/////////////OVERIDES DEFAULT BROWSER INPUT STYLING
 @include formWebKit;
 ////////////////////body of component
 .login-container {
     @include pageBody;
-    //media breakpoint for desktop
+    background-color: $carpalGreen;
+    max-width: 800px;
+    //tablet media breakpoint
+    @include respond-to("tablet") {
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+    //desktop media breakpoint
+    @include respond-to("desktop") {
+        flex-direction: row;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
     //////////////////form container
     .formik-container {
         @include formContainer;
+        background-color: $carpalGreen;
         ////////////////// Login form title
         .login-p {
             @include formTitle;
@@ -25,18 +37,48 @@
         /////////////// fields input styling
         .formik-fields {
             @include formikFields;
+            border-radius: 0px;
         }
-        ///// submit button styling
-        .form-btn {
+        ///// submit button google login styling
+        .form-btn,
+        a {
             @include formButton;
+            background-color: none;
+        }
+        //////// forgot password link. links to signup for now.
+        .forgot-password {
+            color: $carpalWhite;
+            background-color: $carpalGreen;
+            border: none;
+
+            &:hover {
+                color: $carpalRose;
+                background-color: $carpalGreen;
+            }
+            &:active {
+                color: $carpalYellow;
+                background-color: $carpalGreen;
+            }
         }
     }
     //////////////////// Signup create account box/link/container
     .module-nav {
         @include modelNav;
-        //// new to the website? lets go!
+        @include modelBackIMG;
+        @include respond-to("tablet") {
+            background-position: 50% 50%;
+        }
+        @include respond-to("desktop") {
+            justify-content: center;
+            align-items: center;
+            background-position: cover;
+            height: 300px;
+        }
+        // new to the website? lets go!
         .module-p {
             @include formTitle;
+            font-size: 2rem;
+            margin-bottom: 5px;
         }
         // signup button / link
         .signup-link {
