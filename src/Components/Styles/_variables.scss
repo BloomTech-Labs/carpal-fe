@@ -11,7 +11,7 @@ $carpalBlack: #1e1318;
 $breakpoints: (
     "mobile": 300px,
     "tablet": 800px,
-    "desktop": 1024px,
+    "desktop": 1000px,
     "large": 1200px
 ) !default;
 @mixin respond-to($breakpoint) {
@@ -67,8 +67,6 @@ $breakpoints: (
     width: 100%;
     height: 100%;
     padding-bottom: 30px;
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
     // top-px, width-auto, bottom-px;
     margin: 0px auto 70px;
 }

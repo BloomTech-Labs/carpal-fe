@@ -7,6 +7,11 @@
     @include pageBody;
     background-color: $carpalGreen;
     max-width: 800px;
+    //tablet media breakpoint
+    @include respond-to("tablet") {
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
     //desktop media breakpoint
     @include respond-to("desktop") {
         flex-direction: row;
@@ -45,7 +50,7 @@
         background-size: 100%;
         background-position: 50% 50%;
         @include respond-to("tablet") {
-            background-position: 50% 30%;
+            background-position: 50% 50%;
         }
         @include respond-to("desktop") {
             justify-content: center;
