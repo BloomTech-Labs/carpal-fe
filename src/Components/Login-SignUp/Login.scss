@@ -7,11 +7,17 @@
     @include pageBody;
     background-color: $carpalGreen;
     max-width: 800px;
+    //media breakpoint for desktop
+    //////////////////form container
+    @include respond-to("tablet") {
+        background-color: red;
+    }
     @include respond-to("desktop") {
         background-color: blue;
     }
-    //media breakpoint for desktop
-    //////////////////form container
+    @include respond-to("large") {
+        background-color: lightblue;
+    }
     .formik-container {
         @include formContainer;
         background-color: $carpalGreen;
@@ -19,9 +25,6 @@
         .login-p {
             @include formTitle;
         }
-        // @include respond-to("desktop") {
-        //     color: $carpalRose;
-        // }
         ////////////////// Field Labels
         .field-label {
             @include formLabel;
@@ -49,26 +52,27 @@
                 color: $carpalRose;
                 background-color: $carpalGreen;
             }
-        }
-        .module-p {
-            @include formTitle;
-            margin-bottom: 5px;
-        }
-        // signup button / link
-        .signup-link {
-            @include Link;
+            &:active {
+                color: $carpalYellow;
+                background-color: $carpalGreen;
+            }
         }
     }
     //////////////////// Signup create account box/link/container
     .module-nav {
         @include modelNav;
-        background-image: url("../../img/Cutie-Trio.png");
+        background-image: url("../../img/background/Cutie-Trio-Bckgrnd.png");
         background-repeat: no-repeat;
-        background-size: 40%;
-        background-position: 50% 80%;
+        background-size: 100%;
+        background-position: 50% 30%;
+        @include respond-to("desktop") {
+            background-position: 50% 30%;
+        }
+
         // new to the website? lets go!
         .module-p {
             @include formTitle;
+            font-size: 2rem;
             margin-bottom: 5px;
         }
         // signup button / link

@@ -9,8 +9,8 @@ $carpalRose: #fbb4b4;
 $carpalBlack: #1e1318;
 //////////////////////Media Breakpoints
 $breakpoints: (
-    "small": 767px,
-    "medium": 992px,
+    "mobile": 300px,
+    "tablet": 800px,
     "desktop": 1024px,
     "large": 1200px
 ) !default;
@@ -66,7 +66,7 @@ $breakpoints: (
     align-items: center;
     width: 100%;
     height: 100%;
-    padding-bottom: 70px;
+    padding-bottom: 30px;
     // top-px, width-auto, bottom-px;
     margin: 0px auto 70px;
 }
@@ -74,7 +74,7 @@ $breakpoints: (
 @mixin formContainer {
     width: 100%;
     height: 100%;
-    padding-top: 20px;
+    padding-top: 30px;
 }
 //////////////////// Title P of FORM
 @mixin formTitle {
@@ -122,7 +122,6 @@ $breakpoints: (
 }
 //////////////////signup/login link
 @mixin Link {
-    background-color: $carpalGreen;
     color: $carpalWhite;
     border-bottom: solid $carpalWhite;
     border-bottom-width: thin;
@@ -133,8 +132,6 @@ $breakpoints: (
     //////////////////changes border-bottom color
     &:hover {
         border-bottom: 2px solid $carpalRose;
-        outline: none;
-        appearance: none;
         transition: 0.5s;
     }
     //////////////////onclick/active highlights entire Link.

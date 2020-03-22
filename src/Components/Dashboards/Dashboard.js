@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 // placeholder images
-import Crew from "../../img/CarPal-Construction-Desktop.png";
-import MobileCrew from "../../img/Mobile-Construction.png";
+import Crew from "../../img/maintenence/CarPal-Construction-Desktop.png";
+import MobileCrew from "../../img/maintenence/Mobile-Construction.png";
 
 import "./Dashboard.scss";
 

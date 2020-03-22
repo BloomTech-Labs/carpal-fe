@@ -6,13 +6,18 @@
     /////// desktop maintenance png
     .desktop-crew {
         display: none;
-    }
-    @media (min-width: 600px) {
-        .desktop-crew {
+        ////mobile maintenance png
+        @include respond-to("tablet") {
             display: flex;
             width: 100%;
             height: auto;
             padding: 30px;
+        }
+        @include respond-to("desktop") {
+            background-color: blue;
+        }
+        @include respond-to("large") {
+            background-color: lightblue;
         }
     }
     ////mobile maintenance png
@@ -20,10 +25,19 @@
         width: auto;
         height: auto;
         padding: 10px;
-    }
-    @media (min-width: 600px) {
-        .mobile-crew {
+
+        @include respond-to("tablet") {
             display: none;
         }
     }
 }
+
+// @include respond-to("tablet") {
+//     background-color: red;
+// }
+// @include respond-to("desktop") {
+//     background-color: blue;
+// }
+// @include respond-to("large") {
+//     background-color: lightblue;
+// }
