@@ -7,17 +7,11 @@
     @include pageBody;
     background-color: $carpalGreen;
     max-width: 800px;
-    //media breakpoint for desktop
-    //////////////////form container
-    @include respond-to("tablet") {
-        background-color: red;
-    }
+    //desktop media breakpoint
     @include respond-to("desktop") {
-        background-color: blue;
+        flex-direction: row;
     }
-    @include respond-to("large") {
-        background-color: lightblue;
-    }
+    //////////////////form container
     .formik-container {
         @include formContainer;
         background-color: $carpalGreen;
@@ -64,11 +58,16 @@
         background-image: url("../../img/background/Cutie-Trio-Bckgrnd.png");
         background-repeat: no-repeat;
         background-size: 100%;
-        background-position: 50% 30%;
-        @include respond-to("desktop") {
+        background-position: 50% 50%;
+        @include respond-to("tablet") {
             background-position: 50% 30%;
         }
-
+        @include respond-to("desktop") {
+            justify-content: center;
+            align-items: center;
+            background-position: cover;
+            height: 300px;
+        }
         // new to the website? lets go!
         .module-p {
             @include formTitle;

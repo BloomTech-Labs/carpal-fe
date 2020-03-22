@@ -7,7 +7,10 @@
     @include pageBody;
     background-color: $carpalGreen;
     max-width: 800px;
-    // Breakpoint for desktop
+    //desktop media breakpoint
+    @include respond-to("desktop") {
+        flex-direction: row;
+    }
     //////////////////form container
     .formik-container {
         @include formContainer;
@@ -40,7 +43,16 @@
         background-image: url("../../img/background/Cutie-Trio-Bckgrnd.png");
         background-repeat: no-repeat;
         background-size: 100%;
-        background-position: 50% 30%;
+        background-position: 50% 50%;
+        @include respond-to("tablet") {
+            background-position: 50% 30%;
+        }
+        @include respond-to("desktop") {
+            justify-content: center;
+            align-items: center;
+            background-position: cover;
+            height: 300px;
+        }
         //// already a user? lets go!
         .module-p {
             @include formTitle;
