@@ -23,7 +23,6 @@ $breakpoints: (
         @warn "no value could be retrieved from `#{$breakpoint}`. " + "Available breakpoints are: #{map-keys($breakpoints)}.";
     }
 }
-//////////////////////Media Breakpoints END
 //////////////////////// Button Styling
 /// signup/login forms "submit" button as example. with hover and active styles.
 @mixin formButton {
@@ -40,14 +39,14 @@ $breakpoints: (
     &:hover {
         background-color: $carpalRose;
         color: $carpalWhite;
-        border: none;
+        border: 1px solid $carpalRose;
         transition: 0.5s;
         opacity: 0.9;
     }
     &:active {
         background-color: $carpalWhite;
         color: $carpalGreen;
-        // border-color: $carpalWhite;
+        border: 1px solid $carpalWhite;
     }
 }
 /// FORM STYLE MIXINS ////////////////////////////////////////////////////////////////////////
