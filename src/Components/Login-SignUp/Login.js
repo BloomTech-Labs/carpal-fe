@@ -21,12 +21,15 @@ function Login(props) {
                     {touched.email && errors.email && (
                         <p className="form-error">{errors.email}</p>
                     )}
-                    <Field
+                    
+                         <Field
                         className="formik-fields"
                         type="email"
                         name="email"
                         placeholder="Email@email.com"
                     />
+                    
+                   
                 </label>
                 <label className="field-label">
                     {touched.password && errors.password && (
