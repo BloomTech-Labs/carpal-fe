@@ -25,7 +25,7 @@ export default function Dashboard(props) {
     }, []);
 
     return (
-        <div className="dashboard-container">
+        <div role="dashboard" className="dashboard-container">
             <img className="desktop-crew" src={Crew} alt="" />
             <img className="mobile-crew" src={MobileCrew} alt="" />
         </div>

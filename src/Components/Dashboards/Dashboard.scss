@@ -3,10 +3,9 @@
 
 .dashboard-container {
     @include pageBody;
-    /////// desktop maintenance png
+    /////// desktop maintenance png for screens > 800px
     .desktop-crew {
         display: none;
-        ////mobile maintenance png
         @include respond-to("tablet") {
             display: flex;
             width: 100%;
@@ -14,11 +13,12 @@
             padding: 30px;
         }
     }
-    ////mobile maintenance png
+    ////mobile maintenance png for screens < 800px
     .mobile-crew {
-        width: auto;
+        display: flex;
+        width: 100%;
         height: auto;
-        padding: 10px;
+        padding: auto 10px;
         @include respond-to("tablet") {
             display: none;
         }
