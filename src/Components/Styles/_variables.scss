@@ -1,50 +1,31 @@
-///// GLOBAL FILE FOR STYLING
-//Font Fam-Bam
+////////////////////// GLOBAL FILE FOR STYLING
+//////////////////////Font Fam-Bam
 $font-stack: Lato, sans-serif;
-
-//Colors
+//////////////////////CarPal Colors
 $carpalGreen: #04ccbb;
 $carpalWhite: #f3f4f4;
 $carpalYellow: #f3e962;
 $carpalRose: #fbb4b4;
 $carpalBlack: #1e1318;
-
 //////////////////////Media Breakpoints
 $breakpoints: (
-    "mobile": (
-        min-width 300px
-    ),
-    "tablet": (
-        min-width 800px
-    ),
-    "desktop": (
-        min-width 1024px
-    ),
-    "lrgdesktop": (
-        min-width 1200px
-    )
-);
-
-// @mixin respond-to($name) {
-//     @mixin respond-to($name) {
-//         // If the key exists in the map
-//         @if map-has-key($breakpoints, $name) {
-//             // Prints a media query based on the value
-//             @media #{inspect(map-get($breakpoints, $name))} {
-//                 @content;
-//             }
-//         }
-//         // If the key doesn't exist in the map
-//         @else {
-//             @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
-//           + "Please make sure it is defined in `$breakpoints` map.";
-//         }
-//     }
-// }
+    "small": 767px,
+    "medium": 992px,
+    "desktop": 1024px,
+    "large": 1200px
+) !default;
+@mixin respond-to($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (min-width: map-get($breakpoints, $breakpoint )) {
+            @content;
+        }
+    } @else {
+        @warn "no value could be retrieved from `#{$breakpoint}`. " + "Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+}
 //////////////////////Media Breakpoints
-
-// Button Styling
-/// signup/login forms "submit" button as example. with styling.
+//////////////////////// Button Styling
+/// signup/login forms "submit" button as example. with hover and active styles.
 @mixin formButton {
     font-family: inherit;
     font-size: 1.6rem;
@@ -66,7 +47,6 @@ $breakpoints: (
         color: $carpalWhite;
     }
 }
-
 /// FORM STYLE MIXINS ////////////////////////////////////////////////////////////////////////
 //// WEBKIT STYLING Changes autocomplete styles in WebKit */
 @mixin formWebKit {

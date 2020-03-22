@@ -1,23 +1,17 @@
 // variables/mixins file path "importing your global styles."
 @import "../Styles/_variables.scss";
-/////////////OVERIDES DEFAULT BROWSER STYLING
+/////////////OVERIDES DEFAULT BROWSER INPUT STYLING
 @include formWebKit;
 ////////////////////body of component
 .login-container {
     @include pageBody;
     background-color: $carpalGreen;
     max-width: 800px;
+    @include respond-to("desktop") {
+        background-color: blue;
+    }
     //media breakpoint for desktop
     //////////////////form container
-    .module-nav {
-        @include modelNav;
-        background-image: url("../../img/Cutie-Trio.png");
-        background-repeat: no-repeat;
-        background-size: 40%;
-        background-position: 50% 80%;
-        background-color: $carpalGreen;
-        height: 200px;
-    }
     .formik-container {
         @include formContainer;
         background-color: $carpalGreen;
@@ -25,6 +19,9 @@
         .login-p {
             @include formTitle;
         }
+        // @include respond-to("desktop") {
+        //     color: $carpalRose;
+        // }
         ////////////////// Field Labels
         .field-label {
             @include formLabel;
@@ -47,10 +44,11 @@
         .forgot-password {
             color: $carpalWhite;
             background-color: $carpalGreen;
-        }
-        .forgot-password:hover {
-            color: $carpalRose;
-            background-color: $carpalGreen;
+
+            &:hover {
+                color: $carpalRose;
+                background-color: $carpalGreen;
+            }
         }
         .module-p {
             @include formTitle;

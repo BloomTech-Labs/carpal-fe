@@ -1,6 +1,6 @@
 // variables/mixins file path "importing your global styles."
 @import "../Styles/_variables.scss";
-/////////////OVERIDES DEFAULT BROWSER STYLING
+/////////////OVERIDES DEFAULT BROWSER INPUT STYLING
 @include formWebKit;
 // //body of component
 .signup-container {
