@@ -7,7 +7,7 @@ $carpalWhite: #f3f4f4;
 $carpalYellow: #f3e962;
 $carpalRose: #fbb4b4;
 $carpalBlack: #1e1318;
-//////////////////////Media Breakpoints
+//////////////////////Media Breakpoints START
 $breakpoints: (
     "mobile": 300px,
     "tablet": 800px,
@@ -23,32 +23,35 @@ $breakpoints: (
         @warn "no value could be retrieved from `#{$breakpoint}`. " + "Available breakpoints are: #{map-keys($breakpoints)}.";
     }
 }
-//////////////////////Media Breakpoints
+//////////////////////Media Breakpoints END
 //////////////////////// Button Styling
 /// signup/login forms "submit" button as example. with hover and active styles.
 @mixin formButton {
     font-family: inherit;
     font-size: 1.6rem;
-    background-color: $carpalWhite;
-    color: $carpalGreen;
+    color: $carpalWhite;
+    background-color: $carpalGreen;
+    border: 1px solid $carpalWhite;
+    border-radius: 20px;
     padding: 10px 30px;
     margin: 10px;
     cursor: pointer;
     text-decoration: none;
-    border-radius: 20px;
-
     &:hover {
         background-color: $carpalRose;
         color: $carpalWhite;
+        border: none;
         transition: 0.5s;
+        opacity: 0.9;
     }
     &:active {
-        background-color: $carpalGreen;
-        color: $carpalWhite;
+        background-color: $carpalWhite;
+        color: $carpalGreen;
+        // border-color: $carpalWhite;
     }
 }
 /// FORM STYLE MIXINS ////////////////////////////////////////////////////////////////////////
-//// WEBKIT STYLING Changes autocomplete styles in WebKit */
+//// WEBKIT STYLING stops basic default browswer styles in your inputs aka "formik-fields" WebKit */
 @mixin formWebKit {
     input:-webkit-autofill,
     input:-webkit-autofill:hover,
@@ -120,7 +123,7 @@ $breakpoints: (
     width: 100%;
     padding: 10px;
 }
-/// Login/Signup Form bckgrndIMG
+//////////////////Login/Signup Form bckgrndIMG
 @mixin modelBackIMG {
     background-image: url("../../img/background/Cutie-Trio-Bckgrnd.png");
     background-repeat: no-repeat;

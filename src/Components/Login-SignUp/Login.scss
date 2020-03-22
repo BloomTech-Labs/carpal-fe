@@ -43,11 +43,13 @@
         .form-btn,
         a {
             @include formButton;
+            background-color: none;
         }
         //////// forgot password link. links to signup for now.
         .forgot-password {
             color: $carpalWhite;
             background-color: $carpalGreen;
+            border: none;
 
             &:hover {
                 color: $carpalRose;
