@@ -2,6 +2,7 @@ a {
     text-decoration: none;
     color: black;
     list-style-type: none;
+    
 }
 li a :hover {
     background-color: cornflowerblue;
@@ -88,28 +89,29 @@ button {
 .hero {
     display: inline-block;
     position: relative;
-    // padding-top: 100px;
+    width: 100%;
 }
 .hero .slider {
-    width: 100%;
-    height: rem;   
+    width: 100%;      
 }
 .hero .overlaybutton {
     position: absolute;
     background-color: #04ccbb;
     bottom: 4em;
     right: 4em;
-    font-size: larger;
+    font-size: xx-large;
     color: white;
     text-transform: uppercase;
     padding: 1em 1.5em;
     border-radius: 12px;
-    width: 12rem;    
+    width: 25rem;    
     height: 2.5rem;
     margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    
 }
 .padding {
     padding-bottom: 15px;
