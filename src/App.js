@@ -17,8 +17,8 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/profilepage" component={ProfilePage} />
-            <Route exact path="/landing" component={LandingPage}/>
-            <Route exact path="/" component={Dashboard} />
+            <Route exact path="/dashboard" component={Dashboard}/>
+            <Route exact path="/" component={LandingPage} />
             <Nav />
         </div>
     );
