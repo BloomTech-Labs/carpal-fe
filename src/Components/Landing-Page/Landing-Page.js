@@ -17,8 +17,8 @@ function LandingPage() {
                 
                 <a className="overlaybutton" href={dashboard}>Sign Up</a>
             </div>
-            
-            <section className="container">
+            <div className="main">
+                <section className="container">
                 <div id="first">
                     <h2>Features</h2>
                     <div class="features">            
@@ -74,6 +74,8 @@ function LandingPage() {
                     </div>
                 </div>  
             </section>
+            </div>
+            
             <section class="containertwo">
             <h4 className="padding">Ready to gooooooooo?</h4>
             <button name="signup">sign Up</button>
