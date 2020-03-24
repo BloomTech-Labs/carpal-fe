@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from "../../img/CarPal.mp4";
-import Imgone from "../../img/Group 38 (1).jpg";
+import Imgone from "../../img/Group 38 (1).png";
 import Imgtwo from "../../img/Group 29.png";
 import Imgthree from "../../img/Group 39.jpg";
 import dashboard from "../../App"
@@ -72,11 +72,16 @@ function LandingPage() {
                             <img className="allimg" src={Imgthree} alt="Temp img" /> 
                         </div>     
                     </div>
+                    
                 </div>  
             </section>
             </div>
             
             <section class="containertwo">
+            <div class="ocean">
+                <div class="wave"></div>
+                <div class="wave"></div>
+            </div>
             <h4 className="padding">Ready to gooooooooo?</h4>
             <button name="signup">sign Up</button>
             </section>
