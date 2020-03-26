@@ -18,19 +18,25 @@ function LandingPage() {
                 <a className="overlaybutton" href={dashboard}>Sign Up</a>
             </div>
             <div className="main">
+                <div className="intro">
+                    <h1 className="introTitle">Welcome to CarPal</h1>
+                    <p class="firstpara">
+                        Welcome to Carpal the future of networking and commuting at the same time. 
+                        Yeah, we did it seriously. Watch this, with Carpal you will be able to join a 
+                        community of drivers and riders who are looking to save money, lessen the impact 
+                        on the enviorment, and gain a friend along the way.
+                    </p>
+                </div>
                 <section className="container">
                 <div id="first">
                     <h2>Features</h2>
                     <div class="features">            
                         <div class="paraone">            
                             <p class="firstpara">
-                            Welcome to Carpal the future of networking and commuting at the same time. 
-                            Yeah, we did it seriously. Watch this with Carpal you will be able to join a 
-                            community of drivers and riders who are looking to save money, lessen the impact 
-                            on the enviorment, and gain a friend along the way. With this awesome app, these 
-                            are just a few of the features you will get such as SMS messaging, friends list, 
-                            gamification (user stats and point system) and even driver's real-time location, 
-                            but wait there's more and its just five clicks away front becoming a Carpaller. 
+                            With this awesome app, these are just a few of the features you will get such as
+                            SMS messaging, friends list, gamification (user stats and point system) and even
+                            driver's real-time location, but wait there's more and its just five clicks 
+                            away front becoming a Carpaller. 
                             </p>
                         </div>
                         <div class="imgone">
@@ -77,11 +83,7 @@ function LandingPage() {
             </section>
             </div>
             
-            <section class="containertwo">
-            <div class="ocean">
-                <div class="wave"></div>
-                <div class="wave"></div>
-            </div>
+            <section class="containertwo">            
             <h4 className="padding">Ready to gooooooooo?</h4>
             <button name="signup">sign Up</button>
             </section>
