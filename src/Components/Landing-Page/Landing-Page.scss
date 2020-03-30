@@ -5,6 +5,7 @@ h2 {
     @media (max-width: 450px) {
         text-decoration: underline;
         font-size: medium;
+        margin-top: 0px;
     }
 }
 h4 {
@@ -14,11 +15,57 @@ h4 {
     width: 100%;
     // height: 500px;
 }
+.intro {
+    text-align: center;
+    margin-bottom: 4em;
+    line-height: 1.5em;
+    width: 146.667em;
+    
+    
+    .introTitle {
+        color: #474747;
+        font-weight: 700;
+        margin: 1.54em 0 1.54em 0; 
+        font-size: 9em;       
+    }
+    .firstpara {
+        font-size: 2.5em;
+        margin-top: -2em;
+        line-height: 1.5em;
+        color: #858585;
+        // position: relative;
+    }
+    @media (max-width:450px) {
+        .intro {
+        text-align: center;
+        margin-bottom: 4em;
+        line-height: 1.5em;
+        width: 405px;
+        
+        
+        .introTitle {
+            color: #474747;
+            font-weight: 700;
+            margin: 1.54em 0 1.54em 0; 
+            font-size: 2em;       
+        }
+        .firstpara {
+            font-size: 1em;
+            margin-top: -1em;
+            line-height: 1.5em;
+            color: #858585;
+            position: relative;
+        }
+    }
+    }
+}
+
 .features {
     display: flex;
+    flex-direction: row;
     width: 100%;      
-    justify-content: center;
-    align-items: center; 
+    // justify-content: center;
+    // align-items: center; 
 
     @media (max-width: 450px) {        
         flex-direction: column-reverse;
@@ -34,10 +81,35 @@ h4 {
     }
 }
 #first {
-    display: flex;
-    flex-flow: column;
-    flex-wrap: wrap;
-    // height: 65em;
+    // display: flex;
+    // flex-flow: row;
+    // flex-wrap: wrap;
+    width: 832px;    
+    background-color:rgb(255, 255, 255);
+    box-sizing:border-box;
+    color:rgb(68, 68, 68);
+    display:block;        
+    font-size:16px;
+    font-stretch:100%;
+    font-style:normal;
+    font-variant-caps:normal;
+    font-variant-east-asian:normal;
+    font-variant-ligatures:normal;
+    font-variant-numeric:normal;
+    font-weight:400;
+    height:379.594px;
+    line-height:26.4px;
+    margin-bottom:32px;
+    margin-left:0px;
+    margin-right:0px;
+    margin-top:0px;
+    padding-bottom:48px;
+    padding-left:40px;
+    padding-right:40px;
+    padding-top:0px;
+    // text-align:center;
+    text-size-adjust:100%;
+    vertical-align:baseline;
     @media (max-width: 450px) {
         width: 405px;
         background-color:rgb(255, 255, 255);
@@ -82,7 +154,7 @@ h4 {
         padding-bottom:48px;
         padding-left:40px;
         padding-right:40px;
-        padding-top:48px;
+        padding-top:0px;
         text-align:center;
         text-size-adjust:100%;
         vertical-align:baseline;        
@@ -93,6 +165,35 @@ h4 {
     flex-flow: column;
     justify-content: center;
     flex-wrap: wrap;
+    display: flex;
+    flex-flow: column;
+    flex-wrap: wrap;
+    width: 832px;    
+    background-color:rgb(255, 255, 255);    
+    box-sizing:border-box;
+    color:rgb(68, 68, 68);
+    display:block;        
+    font-size:16px;
+    font-stretch:100%;
+    font-style:normal;
+    font-variant-caps:normal;
+    font-variant-east-asian:normal;
+    font-variant-ligatures:normal;
+    font-variant-numeric:normal;
+    font-weight:400;
+    height:379.594px;
+    line-height:26.4px;
+    margin-bottom:32px;
+    margin-left:0px;
+    margin-right:0px;
+    margin-top:0px;
+    padding-bottom:48px;
+    padding-left:40px;
+    padding-right:40px;
+    padding-top:0px;
+    text-align:center;
+    text-size-adjust:100%;
+    vertical-align:baseline;
     @media (max-width: 450px) {
         width: 405px;
         background-color:rgb(255, 255, 255);
@@ -137,10 +238,10 @@ h4 {
         padding-bottom:48px;
         padding-left:40px;
         padding-right:40px;
-        padding-top:48px;
+        padding-top:0px;
         text-align:center;
         text-size-adjust:100%;
-        vertical-align:baseline;        
+        vertical-align:baseline;
     }
 }
 #third {
@@ -148,6 +249,36 @@ h4 {
     flex-flow: column;
     justify-content: center;
     flex-wrap: wrap;
+    display: flex;
+    flex-flow: column;
+    flex-wrap: wrap;    
+    width: 832px;    
+    background-color:rgb(255, 255, 255);    
+    box-sizing:border-box;
+    color:rgb(68, 68, 68);
+    display:block;        
+    font-size:16px;
+    font-stretch:100%;
+    font-style:normal;
+    font-variant-caps:normal;
+    font-variant-east-asian:normal;
+    font-variant-ligatures:normal;
+    font-variant-numeric:normal;
+    font-weight:400;
+    height:379.594px;
+    line-height:26.4px;
+    margin-bottom:32px;
+    margin-left:0px;
+    margin-right:0px;
+    margin-top:0px;
+    padding-bottom:48px;
+    padding-left:40px;
+    padding-right:40px;
+    padding-top:0px;
+    text-align:center;
+    text-size-adjust:100%;
+    vertical-align:baseline;
+
     @media (max-width: 450px) {
         width: 405px;
         background-color:rgb(255, 255, 255);
@@ -192,23 +323,29 @@ h4 {
         padding-bottom:48px;
         padding-left:40px;
         padding-right:40px;
-        padding-top:48px;
+        padding-top:0px;
         text-align:center;
         text-size-adjust:100%;
-        vertical-align:baseline;       
+        vertical-align:baseline;     
     }
 }
 .allimg {
    width: auto;
-   height: auto;
+   height: auto;   
    @media (max-width: 450px) {
     width: 45%;
     display: block;
     margin-left: auto;
-    margin-right: auto;
-    
+    margin-right: auto;    
+    }   
 }
-   
+.allimgbot {
+    width: auto;
+    height: 18em;
+    @media (max-width: 450px) {
+         width: 120px;       
+
+    }
 }
 .paraone {
     width: 100%;
@@ -231,29 +368,87 @@ flex-flow: column;
 justify-content: center;
 align-items: center;
 padding-bottom: 100px;
+background-color: #f5f5f5;
+padding-top: 3em;
 }
 .container {
-    display: flex;
-    flex-flow: column;
-    flex-wrap: wrap;
-    justify-content: center;    
-    width: 50%;    
-    // align-items: center;
+    display: flex;    
+    flex-direction: column;
+    justify-content: space-around;        
+    width: 146.667em;    
+    align-items: center;
     padding-top: 0em;
+    background-color:rgb(255, 255, 255);
+    border-bottom-color:rgba(144, 144, 144, 0.25);
+    border-bottom-left-radius:4px;
+    border-bottom-right-radius:4px;
+    border-bottom-style:solid;
+    border-bottom-width:1px;
+    border-image-outset:0px;
+    border-image-repeat:stretch;
+    border-image-slice:100%;
+    border-image-source:none;
+    border-image-width:1;
+    border-left-color:rgba(144, 144, 144, 0.25);
+    border-left-style:solid;
+    border-left-width:1px;
+    border-right-color:rgba(144, 144, 144, 0.25);
+    border-right-style:solid;
+    border-right-width:1px;
+    border-top-color:rgba(144, 144, 144, 0.25);
+    border-top-left-radius:4px;
+    border-top-right-radius:4px;
+    border-top-style:solid;
+    border-top-width:1px;
     @media (max-width: 450px) {
         width: 100%;
-        padding: 5px;
+        margin-top: -1em;       
+        align-items: center;
+        background-color: none;
+        border-bottom-color: none;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius:0px;
+        border-bottom-style:none;
+        border-bottom-width:0px;
+        border-image-outset:0px;
+        border-image-repeat:none;
+        border-image-slice:none;
+        border-image-source:none;
+        border-image-width:1;
+        border-left-color:none;
+        border-left-style:none;
+        border-left-width:0px;
+        border-right-color:none;
+        border-right-style:none;
+        border-right-width:0px;
+        border-top-color:none;
+        border-top-left-radius:0px;
+        border-top-right-radius:0px;
+        border-top-style:none;
+        border-top-width:0px;
+       
     }
 }
 .main {    
-    font-size: 20px;
+    font-size: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     overflow: hidden;
     background-color: #f5f5f5;
-    @media (max-width: 450px) {
+    text-align: center;    
+    color: #444;
+    @media (max-width: 450px) {       
+        background-color: #f5f5f5;
+        border-bottom: 2px solid rgba(144, 144, 144, 0.25);
+        border-top: 2px solid rgba(144, 144, 144, 0.25);
+        text-align: center;
+        padding: 4em, 0em, 2em;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
+
     }
 }
 button {
@@ -301,4 +496,6 @@ button {
 }
 .padding {
     padding-bottom: 15px;
+    font-size: x-large;
+    font-weight: 900;
 }

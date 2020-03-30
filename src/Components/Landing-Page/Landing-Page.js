@@ -20,8 +20,8 @@ function LandingPage() {
             <div className="main">
                 <div className="intro">
                     <h1 className="introTitle">Welcome to CarPal</h1>
-                    <p class="firstpara">
-                        Welcome to Carpal the future of networking and commuting at the same time. 
+                    <p className="firstpara">
+                        The future of networking and commuting at the same time. 
                         Yeah, we did it seriously. Watch this, with Carpal you will be able to join a 
                         community of drivers and riders who are looking to save money, lessen the impact 
                         on the enviorment, and gain a friend along the way.
@@ -30,16 +30,16 @@ function LandingPage() {
                 <section className="container">
                 <div id="first">
                     <h2>Features</h2>
-                    <div class="features">            
-                        <div class="paraone">            
-                            <p class="firstpara">
+                    <div className="features">            
+                        <div className="paraone">            
+                            <p className="firstpara">
                             With this awesome app, these are just a few of the features you will get such as
                             SMS messaging, friends list, gamification (user stats and point system) and even
                             driver's real-time location, but wait there's more and its just five clicks 
                             away front becoming a Carpaller. 
                             </p>
                         </div>
-                        <div class="imgone">
+                        <div className="imgone">
                             <img className="allimg" src={Imgone} alt="Temp img" /> 
                         </div>            
                     </div>
@@ -48,15 +48,15 @@ function LandingPage() {
 
                 <div id="second">
                     <h2>Drivers</h2>
-                    <div class="featuresflip">
-                        <div class="paraone">            
-                            <p class="firstpara">
+                    <div className="featuresflip">
+                        <div className="paraone">            
+                            <p className="firstpara">
                             Are you a current driver who loves to drive or even hates to drive,
                             well guess what you in luck. The Carpal developer kept you in mind 
                             when building this app I might even add that they made it just for you.    
                             </p>
                         </div>            
-                        <div class="imgone">
+                        <div className="imgone">
                             <img className="allimg" src={Imgtwo} alt="Temp img" /> 
                         </div>    
                     </div>
@@ -64,18 +64,17 @@ function LandingPage() {
 
                 <div id="third">
                     <h2>Riders</h2>
-                    <div class="features">
-                        <div class="paraone">            
-                            <p class="firstpara">
-                            As a rider, you gain many great features that are completely free believe me 
-                            I made sure of that.  If you don't mind here are just a few of them request 
+                    <div className="features">
+                        <div className="paraone">            
+                            <p className="firstpara">
+                            As a rider you gain many great features and here are just a few of those. Request 
                             a ride to your destination, customize the type of driver you are interested in 
                             meet, and rate each Carpal experience to make sure our community stays the best 
-                            in the business. It's almost like your the boss but please don't fire me.
+                            in the business.
                             </p>
                         </div>
-                        <div class="imgone">
-                            <img className="allimg" src={Imgthree} alt="Temp img" /> 
+                        <div className="imgone">
+                            <img className="allimgbot" src={Imgthree} alt="Temp img" /> 
                         </div>     
                     </div>
                     
@@ -83,7 +82,7 @@ function LandingPage() {
             </section>
             </div>
             
-            <section class="containertwo">            
+            <section className="containertwo">            
             <h4 className="padding">Ready to gooooooooo?</h4>
             <button name="signup">sign Up</button>
             </section>
