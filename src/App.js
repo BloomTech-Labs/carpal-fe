@@ -6,6 +6,7 @@ import Login from "../src/Components/Login-SignUp/Login";
 import SignUp from "../src/Components/Login-SignUp/SignUp";
 import Dashboard from "../src/Components/Dashboards/Dashboard";
 import ProfilePage from "../src/Components/Profile-Pages/Profile-Pages";
+import LandingPage from "../src/Components/Landing-Page/Landing-Page";
 
 //TODO: update app to include loader if isLoading
 
@@ -16,7 +17,8 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/profilepage" component={ProfilePage} />
-            <Route exact path="/" component={Dashboard} />
+            <Route exact path="/dashboard" component={Dashboard}/>
+            <Route exact path="/" component={LandingPage} />
             <Nav />
         </div>
     );
