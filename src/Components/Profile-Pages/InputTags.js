@@ -8,7 +8,12 @@ const InputTags = (props) => {
                 {props.items.map((tag, i) => (
                     <li key={i}>
                         {tag}
-                        <button type="button">Remove</button>
+                        <button
+                            type="button"
+                            onClick={(e) => props.removeTag(e, i, props.name)}
+                        >
+                            Remove
+                        </button>
                     </li>
                 ))}
 

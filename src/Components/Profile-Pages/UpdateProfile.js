@@ -41,6 +41,7 @@ function UpdateProfile(props) {
         audioLikes: [],
         audioDislikes: []
     });
+    // const {tagError, setTagError} = useState
 
     useEffect(() => {
         // setUser({
@@ -64,8 +65,17 @@ function UpdateProfile(props) {
 
     const handleInput = (e) => {
         if (e.key === "Enter" && e.target.value) {
-            console.log(e.target.value);
-            console.log(e.target.name);
+            if (
+                user[e.target.name].find(
+                    (tag) => tag.toLowerCase() === e.target.value.toLowerCase()
+                )
+            ) {
+                window.alert(
+                    `${e.target.value} is already added to your ${e.target.name}`
+                );
+                e.target.value = null;
+                return;
+            }
             setUser({
                 ...user,
                 [e.target.name]: [...user[e.target.name], e.target.value]
@@ -74,6 +84,13 @@ function UpdateProfile(props) {
             e.target.value = null;
             console.log(user);
         }
+    };
+
+    const removeTag = (e, i, name) => {
+        // console.log(e.target.name);
+        const newTags = [...user[name]];
+        newTags.splice(i, 1);
+        setUser({ ...user, [name]: newTags });
     };
 
     return (
@@ -119,6 +136,19 @@ function UpdateProfile(props) {
                     handleInput={handleInput}
                     name="hobbies"
                     items={user.hobbies}
+                    removeTag={removeTag}
+                />
+                <InputTags
+                    handleInput={handleInput}
+                    name="audioLikes"
+                    items={user.audioLikes}
+                    removeTag={removeTag}
+                />
+                <InputTags
+                    handleInput={handleInput}
+                    name="audioDislikes"
+                    items={user.audioDislikes}
+                    removeTag={removeTag}
                 />
                 <Field
                     name="hobbies"
