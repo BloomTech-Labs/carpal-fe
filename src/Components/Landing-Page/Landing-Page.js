@@ -86,6 +86,7 @@ function LandingPage() {
             <h4 className="padding">Ready to gooooooooo?</h4>
             <button name="signup">sign Up</button>
             </section>
+            
         </div>
          
         
