@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Form, withFormik, Field } from "formik";
 import * as Yup from "yup";
-import axios from 'axios';
+import axios from "axios";
 
-import InputTags from "./InputTags"
+import InputTags from "./InputTags";
 
 import "./Profile-Pages.scss";
 
@@ -17,13 +17,13 @@ import {
 
 //testing api for local host
 const api = () => {
-    return  axios.create({
+    return axios.create({
         baseURL: "http://localhost:3001/users",
         headers: {
             authorization: localStorage.getItem("token")
         }
-    })
-}
+    });
+};
 
 //TODO - Test Use Effect with Seed Data
 //TODO - Setup input for image, and coordinate with BE for storage via S3 bucket
@@ -41,8 +41,6 @@ function UpdateProfile(props) {
         audioLikes: [],
         audioDislikes: []
     });
-
-
 
     useEffect(() => {
         // setUser({
@@ -66,16 +64,17 @@ function UpdateProfile(props) {
 
     const handleInput = (e) => {
         if (e.key === "Enter" && e.target.value) {
-            console.log(e.target.value)
-            console.log(e.target.name)
+            console.log(e.target.value);
+            console.log(e.target.name);
             setUser({
                 ...user,
-                // [e.target.name]: [...e.target.name, e.target.value]
-                [e.target.name]: e.target.value
-            })
-            console.log(user)
+                [e.target.name]: [...user[e.target.name], e.target.value]
+                // [e.target.name]: e.target.value
+            });
+            e.target.value = null;
+            console.log(user);
         }
-    }
+    };
 
     return (
         <div>
@@ -116,7 +115,11 @@ function UpdateProfile(props) {
                     <option value={true}>Yes</option>
                     <option value={false}>No</option>
                 </Field>
-                <InputTags handleInput={handleInput} name="hobbies"/>
+                <InputTags
+                    handleInput={handleInput}
+                    name="hobbies"
+                    items={user.hobbies}
+                />
                 <Field
                     name="hobbies"
                     component="select"
@@ -177,7 +180,7 @@ function UpdateProfile(props) {
 }
 
 const ProfileForm = withFormik({
-    mapPropsToValues: values => {
+    mapPropsToValues: (values) => {
         // console.log("hello from mapProps", values);
         return {
             first_name: values.user.first_name || "",
@@ -195,14 +198,8 @@ const ProfileForm = withFormik({
     validationSchema: Yup.object().shape({
         first_name: Yup.string().required("First Name Required"),
         last_name: Yup.string().required("Last Name Required"),
-        email: Yup.string()
-            .email()
-            .required("Email Required"),
-        phone_number: Yup.number()
-            .integer()
-            .positive()
-            .min(10)
-            .required(),
+        email: Yup.string().email().required("Email Required"),
+        phone_number: Yup.number().integer().positive().min(10).required(),
         is_driver: Yup.boolean().required("You must select a role"),
         //make another form for user hobbies/audio
 
@@ -213,15 +210,16 @@ const ProfileForm = withFormik({
     handleSubmit: (values, { setStatus, props }) => {
         // we can seperate values here, values.first_name, etc
         //so we are able to make different calls depending on what changed
-        //this could be an insane wait time.. 
-        api().put("/update", values)
-            .then(res => console.log(res))
-            .catch(err => console.log(err))
+        //this could be an insane wait time..
+        api()
+            .put("/update", values)
+            .then((res) => console.log(res))
+            .catch((err) => console.log(err));
         // props.SetProfileUpdate(user);
     }
 })(UpdateProfile);
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     user: state.user.user,
     isLoading: state.user.isLoading,
     error: state.user.error,
