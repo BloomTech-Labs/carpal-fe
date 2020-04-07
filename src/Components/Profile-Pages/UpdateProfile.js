@@ -87,7 +87,6 @@ function UpdateProfile(props) {
     };
 
     const removeTag = (e, i, name) => {
-        // console.log(e.target.name);
         const newTags = [...user[name]];
         newTags.splice(i, 1);
         setUser({ ...user, [name]: newTags });
@@ -150,45 +149,6 @@ function UpdateProfile(props) {
                     items={user.audioDislikes}
                     removeTag={removeTag}
                 />
-                <Field
-                    name="hobbies"
-                    component="select"
-                    className="formik-fields"
-                    multiple="true"
-                >
-                    <option value="" disabled>
-                        Select your Hobby:
-                    </option>
-                    <option value="Jogging">Jogging</option>
-                    <option value="Video games">Video games</option>
-                    <option value="Sports">Sports</option>
-                    <option value="Gardening">Gardening</option>
-                </Field>
-                <Field
-                    name="audioLikes"
-                    component="select"
-                    className="formik-fields"
-                    multiple="true"
-                >
-                    <option value="" disabled>
-                        Audio I love:
-                    </option>
-                    <option value="Pop">Pop</option>
-                    <option value="Classical">Classical</option>
-                </Field>
-                <Field
-                    name="audioDislikes"
-                    component="select"
-                    className="formik-fields"
-                    multiple="true"
-                >
-                    <option value="" disabled>
-                        Audio I Hate:
-                    </option>
-                    <option value="Pop">Pop</option>
-                    <option value="Classical">Classical</option>
-                </Field>
-
                 {/* Mapbox will go here */}
                 {user.phone_number ? (
                     // if user already has a phone number (stand in for profile), button displays "Update Profile", else "Save Profile"
@@ -211,7 +171,6 @@ function UpdateProfile(props) {
 
 const ProfileForm = withFormik({
     mapPropsToValues: (values) => {
-        // console.log("hello from mapProps", values);
         return {
             first_name: values.user.first_name || "",
             last_name: values.user.last_name || "",
@@ -220,9 +179,9 @@ const ProfileForm = withFormik({
             is_driver: values.user.role || "",
             //make another form for user hobbies/audio
             //or possibly throw this into props and return it on backend ?
-            hobbies: values.user.hobbies || "",
-            audioDislikes: values.user.audioDislikes || "",
-            audioLikes: values.user.audioLikes || ""
+            hobbies: values.user.hobbies || [],
+            audioDislikes: values.user.audioDislikes || [],
+            audioLikes: values.user.audioLikes || []
         };
     },
     validationSchema: Yup.object().shape({
@@ -233,7 +192,7 @@ const ProfileForm = withFormik({
         is_driver: Yup.boolean().required("You must select a role"),
         //make another form for user hobbies/audio
 
-        hobbies: Yup.string(),
+        // hobbies: Yup.string(),
         audioDislikes: Yup.string(),
         audioLikes: Yup.string()
     }),
@@ -241,10 +200,12 @@ const ProfileForm = withFormik({
         // we can seperate values here, values.first_name, etc
         //so we are able to make different calls depending on what changed
         //this could be an insane wait time..
-        api()
-            .put("/update", values)
-            .then((res) => console.log(res))
-            .catch((err) => console.log(err));
+
+        console.log(values);
+        // api()
+        //     .put("/update", values)
+        //     .then((res) => console.log(res))
+        //     .catch((err) => console.log(err));
         // props.SetProfileUpdate(user);
     }
 })(UpdateProfile);

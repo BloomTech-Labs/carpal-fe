@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Field } from "formik";
 
 const InputTags = (props) => {
     return (
@@ -19,8 +20,8 @@ const InputTags = (props) => {
 
                 <li className="">
                     <input
-                        type="text"
                         name={props.name}
+                        type="text"
                         onKeyDown={(e) => props.handleInput(e)}
                     />
                 </li>
