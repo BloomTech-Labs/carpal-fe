@@ -1,145 +1,168 @@
+@import "../Styles/_variables.scss";
+
 .profileHeader {
-    width: 100%;
-    display: flex;
+    width          : 100%;
+    display        : flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items    : center;
+    padding        : 15px 0;
+    max-width      : 600px;
+    margin         : 0 auto;
 }
 
 .headerDetails {
-    width: 50%;
     font-size: x-large;
-    margin: 10px 0 10px 1em;
+    padding  : 10px;
 
     h3 {
-        margin: 10px 0;
+        margin   : 10px 0;
+        font-size: 1.8rem;
+
+        @include respond-to("mobile") {
+            font-size: 2.2rem;
+
+        }
     }
+
     .bold {
         font-weight: 600;
     }
 }
 
-.profileSection {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding: 0.5rem 0;
+.profileDetails {
+    padding: 0 5%;
 }
+
+.profileSection {
+    display       : flex;
+    flex-direction: column;
+    flex-wrap     : wrap;
+    padding       : 0.5rem 0;
+}
+
 .bar {
-    width: 100%;
+    width           : 100%;
     background-color: #04ccbb;
-    height: 2rem;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    height          : 2rem;
+    margin-bottom   : 15px;
 }
 
 h2 {
-    font-size: 1.25rem;
-    font-weight: 400;
-    margin-top: 2em;
+    font-size    : 1.25rem;
+    font-weight  : 400;
+    margin-top   : 2em;
     margin-bottom: 10px;
 }
 
 .bubble {
-    text-align: center;
-    padding: 5px;
-    background: #04ccbb;
+    text-align           : center;
+    padding              : 5px;
+    background           : #04ccbb;
     -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
-    margin: 0 10px;
+    -moz-border-radius   : 20px;
+    border-radius        : 20px;
+    margin               : 0 10px;
 }
+
 .flexContainer {
-    display: flex;
+    display        : flex;
     justify-content: space-evenly;
-    align-items: center;
-    flex-direction: row;
+    align-items    : center;
+    flex-direction : row;
 }
 
 .edit {
     background-color: #04ccbb;
-    border: none;
-    border-radius: 12px;
-    width: 75%;
-    font-size: larger;
-    text-transform: uppercase;
-    height: 4rem;
-    color: white;
-    margin-top: 12px;
+    border          : none;
+    border-radius   : 12px;
+    width           : 75%;
+    font-size       : larger;
+    text-transform  : uppercase;
+    height          : 4rem;
+    color           : white;
+    margin-top      : 12px;
 }
+
 .headerImage {
-    display: inline-block;
+    display : inline-block;
     position: relative;
+    padding : 10px;
 }
+
 .headerImage .profilePic {
-    width: 10rem;
-    height: 10rem;
+    width        : 10rem;
+    height       : 10rem;
     border-radius: 55%;
 }
+
 .headerImage .overlaybutton {
-    position: absolute;
+    position        : absolute;
     background-color: whitesmoke;
-    font-size: 10px;
-    bottom: 6em;
-    right: 3em;
-    color: #04ccbb;
-    text-transform: uppercase;
-    padding: 1em 1.25em;
-    border-radius: 12px;
-    width: 5rem;
-    height: 0rem;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
+    font-size       : 10px;
+    bottom          : 6em;
+    right           : 3em;
+    color           : #04ccbb;
+    text-transform  : uppercase;
+    padding         : 1em 1.25em;
+    border-radius   : 12px;
+    width           : 5rem;
+    height          : 0rem;
+    margin          : auto;
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    text-decoration : none;
 }
 
 .buttonContainer {
     text-align: center;
 }
-.formik-fields-multi {    
-    width: 100%;
-    padding: 2px 20px;
-    margin: 10px 0px;
-    box-sizing: border-box;
-    min-height: 100px;
-    border: none;
+
+.formik-fields-multi {
+    width           : 100%;
+    padding         : 2px 20px;
+    margin          : 10px 0px;
+    box-sizing      : border-box;
+    min-height      : 100px;
+    border          : none;
     background-color: #04ccbb;
-    border-bottom: 2px solid #f3f4f4;
-    outline: none;  
-    height: 250px; 
-    border-radius: 20px;
-  }
-.container {
-    display: flex;
-    padding-top: 300px;
+    border-bottom   : 2px solid #f3f4f4;
+    outline         : none;
+    height          : 250px;
+    border-radius   : 20px;
 }
-  .formik-fields {
-    width: 100%;
-    padding: 10px 20px;
-    margin: 10px 0px;
-    box-sizing: border-box;
-    border: none;
+
+// .container {
+//     display    : flex;
+//     padding-top: 300px;
+// }
+.formik-fields {
+    width           : 100%;
+    padding         : 10px 20px;
+    margin          : 10px 0px;
+    box-sizing      : border-box;
+    border          : none;
     background-color: #04ccbb;
-    border-bottom: 2px solid #f3f4f4;
-    outline: none; 
-    border-radius: 20px;  
-  }
-  .formik-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-width: 200px;
-    // width: 100%;
-    margin: 20px;
-    height: 67em;
+    border-bottom   : 2px solid #f3f4f4;
+    outline         : none;
+    border-radius   : 20px;
+}
+
+.formik-container {
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    align-items     : center;
+    min-width       : 200px;
+    // width        : 100%;
+    margin          : 20px;
+    height          : 67em;
     background-color: white;
-    border-radius: 10px;
-    padding: 10px;    
-  }
-  .one {
-      padding: 5px;
-      border-radius: 25px;
-  }
- 
+    border-radius   : 10px;
+    padding         : 10px;
+}
+
+.one {
+    padding      : 5px;
+    border-radius: 25px;
+}
