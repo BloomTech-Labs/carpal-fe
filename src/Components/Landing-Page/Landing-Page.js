@@ -4,6 +4,7 @@ import Imgone from "../../img/Group 38 (1).png";
 import Imgtwo from "../../img/Group 29.png";
 import Imgthree from "../../img/Group 39.png";
 import dashboard from "../../App"
+import { Link } from "react-router-dom";
 
 import "./Landing-Page.scss";
 
@@ -15,7 +16,9 @@ function LandingPage() {
                     <source src={Slider} type="video/mp4" />
                 </video>
                 
-                <a className="overlaybutton" href={dashboard}>Sign Up</a>
+                <Link to="/Signup"> 
+                    <a className="overlaybutton" href={dashboard}>Sign Up</a>
+                </Link>
             </div>
             <div className="main">
                 <div className="intro">
@@ -84,7 +87,10 @@ function LandingPage() {
             
             <section className="containertwo">            
             <h4 className="padding">Ready to gooooooooo?</h4>
-            <button name="signup">sign Up</button>
+            <Link to="/Signup">
+                <button name="signup">sign Up</button>
+            </Link>
+            
             </section>
             
         </div>
