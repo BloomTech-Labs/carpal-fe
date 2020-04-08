@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Form, withFormik, Field } from "formik";
 import * as Yup from "yup";
-import axios from 'axios';
+import axios from "axios";
 
-import InputTags from "./InputTags"
+import InputTags from "./InputTags";
 
 import "./Profile-Pages.scss";
 
@@ -17,13 +17,13 @@ import {
 
 //testing api for local host
 const api = () => {
-    return  axios.create({
+    return axios.create({
         baseURL: "http://localhost:3001/users",
         headers: {
             authorization: localStorage.getItem("token")
         }
-    })
-}
+    });
+};
 
 //TODO - Test Use Effect with Seed Data
 //TODO - Setup input for image, and coordinate with BE for storage via S3 bucket
@@ -41,8 +41,7 @@ function UpdateProfile(props) {
         audioLikes: [],
         audioDislikes: []
     });
-
-
+    // const {tagError, setTagError} = useState
 
     useEffect(() => {
         // setUser({
@@ -66,16 +65,32 @@ function UpdateProfile(props) {
 
     const handleInput = (e) => {
         if (e.key === "Enter" && e.target.value) {
-            console.log(e.target.value)
-            console.log(e.target.name)
+            if (
+                user[e.target.name].find(
+                    (tag) => tag.toLowerCase() === e.target.value.toLowerCase()
+                )
+            ) {
+                window.alert(
+                    `${e.target.value} is already added to your ${e.target.name}`
+                );
+                e.target.value = null;
+                return;
+            }
             setUser({
                 ...user,
-                // [e.target.name]: [...e.target.name, e.target.value]
-                [e.target.name]: e.target.value
-            })
-            console.log(user)
+                [e.target.name]: [...user[e.target.name], e.target.value]
+                // [e.target.name]: e.target.value
+            });
+            e.target.value = null;
+            console.log(user);
         }
-    }
+    };
+
+    const removeTag = (e, i, name) => {
+        const newTags = [...user[name]];
+        newTags.splice(i, 1);
+        setUser({ ...user, [name]: newTags });
+    };
 
     return (
         <div>
@@ -116,46 +131,24 @@ function UpdateProfile(props) {
                     <option value={true}>Yes</option>
                     <option value={false}>No</option>
                 </Field>
-                <InputTags handleInput={handleInput} name="hobbies"/>
-                <Field
+                <InputTags
+                    handleInput={handleInput}
                     name="hobbies"
-                    component="select"
-                    className="formik-fields"
-                    multiple="true"
-                >
-                    <option value="" disabled>
-                        Select your Hobby:
-                    </option>
-                    <option value="Jogging">Jogging</option>
-                    <option value="Video games">Video games</option>
-                    <option value="Sports">Sports</option>
-                    <option value="Gardening">Gardening</option>
-                </Field>
-                <Field
+                    items={user.hobbies}
+                    removeTag={removeTag}
+                />
+                <InputTags
+                    handleInput={handleInput}
                     name="audioLikes"
-                    component="select"
-                    className="formik-fields"
-                    multiple="true"
-                >
-                    <option value="" disabled>
-                        Audio I love:
-                    </option>
-                    <option value="Pop">Pop</option>
-                    <option value="Classical">Classical</option>
-                </Field>
-                <Field
+                    items={user.audioLikes}
+                    removeTag={removeTag}
+                />
+                <InputTags
+                    handleInput={handleInput}
                     name="audioDislikes"
-                    component="select"
-                    className="formik-fields"
-                    multiple="true"
-                >
-                    <option value="" disabled>
-                        Audio I Hate:
-                    </option>
-                    <option value="Pop">Pop</option>
-                    <option value="Classical">Classical</option>
-                </Field>
-
+                    items={user.audioDislikes}
+                    removeTag={removeTag}
+                />
                 {/* Mapbox will go here */}
                 {user.phone_number ? (
                     // if user already has a phone number (stand in for profile), button displays "Update Profile", else "Save Profile"
@@ -177,8 +170,7 @@ function UpdateProfile(props) {
 }
 
 const ProfileForm = withFormik({
-    mapPropsToValues: values => {
-        // console.log("hello from mapProps", values);
+    mapPropsToValues: (values) => {
         return {
             first_name: values.user.first_name || "",
             last_name: values.user.last_name || "",
@@ -187,41 +179,38 @@ const ProfileForm = withFormik({
             is_driver: values.user.role || "",
             //make another form for user hobbies/audio
             //or possibly throw this into props and return it on backend ?
-            hobbies: values.user.hobbies || "",
-            audioDislikes: values.user.audioDislikes || "",
-            audioLikes: values.user.audioLikes || ""
+            hobbies: values.user.hobbies || [],
+            audioDislikes: values.user.audioDislikes || [],
+            audioLikes: values.user.audioLikes || []
         };
     },
     validationSchema: Yup.object().shape({
         first_name: Yup.string().required("First Name Required"),
         last_name: Yup.string().required("Last Name Required"),
-        email: Yup.string()
-            .email()
-            .required("Email Required"),
-        phone_number: Yup.number()
-            .integer()
-            .positive()
-            .min(10)
-            .required(),
+        email: Yup.string().email().required("Email Required"),
+        phone_number: Yup.number().integer().positive().min(10).required(),
         is_driver: Yup.boolean().required("You must select a role"),
         //make another form for user hobbies/audio
 
-        hobbies: Yup.string(),
+        // hobbies: Yup.string(),
         audioDislikes: Yup.string(),
         audioLikes: Yup.string()
     }),
     handleSubmit: (values, { setStatus, props }) => {
         // we can seperate values here, values.first_name, etc
         //so we are able to make different calls depending on what changed
-        //this could be an insane wait time.. 
-        api().put("/update", values)
-            .then(res => console.log(res))
-            .catch(err => console.log(err))
+        //this could be an insane wait time..
+
+        console.log(values);
+        // api()
+        //     .put("/update", values)
+        //     .then((res) => console.log(res))
+        //     .catch((err) => console.log(err));
         // props.SetProfileUpdate(user);
     }
 })(UpdateProfile);
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     user: state.user.user,
     isLoading: state.user.isLoading,
     error: state.user.error,

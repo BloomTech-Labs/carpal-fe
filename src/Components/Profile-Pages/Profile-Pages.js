@@ -14,7 +14,7 @@ import {
 //TODO - Create Loading Spinner Component
 
 function ProfilePage(props) {
-    const { errors, touched } = props;
+    // const { errors, touched } = props;
     const [user, setUser] = useState({
         // first_name: "",
         // last_name: "",
@@ -57,7 +57,7 @@ function ProfilePage(props) {
             audio_love: props.user.audio_love,
             audio_hate: props.user.audio_hate
         });
-        console.log(user)
+        console.log(user);
     }, [props.user]);
 
     function onEditProfileSubmit(e) {
@@ -110,35 +110,41 @@ function ProfilePage(props) {
                                 <div className="profileSection">
                                     <h2>Hobbies</h2>
                                     <div className="flexContainer">
-                                        {user.hobbies && user.hobbies.map(hobby => (
-                                            <div className="bubble" key={hobby}>
-                                                {hobby}
-                                            </div>
-                                        ))}
+                                        {user.hobbies &&
+                                            user.hobbies.map((hobby) => (
+                                                <div
+                                                    className="bubble"
+                                                    key={hobby}
+                                                >
+                                                    {hobby}
+                                                </div>
+                                            ))}
                                     </div>
 
                                     <h2>Audio I Love</h2>
                                     <div className="flexContainer">
-                                        {user.audio_love && user.audio_love.map(audioLove => (
-                                            <div
-                                                className="bubble"
-                                                key={audioLove}
-                                            >
-                                                {audioLove}
-                                            </div>
-                                        ))}
+                                        {user.audio_love &&
+                                            user.audio_love.map((audioLove) => (
+                                                <div
+                                                    className="bubble"
+                                                    key={audioLove}
+                                                >
+                                                    {audioLove}
+                                                </div>
+                                            ))}
                                     </div>
 
                                     <h2>Audio I Hate</h2>
                                     <div className="flexContainer">
-                                        {user.audio_hate && user.audio_hate.map(audioHate => (
-                                            <div
-                                                className="bubble"
-                                                key={audioHate}
-                                            >
-                                                {audioHate}
-                                            </div>
-                                        ))}
+                                        {user.audio_hate &&
+                                            user.audio_hate.map((audioHate) => (
+                                                <div
+                                                    className="bubble"
+                                                    key={audioHate}
+                                                >
+                                                    {audioHate}
+                                                </div>
+                                            ))}
                                     </div>
                                 </div>
                                 {/* Mapbox will go here */}
@@ -162,7 +168,7 @@ function ProfilePage(props) {
     );
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     user: state.user.user,
     isLoading: state.user.isLoading,
     error: state.user.error,

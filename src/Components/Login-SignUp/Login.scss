@@ -7,21 +7,23 @@
     @include pageBody;
     background-color: $carpalGreen;
     max-width: 800px;
+    padding: 20px;
+    margin-top: 50px;
+
     //tablet media breakpoint
     @include respond-to("tablet") {
-        border-bottom-right-radius: 20px;
-        border-bottom-left-radius: 20px;
+        border-radius: 20px;
     }
     //desktop media breakpoint
     @include respond-to("desktop") {
         flex-direction: row;
-        border-bottom-right-radius: 20px;
-        border-bottom-left-radius: 20px;
+        border-radius: 20px;
     }
     //////////////////form container
     .formik-container {
         @include formContainer;
         background-color: $carpalGreen;
+        margin: 20px;
         ////////////////// Login form title
         .login-p {
             @include formTitle;
@@ -29,35 +31,40 @@
         ////////////////// Field Labels
         .field-label {
             @include formLabel;
-        }
-        /////////////// Form Error Msg
-        .form-error {
-            @include formError;
-        }
-        /////////////// fields input styling
-        .formik-fields {
-            @include formikFields;
-            border-radius: 0px;
+
+            /////////////// Form Error Msg
+            .form-error {
+                @include formError;
+            }
+            /////////////// fields input styling
+            .formik-fields {
+                @include formikFields;
+            }
         }
         ///// submit button google login styling
         .form-btn,
         a {
             @include formButton;
             background-color: none;
+            text-transform: none;
         }
         //////// forgot password link. links to signup for now.
         .forgot-password {
+            text-decoration: none;
+            font-size: 1.6rem;
             color: $carpalWhite;
             background-color: $carpalGreen;
             border: none;
-
+            margin: 10px;
             &:hover {
                 color: $carpalRose;
                 background-color: $carpalGreen;
+                border: none;
             }
             &:active {
-                color: $carpalYellow;
+                color: $carpalRose;
                 background-color: $carpalGreen;
+                border: none;
             }
         }
     }
@@ -79,10 +86,10 @@
             @include formTitle;
             font-size: 2rem;
             margin-bottom: 5px;
-        }
-        // signup button / link
-        .signup-link {
-            @include Link;
+            // signup button / link
+            .signup-link {
+                @include Link;
+            }
         }
     }
 }

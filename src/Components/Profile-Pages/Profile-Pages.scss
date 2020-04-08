@@ -1,20 +1,42 @@
+// variables/mixins file path "importing your global styles."
+@import "../Styles/_variables.scss";
+/////////////OVERIDES DEFAULT BROWSER INPUT STYLING
+@include formWebKit;
+
 .profileHeader {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    padding: 15px 0;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .headerDetails {
-    width: 50%;
     font-size: x-large;
-    margin: 10px 0 10px 1em;
-
+    padding: 10px;
     h3 {
         margin: 10px 0;
+        font-size: 1.8rem;
+
+        @include respond-to("mobile") {
+            font-size: 2.2rem;
+        }
     }
     .bold {
         font-weight: 600;
+    }
+}
+
+.profileDetails {
+    padding: 0 5%;
+    h2 {
+        text-transform: initial;
+        font-weight: initial;
+        font-size: 1.25rem;
+        margin-top: 2em;
+        margin-bottom: 10px;
     }
 }
 
@@ -24,19 +46,12 @@
     flex-wrap: wrap;
     padding: 0.5rem 0;
 }
+
 .bar {
     width: 100%;
     background-color: #04ccbb;
     height: 2rem;
-    margin-top: 15px;
     margin-bottom: 15px;
-}
-
-h2 {
-    font-size: 1.25rem;
-    font-weight: 400;
-    margin-top: 2em;
-    margin-bottom: 10px;
 }
 
 .bubble {
@@ -48,6 +63,7 @@ h2 {
     border-radius: 20px;
     margin: 0 10px;
 }
+
 .flexContainer {
     display: flex;
     justify-content: space-evenly;
@@ -66,15 +82,19 @@ h2 {
     color: white;
     margin-top: 12px;
 }
+
 .headerImage {
     display: inline-block;
     position: relative;
+    padding: 10px;
 }
+
 .headerImage .profilePic {
     width: 10rem;
     height: 10rem;
     border-radius: 55%;
 }
+
 .headerImage .overlaybutton {
     position: absolute;
     background-color: whitesmoke;
@@ -97,7 +117,8 @@ h2 {
 .buttonContainer {
     text-align: center;
 }
-.formik-fields-multi {    
+
+.formik-fields-multi {
     width: 100%;
     padding: 2px 20px;
     margin: 10px 0px;
@@ -106,40 +127,46 @@ h2 {
     border: none;
     background-color: #04ccbb;
     border-bottom: 2px solid #f3f4f4;
-    outline: none;  
-    height: 250px; 
+    outline: none;
+    height: 250px;
     border-radius: 20px;
-  }
-.container {
-    display: flex;
-    padding-top: 300px;
 }
-  .formik-fields {
+
+////////////////////////Edit/Update Profile styles.
+.formik-fields {
+    // @include formLabel;
     width: 100%;
     padding: 10px 20px;
     margin: 10px 0px;
     box-sizing: border-box;
     border: none;
-    background-color: #04ccbb;
-    border-bottom: 2px solid #f3f4f4;
-    outline: none; 
-    border-radius: 20px;  
-  }
-  .formik-container {
+    background-color: $carpalGreen;
+    border-bottom: 2px solid $carpalWhite;
+    outline: none;
+    // border-radius: 20px;
+}
+
+.formik-container {
+    // @include formContainer;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-width: 200px;
-    // width: 100%;
-    margin: 20px;
-    height: 67em;
-    background-color: white;
-    border-radius: 10px;
-    padding: 10px;    
-  }
-  .one {
-      padding: 5px;
-      border-radius: 25px;
-  }
- 
+    background-color: $carpalGreen;
+    max-width: 500px;
+    padding: 20px;
+    margin: 0 auto;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    // max-width: 500px;
+    // margin: 0 auto;
+    // background-color: white;
+    // padding: 10px;
+}
+
+.one {
+    padding: 5px;
+    border-radius: 25px;
+}
