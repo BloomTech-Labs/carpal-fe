@@ -1,6 +1,8 @@
 // variables/mixins file path "importing your global styles."
 @import "../Styles/_variables.scss";
 /////////// User Profile Container
+// .container {
+////////user img and user details
 .profileHeader {
     width: 100%;
     display: flex;
@@ -9,25 +11,64 @@
     padding: 15px 0;
     max-width: 600px;
     margin: 0 auto;
-}
 
-.headerDetails {
-    font-size: x-large;
-    padding: 10px;
-    h3 {
-        margin: 10px 0;
-        font-size: 1.8rem;
-
-        @include respond-to("mobile") {
-            font-size: 2.2rem;
+    .headerImage {
+        display: inline-block;
+        position: relative;
+        padding: 10px;
+        .profilePic {
+            width: 10rem;
+            height: 10rem;
+            border-radius: 55%;
+        }
+        .overlaybutton {
+            position: absolute;
+            background-color: $carpalWhite;
+            font-size: 10px;
+            bottom: 6em;
+            right: 3em;
+            color: $carpalGreen;
+            padding: 1em 1.25em;
+            border-radius: 12px;
+            width: 5rem;
+            height: 0rem;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
         }
     }
-    .bold {
-        font-weight: 600;
+
+    .headerDetails {
+        font-size: x-large;
+        padding: 10px;
+        h3 {
+            margin: 10px 0;
+            font-size: 1.8rem;
+
+            @include respond-to("mobile") {
+                font-size: 2.2rem;
+            }
+        }
+        .bold {
+            font-weight: 600;
+        }
     }
 }
+///////////dividing bar
+.bar {
+    width: 100%;
+    background-color: $carpalGreen;
+    height: 2rem;
+    margin-bottom: 15px;
+}
 
+//////////////
 .profileDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 0 5%;
     h2 {
         text-transform: initial;
@@ -36,20 +77,13 @@
         margin-top: 2em;
         margin-bottom: 10px;
     }
-}
 
-.profileSection {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding: 0.5rem 0;
-}
-
-.bar {
-    width: 100%;
-    background-color: $carpalGreen;
-    height: 2rem;
-    margin-bottom: 15px;
+    .profileSection {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding: 0.5rem 0;
+    }
 }
 
 .bubble {
@@ -69,52 +103,23 @@
     flex-direction: row;
 }
 
-.edit {
-    background-color: $carpalGreen;
-    border: none;
-    border-radius: 12px;
-    width: 75%;
-    font-size: larger;
-    text-transform: uppercase;
-    height: 4rem;
-    color: white;
-    margin-top: 12px;
-}
-
-.headerImage {
-    display: inline-block;
-    position: relative;
-    padding: 10px;
-}
-
-.headerImage .profilePic {
-    width: 10rem;
-    height: 10rem;
-    border-radius: 55%;
-}
-
-.headerImage .overlaybutton {
-    position: absolute;
-    background-color: whitesmoke;
-    font-size: 10px;
-    bottom: 6em;
-    right: 3em;
-    color: $carpalGreen;
-    text-transform: uppercase;
-    padding: 1em 1.25em;
-    border-radius: 12px;
-    width: 5rem;
-    height: 0rem;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-}
-
+///////////Profile Page Button and Button Container
 .buttonContainer {
     text-align: center;
+    text-transform: none;
+    .edit {
+        background-color: $carpalGreen;
+        border: none;
+        border-radius: 12px;
+        width: 75%;
+        font-size: larger;
+        text-transform: uppercase;
+        height: 4rem;
+        color: white;
+        margin-top: 12px;
+    }
 }
+// }
 
 // .formik-fields-multi {
 //     width: 100%;
@@ -130,7 +135,7 @@
 //     border-radius: 20px;
 // }
 
-////////////////////////Edit/Update Profile Container.
+////////////////////////Edit/Update Profile Container and Form.
 .formik-container {
     display: flex;
     flex-direction: column;
@@ -140,9 +145,10 @@
     max-width: 500px;
     border-radius: 20px;
     padding: 40px;
-    margin: 0 auto;
+    margin: 50px auto;
     /////Input fields
-    .formik-fields {
+    .formik-fields,
+    option {
         font-family: inherit;
         font-size: 1.6rem;
         width: 100%;
@@ -153,5 +159,17 @@
         border-bottom: 2px solid $carpalWhite;
         color: $carpalWhite;
         outline: none;
+    }
+    .form-btn {
+        font-family: inherit;
+        font-size: 1.6rem;
+        color: $carpalWhite;
+        background-color: $carpalGreen;
+        border: 1px solid $carpalWhite;
+        border-radius: 20px;
+        padding: 10px 30px;
+        margin: 10px;
+        cursor: pointer;
+        text-decoration: none;
     }
 }

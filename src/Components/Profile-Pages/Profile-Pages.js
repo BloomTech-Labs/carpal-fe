@@ -66,7 +66,7 @@ function ProfilePage(props) {
     }
 
     return (
-        <div className="contanier">
+        <div className="container">
             {/* if isEditing is set to true, form displays */}
             {props.isEditing ? (
                 <UpdateProfile />
