@@ -4,7 +4,8 @@ import {
     REQUEST_ERROR,
     SET_USER,
     SET_EDITING,
-    SET_PROFILE_UPDATE
+    SET_PROFILE_UPDATE,
+    SET_FAVORITE_LOCATION
 } from "../Actions/UserAction";
 
 const initialState = {
@@ -18,7 +19,13 @@ const initialState = {
         isDriver: false,
         hobbies: [],
         audio_love: [],
-        audio_hate: []
+        audio_hate: [],
+        favoriteLocation: [
+            {
+                latitude: 32.715736,
+                longitude: -117.161087
+            }
+        ]
     },
     isEditing: false
 };
@@ -46,7 +53,11 @@ export function UserReducer(state = initialState, action) {
         case SET_USER:
             return {
                 ...state,
-                user: action.payload
+
+                user: {
+                    ...state.user,
+                    ...action.payload
+                }
             };
         case SET_EDITING:
             return {
@@ -57,6 +68,17 @@ export function UserReducer(state = initialState, action) {
             return {
                 ...state,
                 user: action.payload
+            };
+        case SET_FAVORITE_LOCATION:
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    favoriteLocation: [
+                        ...state.user.favoriteLocation,
+                        action.payload
+                    ]
+                }
             };
         default:
             return state;
