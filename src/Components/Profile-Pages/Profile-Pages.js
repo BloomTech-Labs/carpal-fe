@@ -8,13 +8,14 @@ import {
     SetUserAction,
     EditProfileAction
 } from "../../Redux/Actions/UserAction";
+import MapBox from "../MapBox/MapBox";
 
 //TODO - Test Use Effect with Seed Data
 //TODO - Setup input for image, and coordinate with BE for storage via S3 bucket
 //TODO - Create Loading Spinner Component
 
 function ProfilePage(props) {
-    const { errors, touched } = props;
+    // const { errors, touched } = props;
     const [user, setUser] = useState({
         // first_name: "",
         // last_name: "",
@@ -57,7 +58,7 @@ function ProfilePage(props) {
             audio_love: props.user.audio_love,
             audio_hate: props.user.audio_hate
         });
-        console.log(user)
+        console.log(user);
     }, [props.user]);
 
     function onEditProfileSubmit(e) {
@@ -101,7 +102,7 @@ function ProfilePage(props) {
                                 </div>
                             </div>
                             <div className="bar"></div>
-                            <div className="profileDetails">
+                            <div className="profileDetails" style={{width: '100%'}}>
                                 {user.isDriver ? (
                                     <h2>You are a Driver</h2>
                                 ) : (
@@ -110,38 +111,45 @@ function ProfilePage(props) {
                                 <div className="profileSection">
                                     <h2>Hobbies</h2>
                                     <div className="flexContainer">
-                                        {user.hobbies && user.hobbies.map(hobby => (
-                                            <div className="bubble" key={hobby}>
-                                                {hobby}
-                                            </div>
-                                        ))}
+                                        {user.hobbies &&
+                                            user.hobbies.map((hobby) => (
+                                                <div
+                                                    className="bubble"
+                                                    key={hobby}
+                                                >
+                                                    {hobby}
+                                                </div>
+                                            ))}
                                     </div>
 
                                     <h2>Audio I Love</h2>
                                     <div className="flexContainer">
-                                        {user.audio_love && user.audio_love.map(audioLove => (
-                                            <div
-                                                className="bubble"
-                                                key={audioLove}
-                                            >
-                                                {audioLove}
-                                            </div>
-                                        ))}
+                                        {user.audio_love &&
+                                            user.audio_love.map((audioLove) => (
+                                                <div
+                                                    className="bubble"
+                                                    key={audioLove}
+                                                >
+                                                    {audioLove}
+                                                </div>
+                                            ))}
                                     </div>
 
                                     <h2>Audio I Hate</h2>
                                     <div className="flexContainer">
-                                        {user.audio_hate && user.audio_hate.map(audioHate => (
-                                            <div
-                                                className="bubble"
-                                                key={audioHate}
-                                            >
-                                                {audioHate}
-                                            </div>
-                                        ))}
+                                        {user.audio_hate &&
+                                            user.audio_hate.map((audioHate) => (
+                                                <div
+                                                    className="bubble"
+                                                    key={audioHate}
+                                                >
+                                                    {audioHate}
+                                                </div>
+                                            ))}
                                     </div>
                                 </div>
                                 {/* Mapbox will go here */}
+                              
                                 <div className="buttonContainer">
                                     <button
                                         className="edit"
@@ -150,6 +158,7 @@ function ProfilePage(props) {
                                         Edit Profile
                                     </button>
                                 </div>
+                                <MapBox />
                             </div>
                         </>
                     ) : (
@@ -162,7 +171,7 @@ function ProfilePage(props) {
     );
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     user: state.user.user,
     isLoading: state.user.isLoading,
     error: state.user.error,

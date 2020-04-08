@@ -1,17 +1,29 @@
 import React, { useState } from "react";
+import { Field } from "formik";
 
-const InputTags = props => {
-
+const InputTags = (props) => {
     return (
         <div className="input-tag">
+            {props.name} :
             <ul className="input-tag__tags">
-                <li>
-                    Tag
-                    <button type="button">Remove</button>
-                </li>
+                {props.items.map((tag, i) => (
+                    <li key={i}>
+                        {tag}
+                        <button
+                            type="button"
+                            onClick={(e) => props.removeTag(e, i, props.name)}
+                        >
+                            Remove
+                        </button>
+                    </li>
+                ))}
 
                 <li className="">
-                    <input type="text" name={props.name} onKeyDown={e => props.handleInput(e)}/>
+                    <input
+                        name={props.name}
+                        type="text"
+                        onKeyDown={(e) => props.handleInput(e)}
+                    />
                 </li>
             </ul>
         </div>
