@@ -66,13 +66,13 @@ function ProfilePage(props) {
     }
 
     return (
-        <div className="container">
+        <div className="Page-Container">
             {/* if isEditing is set to true, form displays */}
             {props.isEditing ? (
                 <UpdateProfile />
             ) : (
                 // if isEditing is false, display profile page
-                <div className="container">
+                <div className="Profile-Container">
                     {user.phone_number ? (
                         // on profile page, if user already has a phone number (stand in for profile),
                         <>
@@ -108,8 +108,9 @@ function ProfilePage(props) {
                                     <h2>You are a Rider</h2>
                                 )}
                                 <div className="profileSection">
-                                    <h2>Hobbies</h2>
+                                    {/* <h2>Hobbies</h2> */}
                                     <div className="flexContainer">
+                                        <h2>Hobbies</h2>
                                         {user.hobbies &&
                                             user.hobbies.map((hobby) => (
                                                 <div
@@ -121,8 +122,8 @@ function ProfilePage(props) {
                                             ))}
                                     </div>
 
-                                    <h2>Audio I Love</h2>
                                     <div className="flexContainer">
+                                        <h2>Audio I Love</h2>
                                         {user.audio_love &&
                                             user.audio_love.map((audioLove) => (
                                                 <div
@@ -134,8 +135,8 @@ function ProfilePage(props) {
                                             ))}
                                     </div>
 
-                                    <h2>Audio I Hate</h2>
                                     <div className="flexContainer">
+                                        <h2>Audio I Hate</h2>
                                         {user.audio_hate &&
                                             user.audio_hate.map((audioHate) => (
                                                 <div
@@ -147,6 +148,7 @@ function ProfilePage(props) {
                                             ))}
                                     </div>
                                 </div>
+                                {/* profileSection */}
                                 {/* Mapbox will go here */}
                                 <div className="buttonContainer">
                                     <button
@@ -157,14 +159,15 @@ function ProfilePage(props) {
                                     </button>
                                 </div>
                             </div>
+                            {/* profileDetails */}
                         </>
                     ) : (
                         // on profile page, if user doesn't have phone number (stand in for profile), redirect to form?
                         <UpdateProfile />
                     )}
-                </div>
+                </div> // Profile-Container
             )}
-        </div>
+        </div> // Page-Container
     );
 }
 

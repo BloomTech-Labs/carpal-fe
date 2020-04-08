@@ -11,7 +11,6 @@
     padding: 15px 0;
     max-width: 600px;
     margin: 0 auto;
-
     .headerImage {
         display: inline-block;
         position: relative;
@@ -39,7 +38,6 @@
             text-decoration: none;
         }
     }
-
     .headerDetails {
         font-size: x-large;
         padding: 10px;
@@ -61,81 +59,68 @@
     width: 100%;
     background-color: $carpalGreen;
     height: 2rem;
-    margin-bottom: 15px;
 }
-
-//////////////
+////////////// user profile selected likes etc
 .profileDetails {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 5%;
-    h2 {
-        text-transform: initial;
-        font-weight: initial;
-        font-size: 1.25rem;
-        margin-top: 2em;
-        margin-bottom: 10px;
-    }
-
+    background-color: blue;
     .profileSection {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         padding: 0.5rem 0;
+        background-color: green;
+
+        .flexContainer {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: row;
+            background-color: yellow;
+
+            h2 {
+                background-color: red;
+                text-transform: initial;
+                font-weight: initial;
+                font-size: 1.25rem;
+                padding: 10px;
+                margin: 2em 2em;
+            }
+
+            .bubble {
+                text-align: center;
+                padding: 5px;
+                background: $carpalGreen;
+                -webkit-border-radius: 20px;
+                -moz-border-radius: 20px;
+                border-radius: 20px;
+                margin: 0 10px;
+            }
+        }
+        ///////////Profile Page Button and Button Container
+        .buttonContainer {
+            text-align: center;
+            text-transform: none;
+            .edit {
+                background-color: $carpalGreen;
+                border: none;
+                border-radius: 12px;
+
+                font-size: larger;
+                height: 4rem;
+                color: white;
+                padding: 10px 30px;
+                margin-top: 12px;
+            }
+        }
     }
 }
 
-.bubble {
-    text-align: center;
-    padding: 5px;
-    background: $carpalGreen;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
-    margin: 0 10px;
-}
-
-.flexContainer {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: row;
-}
-
-///////////Profile Page Button and Button Container
-.buttonContainer {
-    text-align: center;
-    text-transform: none;
-    .edit {
-        background-color: $carpalGreen;
-        border: none;
-        border-radius: 12px;
-        width: 75%;
-        font-size: larger;
-        text-transform: uppercase;
-        height: 4rem;
-        color: white;
-        margin-top: 12px;
-    }
-}
 // }
 
-// .formik-fields-multi {
-//     width: 100%;
-//     padding: 2px 20px;
-//     margin: 10px 0px;
-//     box-sizing: border-box;
-//     min-height: 100px;
-//     border: none;
-//     background-color: $carpalGreen;
-//     border-bottom: 2px solid #f3f4f4;
-//     outline: none;
-//     height: 250px;
-//     border-radius: 20px;
-// }
-
-////////////////////////Edit/Update Profile Container and Form.
+////////////////////////Edit/Update Profile Container and Form////////////////////////
 .formik-container {
     display: flex;
     flex-direction: column;
