@@ -110,7 +110,10 @@ function ProfilePage(props) {
                                 <div className="profileSection">
                                     {/* <h2>Hobbies</h2> */}
                                     <div className="flexContainer">
+<<<<<<< HEAD
                                         <h2>Hobbies</h2>
+=======
+>>>>>>> 8218d881aeab8a0590753a0a233d0a89200d4534
                                         {user.hobbies &&
                                             user.hobbies.map((hobby) => (
                                                 <div
@@ -123,7 +126,10 @@ function ProfilePage(props) {
                                     </div>
 
                                     <div className="flexContainer">
+<<<<<<< HEAD
                                         <h2>Audio I Love</h2>
+=======
+>>>>>>> 8218d881aeab8a0590753a0a233d0a89200d4534
                                         {user.audio_love &&
                                             user.audio_love.map((audioLove) => (
                                                 <div
@@ -136,7 +142,10 @@ function ProfilePage(props) {
                                     </div>
 
                                     <div className="flexContainer">
+<<<<<<< HEAD
                                         <h2>Audio I Hate</h2>
+=======
+>>>>>>> 8218d881aeab8a0590753a0a233d0a89200d4534
                                         {user.audio_hate &&
                                             user.audio_hate.map((audioHate) => (
                                                 <div
