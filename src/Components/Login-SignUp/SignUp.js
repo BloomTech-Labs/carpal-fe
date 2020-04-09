@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import "./SignUp.scss";
+import LabelField from '../Form-Components/LabelField';
 
 import { SignUpAction } from "../../Redux/Actions/UserAction";
 
@@ -17,50 +18,15 @@ function SignUp(props) {
                 <p role="signup-component" className="signup-p">
                     Sign Up
                 </p>
-                <label className="field-label">
-                    {touched.first_name && errors.first_name && (
-                        <p className="form-error">{errors.first_name}</p>
-                    )}
-                    <Field
-                        className="formik-fields"
-                        type="text"
-                        name="first_name"
-                        placeholder="First Name"
-                    />
-                </label>
-                <label className="field-label">
-                    {touched.last_name && errors.last_name && (
-                        <p className="form-error">{errors.last_name}</p>
-                    )}
-                    <Field
-                        className="formik-fields"
-                        type="text"
-                        name="last_name"
-                        placeholder="Last Name"
-                    />
-                </label>
-                <label className="field-label">
-                    {touched.email && errors.email && (
-                        <p className="form-error">{errors.email}</p>
-                    )}
-                    <Field
-                        className="formik-fields"
-                        type="email"
-                        name="email"
-                        placeholder="Email@email.com"
-                    />
-                </label>
-                <label className="field-label">
-                    {touched.password && errors.password && (
-                        <p className="form-error">{errors.password}</p>
-                    )}
-                    <Field
-                        className="formik-fields"
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                    />
-                </label>
+
+                <LabelField name="first_name" type="text" placeholder="First Name" touched={touched.first_name} error={errors.first_name} />
+
+                <LabelField name="last_name" type="text" placeholder="Last Name" touched={touched.last_name} error={errors.last_name} />
+
+                <LabelField name="email" type="email" placeholder="Email@email.com" touched={touched.email} error={errors.email} />
+                
+                <LabelField name="password" type="password" placeholder="Password" touched={touched.password} error={errors.password} />
+
                 <button className="form-btn" type="submit">
                     Submit
                 </button>
