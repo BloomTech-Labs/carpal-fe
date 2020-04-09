@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import UpdateProfile from "./UpdateProfile";
 import "./Profile-Pages.scss";
+import userDetail from "./userDetail";
 
 import { connect } from "react-redux";
 
@@ -16,31 +17,14 @@ import MapBox from "../MapBox/MapBox";
 
 function ProfilePage(props) {
     // const { errors, touched } = props;
-    const [user, setUser] = useState({
-        // first_name: "",
-        // last_name: "",
-        // phone_number: "",
-        // email: "",
-        // is_driver: false,
-        // hobbies: [],
-        // audio_love: [],
-        // audio_hate: []
-    });
+    const [user, setUser] = useState({});
 
     useEffect(() => {
         if (!props.user.first_name) {
             props.SetUserAction();
         }
         setUser({
-            ...user,
-            first_name: props.user.first_name,
-            last_name: props.user.last_name,
-            phone_number: props.user.phone_number,
-            email: props.user.email,
-            is_driver: props.user.is_driver,
-            hobbies: props.user.hobbies,
-            audio_love: props.user.audio_love,
-            audio_hate: props.user.audio_hate
+            ...props.user
         });
     }, [props.user]);
 
@@ -92,45 +76,11 @@ function ProfilePage(props) {
                                     <h2>You are a Rider</h2>
                                 )}
                                 <div className="profileSection">
-                                    {/* <h2>Hobbies</h2> */}
-                                    {/* <div className="flexContainer">
-                                        <h2>Hobbies</h2>
-                                        {user.hobbies &&
-                                            user.hobbies.map((hobby) => (
-                                                <div
-                                                    className="bubble"
-                                                    key={hobby}
-                                                >
-                                                    {hobby}
-                                                </div>
-                                            ))}
-                                    </div>
+                                    {/* <userDetail title="Hobbies" item={user.hobbies} />
 
-                                    <div className="flexContainer">
-                                        <h2>Audio I Love</h2>
-                                        {user.audio_love &&
-                                            user.audio_love.map((audioLove) => (
-                                                <div
-                                                    className="bubble"
-                                                    key={audioLove}
-                                                >
-                                                    {audioLove}
-                                                </div>
-                                            ))}
-                                    </div>
+                                    <userDetail title="Audio I love" item={user.audio_love} />
 
-                                    <div className="flexContainer">
-                                        <h2>Audio I Hate</h2>
-                                        {user.audio_hate &&
-                                            user.audio_hate.map((audioHate) => (
-                                                <div
-                                                    className="bubble"
-                                                    key={audioHate}
-                                                >
-                                                    {audioHate}
-                                                </div>
-                                            ))}
-                                    </div> */}
+                                    <userDetail title="Audio I hate" item={user.audio_hate} /> */}
                                 </div>
                                 {/* profileSection */}
 

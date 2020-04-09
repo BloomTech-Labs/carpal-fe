@@ -21,16 +21,7 @@ import {
 
 function UpdateProfile(props) {
     const { errors, touched } = props;
-    const [user, setUser] = useState({
-        first_name: "",
-        last_name: "",
-        phone_number: "",
-        email: "",
-        is_driver: false,
-        hobbies: [],
-        audioLikes: [],
-        audioDislikes: []
-    });
+    const [user, setUser] = useState({});
 
     // const handleInput = (e) => {
     //     if (e.key === "Enter" && e.target.value) {
