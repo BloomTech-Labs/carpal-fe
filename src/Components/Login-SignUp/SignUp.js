@@ -84,7 +84,7 @@ function SignUp(props) {
 }
 
 const SignUpForm = withFormik({
-    mapPropsToValues: values => {
+    mapPropsToValues: (values) => {
         return {
             first_name: values.first_name || "",
             last_name: values.last_name || "",
@@ -103,7 +103,7 @@ const SignUpForm = withFormik({
             .required("Please enter your password.")
     }),
     handleSubmit(values, { props }) {
-        props.SignUpAction(values);
+        props.SignUpAction(values, props);
     }
 })(SignUp);
 
