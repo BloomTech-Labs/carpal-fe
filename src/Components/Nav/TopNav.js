@@ -6,7 +6,7 @@ import "./TopNav.scss";
 
 export default function TopNav() {
     // temp hamburger animation
-    const hideElement = event => {
+    const hideElement = (event) => {
         event.preventDefault();
         let hamburger = document.getElementById("hamburger");
         let topnav = document.getElementById("hamburger-nav");
@@ -21,7 +21,11 @@ export default function TopNav() {
             </Link>
             <Link to="/">CarPal</Link>
             {/* Anything in this NAV is within the Hamburger Menu */}
-            <nav className="hamburger-nav" id="hamburger-nav">
+            <nav
+                className="hamburger-nav"
+                id="hamburger-nav"
+                onClick={hideElement}
+            >
                 <Link to="/login">Login</Link>
                 <Link to="/signup">Sign Up</Link>
             </nav>

@@ -16,7 +16,7 @@ const initialState = {
         last_name: "",
         phone_number: "",
         email: "",
-        isDriver: false,
+        is_driver: true,
         hobbies: [],
         audio_love: [],
         audio_hate: [],
