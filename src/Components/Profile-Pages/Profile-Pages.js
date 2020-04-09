@@ -27,22 +27,6 @@ function ProfilePage(props) {
         // audio_hate: []
     });
 
-    // useEffect(() => {
-    //     if (isLoggedIn && !user) {
-    //         console.log("use effect works");
-    //         axios
-    //             .get(`${userEndpoint}`)
-    //             .then(res => {
-    //                 setUser([...user, user]);
-    //                 setLoad(true);
-    //             })
-    //             .catch(err => {
-    //                 setError(err.message);
-    //                 setLoad(true);
-    //             });
-    //     }
-    // }, [user]);
-
     useEffect(() => {
         if (!props.user.first_name) {
             props.SetUserAction();
@@ -53,12 +37,11 @@ function ProfilePage(props) {
             last_name: props.user.last_name,
             phone_number: props.user.phone_number,
             email: props.user.email,
-            isDriver: props.user.isDriver,
+            is_driver: props.user.is_driver,
             hobbies: props.user.hobbies,
             audio_love: props.user.audio_love,
             audio_hate: props.user.audio_hate
         });
-        console.log(user);
     }, [props.user]);
 
     function onEditProfileSubmit(e) {
@@ -94,7 +77,7 @@ function ProfilePage(props) {
                                 </div>
                                 <div className="headerDetails">
                                     <h3 role="header name" className="bold">
-                                        {user.first_name}
+                                        {user.first_name}&nbsp;
                                         {user.last_name}
                                     </h3>
                                     <h3>{user.email}</h3>
@@ -102,15 +85,15 @@ function ProfilePage(props) {
                                 </div>
                             </div>
                             <div className="bar"></div>
-                            <div className="profileDetails" style={{width: '100%'}}>
-                                {user.isDriver ? (
+                            <div className="profileDetails">
+                                {user.is_driver ? (
                                     <h2>You are a Driver</h2>
                                 ) : (
                                     <h2>You are a Rider</h2>
                                 )}
                                 <div className="profileSection">
                                     {/* <h2>Hobbies</h2> */}
-                                    <div className="flexContainer">
+                                    {/* <div className="flexContainer">
                                         <h2>Hobbies</h2>
                                         {user.hobbies &&
                                             user.hobbies.map((hobby) => (
@@ -147,11 +130,12 @@ function ProfilePage(props) {
                                                     {audioHate}
                                                 </div>
                                             ))}
-                                    </div>
+                                    </div> */}
                                 </div>
                                 {/* profileSection */}
-                                {/* Mapbox will go here */}
-                              
+
+                                <MapBox />
+
                                 <div className="buttonContainer">
                                     <button
                                         className="edit"
@@ -160,7 +144,6 @@ function ProfilePage(props) {
                                         Edit Profile
                                     </button>
                                 </div>
-                                <MapBox />
                             </div>
                             {/* profileDetails */}
                         </>

@@ -10,7 +10,6 @@ export const SET_FAVORITE_LOCATION = "SET_FAVORITE_LOCATION";
 export function SignUpAction(user, props) {
     return (dispatch) => {
         dispatch({ type: REQUEST_START });
-        console.log(user);
         api()
             .post("/auth/register", user)
             .then((res) => {
@@ -39,7 +38,6 @@ export function LogInAction(user, props) {
             .catch((err) => {
                 dispatch({ type: REQUEST_ERROR, payload: err });
             });
-        console.log(user);
     };
 }
 
@@ -66,9 +64,8 @@ export function SetProfileUpdate(user) {
     return (dispatch) => {
         dispatch({ type: REQUEST_START });
         api()
-            .put("/auth/update", user)
+            .put("/users/update", user)
             .then((res) => {
-                console.log(res.data);
                 dispatch({ type: SET_USER, payload: res.data });
                 dispatch({ type: REQUEST_SUCCESS });
             })
