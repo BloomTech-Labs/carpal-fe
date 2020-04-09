@@ -8,6 +8,7 @@ import {
     SetUserAction,
     EditProfileAction
 } from "../../Redux/Actions/UserAction";
+import MapBox from "../MapBox/MapBox";
 
 //TODO - Test Use Effect with Seed Data
 //TODO - Setup input for image, and coordinate with BE for storage via S3 bucket
@@ -101,7 +102,7 @@ function ProfilePage(props) {
                                 </div>
                             </div>
                             <div className="bar"></div>
-                            <div className="profileDetails">
+                            <div className="profileDetails" style={{width: '100%'}}>
                                 {user.isDriver ? (
                                     <h2>You are a Driver</h2>
                                 ) : (
@@ -150,6 +151,7 @@ function ProfilePage(props) {
                                 </div>
                                 {/* profileSection */}
                                 {/* Mapbox will go here */}
+                              
                                 <div className="buttonContainer">
                                     <button
                                         className="edit"
@@ -158,6 +160,7 @@ function ProfilePage(props) {
                                         Edit Profile
                                     </button>
                                 </div>
+                                <MapBox />
                             </div>
                             {/* profileDetails */}
                         </>
