@@ -20,7 +20,11 @@ function MapBox(props) {
         position: "center",
         container: "mapContainer"
     });
-
+    //State for keeping track of the Markers long/lat
+    const [marker, setMarker ] = useState({
+        latitude: props.favoriteLocation[0].latitude,
+        longitude: props.favoriteLocation[0].longitude,
+    })
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(getUserLocation);
     }, []);
@@ -32,6 +36,11 @@ function MapBox(props) {
             latitude: crd.latitude,
             longitude: crd.longitude
         });
+        //When we Get users location we set the marker to the users current location
+        setMarker({
+            latitude: crd.latitude,
+            longitude: crd.longitude 
+        })
     };
 
     const handleDragEnd = (event) => {
@@ -40,6 +49,11 @@ function MapBox(props) {
             longitude: event.lngLat[0],
             latitude: event.lngLat[1]
         });
+        //Update Users location on dragend
+        setMarker({
+            longitude: event.lngLat[0],
+            latitude: event.lngLat[1]
+        })
     };
     return (
         <div className="map">
@@ -51,8 +65,8 @@ function MapBox(props) {
                 }}
             >
                 <Marker
-                    latitude={viewport.latitude}
-                    longitude={viewport.longitude}
+                    latitude={marker.latitude}
+                    longitude={marker.longitude}
                     offsetLeft={-10}
                     offsetTop={-10}
                     draggable={true}
