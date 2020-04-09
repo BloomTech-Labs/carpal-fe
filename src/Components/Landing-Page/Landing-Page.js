@@ -15,7 +15,6 @@ function LandingPage() {
                 <video className="slider" autoPlay loop muted>
                     <source src={Slider} type="video/mp4" />
                 </video>
-                
                 <Link to="/Signup"> 
                     <a className="overlaybutton" href={dashboard}>Sign Up</a>
                 </Link>
@@ -92,7 +91,6 @@ function LandingPage() {
             </Link>
             
             </section>
-            
         </div>
          
         

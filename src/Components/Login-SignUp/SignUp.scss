@@ -7,21 +7,23 @@
     @include pageBody;
     background-color: $carpalGreen;
     max-width: 800px;
+    padding: 20px;
+    margin-top: 50px;
+
     //tablet media breakpoint
     @include respond-to("tablet") {
-        border-bottom-right-radius: 20px;
-        border-bottom-left-radius: 20px;
+        border-radius: 20px;
     }
     //desktop media breakpoint
     @include respond-to("desktop") {
         flex-direction: row;
-        border-bottom-right-radius: 20px;
-        border-bottom-left-radius: 20px;
+        border-radius: 20px;
     }
     //////////////////form container
     .formik-container {
         @include formContainer;
         background-color: $carpalGreen;
+        margin: 20px;
         ////////////////// signup form title
         .signup-p {
             @include formTitle;
@@ -29,19 +31,20 @@
         ////////////////// Field Labels
         .field-label {
             @include formLabel;
-        }
-        // error styling
-        .form-error {
-            @include formError;
-        }
-        /////////////// fields input styling
-        .formik-fields {
-            @include formikFields;
-            border-radius: 0px;
+
+            /////////////// Form Error Msg
+            .form-error {
+                @include formError;
+            }
+            /////////////// fields input styling
+            .formik-fields {
+                @include formikFields;
+            }
         }
         ///// submit button styling
         .form-btn {
             @include formButton;
+            text-transform: none;
         }
     }
     //login container for ppl already a user.

@@ -1,9 +1,5 @@
-.App {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 25px;
-    margin-bottom: 12px;
-
+.container {
+    max-width: 1500px;
+    margin   : 0 auto;
+    padding  : 0 0 70px;
 }
