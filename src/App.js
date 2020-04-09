@@ -9,17 +9,21 @@ import ProfilePage from "../src/Components/Profile-Pages/Profile-Pages";
 import LandingPage from "../src/Components/Landing-Page/Landing-Page";
 import ProtectedRoute from "../src/Utils/ProtectedRoute";
 
+import "./App.scss";
+
 //TODO: update app to include loader if isLoading
 
 function App() {
     return (
-        <div className="App" role="App">
+      <div className="App" role="App">
             <TopNav />
+      <div className="container">
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
             <ProtectedRoute exact path="/profilepage" component={ProfilePage} />
             <ProtectedRoute exact path="/dashboard" component={Dashboard} />
             <Route exact path="/" component={LandingPage} />
+            </div>
             <Nav />
         </div>
     );
