@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Form, withFormik, Field } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
 
-import InputTags from "./InputTags";
+// import InputTags from "./InputTags";
+import MapBox from "../MapBox/MapBox";
 
 import "./Profile-Pages.scss";
 
@@ -14,16 +14,6 @@ import {
     EditProfileAction,
     SetProfileUpdate
 } from "../../Redux/Actions/UserAction";
-
-//testing api for local host
-const api = () => {
-    return axios.create({
-        baseURL: "http://localhost:3001/users",
-        headers: {
-            authorization: localStorage.getItem("token")
-        }
-    });
-};
 
 //TODO - Test Use Effect with Seed Data
 //TODO - Setup input for image, and coordinate with BE for storage via S3 bucket
@@ -41,56 +31,33 @@ function UpdateProfile(props) {
         audioLikes: [],
         audioDislikes: []
     });
-    // const {tagError, setTagError} = useState
 
-    useEffect(() => {
-        // setUser({
-        //     ...user,
-        //     first_name: props.user.first_name,
-        //     last_name: props.user.last_name,
-        //     phone_number: props.user.phone_number,
-        //     email: props.user.email,
-        //     is_driver: props.user.is_driver,
-        //     hobbies: props.user.hobbies,
-        //     audioLikes: props.user.audioLikes,
-        //     audioDislikes: props.user.audioDislikes
-        // });
-    }, []);
+    // const handleInput = (e) => {
+    //     if (e.key === "Enter" && e.target.value) {
+    //         if (
+    //             user[e.target.name].find(
+    //                 (tag) => tag.toLowerCase() === e.target.value.toLowerCase()
+    //             )
+    //         ) {
+    //             window.alert(
+    //                 `${e.target.value} is already added to your ${e.target.name}`
+    //             );
+    //             e.target.value = null;
+    //             return;
+    //         }
+    //         setUser({
+    //             ...user,
+    //             [e.target.name]: [...user[e.target.name], e.target.value]
+    //         });
+    //         e.target.value = null;
+    //     }
+    // };
 
-    function onEditProfileSubmit(e) {
-        e.preventDefault();
-        console.log("hello");
-        props.EditProfileAction();
-    }
-
-    const handleInput = (e) => {
-        if (e.key === "Enter" && e.target.value) {
-            if (
-                user[e.target.name].find(
-                    (tag) => tag.toLowerCase() === e.target.value.toLowerCase()
-                )
-            ) {
-                window.alert(
-                    `${e.target.value} is already added to your ${e.target.name}`
-                );
-                e.target.value = null;
-                return;
-            }
-            setUser({
-                ...user,
-                [e.target.name]: [...user[e.target.name], e.target.value]
-                // [e.target.name]: e.target.value
-            });
-            e.target.value = null;
-            console.log(user);
-        }
-    };
-
-    const removeTag = (e, i, name) => {
-        const newTags = [...user[name]];
-        newTags.splice(i, 1);
-        setUser({ ...user, [name]: newTags });
-    };
+    // const removeTag = (e, i, name) => {
+    //     const newTags = [...user[name]];
+    //     newTags.splice(i, 1);
+    //     setUser({ ...user, [name]: newTags });
+    // };
 
     return (
         <div>
@@ -131,7 +98,7 @@ function UpdateProfile(props) {
                     <option value={true}>Yes</option>
                     <option value={false}>No</option>
                 </Field>
-                <InputTags
+                {/* <InputTags
                     handleInput={handleInput}
                     name="hobbies"
                     items={user.hobbies}
@@ -148,15 +115,11 @@ function UpdateProfile(props) {
                     name="audioDislikes"
                     items={user.audioDislikes}
                     removeTag={removeTag}
-                />
-                {/* Mapbox will go here */}
+                /> */}
+                <MapBox />
                 {user.phone_number ? (
                     // if user already has a phone number (stand in for profile), button displays "Update Profile", else "Save Profile"
-                    <button
-                        type="submit"
-                        className="form-btn"
-                        // onClick={onEditProfileSubmit}
-                    >
+                    <button type="submit" className="form-btn">
                         Update Profile
                     </button>
                 ) : (
@@ -177,8 +140,6 @@ const ProfileForm = withFormik({
             email: values.user.email || "",
             phone_number: values.user.phone_number || "",
             is_driver: values.user.role || "",
-            //make another form for user hobbies/audio
-            //or possibly throw this into props and return it on backend ?
             hobbies: values.user.hobbies || [],
             audioDislikes: values.user.audioDislikes || [],
             audioLikes: values.user.audioLikes || []
@@ -190,23 +151,14 @@ const ProfileForm = withFormik({
         email: Yup.string().email().required("Email Required"),
         phone_number: Yup.number().integer().positive().min(10).required(),
         is_driver: Yup.boolean().required("You must select a role"),
-        //make another form for user hobbies/audio
-
-        // hobbies: Yup.string(),
+        hobbies: Yup.string(),
         audioDislikes: Yup.string(),
         audioLikes: Yup.string()
     }),
-    handleSubmit: (values, { setStatus, props }) => {
-        // we can seperate values here, values.first_name, etc
-        //so we are able to make different calls depending on what changed
-        //this could be an insane wait time..
-
-        console.log(values);
-        // api()
-        //     .put("/update", values)
-        //     .then((res) => console.log(res))
-        //     .catch((err) => console.log(err));
-        // props.SetProfileUpdate(user);
+    handleSubmit(values, { props }) {
+        props.SetProfileUpdate(values);
+        props.EditProfileAction();
+        console.log("submit", values);
     }
 })(UpdateProfile);
 

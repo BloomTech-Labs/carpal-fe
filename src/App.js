@@ -15,13 +15,21 @@ import "./App.scss";
 
 function App() {
     return (
-        <div className="App" role="App">
+      <div className="App" role="App">
             <TopNav />
+<<<<<<< HEAD
+=======
+      <div className="container">
+>>>>>>> 3c32856c209a11387174e9dcfa2c5c55fa4bfea0
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
             <ProtectedRoute exact path="/profilepage" component={ProfilePage} />
             <ProtectedRoute exact path="/dashboard" component={Dashboard} />
             <Route exact path="/" component={LandingPage} />
+<<<<<<< HEAD
+=======
+            </div>
+>>>>>>> 3c32856c209a11387174e9dcfa2c5c55fa4bfea0
             <Nav />
         </div>
     );
