@@ -7,6 +7,7 @@ import SignUp from "../src/Components/Login-SignUp/SignUp";
 import Dashboard from "../src/Components/Dashboards/Dashboard";
 import ProfilePage from "../src/Components/Profile-Pages/Profile-Pages";
 import LandingPage from "../src/Components/Landing-Page/Landing-Page";
+import ProtectedRoute from "../src/Utils/ProtectedRoute";
 
 //TODO: update app to include loader if isLoading
 
@@ -16,8 +17,8 @@ function App() {
             <TopNav />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
-            <Route exact path="/profilepage" component={ProfilePage} />
-            <Route exact path="/dashboard" component={Dashboard}/>
+            <ProtectedRoute exact path="/profilepage" component={ProfilePage} />
+            <ProtectedRoute exact path="/dashboard" component={Dashboard} />
             <Route exact path="/" component={LandingPage} />
             <Nav />
         </div>

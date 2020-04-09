@@ -12,12 +12,12 @@ export function SignUpAction(user, props) {
         dispatch({ type: REQUEST_START });
         console.log(user);
         api()
-            .post("/auth/login", user)
+            .post("/auth/register", user)
             .then((res) => {
                 dispatch({ type: REQUEST_SUCCESS });
                 localStorage.setItem("token", res.data.token);
                 dispatch({ type: SET_USER, payload: res.data });
-                props.history.push("/");
+                props.history.push("/dashboard");
             })
             .catch((err) => {
                 dispatch({ type: REQUEST_ERROR, payload: err });
@@ -34,7 +34,7 @@ export function LogInAction(user, props) {
                 dispatch({ type: REQUEST_SUCCESS });
                 localStorage.setItem("token", res.data.token);
                 dispatch({ type: SET_USER, payload: res.data });
-                props.props.history.push("/");
+                props.props.history.push("/dashboard");
             })
             .catch((err) => {
                 dispatch({ type: REQUEST_ERROR, payload: err });

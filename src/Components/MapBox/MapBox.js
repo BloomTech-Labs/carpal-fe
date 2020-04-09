@@ -2,8 +2,13 @@ import React, { useState, useEffect } from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
 import { connect } from "react-redux";
 import Logo from "./../../img/Logo.png";
+import { config } from "dotenv";
+config();
+
+const mapboxAPI = process.env.REACT_APP_MAPBOX_TOKEN;
 
 function MapBox(props) {
+    console.log(mapboxAPI);
     const [viewport, setViewport] = useState({
         latitude: props.favoriteLocation[0].latitude,
         longitude: props.favoriteLocation[0].longitude,
@@ -39,7 +44,7 @@ function MapBox(props) {
         <div className="map">
             <ReactMapGL
                 {...viewport}
-                mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+                mapboxApiAccessToken={mapboxAPI}
                 onViewportChange={(viewport) => {
                     setViewport(viewport);
                 }}
