@@ -1,28 +1,25 @@
+// variables/mixins file path "importing your global styles."
+@import "../Styles/_variables.scss";
+
 .dashboard-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /////// desktop maintenance png
+    @include pageBody;
+    /////// desktop maintenance png for screens > 800px
     .desktop-crew {
         display: none;
-    }
-    @media (min-width: 600px) {
-        .desktop-crew {
+        @include respond-to("tablet") {
             display: flex;
             width: 100%;
             height: auto;
             padding: 30px;
         }
     }
-    ////mobile maintenance png
+    ////mobile maintenance png for screens < 800px
     .mobile-crew {
-        width: auto;
+        display: flex;
+        width: 100%;
         height: auto;
-        padding: 10px;
-    }
-    @media (min-width: 600px) {
-        .mobile-crew {
+        padding: auto 10px;
+        @include respond-to("tablet") {
             display: none;
         }
     }

@@ -1,159 +1,95 @@
-/* Change autocomplete styles in WebKit */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-    -webkit-text-fill-color: #f3f4f4;
-    // -webkit-box-shadow: 0 0 0px 1000px #04ccbb inset;
-    transition: background-color 5000s ease-in-out 0s;
-}
-
-// //body of component
+// variables/mixins file path "importing your global styles."
+@import "../Styles/_variables.scss";
+/////////////OVERIDES DEFAULT BROWSER INPUT STYLING
+@include formWebKit;
+////////////////////body of component
 .login-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 500px;
-    min-width: 400px;
-    background-color: #04ccbb;
-    border-radius: 20px;
-    margin: auto;
-    padding: auto;
+    @include pageBody;
+    background-color: $carpalGreen;
+    max-width: 800px;
+    padding: 20px;
     margin-top: 50px;
-    //media breakpoint for desktop
-    //////////////////form container
 
-    .login-p {
-        color: #f3f4f4;
-        font-size: 24px;
-        margin-bottom: 10px;
-    }
-    /////////////// fields
-
-    .form-btn {
-        border-radius: 11px;
-        background-color: #f3f4f4;
-        color: #04ccbb;
-        padding: 10px 30px;
-        margin: 10px;
-        cursor: pointer;
-        text-decoration: none;
-    }
-    .form-btn:hover {
-        background-color: #fbb4b4;
-        color: #f3f4f4;
-        transition: 0.5s;
-    }
-    .form-btn:active {
-        background-color: #04ccbb;
-        color: #f3f4f4;
-    }
-    .formik-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        min-width: 200px;
-        width: 100%;
-        height: 100%;
+    //tablet media breakpoint
+    @include respond-to("tablet") {
         border-radius: 20px;
-        padding-top: 10%;
+    }
+    //desktop media breakpoint
+    @include respond-to("desktop") {
+        flex-direction: row;
+        border-radius: 20px;
+    }
+    //////////////////form container
+    .formik-container {
+        @include formContainer;
+        background-color: $carpalGreen;
+        margin: 20px;
+        ////////////////// Login form title
         .login-p {
-            color: #f3f4f4;
-            font-size: 24px;
-            margin-bottom: 10px;
+            @include formTitle;
         }
         ////////////////// Field Labels
         .field-label {
-            display: flex;
-            flex-direction: column;
-            font-family: inherit;
-            font-size: 1.6rem;
-            transition: all 0.3s;
-            padding: 5px;
+            @include formLabel;
+
+            /////////////// Form Error Msg
+            .form-error {
+                @include formError;
+            }
+            /////////////// fields input styling
+            .formik-fields {
+                @include formikFields;
+            }
         }
-        // error styling
-        .form-error {
-            color: #f3e962;
+        ///// submit button google login styling
+        .form-btn,
+        a {
+            @include formButton;
+            background-color: none;
+            text-transform: none;
         }
-        /////////////// fields input styling
-        .formik-fields {
-            font-family: inherit;
-            font-size: 1.6rem;
-            width: 100%;
-            padding: 10px 20px;
-            margin: 10px 0px;
-            border-bottom: 2px solid #f3f4f4;
-            color: #f3f4f4;
-            outline: none;
-        }
-        ////// field placeholder text styling. ///////////
-        .formik-fields::placeholder {
-            color: #f3f4f4;
-        }
-        ///// submit button styling
-        .form-btn {
-            font-family: inherit;
-            font-size: 1.6rem;
-            background-color: #f3f4f4;
-            color: #04ccbb;
-            padding: 10px 30px;
-            margin: 10px;
-            cursor: pointer;
+        //////// forgot password link. links to signup for now.
+        .forgot-password {
             text-decoration: none;
-            border-radius: 20px;
-        }
-        .form-btn:hover {
-            background-color: #fbb4b4;
-            color: #f3f4f4;
-            transition: 0.5s;
-        }
-        .form-btn:active {
-            background-color: #04ccbb;
-            color: #f3f4f4;
+            font-size: 1.6rem;
+            color: $carpalWhite;
+            background-color: $carpalGreen;
+            border: none;
+            margin: 10px;
+            &:hover {
+                color: $carpalRose;
+                background-color: $carpalGreen;
+                border: none;
+            }
+            &:active {
+                color: $carpalRose;
+                background-color: $carpalGreen;
+                border: none;
+            }
         }
     }
-    //// Signup create account box/link/container
+    //////////////////// Signup create account box/link/container
     .module-nav {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        background-image: url("../../img/Cutie-Triov2.0.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-        border-radius: 10px;
-        height: 150px;
-        width: 100%;
-        //// new to the website? lets go!
+        @include modelNav;
+        @include modelBackIMG;
+        @include respond-to("tablet") {
+            background-position: 50% 50%;
+        }
+        @include respond-to("desktop") {
+            justify-content: center;
+            align-items: center;
+            background-position: cover;
+            height: 300px;
+        }
+        // new to the website? lets go!
         .module-p {
-            color: #f3f4f4;
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
-        // signup button / link
-        .signup-link {
-            border: none;
-            background-color: #04ccbb;
-            color: #f3f4f4;
-            border-bottom: solid #f3f4f4;
-            border-bottom-width: thin;
-            text-decoration: none;
-            padding-bottom: 2px;
-            margin-left: 5px;
-            cursor: pointer;
-        }
-        ////// changes border-bottom color
-        .signup-link:hover {
-            border-bottom: 2px solid #fbb4b4;
-            outline: none;
-            appearance: none;
-            transition: 0.5s;
-        }
-        /////// onclick/active highlights entire NavLink.
-        .signup-link:active {
-            border-bottom: 2px solid #fbb4b4;
-            color: #fbb4b4;
+            @include formTitle;
+            font-size: 2rem;
+            margin-bottom: 5px;
+            // signup button / link
+            .signup-link {
+                @include Link;
+            }
         }
     }
 }

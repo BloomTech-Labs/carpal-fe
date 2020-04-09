@@ -3,6 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+        "@sentry/browser": "^5.15.4",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.5.0",
         "@testing-library/user-event": "^7.2.1",
@@ -51,6 +52,8 @@
         ]
     },
     "devDependencies": {
+        "cross-env": "^7.0.2",
+        "dotenv": "^8.2.0",
         "eslint-config-airbnb": "^18.0.1",
         "eslint-plugin-import": "^2.18.2",
         "eslint-plugin-jsx-a11y": "^6.2.3",

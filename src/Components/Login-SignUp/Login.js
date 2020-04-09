@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import "./Login.scss";
+import LabelField from '../Form-Components/LabelField';
 
 import { LogInAction } from "../../Redux/Actions/UserAction";
 
@@ -17,32 +18,23 @@ function Login(props) {
                 <p role="login-component" className="login-p">
                     Login
                 </p>
-                <label className="field-label">
-                    {touched.email && errors.email && (
-                        <p className="form-error">{errors.email}</p>
-                    )}
-                    <Field
-                        className="formik-fields"
-                        type="email"
-                        name="email"
-                        placeholder="Email@email.com"
-                    />
-                </label>
-                <label className="field-label">
-                    {touched.password && errors.password && (
-                        <p className="form-error">{errors.password}</p>
-                    )}
-                    <Field
-                        className="formik-fields"
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                    />
-                </label>
+                <LabelField name="email" touched={touched.email} error={errors.email} type="email" placeholder="Email@email.com"/>
+
+                <LabelField name="password" type="password" touched={touched.password} error={errors.password} placeholder="Password" />
                 <button className="form-btn" type="submit">
                     Submit
                 </button>
+                <a
+                    className="form-btn"
+                    href="https://staging-carpal.herokuapp.com/auth/google/testing"
+                >
+                    Login With Google
+                </a>
+                <Link className="forgot-password" to="/signup">
+                    Forgot your password?
+                </Link>
             </Form>
+
             <div className="module-nav">
                 <p className="module-p">
                     New to the website?
@@ -56,7 +48,7 @@ function Login(props) {
 }
 
 const LoginForm = withFormik({
-    mapPropsToValues: values => {
+    mapPropsToValues: (values) => {
         return {
             email: values.email || "",
             password: values.password || ""
@@ -67,11 +59,11 @@ const LoginForm = withFormik({
             .email("Please enter a valid email.")
             .required("Please enter your email."),
         password: Yup.string()
-            .min(10, "Password must be at least 10 characters.")
+            .min(5, "Password must be at least 10 characters.")
             .required("Please enter your password.")
     }),
     handleSubmit(values, { props }) {
-        props.LogInAction(values);
+        props.LogInAction(values, { props });
     }
 })(Login);
 

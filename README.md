@@ -1,40 +1,29 @@
-
 [![Maintainability](https://api.codeclimate.com/v1/badges/4f1dd34b22f62530932b/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/carpal-fe/maintainability)
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/4f1dd34b22f62530932b/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/carpal-fe/test_coverage)
 
-
-
-🚫 Note: All lines that start with 🚫 are instructions and should be deleted before this is posted to your portfolio. This is intended to be a guideline, feel free to add your own flare to it.
-
-🚫 The numbers 1️⃣ through 5️⃣ next to each item represent the week that part of the docs needs to be comepleted by.  Make sure to delete the numbers by the end of Labs.
-
-🚫 Each student has a required minimum number of meaningful PRs each week per the rubric. Contributing to docs does NOT count as a PR to meet your weekly requirements.
-
 # CarPal
 
- You can find the deployed project at [https://www.letscarpal.com/].
+You can find the deployed project at https://www.letscarpal.com/.
 
-##  Contributors
+## Contributors
 
-|                                       [Carl Redding](https://github.com/miklo88)                                        |                                       [Ruth Poliakon](https://github.com/rupol)                                        |                                       [Steven Vandenburg](https://github.com/smv5047)                                        |                                       [Darren Angus](https://github.com/dangus1924)                                        |
-| :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
-|                      [<img src="https://avatars2.githubusercontent.com/u/22805035?s=400&u=48ef0886ccbd54e1b9f3e7a4044a04399383be6a&v=4" width = "200" />](https://github.com/)                       |                      [<img src="https://avatars0.githubusercontent.com/u/47793431?s=400&v=4" width = "200" />](https://github.com/)                       |                      [<img src="https://avatars2.githubusercontent.com/u/38800900?s=400&u=17c5530465f41f0b845f3467536d81a9cb5b76bd&v=4" width = "200" />](https://github.com/)                       |                      [<img src="https://avatars1.githubusercontent.com/u/51095136?s=400&u=2640b17ebe699ccc1c50732308244f6865411986&v=4" width = "200" />](https://github.com/)                       |                      [<img src="https://avatars1.githubusercontent.com/u/50638483?s=400&u=c24e178de825b9f6c8f0700e0be617a0e73e3dd7&v=4" width = "200" />](https://github.com/)                       |
-|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)             |
+|                                                        [Carl Redding](https://github.com/miklo88)                                                         |                                   [Ruth Poliakon](https://github.com/rupol)                                    |                                                      [Steven Vandenburg](https://github.com/smv5047)                                                      |                                                       [Darren Angus](https://github.com/dangus1924)                                                       |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [<img src="https://avatars2.githubusercontent.com/u/22805035?s=400&u=48ef0886ccbd54e1b9f3e7a4044a04399383be6a&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars0.githubusercontent.com/u/47793431?s=400&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars2.githubusercontent.com/u/38800900?s=400&u=17c5530465f41f0b845f3467536d81a9cb5b76bd&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars1.githubusercontent.com/u/51095136?s=400&u=2640b17ebe699ccc1c50732308244f6865411986&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars1.githubusercontent.com/u/50638483?s=400&u=c24e178de825b9f6c8f0700e0be617a0e73e3dd7&v=4" width = "200" />](https://github.com/) |
+|                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                                       |             [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)             |                                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)                                  |                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)                                 | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah) |
 
-|                                       [Dang Lu](https://github.com/dangnlu18)                                        |                                       [Lesley Banadzem](https://github.com/lesleyfon)                                        |                                       [Daniel Martin](https://github.com/ohfr)                                        |
-|:-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
-|                      [<img src="https://avatars1.githubusercontent.com/u/38761634?s=400&u=8c35a92a5e96c65004cd08d31a3a375151d53ba5&v=4" width = "200" />](https://github.com/)                       |                      [<img src="https://avatars0.githubusercontent.com/u/35934525?s=400&u=3e098b80a62cf119686c5abb955c401d175c505c&v=4" width = "200" />](https://github.com/)                       |                      [<img src="https://avatars1.githubusercontent.com/u/50638483?s=400&u=c24e178de825b9f6c8f0700e0be617a0e73e3dd7&v=4" width = "200" />](https://github.com/)                       |                      [<img src="https://avatars1.githubusercontent.com/u/51095136?s=400&u=2640b17ebe699ccc1c50732308244f6865411986&v=4" width = "200" />](https://github.com/)                       |                      [<img src="https://avatars1.githubusercontent.com/u/50638483?s=400&u=c24e178de825b9f6c8f0700e0be617a0e73e3dd7&v=4" width = "200" />](https://github.com/)                       |
-|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)           |
+|                                                          [Dang Lu](https://github.com/dangnlu18)                                                          |                                                      [Lesley Banadzem](https://github.com/lesleyfon)                                                      |                                                         [Daniel Martin](https://github.com/ohfr)                                                          |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [<img src="https://avatars1.githubusercontent.com/u/38761634?s=400&u=8c35a92a5e96c65004cd08d31a3a375151d53ba5&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars0.githubusercontent.com/u/35934525?s=400&u=3e098b80a62cf119686c5abb955c401d175c505c&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars1.githubusercontent.com/u/50638483?s=400&u=c24e178de825b9f6c8f0700e0be617a0e73e3dd7&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars1.githubusercontent.com/u/51095136?s=400&u=2640b17ebe699ccc1c50732308244f6865411986&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars1.githubusercontent.com/u/50638483?s=400&u=c24e178de825b9f6c8f0700e0be617a0e73e3dd7&v=4" width = "200" />](https://github.com/) |
+|                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                                       |                                  [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)                                   |                                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)                                  | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen) |
+
 <br>
 <br>
-
-🚫 4️⃣ Optional examples of using images with links for your tech stack, make sure to change these to fit your project
 
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
 ![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
-![Typescript](https://img.shields.io/npm/types/typescript.svg?style=flat)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b5c4db1c-b10d-42c3-b157-3746edd9e81d/deploy-status)](netlify link goes in these parenthesis)
+![AWS](https://img.shields.io/badge/AWS-Hosting-lightgrey)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 🚫 more info on using badges [here](https://github.com/badges/shields)
@@ -45,114 +34,128 @@
 
 [Product Canvas](https://www.notion.so/69bb693ef3c64001819f1f5e883c6e04?v=28f3724c63774c2691731ba2648a36c6)
 
-
-
 ## Carpal
+
+Carpals is a app that safely connects communities and commuters going in the same direction living in the same area to save money, reduce environmental & infrastructural impact by CarPalling.
 
 ## Persona(s)
 
-Karen has a 40-mile commute in Los Angeles, which equates to a 90-minute drive each way.  Karen is burning through her money and beating up her car.  She'd really love to carpool with someone who lives near her, but she doesn't know how or where or how to meet them.
+Karen has a 40-mile commute in Los Angeles, which equates to a 90-minute drive each way. Karen is burning through her money and beating up her car. She'd really love to carpool with someone who lives near her, but she doesn't know how or where or how to meet them.
 
 Someone who cares about traffic
 
 Someone who does not have reliable transport and need to carpool.
 
-Someone who cares about the environment.  
+Someone who cares about the environment.
 
 ## Problem
 
-Karen is not making enough to finance her commute.  The wear and tear on her car and the rising cost of gas is bankrupting her.  
+Karen is not making enough to finance her commute. The wear and tear on her car and the rising cost of gas is bankrupting her.
 
-- Problem 1 - People spend money on their cars and gas in long and rough stop and go commutes. All the while wear and tear adds up on their cars.
-- Problem 2 - Environmental impact of cars on the road
-- Problem 3 - Lack of current transportation/car
-- Problem 4 - Person concerned with impact on aging US infrastructure
-- Problem 5 - Stressed out by commute
-- Problem 6- Wants to Meet People
-- Problem 7- Karen scored a DUI and still needs to get to work
+-   Problem 1 - People spend money on their cars and gas in long and rough stop and go commutes. All the while wear and tear adds up on their cars.
+-   Problem 2 - Environmental impact of cars on the road
+-   Problem 3 - Lack of current transportation/car
+-   Problem 4 - Person concerned with impact on aging US infrastructure
+-   Problem 5 - Stressed out by commute
+-   Problem 6- Wants to Meet People
+-   Problem 7- Karen scored a DUI and still needs to get to work
 
 ## Mission
 
 To safely connect communities and commuters going in the same direction living in the same area to save money, reduce environmental & infrastructural impact by CarPalling.
 
-
-### 4️⃣ Key Features
+### Key Features
 
 ### Basic Features
 
-## Marketing page
-- Ability to sign up / log in /log out and connect via Passport.JS
-- Google account (drive)
-- Others? Github, LinkedIn, etc.
+## Login/Signup
+
+-   Signup and Login
+-   Signup and Login using Google Account [via PassportJS]
+-   Signout (Currently Unavailable)
 
 ## User profile
-- address
-- bio
-- profile picture
-## Ride request
-- SMS messaging (alerts)
-- recurring/preplanned
-- driver's imminent arrival (countdown or user based ETA)
 
-### Advanced Features
+-   Create and Update Profile
+-   Upload Profile Picture
+-   Save Favorite Locations (Such as Home and Work) [Via Mapbox]
 
-- Payment system
-- Driver/passenger ratings
-- Friends list
-- Chat
-- Mobile native app
-- Gamification (user stats/point system)
-- Driver real time location
-- Ad hoc ride requests
-- Safety features (user verification)
+## Ride request (Currently Unavailable)
 
-## 1️⃣ Tech Stack
+-   Request a Ride
+-   Accept or Reject Ride Requests
+-   Text Alerts to Riders [via Twilio]
+-   Driver Arrival ETA
+
+### Advanced Features (Currently Unavailable)
+
+-   Payment System [via Stripe]
+-   Driver/passenger ratings
+-   Friends list
+-   Chat
+-   Mobile native app
+-   Gamification (user stats/point system)
+-   Driver real time location
+-   Ad hoc ride requests
+-   Safety features (user verification)
+
+## Tech Stack
 
 ### Front end built using:
-- Web App: React
 
-#### _Front end framework goes here_
+#### React
 
-🚫 Why did you choose this framework?
-
--    point one
--    point two
--    point three
--    point four
+-   React was choosen due to its ability to setup an SPA efficiently and in a ascalable manner.
 
 🚫List the rest of the front end features and libraries in the same format as the framework above.
 
-#### Front end deployed to `https://www.letscarpal.com/`
+#### Front end deployed to AWS `https://www.letscarpal.com/`
 
 #### [Back end](https://carpal-production.herokuapp.com/) built using:
 
-#### 🚫 back end framework goes here
+#### Node with Express
 
--    point one
--    point two
--    point three
+-   Node and Express enable the setup of servers and DBs that support the Carpals app
+-   Node and Express also allow the team to utilize Javascript across the stack
+
+#### Postgres
+
+-   Postgres enable the carpals app to build a persistent and scalable SQL DB
 
 🚫 List the rest of the back end end features and libraries in the same format as the framework above
 
 # APIs
 
-## 2️⃣ Authentication API here
+## Authentication API
 
-🚫Replace text below with a description of the API
+The User API enables interaction with Carpals user base
 
-Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
+| Method | Endpoint         | Access Control | Description                                      |
+| ------ | ---------------- | -------------- | ------------------------------------------------ |
+| POST   | `/auth/register` | all users      | Allows user to create an account                 |
+| POST   | `/auth/login`    | all users      | Allows user to authenticate and log into account |
+| GET    | `/auth`          | all users      | Allows for user retrieval from a token           |
+| PUT    | `/auth/update`   | owner          | Allows user to update their account              |
+| DELETE | `/auth/delete`   | owner          | Allows user to delete their account              |
+
+## Location API
+
+The Location API enables CRUD actions related to user's favorite locations. Favorite locations are used to determine potential routes that Carpal Drivers are driving.
+
+| Method | Endpoint               | Access Control | Description                                |
+| ------ | ---------------------- | -------------- | ------------------------------------------ |
+| GET    | `/locations`           | all users      | Returns all locations entered by all users |
+| GET    | `/locations/favorites` | owner          | Returns favorirted locations for a user    |
+| GET    | `/locations/:id`       | owner          | Returns a single location entered by user  |
+| POST   | `/locations`           | owner          | Allows user to enter in a new location     |
+| PUT    | `/locations/:id`       | owner          | Allows user to enter to update a location  |
+| DELETE | `/locations/:id`       | owner          | Delete a location                          |
 
 ## 2️⃣ Payment API here
 
 🚫Replace text below with a description of the API
 
 This is the way you take out your flustrations. Get away from those little Christmas tree things we used to make in school. Isn't it fantastic that you can change your mind and create all these happy things? Everything's not great in life, but we can still find beauty in it.
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-You can do anything your heart can imagine. In life you need colors. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. I'm sort of a softy, I couldn't shoot Bambi except with a camera. Trees get lonely too, so we'll give him a little friend. We'll lay all these little funky little things in there.
 
 ## 3️⃣ Misc API here
 
@@ -170,58 +173,56 @@ Volunteering your time; it pays you and your whole community fantastic dividends
 
 In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
 
-🚫These are just examples, replace them with the specifics for your app
-
-    *  REACT_APP_apiKey - this is your Google API key, which can be generated in the Google Cloud Console
-    *  REACT_APP_authDomain - when you set up your Firebase project, this information will be in the dashboard
-    *  REACT_APP_databaseURL - in the Firebase dashboard
-    *  REACT_APP_projectID - in the Firebase dashboard
-    *  REACT_APP_storageBucket - in the Firebase dashboard
-    *  REACT_APP_messagingSenderId - in the Firebase dashboard
-    *  REACT_APP_stripe_API - this is your public Stripe API key, generated in the Stripe dashboard
-    *  REACT_APP_backendURL - optional for your local development server
-    *  REACT_APP_clientid - this is the Stripe_connect clientID, generated in Stripe_connect settings
-    *  REACT_APP_stripe_plan - this is the ID for a second Stripe subscription plan, generated under Stripe products
+    *  NODE_ENV - this is the environment in which the application is running.
 
 # 5️⃣ Content Licenses
 
 🚫For all content - images, icons, etc, use this table to document permission of use. Remove the two placeholders and add you content to this table
 
-| Image Filename | Source / Creator | License                                                                      |
-| -------------- | ---------------- | ---------------------------------------------------------------------------- |
-| doodles.png    | Nicole Bennett   | [Creative Commons](https://www.toptal.com/designers/subtlepatterns/doodles/) |
-| rings.svg      | Sam Herbert      | [MIT](https://github.com/SamHerbert/SVG-Loaders)                             |
+| Image Filename  | Source / Creator | License                          |
+| --------------- | ---------------- | -------------------------------- |
+| Rectangle 8.png | TBD              | [Creative Commons](unsplash.com) |
 
 # 4️⃣ Testing
 
-🚫Document what you used for testing and why
+For Front-end testing we're using React Testing Library(RTL) to perform testing of our components. RTL comes packed with a suite of tests.
+
+We're also using code-climate (run as part of our CI/CD process) to determine test coverage and code maintainability.
+
+Yup fhas been setup or form validation
 
 # 4️⃣ Installation Instructions
 
 🚫explain how to install the required dependencies to get this project up and running with yarn and NPM
 
+Use 'npm install' to install all necessary dependencies
+
 ## Other Scripts
 
 🚫replace these examples with your own
 
-    * typecheck - runs the TypeScript compiler
     * build - creates a build of the application
-    * start - starts the production server after a build is created
+    * start - starts the production server after a build is created; if used locally, creates a local instance of a server at localhost:3000
+    * eject - used to modify CRA dependencies
+    *coverage - runs a test coverage report that is displayed t the top of this readme
     * test - runs tests in **tests** directory \* eject - copy the configuration files and dependencies into the project so you have full control over them
 
 # Contributing
+
+If you're interested in contributing to this project, please email us at labs.pt.carpal@gmail.com or DMing us on Twitter @carpaling
 
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
 
 Please note we have a [code of conduct](./CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
 
 ## Issue/Bug Request
-   
- **If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
- - Check first to see if your issue has already been reported.
- - Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
- - Create a live example of the problem.
- - Submit a detailed bug report including your environment & browser, steps to reproduce the issue, actual and expected outcomes,  where you believe the issue is originating from, and any potential solutions you have considered.
+
+**If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
+
+-   Check first to see if your issue has already been reported.
+-   Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
+-   Create a live example of the problem.
+-   Submit a detailed bug report including your environment & browser, steps to reproduce the issue, actual and expected outcomes, where you believe the issue is originating from, and any potential solutions you have considered.
 
 ### Feature Requests
 
@@ -235,11 +236,11 @@ Remember that this project is licensed under the MIT license, and by submitting 
 
 #### Pull Request Guidelines
 
-- Ensure any install or build dependencies are removed before the end of the layer when doing a build.
-- Update the README.md with details of changes to the interface, including new plist variables, exposed ports, useful file locations and container parameters.
-- Ensure that your code conforms to our existing code conventions and test coverage.
-- Include the relevant issue number, if applicable.
-- You may merge the Pull Request in once you have the sign-off of two other developers, or if you do not have permission to do that, you may request the second reviewer to merge it for you.
+-   Ensure any install or build dependencies are removed before the end of the layer when doing a build.
+-   Update the README.md with details of changes to the interface, including new plist variables, exposed ports, useful file locations and container parameters.
+-   Ensure that your code conforms to our existing code conventions and test coverage.
+-   Include the relevant issue number, if applicable.
+-   You may merge the Pull Request in once you have the sign-off of two other developers, or if you do not have permission to do that, you may request the second reviewer to merge it for you.
 
 ### Attribution
 
@@ -247,8 +248,7 @@ These contribution guidelines have been adapted from [this good-Contributing.md-
 
 ## Documentation
 
-See [Backend Documentation](🚫_link to your backend readme here_) for details on the backend of our project.
-
+See [Backend Documentation](https://github.com/Lambda-School-Labs/carpal-be/blob/master/README.md)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/4f1dd34b22f62530932b/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/carpal-fe/maintainability)
 
