@@ -10,7 +10,7 @@ import "./Landing-Page.scss";
 
 function LandingPage() {
     return (
-        <div>
+        <div className="mainContainer">
             <div className="hero">
                 <video className="slider" autoPlay loop muted>
                     <source src={Slider} type="video/mp4" />
@@ -105,7 +105,7 @@ function LandingPage() {
             </div>
 
             <section className="containertwo">
-                <h4 className="padding">Ready to gooooooooo?</h4>
+                <h2 className="padding">Ready to gooooooooo?</h2>
                 <Link to="/Signup">
                     <button name="signup">sign Up</button>
                 </Link>
