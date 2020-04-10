@@ -23,20 +23,21 @@ h2 {
     width: 100%;
 }
 .hero .slider {
-    width: 100%;
+    max-width: 100%;
+    
 }
 .hero .overlaybutton {
     position: absolute;
     background-color: white;
-    bottom: 4em;
-    right: 4em;
-    font-size: xx-large;
+    bottom: 1em;
+    right: 2em;
+    font-size: calc(20px + (26 - 18) * ((100vw - 300px) / (1600 - 300)));
     color: #04ccbb;
     text-transform: uppercase;
     padding: 1em 1.5em;
     border-radius: 12px;
-    width: 25rem;
-    height: 2.5rem;
+    // width: 2vw;
+    height: 1rem;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -48,6 +49,12 @@ h2 {
         font-size: medium;
         bottom: 1em;
         right: 9em;
+    }
+    @media (max-width: 516px) {
+        
+        bottom: 1em;
+        right: 0em;
+        position: absolute;
     }
 }
 .main {
