@@ -19,5 +19,13 @@ export default function() {
                 authorization: localStorage.getItem("token")
             }
         });
+        // create testing env
+    } else {
+        return axios.create({
+            baseURL: "localhost:3000/",
+            headers: {
+                authorization: localStorage.getItem("token")
+            }
+        });
     }
 }
