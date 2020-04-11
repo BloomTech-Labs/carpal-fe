@@ -1,26 +1,2 @@
 // variables/mixins file path "importing your global styles."
 @import "../Styles/_variables.scss";
-
-.dashboard-container {
-    @include pageBody;
-    /////// desktop maintenance png for screens > 800px
-    .desktop-crew {
-        display: none;
-        @include respond-to("tablet") {
-            display: flex;
-            width: 100%;
-            height: auto;
-            padding: 30px;
-        }
-    }
-    ////mobile maintenance png for screens < 800px
-    .mobile-crew {
-        display: flex;
-        width: 100%;
-        height: auto;
-        padding: auto 10px;
-        @include respond-to("tablet") {
-            display: none;
-        }
-    }
-}
