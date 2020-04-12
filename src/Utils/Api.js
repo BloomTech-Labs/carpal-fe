@@ -1,10 +1,7 @@
 import axios from "axios";
-import dotenv from 'dotenv'
-dotenv.config()
-export default function() {
-    console.log(process.env.NODE_ENV)
-
-    //react starts in development mode automatically
+import dotenv from "dotenv";
+dotenv.config();
+export default function () {
     if (process.env.NODE_ENV === "development") {
         return axios.create({
             baseURL: "https://staging-carpal.herokuapp.com/",
@@ -19,7 +16,6 @@ export default function() {
                 authorization: localStorage.getItem("token")
             }
         });
-        // create testing env
     } else {
         return axios.create({
             baseURL: "localhost:3000/",
