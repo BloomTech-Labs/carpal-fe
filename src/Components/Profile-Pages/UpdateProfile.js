@@ -59,6 +59,7 @@ function UpdateProfile(props) {
                     type="text"
                     placeholder="First name"
                     className="formik-fields"
+                    data-testid={"updateProfileFirstName"}
                 />
                 <Field
                     name="last_name"
@@ -148,8 +149,8 @@ const ProfileForm = withFormik({
         audioLikes: Yup.string()
     }),
     handleSubmit(values, { props }) {
-        console.log(props.SetProfileUpdate(values));
-        console.log(props.EditProfileAction());
+        props.SetProfileUpdate(values);
+        props.EditProfileAction();
         console.log("submit", values);
     }
 })(UpdateProfile);

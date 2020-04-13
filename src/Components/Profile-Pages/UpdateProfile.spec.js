@@ -7,13 +7,21 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import thunk from "redux-thunk";
-import axiosMock from "axios";
-import {
-    SetUserAction,
-    EditProfileAction,
-    SetProfileUpdate
-} from "../../Redux/Actions/UserAction";
+import * as actionMock from "../../Redux/Actions/UserAction";
 
+// mock actions that are used in UpdateProfile, without types you'll get warnings/errors
+jest.mock("../../Redux/Actions/UserAction", () => {
+    return {
+        SetProfileUpdate: jest.fn((vals) => (dispatch) =>
+            dispatch({ type: "SET_USER", payload: vals })
+        ),
+        EditProfileAction: jest.fn(() => (dispatch) =>
+            dispatch({ type: "SET_EDITING" })
+        )
+    };
+});
+
+//create a mock redux store with thunk middleware applied
 const mockStore = configureStore([thunk]);
 
 let store;
@@ -35,9 +43,7 @@ const initState = {
     ]
 };
 
-const EditProfileActionMock = jest.fn();
-const SetProfileUpdateMock = jest.fn((val) => console.log(val));
-
+//init store for each test
 beforeEach(() => {
     store = mockStore({
         user: {
@@ -62,35 +68,45 @@ describe("Update Profile", () => {
         );
     });
 
-    test("Dispatch working", async () => {
-
-        const props = {
-            SetProfileUpdateMock,
-            EditProfileActionMock
-        }
+    test("Form should not submit without values", async () => {
         const { getByTestId } = rtl.render(
             <Provider store={store}>
                 <Router>
-                    <UpdateProfile
-                    />
+                    <UpdateProfile />
                 </Router>
             </Provider>
         );
 
-        // axiosMock.put.mockResolvedValueOnce({
-        //     user: initState
-        // })
+        rtl.fireEvent.change(getByTestId("updateProfileFirstName"), {
+            target: { value: "" }
+        });
+
+        rtl.fireEvent.submit(getByTestId("updateProfileForm"));
+
+        await rtl.wait(() => {
+            expect(actionMock.SetProfileUpdate).not.toHaveBeenCalled();
+        });
+    });
+
+    test("Submits form and calls redux actions", async () => {
+        const { getByTestId } = rtl.render(
+            <Provider store={store}>
+                <Router>
+                    <UpdateProfile />
+                </Router>
+            </Provider>
+        );
 
         expect(getByTestId("updateProfileForm")).toBeVisible();
-
         rtl.fireEvent.change(getByTestId("updateProfileDriver"), {
             target: { value: true }
         });
-        rtl.fireEvent.click(getByTestId("updateProfileSave"));
+
+        rtl.fireEvent.submit(getByTestId("updateProfileForm"));
 
         await rtl.wait(() => {
-            expect(SetProfileUpdateMock).toHaveBeenCalled();
-            expect(EditProfileActionMock).toHaveBeenCalled();
+            expect(actionMock.SetProfileUpdate).toHaveBeenCalled();
+            expect(actionMock.EditProfileAction).toHaveBeenCalled();
         });
     });
 });
