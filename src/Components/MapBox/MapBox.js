@@ -21,13 +21,16 @@ function MapBox(props) {
         container: "mapContainer"
     });
     //State for keeping track of the Markers long/lat
-    const [marker, setMarker ] = useState({
+    const [marker, setMarker] = useState({
         latitude: props.favoriteLocation[0].latitude,
-        longitude: props.favoriteLocation[0].longitude,
-    })
+        longitude: props.favoriteLocation[0].longitude
+    });
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition(getUserLocation);
-    }, []);
+        // without this test will fail from not being able to run this function
+        if (!viewport.latitude || !viewport.longitude) {
+            navigator.geolocation.getCurrentPosition(getUserLocation);
+        }
+    }, [viewport]);
 
     const getUserLocation = (position) => {
         var crd = position.coords;
@@ -39,8 +42,8 @@ function MapBox(props) {
         //When we Get users location we set the marker to the users current location
         setMarker({
             latitude: crd.latitude,
-            longitude: crd.longitude 
-        })
+            longitude: crd.longitude
+        });
     };
 
     const handleDragEnd = (event) => {
@@ -53,10 +56,10 @@ function MapBox(props) {
         setMarker({
             longitude: event.lngLat[0],
             latitude: event.lngLat[1]
-        })
+        });
     };
     return (
-        <div className="map">
+        <div role="map-wrapper" className="map">
             <ReactMapGL
                 {...viewport}
                 mapboxApiAccessToken={mapboxAPI}

@@ -1,33 +1,25 @@
-import React, { useEffect } from "react";
+import React from "react";
+
 // placeholder images
 import Crew from "../../img/maintenence/CarPal-Construction-Desktop.png";
 import MobileCrew from "../../img/maintenence/Mobile-Construction.png";
 
 import "./Dashboard.scss";
 
-export default function Dashboard(props) {
-    //retrieve auth cookie
-
-    useEffect(() => {
-        let token = document.cookie.replace(
-            /(?:(?:^|.*;\s*)auth\s*\=\s*([^;]*).*$)|^.*$/,
-            "$1"
-        );
-        console.log("inside effect", token);
-        if (token) {
-            localStorage.setItem("token", token);
-            //destroy auth cookie
-            document.cookie =
-                "auth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            //push user to profile page
-            props.history.push("/profilepage");
-        }
-    }, []);
-
+export default function Dashboard() {
     return (
-        <div role="dashboard" className="dashboard-container">
-            <img className="desktop-crew" src={Crew} alt="" />
-            <img className="mobile-crew" src={MobileCrew} alt="" />
-        </div>
+        <>
+            <div className="space-20 show-tablet"></div>
+            <img
+                className="show-tablet center"
+                src={Crew}
+                alt="Under Construction"
+            />
+            <img
+                className="hide-tablet center"
+                src={MobileCrew}
+                alt="Under Construction"
+            />
+        </>
     );
 }
