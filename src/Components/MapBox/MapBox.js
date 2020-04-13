@@ -59,7 +59,7 @@ function MapBox(props) {
         });
     };
     return (
-        <div className="map">
+        <div role="map-wrapper" className="map">
             <ReactMapGL
                 {...viewport}
                 mapboxApiAccessToken={mapboxAPI}
