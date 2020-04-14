@@ -18,6 +18,15 @@ h2 {
     display: inline-block;
     position: relative;
     width: 100%;
+    @media (max-width: 1640px) {
+        padding-top: 25px;
+    }
+    @media (max-width: 1395px) {
+        padding-top: 50px;
+    }
+    @media (max-width: 535px) {
+        padding-top: 55px;
+    }
 }
 .slider {
     width: 100%;

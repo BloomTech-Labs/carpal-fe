@@ -23,8 +23,10 @@ function LandingPage() {
             </div>
             <div className="main">
                 <div className="intro">
-                    <h1 className="introTitle">Welcome to CarPal</h1>
-                    <p className="firstpara">
+                    <h1 data-testid="welcomeh1" className="introTitle">
+                        Welcome to CarPal
+                    </h1>
+                    <p data-testid="firstptag" className="firstpara">
                         The future of networking and commuting at the same time.
                         Yeah, we did it seriously. Watch this, with Carpal you
                         will be able to join a community of drivers and riders
@@ -34,7 +36,7 @@ function LandingPage() {
                 </div>
                 <section className="container">
                     <div id="first">
-                        <h2>Features</h2>
+                        <h2 data-testid="h2tag1">Features</h2>
                         <div className="features">
                             <div className="paraone">
                                 <p className="para">
@@ -49,6 +51,7 @@ function LandingPage() {
                             </div>
                             <div className="imgone">
                                 <img
+                                    role= 'image'
                                     className="allimg"
                                     src={Imgone}
                                     alt="Temp img"
@@ -58,7 +61,7 @@ function LandingPage() {
                     </div>
 
                     <div id="second">
-                        <h2>Drivers</h2>
+                        <h2 data-testid="h2tag2">Drivers</h2>
                         <div className="featuresflip">
                             <div className="paraone">
                                 <p className="para">
@@ -80,7 +83,7 @@ function LandingPage() {
                     </div>
 
                     <div id="third">
-                        <h2>Riders</h2>
+                        <h2 data-testid="h2tag3">Riders</h2>
                         <div className="features">
                             <div className="paraone">
                                 <p className="para">
