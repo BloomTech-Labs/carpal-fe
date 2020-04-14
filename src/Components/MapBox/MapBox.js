@@ -17,8 +17,7 @@ function MapBox(props) {
         zoom: 15,
         width: "100%",
         height: "200px",
-        position: "center",
-        container: "mapContainer"
+        position: "center"
     });
     //State for keeping track of the Markers long/lat
     const [marker, setMarker] = useState({
