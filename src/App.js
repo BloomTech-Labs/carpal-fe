@@ -15,14 +15,18 @@ import "./App.scss";
 
 function App() {
     return (
-      <div className="App" role="App">
+        <div className="App" role="App">
             <TopNav />
-      <div className="container">
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={SignUp} />
-            <ProtectedRoute exact path="/profilepage" component={ProfilePage} />
-            <ProtectedRoute exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/" component={LandingPage} />
+            <div className="container">
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/signup" component={SignUp} />
+                <ProtectedRoute
+                    exact
+                    path="/profilepage"
+                    component={ProfilePage}
+                />
+                <ProtectedRoute exact path="/dashboard" component={Dashboard} />
+                <Route exact path="/" component={LandingPage} />
             </div>
             <Nav />
         </div>
