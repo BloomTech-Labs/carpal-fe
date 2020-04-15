@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { withFormik, Form, Field } from "formik";
@@ -10,6 +10,12 @@ import { LogInAction } from "../../Redux/Actions/UserAction";
 
 function Login(props) {
     const { errors, touched } = props;
+
+    useEffect(() => {
+        if (localStorage.getItem("token")) {
+            props.history.push("/profilepage")
+        }
+    }, [localStorage.getItem("token")])
 
     return (
         <div className="login-container">
@@ -63,7 +69,7 @@ const LoginForm = withFormik({
             .required("Please enter your password.")
     }),
     handleSubmit(values, { props }) {
-        props.LogInAction(values, { props });
+        props.LogInAction(values);
     }
 })(Login);
 

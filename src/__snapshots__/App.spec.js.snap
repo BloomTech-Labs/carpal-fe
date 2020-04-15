@@ -80,11 +80,11 @@ Object {
             <a
               href="/Signup"
             >
-              <a
+              <p
                 class="overlaybutton"
               >
                 Sign Up
-              </a>
+              </p>
             </a>
           </div>
           <div
@@ -311,11 +311,11 @@ Object {
           <a
             href="/Signup"
           >
-            <a
+            <p
               class="overlaybutton"
             >
               Sign Up
-            </a>
+            </p>
           </a>
         </div>
         <div

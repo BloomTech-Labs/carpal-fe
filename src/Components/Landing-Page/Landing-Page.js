@@ -1,4 +1,4 @@
-import React from "react";
+import React,  { useEffect } from "react";
 import Slider from "../../img/CarPal.mp4";
 import Imgone from "../../img/Group 38 (1).png";
 import Imgtwo from "../../img/Group 29.png";
@@ -12,13 +12,13 @@ function LandingPage() {
     return (
         <div className="mainContainer">
             <div className="hero">
-                <video className="slider" autoPlay loop muted>
+                <video className="slider" autoPlay loop>
                     <source src={Slider} type="video/mp4" />
                 </video>
                 <Link to="/Signup">
-                    <a className="overlaybutton" href={dashboard}>
+                    <p className="overlaybutton">
                         Sign Up
-                    </a>
+                    </p>
                 </Link>
             </div>
             <div className="main">
