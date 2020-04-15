@@ -1,20 +1,25 @@
 import React from "react";
-import { BrowswerRouter as Router } from "react-router-dom";
-import ReactDOM from "react-dom";
 import * as rtl from "@testing-library/react";
 import configureStore from "redux-mock-store";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
-// import ReactMapGL, { Marker } from "react-map-gl";
+import renderer from "react-test-renderer";
 import MapBox from "./MapBox";
 import "@testing-library/jest-dom/extend-expect";
 
 afterEach(rtl.cleanup);
 
+// mock mapbox map
+jest.mock("mapbox-gl/dist/mapbox-gl", () => ({
+    Map: () => ({})
+}));
+
+//mock redux store
 let store;
 const mockstore = configureStore([thunk]);
 
 beforeEach(() => {
+    //user obj in the mockstore.
     store = mockstore({
         user: {
             user: {
@@ -36,7 +41,7 @@ beforeEach(() => {
         }
     });
 });
-
+// test for component displays to the client.
 describe("display mapbox", () => {
     test("Displays component", () => {
         const wrapper = rtl.render(
@@ -48,5 +53,16 @@ describe("display mapbox", () => {
         const label = wrapper.getByRole(/map-wrapper/i);
         expect(label).toBeInTheDocument();
         expect(label).toBeVisible();
+    });
+    //snapshot testing props being passed to the component. OH SNAP
+    test("matches snapshot", () => {
+        const tree = renderer.create(
+            <Provider store={store}>
+                <MapBox />
+            </Provider>
+        );
+        expect(tree).toMatchSnapshot();
+        // returning obj
+        console.log(tree.toJSON());
     });
 });
