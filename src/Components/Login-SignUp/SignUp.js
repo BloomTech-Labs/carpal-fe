@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import "./SignUp.scss";
-import LabelField from '../Form-Components/LabelField';
+import LabelField from "../Form-Components/LabelField";
 
 import { SignUpAction } from "../../Redux/Actions/UserAction";
 
 function SignUp(props) {
     const { errors, touched } = props;
 
+    useEffect(() => {
+        if (localStorage.getItem("token")) {
+            props.history.push("/profilepage");
+        }
+    }, [localStorage.getItem("token")]);
     return (
         <div className="signup-container">
             {/* form container */}
@@ -19,13 +24,37 @@ function SignUp(props) {
                     Sign Up
                 </p>
 
-                <LabelField name="first_name" type="text" placeholder="First Name" touched={touched.first_name} error={errors.first_name} />
+                <LabelField
+                    name="first_name"
+                    type="text"
+                    placeholder="First Name"
+                    touched={touched.first_name}
+                    error={errors.first_name}
+                />
 
-                <LabelField name="last_name" type="text" placeholder="Last Name" touched={touched.last_name} error={errors.last_name} />
+                <LabelField
+                    name="last_name"
+                    type="text"
+                    placeholder="Last Name"
+                    touched={touched.last_name}
+                    error={errors.last_name}
+                />
 
-                <LabelField name="email" type="email" placeholder="Email@email.com" touched={touched.email} error={errors.email} />
-                
-                <LabelField name="password" type="password" placeholder="Password" touched={touched.password} error={errors.password} />
+                <LabelField
+                    name="email"
+                    type="email"
+                    placeholder="Email@email.com"
+                    touched={touched.email}
+                    error={errors.email}
+                />
+
+                <LabelField
+                    name="password"
+                    type="password"
+                    placeholder="Password"
+                    touched={touched.password}
+                    error={errors.password}
+                />
 
                 <button className="form-btn" type="submit">
                     Submit
@@ -69,7 +98,7 @@ const SignUpForm = withFormik({
             .required("Please enter your password.")
     }),
     handleSubmit(values, { props }) {
-        props.SignUpAction(values, props);
+        props.SignUpAction(values);
     }
 })(SignUp);
 

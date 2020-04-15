@@ -52,13 +52,14 @@ function UpdateProfile(props) {
 
     return (
         <div>
-            <Form className="formik-container">
+            <Form className="formik-container" data-testid={"updateProfileForm"}>
                 {touched.name && errors.name}
                 <Field
                     name="first_name"
                     type="text"
                     placeholder="First name"
                     className="formik-fields"
+                    data-testid={"updateProfileFirstName"}
                 />
                 <Field
                     name="last_name"
@@ -82,6 +83,7 @@ function UpdateProfile(props) {
                     name="is_driver"
                     component="select"
                     className="formik-fields"
+                    data-testid={"updateProfileDriver"}
                 >
                     <option value="" disabled>
                         Would you like to be a driver:
@@ -110,11 +112,11 @@ function UpdateProfile(props) {
                 <MapBox />
                 {user.phone_number ? (
                     // if user already has a phone number (stand in for profile), button displays "Update Profile", else "Save Profile"
-                    <button type="submit" className="form-btn">
+                    <button date-testid={"updateProfile"}type="submit" className="form-btn">
                         Update Profile
                     </button>
                 ) : (
-                    <button type="submit" className="form-btn">
+                    <button data-testid={"updateProfileSave"}type="submit" className="form-btn">
                         Save Profile
                     </button>
                 )}

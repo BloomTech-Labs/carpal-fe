@@ -25,6 +25,40 @@ $breakpoints: (
     }
 }
 
+//////////////////////// media display classes
+.show-tablet {
+    display: none;
+    @include respond-to("tablet") {
+        display: block;
+    }
+}
+
+.hide-tablet {
+    display: block;
+    @include respond-to("tablet") {
+        display: none;
+    }
+}
+
+//////////////////////// div applied styles and spacers
+.center {
+    margin: 0 auto;
+}
+
+.space-10 {
+    padding: 10px 0;
+}
+
+.space-20 {
+    padding: 20px 0;
+}
+
+//////////////////////// image default styling
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 //////////////////////// Button Styling
 /// signup/login forms "submit" button as example. with hover and active styles.
 @mixin formButton {

@@ -7,7 +7,7 @@ export const SET_EDITING = "SET_EDITING";
 export const SET_PROFILE_UPDATE = "SET_PROFILE_UPDATE";
 export const SET_FAVORITE_LOCATION = "SET_FAVORITE_LOCATION";
 
-export function SignUpAction(user, props) {
+export function SignUpAction(user) {
     return (dispatch) => {
         dispatch({ type: REQUEST_START });
         api()
@@ -16,7 +16,7 @@ export function SignUpAction(user, props) {
                 dispatch({ type: REQUEST_SUCCESS });
                 localStorage.setItem("token", res.data.token);
                 dispatch({ type: SET_USER, payload: res.data });
-                props.history.push("/dashboard");
+                // props.history.push("/dashboard");
             })
             .catch((err) => {
                 dispatch({ type: REQUEST_ERROR, payload: err });
@@ -24,7 +24,7 @@ export function SignUpAction(user, props) {
     };
 }
 
-export function LogInAction(user, props) {
+export function LogInAction(user) {
     return (dispatch) => {
         dispatch({ type: REQUEST_START });
         api()
@@ -33,7 +33,7 @@ export function LogInAction(user, props) {
                 dispatch({ type: REQUEST_SUCCESS });
                 localStorage.setItem("token", res.data.token);
                 dispatch({ type: SET_USER, payload: res.data });
-                props.props.history.push("/dashboard");
+                // props.props.history.push("/dashboard");
             })
             .catch((err) => {
                 dispatch({ type: REQUEST_ERROR, payload: err });
