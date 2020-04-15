@@ -2,26 +2,30 @@ import axios from "axios";
 import dotenv from "dotenv";
 dotenv.config();
 export default function () {
+    //react starts in development mode automatically
+    /**
+     * @param env- node environment variable
+     * @param URL- baseurl for making an axiso call
+     * @returns an axios instance
+     *
+     */
+    function axiosInstance(env, url) {
+        return axios.create({
+            baseURL: url,
+            headers: {
+                enviroment: env,
+                authorization: localStorage.getItem("token")
+            }
+        });
+    }
     if (process.env.NODE_ENV === "development") {
-        return axios.create({
-            baseURL: "https://staging-carpal.herokuapp.com/",
-            headers: {
-                authorization: localStorage.getItem("token")
-            }
-        });
+        const url = "https://staging-carpal.herokuapp.com/";
+        return axiosInstance("development", url);
     } else if (process.env.NODE_ENV === "production") {
-        return axios.create({
-            baseURL: "https://carpal-production.herokuapp.com/",
-            headers: {
-                authorization: localStorage.getItem("token")
-            }
-        });
-    } else {
-        return axios.create({
-            baseURL: "localhost:3000/",
-            headers: {
-                authorization: localStorage.getItem("token")
-            }
-        });
+        const url = "https://carpal-production.herokuapp.com/";
+        return axiosInstance("production", url);
+    } else if (process.env.NODE_ENV === "staging") {
+        const url = "https://staging-carpal.herokuapp.com/";
+        return axiosInstance("development", url);
     }
 }
