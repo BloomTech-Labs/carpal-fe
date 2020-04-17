@@ -5,6 +5,14 @@ import * as yup from "yup";
 import { connect } from "react-redux";
 import RideMap from "../../MapBox/RideMap/RideMap";
 // import "../../MapBox/RideMap/RideMap.scss"
+const mpxClient = require("@mapbox/mapbox-sdk");
+const geo = require("@mapbox/mapbox-sdk/services/geocoding");
+
+const baseClient = mpxClient({
+    accessToken: process.env.REACT_APP_MAPBOX_TOKEN
+});
+
+const geoClient = geo(baseClient);
 
 function RideFind(props) {
     return (
@@ -20,6 +28,7 @@ function RideFind(props) {
                         name="end_location_id"
                         placeholder="Destination"
                     />
+                    <button type="submit">Find a ride</button>
                 </Form>
                 <p>or select one of your favorite locations</p>
                 {props.favoriteLocations &&
@@ -45,8 +54,28 @@ const LocationForm = withFormik({
         start_location_id: yup.string().required("Start location required"),
         end_location_id: yup.string().required("Destination required")
     }),
-    handleSubmit(values, { props }) {
+    async handleSubmit(values, { props }) {
         // convert address to lat/long here
+        try {
+            const start = await geoClient
+                .forwardGeocode({
+                    query: values.start_location_id,
+                    countries: ["us"],
+                    limit: 1
+                })
+                .send();
+            const end = await geoClient
+                .forwardGeocode({
+                    query: values.end_location_id,
+                    countries: ["us"],
+                    limit: 1
+                })
+                .send();
+            console.log(start, end);
+        } catch (err) {
+            console.log(err);
+        }
+
         //send data to BE
     }
 })(RideFind);

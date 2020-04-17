@@ -9,10 +9,18 @@ import "@testing-library/jest-dom/extend-expect";
 
 afterEach(rtl.cleanup);
 
-// mock mapbox map
-jest.mock("mapbox-gl/dist/mapbox-gl", () => ({
-    Map: () => ({})
-}));
+// mock mapbox map, not in use currently
+// jest.mock("mapbox-gl/dist/mapbox-gl", () => ({
+//     Map: () => ({})
+// }));
+
+//mock navigator's getCurrentPosition function
+const mockGeolocation = {
+    getCurrentPosition: jest.fn().mockImplementationOnce((vals) => vals)
+};
+
+//assign geolocation the mockGeolocation obj
+navigator.geolocation = mockGeolocation;
 
 //mock redux store
 let store;
@@ -64,5 +72,8 @@ describe("display mapbox", () => {
         expect(tree).toMatchSnapshot();
         // returning obj
         console.log(tree.toJSON());
+    });
+    test("Navigator function working", () => {
+        expect(navigator.geolocation.getCurrentPosition).toHaveBeenCalled();
     });
 });

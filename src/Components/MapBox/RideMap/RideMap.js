@@ -24,7 +24,6 @@ function RideMap() {
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(getUserLocation);
     }, []);
-    console.log("Corsd");
     const getUserLocation = (position) => {
         var crd = position.coords;
         setViewport({
