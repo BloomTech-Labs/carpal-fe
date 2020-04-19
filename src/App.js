@@ -4,6 +4,7 @@ import TopNav from "../src/Components/Nav/TopNav";
 import Nav from "../src/Components/Nav/Nav";
 import Login from "../src/Components/Login-SignUp/Login";
 import SignUp from "../src/Components/Login-SignUp/SignUp";
+import Logout from "../src/Components/Login-SignUp/Logout";
 import Dashboard from "../src/Components/Dashboards/Dashboard";
 import ProfilePage from "../src/Components/Profile-Pages/Profile-Pages";
 import LandingPage from "../src/Components/Landing-Page/Landing-Page";
@@ -20,6 +21,7 @@ function App() {
             <div className="container">
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/signup" component={SignUp} />
+                <ProtectedRoute exact path="/logout" component={Logout} />
                 <ProtectedRoute
                     exact
                     path="/profilepage"
