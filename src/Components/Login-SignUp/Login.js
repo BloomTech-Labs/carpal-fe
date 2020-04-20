@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import "./Login.scss";
-import LabelField from '../Form-Components/LabelField';
+import LabelField from "../Form-Components/LabelField";
 
 import { LogInAction } from "../../Redux/Actions/UserAction";
 
@@ -13,20 +13,39 @@ function Login(props) {
 
     useEffect(() => {
         if (localStorage.getItem("token")) {
-            props.history.push("/profilepage")
+            props.history.push("/profilepage");
         }
-    }, [localStorage.getItem("token")])
+    }, [localStorage.getItem("token")]);
 
     return (
         <div className="login-container">
             {/* form container */}
+            {console.log(props)}
+            {!props.error
+                ? console.log("waiting")
+                : console.log(props.error.response.data.message, "errors")}
             <Form className="formik-container">
                 <p role="login-component" className="login-p">
                     Login
                 </p>
-                <LabelField name="email" touched={touched.email} error={errors.email} type="email" placeholder="Email@email.com"/>
+                <LabelField
+                    name="email"
+                    touched={touched.email}
+                    error={errors.email}
+                    type="email"
+                    placeholder="Email@email.com"
+                />
 
-                <LabelField name="password" type="password" touched={touched.password} error={errors.password} placeholder="Password" />
+                <LabelField
+                    name="password"
+                    type="password"
+                    touched={touched.password}
+                    error={errors.password}
+                    placeholder="Password"
+                />
+                {!props.error ? null : (
+                    <div>{props.error.response.data.message}</div>
+                )}
                 <button className="form-btn" type="submit">
                     Submit
                 </button>
@@ -65,7 +84,7 @@ const LoginForm = withFormik({
             .email("Please enter a valid email.")
             .required("Please enter your email."),
         password: Yup.string()
-            .min(5, "Password must be at least 10 characters.")
+            .min(5, "Password must be at least 5 characters.")
             .required("Please enter your password.")
     }),
     handleSubmit(values, { props }) {
@@ -73,4 +92,8 @@ const LoginForm = withFormik({
     }
 })(Login);
 
-export default connect(null, { LogInAction })(LoginForm);
+const mapStateToProps = (state) => ({
+    error: state.user.error
+});
+
+export default connect(mapStateToProps, { LogInAction })(LoginForm);
