@@ -4,6 +4,7 @@ import { Form, withFormik } from "formik";
 import * as yup from "yup";
 import { connect } from "react-redux";
 import RideMap from "../../MapBox/RideMap/RideMap";
+import Axios from "axios";
 // import "../../MapBox/RideMap/RideMap.scss"
 const mpxClient = require("@mapbox/mapbox-sdk");
 const geo = require("@mapbox/mapbox-sdk/services/geocoding");
@@ -14,7 +15,32 @@ const baseClient = mpxClient({
 
 const geoClient = geo(baseClient);
 
+
+
 function RideFind(props) {
+
+    const {
+        values: { start_location_id, end_location_id }
+    } = props;
+
+    const [suggestions, setSuggestions] = React.useState([]);
+
+    React.useEffect(()=>{
+        fetchSuggestions(start_location_id)
+    },[start_location_id, end_location_id ]);
+    React.useEffect(()=>{
+        fetchSuggestions(end_location_id)
+    },[end_location_id ]);
+
+    const fetchSuggestions = (search_term) => {
+        if(start_location_id === '') return;
+
+        Axios.get( `https://api.mapbox.com/geocoding/v5/mapbox.places/${search_term}.json?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`
+        ).then(response => {
+            setSuggestions(response.data)
+        }).catch(error => new Error(error))
+    }
+
     return (
         <div className="search-ride-container">
             <div className="search-display">
@@ -54,6 +80,7 @@ const LocationForm = withFormik({
         start_location_id: yup.string().required("Start location required"),
         end_location_id: yup.string().required("Destination required")
     }),
+
     async handleSubmit(values, { props }) {
         // convert address to lat/long here
         try {
