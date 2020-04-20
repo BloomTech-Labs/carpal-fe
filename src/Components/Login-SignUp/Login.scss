@@ -41,6 +41,11 @@
                 @include formikFields;
             }
         }
+
+        .form-error {
+            @include formLabel;
+            @include formError;
+        }
         ///// submit button google login styling
         .form-btn,
         a {

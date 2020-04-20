@@ -20,10 +20,6 @@ function Login(props) {
     return (
         <div className="login-container">
             {/* form container */}
-            {console.log(props)}
-            {!props.error
-                ? console.log("waiting")
-                : console.log(props.error.response.data.message, "errors")}
             <Form className="formik-container">
                 <p role="login-component" className="login-p">
                     Login
@@ -43,9 +39,13 @@ function Login(props) {
                     error={errors.password}
                     placeholder="Password"
                 />
+
                 {!props.error ? null : (
-                    <div>{props.error.response.data.message}</div>
+                    <p className="form-error">
+                        {props.error.response.data.message}
+                    </p>
                 )}
+
                 <button className="form-btn" type="submit">
                     Submit
                 </button>
