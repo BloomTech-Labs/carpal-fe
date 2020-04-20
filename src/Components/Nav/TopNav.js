@@ -1,10 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import Patchy from "../../img/logos/Patchyv2.0.png";
 
 import "./TopNav.scss";
 
-export default function TopNav() {
+function TopNav() {
+    const loggedIn = localStorage.getItem("token");
+
     // temp hamburger animation
     const hideElement = (event) => {
         event.preventDefault();
@@ -26,8 +28,14 @@ export default function TopNav() {
                 id="hamburger-nav"
                 onClick={hideElement}
             >
-                <Link to="/login">Login</Link>
-                <Link to="/signup">Sign Up</Link>
+                {!loggedIn ? (
+                    <>
+                        <Link to="/login">Login</Link>
+                        <Link to="/signup">Sign Up</Link>
+                    </>
+                ) : (
+                    <Link to="/logout">Logout</Link>
+                )}
             </nav>
 
             <button onClick={hideElement} className="hamburger" id="hamburger">
@@ -39,3 +47,5 @@ export default function TopNav() {
         </div>
     );
 }
+
+export default withRouter(TopNav);
