@@ -21,6 +21,7 @@ function App() {
             <div className="container">
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/signup" component={SignUp} />
+                <ProtectedRoute exact path="/logout" component={Logout} />
                 <ProtectedRoute
                     exact
                     path="/profilepage"
