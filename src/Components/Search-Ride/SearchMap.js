@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
-import Logo from "../../../img/Logo.png";
-import "./RideMap.scss";
+
+import Logo from "./../../img/Logo.png";
+
+import "./SearchRide.scss";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { config } from "dotenv";
 config();
+
 const mapboxAPI = process.env.REACT_APP_MAPBOX_TOKEN;
 
-function RideMap() {
+function SearchMap() {
     const [viewport, setViewport] = useState({
         latitude: 0,
         longitude: 0,
@@ -19,13 +22,17 @@ function RideMap() {
     //State for keeping track of the Markers long/lat
     const [marker, setMarker] = useState({
         latitude: 0,
-        longitude: 0
+        longitude: 0,
     });
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition(getUserLocation);
+        // without this test will fail from not being able to run this function
+            navigator.geolocation.getCurrentPosition(getUserLocation);
+    
     }, []);
+    console.log('Corsd')
     const getUserLocation = (position) => {
         var crd = position.coords;
+       
         setViewport({
             ...viewport,
             latitude: crd.latitude,
@@ -37,6 +44,7 @@ function RideMap() {
             longitude: crd.longitude
         });
     };
+
     const handleDragEnd = (event) => {
         setViewport({
             ...viewport,
@@ -80,4 +88,6 @@ function RideMap() {
         </div>
     );
 }
-export default RideMap;
+
+
+export default SearchMap;

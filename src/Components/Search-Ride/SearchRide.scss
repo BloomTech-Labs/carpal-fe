@@ -1,3 +1,6 @@
+@import "../Styles/_variables.scss";
+@include formWebKit;
+
 @media (max-width: 650px) {
     .container {
         height: 100%;
@@ -9,6 +12,7 @@
         width: 100%;
         margin: 0;
         background-color: antiquewhite;
+
         .search-display,
         .map-search {
             width: 100%;
@@ -22,6 +26,7 @@
             height: 300px;
             z-index: 10;
             margin-top: 100px;
+
             .search-ride-input{
                 width: 100%;
                 box-sizing: border-box;
