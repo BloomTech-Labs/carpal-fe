@@ -31,21 +31,18 @@
         ////////////////// Field Labels
         .field-label {
             @include formLabel;
-
-            /////////////// Form Error Msg
-            .form-error {
-                @include formError;
-            }
-            /////////////// fields input styling
-            .formik-fields {
-                @include formikFields;
-            }
         }
-        //Below Styling for Form Submission Error
+
+        /////////////// Form Error Msg
         .form-error {
-            @include formLabel;
             @include formError;
         }
+      
+        /////////////// fields input styling
+        .formik-fields {
+            @include formikFields;
+        }
+      
         ///// submit button google login styling
         .form-btn,
         a {

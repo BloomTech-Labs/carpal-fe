@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import thunk from "redux-thunk";
 import * as actionMock from "../../Redux/Actions/UserAction";
+import { getByPlaceholderText } from "@testing-library/react";
 
 // mock actions that are used in UpdateProfile, without types you'll get warnings/errors
 jest.mock("../../Redux/Actions/UserAction", () => {
@@ -69,7 +70,7 @@ describe("Update Profile", () => {
     });
 
     test("Form should not submit without values", async () => {
-        const { getByTestId } = rtl.render(
+        const { getByTestId, getByPlaceholderText } = rtl.render(
             <Provider store={store}>
                 <Router>
                     <UpdateProfile />
@@ -77,7 +78,7 @@ describe("Update Profile", () => {
             </Provider>
         );
 
-        rtl.fireEvent.change(getByTestId("updateProfileFirstName"), {
+        rtl.fireEvent.change(getByPlaceholderText("First Name"), {
             target: { value: "" }
         });
 
