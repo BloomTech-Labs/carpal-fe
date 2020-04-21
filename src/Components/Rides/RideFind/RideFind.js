@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from "react";
-import LocationField from "../../Form-Components/LocationField/LocationField";
-import { Form, withFormik } from "formik";
-import * as yup from "yup";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import RideMap from "../../MapBox/RideMap/RideMap";
 import "./RideFind.scss";
 import Axios from "axios";
-// import "../../MapBox/RideMap/RideMap.scss"
+import "./RideFind.scss";
 const mpxClient = require("@mapbox/mapbox-sdk");
 const geo = require("@mapbox/mapbox-sdk/services/geocoding");
 
@@ -26,13 +23,6 @@ function RideFind(props) {
         start_location_id: "",
         end_location_id: ""
     });
-
-    // useEffect(() => {
-    //     fetchSuggestions(location.start_location_id, "start_location_id");
-    // }, [location.start_location_id]);
-    // useEffect(() => {
-    //     fetchSuggestions(location.end_location_id, "end_location_id");
-    // }, [location.end_location_id]);
 
     const fetchSuggestions = (search_term, placement) => {
         if (placement === "") return;
@@ -73,14 +63,16 @@ function RideFind(props) {
                     <input
                         onChange={handleChange}
                         type="text"
+                        className="search-ride-input"
                         name="start_location_id"
-                        placeholder="Start"
+                        placeholder="Pick Up location"
                         value={location.start_location_id}
                     />
                     <input
                         onChange={handleChange}
                         type="text"
                         name="end_location_id"
+                        className="search-ride-input"
                         placeholder="Destination"
                         value={location.end_location_id}
                     />

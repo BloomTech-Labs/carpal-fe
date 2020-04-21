@@ -29,9 +29,10 @@ function RideMap(props) {
     ];
 
     //State for keeping track of the Markers long/lat
+
     const [marker, setMarker] = useState({
-        latitude: 0,
-        longitude: 0
+        latitude: 37.718436,
+        longitude: -122.457827
     });
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(getUserLocation);
