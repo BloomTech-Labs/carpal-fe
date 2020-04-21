@@ -9,6 +9,7 @@
         width: 100%;
         margin: 0;
         background-color: antiquewhite;
+
         .search-display,
         .map-search {
             width: 100%;
@@ -22,18 +23,18 @@
             height: 300px;
             z-index: 10;
             margin-top: 100px;
-            .search-ride-input{
+            .search-ride-input {
                 width: 100%;
                 box-sizing: border-box;
                 height: 100px;
-                background: rgba(red, .8);
+                background: rgba(red, 0.8);
                 display: flex;
                 flex-wrap: wrap;
                 flex-direction: column;
                 justify-content: center;
                 align-content: center;
                 align-items: center;
-                .formik-search-fields{
+                .formik-search-fields {
                     margin: 5px 10px;
                     width: 45%;
                     height: 50px;
@@ -42,4 +43,15 @@
             }
         }
     }
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: black !important;
+    color: black !important;
+}
+
+input:-internal-autofill-selected {
+    color: black !important;
+    -webkit-text-fill-color: black !important;
 }

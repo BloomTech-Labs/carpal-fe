@@ -7,7 +7,7 @@ import { config } from "dotenv";
 config();
 const mapboxAPI = process.env.REACT_APP_MAPBOX_TOKEN;
 
-function RideMap() {
+function RideMap(props) {
     const [viewport, setViewport] = useState({
         latitude: 0,
         longitude: 0,
@@ -16,6 +16,18 @@ function RideMap() {
         height: "100vh",
         position: "center"
     });
+
+    const locations = [
+        {
+            lat: props.start[1],
+            long: props.start[0]
+        },
+        {
+            lat: props.end[1],
+            long: props.end[0]
+        }
+    ];
+
     //State for keeping track of the Markers long/lat
     const [marker, setMarker] = useState({
         latitude: 0,
@@ -58,24 +70,28 @@ function RideMap() {
                     setViewport(viewport);
                 }}
             >
-                <Marker
-                    latitude={marker.latitude}
-                    longitude={marker.longitude}
-                    offsetLeft={-10}
-                    offsetTop={-10}
-                    draggable={true}
-                    onDragEnd={handleDragEnd}
-                >
-                    <img
-                        src={`${Logo}`}
-                        alt="marker"
-                        style={{
-                            width: "20px",
-                            height: "20px",
-                            borderRadius: "50%"
-                        }}
-                    />
-                </Marker>
+                {locations &&
+                    locations.map((cur, index) => (
+                        <Marker
+                            key={index}
+                            latitude={cur.lat || marker.latitude}
+                            longitude={cur.long || marker.longitude}
+                            offsetLeft={-10}
+                            offsetTop={-10}
+                            draggable={true}
+                            onDragEnd={handleDragEnd}
+                        >
+                            <img
+                                src={`${Logo}`}
+                                alt="marker"
+                                style={{
+                                    width: "20px",
+                                    height: "20px",
+                                    borderRadius: "50%"
+                                }}
+                            />
+                        </Marker>
+                    ))}
             </ReactMapGL>
         </div>
     );
