@@ -3,6 +3,9 @@ import ReactMapGL, { Marker } from "react-map-gl";
 import Logo from "../../../img/Logo.png";
 import "./RideMap.scss";
 import "mapbox-gl/dist/mapbox-gl.css";
+import PolyLineOverlay from "../../Rides/RideFind/PolyLineOverlay";
+import Axios from 'axios';
+
 import { config } from "dotenv";
 config();
 const mapboxAPI = process.env.REACT_APP_MAPBOX_TOKEN;
@@ -17,17 +20,7 @@ function RideMap(props) {
         position: "center"
     });
 
-    const locations = [
-        {
-            lat: props.start[1],
-            long: props.start[0]
-        },
-        {
-            lat: props.end[1],
-            long: props.end[0]
-        }
-    ];
-
+    const [locations, setLocations] = useState([]);
     //State for keeping track of the Markers long/lat
 
     const [marker, setMarker] = useState({
@@ -36,7 +29,22 @@ function RideMap(props) {
     });
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(getUserLocation);
-    }, []);
+        if (props.start && props.end) {
+            const start = props.start.join(",");
+            const end = props.end.join(",");
+            getDirections(start,end);
+        }
+    }, [props.start, props.end]);
+
+    const getDirections = (start, end) => {
+        Axios.get(
+            `https://api.mapbox.com/directions/v5/mapbox/driving/${start};${end}?radiuses=40;100&geometries=geojson&access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`
+        )
+            .then((res) => {
+                setLocations(res.data.routes[0].geometry.coordinates);
+            })
+            .catch((err) => console.log(err));
+    }
     const getUserLocation = (position) => {
         var crd = position.coords;
         setViewport({
@@ -71,7 +79,7 @@ function RideMap(props) {
                     setViewport(viewport);
                 }}
             >
-                {locations &&
+                {/* {locations &&
                     locations.map((cur, index) => (
                         <Marker
                             key={index}
@@ -92,7 +100,10 @@ function RideMap(props) {
                                 }}
                             />
                         </Marker>
-                    ))}
+                    ))} */}
+                <PolyLineOverlay
+                    points={locations}
+                />
             </ReactMapGL>
         </div>
     );

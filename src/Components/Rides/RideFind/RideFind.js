@@ -4,14 +4,14 @@ import RideMap from "../../MapBox/RideMap/RideMap";
 import "./RideFind.scss";
 import Axios from "axios";
 import "./RideFind.scss";
-const mpxClient = require("@mapbox/mapbox-sdk");
-const geo = require("@mapbox/mapbox-sdk/services/geocoding");
+// const mpxClient = require("@mapbox/mapbox-sdk");
+// const geo = require("@mapbox/mapbox-sdk/services/geocoding");
 
-const baseClient = mpxClient({
-    accessToken: process.env.REACT_APP_MAPBOX_TOKEN
-});
+// const baseClient = mpxClient({
+//     accessToken: process.env.REACT_APP_MAPBOX_TOKEN
+// });
 
-const geoClient = geo(baseClient);
+// const geoClient = geo(baseClient);
 
 function RideFind(props) {
     const [suggestions, setSuggestions] = useState({
