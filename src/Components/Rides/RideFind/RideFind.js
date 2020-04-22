@@ -15,7 +15,7 @@ function RideFind(props) {
     //hold the arrays for setting features from the api call
     const [features, setFeatures] = useState([]);
 
-    //Determine where to render the auto suggestions component left or right 
+    //Determine where to render the auto suggestions component left or right
     const [suggestSection, setSuggestSection] = useState({
         start: false,
         end: false
@@ -29,15 +29,13 @@ function RideFind(props) {
 
     //Fetch user location depending on which form the user is filling to be able to correctly set the feature state
     const fetchSuggestions = (search_term, placement) => {
-
         if (placement === "") return;
-        
+
         //Axios call for fetching locations based on what the user is typing
         Axios.get(
             `https://api.mapbox.com/geocoding/v5/mapbox.places/${search_term}.json?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`
         )
             .then((response) => {
-
                 setFeatures(response.data.features);
 
                 //Detemine which side to render the renderAutoSuggest component onChange
@@ -52,19 +50,18 @@ function RideFind(props) {
                       });
             })
             .catch((error) => new Error(error));
-            //error handle
+        //error handle
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        console.log(suggestions)
+        console.log(suggestions);
         //axios call to BE
     };
 
     //Handle user typing
     const handleChange = (e) => {
-
         setLocation({
             ...location,
             [e.target.name]: e.target.value
@@ -80,24 +77,26 @@ function RideFind(props) {
                     <li
                         key={index}
                         onClick={(e) => {
-
                             e.preventDefault();
-                            
+                            //If this true we render the component to the left(start_location_id) input field else we render it to the right input field
                             if (subsection.start) {
-                                console.log(address.center);
+                                //Set the suggestion state to be sent down as props
                                 setSuggestions({
                                     ...suggestions,
                                     start_location_id: address.center
                                 });
+                                //set the input value to what ever the user clicked
                                 setLocation({
                                     ...location,
                                     start_location_id: address.place_name
                                 });
+                                // Set all fields to false so we don't render autosuggest component
                                 setSuggestSection({
                                     start: false,
                                     end: false
                                 });
                             } else {
+                                //Same steps as on the if block
                                 setSuggestions({
                                     ...suggestions,
                                     end_location_id: address.center
@@ -131,9 +130,9 @@ function RideFind(props) {
                             type="text"
                             name="start_location_id"
                             placeholder="Pick Up location"
-                            autoComplete="off"
                             value={location.start_location_id}
                         />
+
                         {suggestSection.start &&
                             features.length > 1 &&
                             renderAutoSuggest(features, suggestSection)}
