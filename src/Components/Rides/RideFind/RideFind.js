@@ -4,21 +4,19 @@ import RideMap from "../../MapBox/RideMap/RideMap";
 import "./RideFind.scss";
 import Axios from "axios";
 import "./RideFind.scss";
-const mpxClient = require("@mapbox/mapbox-sdk");
-const geo = require("@mapbox/mapbox-sdk/services/geocoding");
 
-const baseClient = mpxClient({
-    accessToken: process.env.REACT_APP_MAPBOX_TOKEN
-});
-
-const geoClient = geo(baseClient);
 
 function RideFind(props) {
+
     const [suggestions, setSuggestions] = useState({
         start_location_id: [],
         end_location_id: []
     });
-
+    const [features, setFeatures] = useState([]);
+    const [suggestSection, setSuggestSection] = useState({
+        start: false,
+        end: false
+    });
     const [location, setLocation] = useState({
         start_location_id: "",
         end_location_id: ""
@@ -35,7 +33,17 @@ function RideFind(props) {
                     ...suggestions,
                     [placement]: response.data.features[0].center
                 });
-                console.log(response.data.features[0].center);
+
+                setFeatures(response.data.features);
+                placement === "start_location_id"
+                    ? setSuggestSection({
+                          end: false,
+                          start: true
+                      })
+                    : setSuggestSection({
+                          start: false,
+                          end: true
+                      });
             })
             .catch((error) => new Error(error));
     };
@@ -54,28 +62,67 @@ function RideFind(props) {
         });
         fetchSuggestions(e.target.value, e.target.name);
     };
+    const renderAutoSuggest = (address_suggestions, subsection) => {
 
+        return (
+            <ul>
+                {address_suggestions.map((address, index) => (
+                    <li
+                        key={index}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            if(subsection.start === true){
+                                setSuggestions({
+                                    ...suggestions,
+                                    start_location_id: address.center
+                                });
+                                
+                            }else{
+                                setSuggestions({
+                                    ...suggestions,
+                                    end_location_id: address.center
+                                })
+                            }
+                        }}
+                    >
+                        {" "}
+                        {address.place_name}
+                    </li>
+                ))}
+            </ul>
+        );
+    };
     return (
         <div className="search-ride-container">
             <div className="search-display">
                 <h1>Start a Ride</h1>
                 <form onSubmit={handleSubmit}>
-                    <input
-                        onChange={handleChange}
-                        type="text"
-                        className="search-ride-input"
-                        name="start_location_id"
-                        placeholder="Pick Up location"
-                        value={location.start_location_id}
-                    />
-                    <input
-                        onChange={handleChange}
-                        type="text"
-                        name="end_location_id"
-                        className="search-ride-input"
-                        placeholder="Destination"
-                        value={location.end_location_id}
-                    />
+                    <div className="search-ride-input">
+                        <input
+                            onChange={handleChange}
+                            type="text"
+                            name="start_location_id"
+                            placeholder="Pick Up location"
+                            autoComplete="off"
+                            value={location.start_location_id}
+                        />
+                        {suggestSection.start &&
+                            features.length > 1 &&
+                            renderAutoSuggest(features, suggestSection)}
+                    </div>
+
+                    <div className="search-ride-input">
+                        <input
+                            onChange={handleChange}
+                            type="text"
+                            name="end_location_id"
+                            placeholder="Destination"
+                            value={location.end_location_id}
+                        />
+                        {suggestSection.end &&
+                            features.length > 1 &&
+                            renderAutoSuggest(features)}
+                    </div>
                     <button type="submit">Find a ride</button>
                 </form>
                 <p>or select one of your favorite locations</p>

@@ -8,6 +8,7 @@ config();
 const mapboxAPI = process.env.REACT_APP_MAPBOX_TOKEN;
 
 function RideMap(props) {
+    console.log(props)
     const [viewport, setViewport] = useState({
         latitude: 0,
         longitude: 0,
