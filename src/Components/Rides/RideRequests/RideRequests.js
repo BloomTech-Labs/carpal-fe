@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import RideRequestsCards from "../RideRequestsCard/RideRequestsCard";
 
 import "./RideRequests.scss";
 
@@ -29,11 +30,14 @@ export default function RideRequests(props) {
                     onClick={() =>
                         setIsOutgoingRequestsOpen(!isOutgoingRequestsOpen)
                     }
-                    className="dotExpander"
                 >
                     ...
                 </button>
-                {isOutgoingRequestsOpen && <div>Outgoing Request 1</div>}
+                {isOutgoingRequestsOpen && (
+                    <div>
+                        <RideRequestsCards />
+                    </div>
+                )}
             </div>
         </>
     );
