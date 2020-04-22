@@ -5,40 +5,46 @@ import "./RideFind.scss";
 import Axios from "axios";
 import "./RideFind.scss";
 
-
 function RideFind(props) {
-
+    //hold long and lat for both location
     const [suggestions, setSuggestions] = useState({
         start_location_id: [],
         end_location_id: []
     });
+
+    //hold the arrays for setting features from the api call
     const [features, setFeatures] = useState([]);
+
+    //Determine where to render the auto suggestions component left or right 
     const [suggestSection, setSuggestSection] = useState({
         start: false,
         end: false
     });
+
+    // for handling input change
     const [location, setLocation] = useState({
         start_location_id: "",
         end_location_id: ""
     });
 
+    //Fetch user location depending on which form the user is filling to be able to correctly set the feature state
     const fetchSuggestions = (search_term, placement) => {
-        if (placement === "") return;
 
+        if (placement === "") return;
+        
+        //Axios call for fetching locations based on what the user is typing
         Axios.get(
             `https://api.mapbox.com/geocoding/v5/mapbox.places/${search_term}.json?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`
         )
             .then((response) => {
-                setSuggestions({
-                    ...suggestions,
-                    [placement]: response.data.features[0].center
-                });
 
                 setFeatures(response.data.features);
+
+                //Detemine which side to render the renderAutoSuggest component onChange
                 placement === "start_location_id"
                     ? setSuggestSection({
-                          end: false,
-                          start: true
+                          start: true,
+                          end: false
                       })
                     : setSuggestSection({
                           start: false,
@@ -46,42 +52,64 @@ function RideFind(props) {
                       });
             })
             .catch((error) => new Error(error));
+            //error handle
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        console.log(suggestions);
-
+        console.log(suggestions)
         //axios call to BE
     };
 
+    //Handle user typing
     const handleChange = (e) => {
+
         setLocation({
+            ...location,
             [e.target.name]: e.target.value
         });
         fetchSuggestions(e.target.value, e.target.name);
     };
-    const renderAutoSuggest = (address_suggestions, subsection) => {
 
+    //Auto suggest component
+    const renderAutoSuggest = (address_suggestions, subsection) => {
         return (
             <ul>
                 {address_suggestions.map((address, index) => (
                     <li
                         key={index}
                         onClick={(e) => {
+
                             e.preventDefault();
-                            if(subsection.start === true){
+                            
+                            if (subsection.start) {
+                                console.log(address.center);
                                 setSuggestions({
                                     ...suggestions,
                                     start_location_id: address.center
                                 });
-                                
-                            }else{
+                                setLocation({
+                                    ...location,
+                                    start_location_id: address.place_name
+                                });
+                                setSuggestSection({
+                                    start: false,
+                                    end: false
+                                });
+                            } else {
                                 setSuggestions({
                                     ...suggestions,
                                     end_location_id: address.center
-                                })
+                                });
+                                setSuggestSection({
+                                    start: false,
+                                    end: false
+                                });
+                                setLocation({
+                                    ...location,
+                                    end_location_id: address.place_name
+                                });
                             }
                         }}
                     >
@@ -121,7 +149,7 @@ function RideFind(props) {
                         />
                         {suggestSection.end &&
                             features.length > 1 &&
-                            renderAutoSuggest(features)}
+                            renderAutoSuggest(features, suggestSection)}
                     </div>
                     <button type="submit">Find a ride</button>
                 </form>
