@@ -4,6 +4,8 @@ import RideMap from "../../MapBox/RideMap/RideMap";
 import "./RideFind.scss";
 import Axios from "axios";
 import "./RideFind.scss";
+import RiderCard from "../RiderCard/RiderCard";
+
 // const mpxClient = require("@mapbox/mapbox-sdk");
 // const geo = require("@mapbox/mapbox-sdk/services/geocoding");
 
@@ -76,13 +78,32 @@ function RideFind(props) {
                         placeholder="Destination"
                         value={location.end_location_id}
                     />
-                    <button type="submit">Find a ride</button>
+                    {/* <button type="submit">Find a ride</button> */}
                 </form>
                 <p>or select one of your favorite locations</p>
                 {props.favoriteLocations &&
                     props.favoriteLocations.map((cur, i) => (
                         <button>{cur.name}</button>
                     ))}
+                {suggestions.start_location_id.length > 0 &&
+                    suggestions.end_location_id.length > 0 && (
+                        <div>
+                            {/* map over rides that match our query */}
+
+                            {/* test ride card */}
+                            <RiderCard name="test" />
+                        </div>
+                    )}
+                <div className="ridesContainer">
+                    <div className="searchedRides">
+                        {/* map over rides that match our query */}
+
+                        {/* test ride card */}
+                        <RiderCard name="test" />
+                    </div>
+                </div>
+                <p>Want to offer this ride instead?</p>
+                <button /*  save ride function  */>Save Ride</button>
             </div>
             <div className="map-search">
                 <RideMap

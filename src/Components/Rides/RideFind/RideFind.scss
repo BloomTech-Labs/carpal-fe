@@ -10,6 +10,20 @@
         top: 0;
         left: 0;
     }
+    .ridesContainer {
+        background-color: white;
+        width: 100%;
+    }
+
+    .searchedRides:nth-child(2n) {
+        width: 100%;
+        background-color:rgba(4,204,187, .15);
+    }
+
+    .searchedRides {
+        width: 100%;
+        background-color: white;
+    }
     .search-display {
         box-shadow: 0 1px 6px 0 rgba(32,33,36,.28);
         width: 60%;
