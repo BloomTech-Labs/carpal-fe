@@ -9,6 +9,7 @@ import ProfilePage from "./Components/Profile-Pages/Profile-Pages";
 import LandingPage from "./Components/Landing-Page/Landing-Page";
 import ProtectedRoute from "./Utils/ProtectedRoute";
 import RideFind from "./Components/Rides/RideFind/RideFind";
+import SavedRides from './Components/Rides/SavedRide/SavedRide'
 
 import "./App.scss";
 
@@ -26,6 +27,7 @@ function App() {
                     path="/profilepage"
                     component={ProfilePage}
                 />
+                <Route exact path='/saved' component={SavedRides} />
                 <ProtectedRoute exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/" component={LandingPage} />
                 <ProtectedRoute exact path="/Home" component={RideFind} />

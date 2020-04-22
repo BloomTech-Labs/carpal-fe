@@ -25,6 +25,15 @@ const initialState = {
                 latitude: 32.715736,
                 longitude: -117.161087
             }
+        ],
+        savedRides: [{
+            id: 1,
+            name: 'Path to Work'
+        },
+        {
+            id: 2,
+            name: 'Grocery Run'
+        }
         ]
     },
     isEditing: false
