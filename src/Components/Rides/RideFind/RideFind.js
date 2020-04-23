@@ -1,110 +1,149 @@
-import React from "react";
-import LocationField from "../../Form-Components/LocationField/LocationField";
-import { Form, withFormik } from "formik";
-import * as yup from "yup";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import RideMap from "../../MapBox/RideMap/RideMap";
+import "./RideFind.scss";
 import Axios from "axios";
-// import "../../MapBox/RideMap/RideMap.scss"
-const mpxClient = require("@mapbox/mapbox-sdk");
-const geo = require("@mapbox/mapbox-sdk/services/geocoding");
+import "./RideFind.scss";
+import RiderCard from "../RiderCard/RiderCard";
 
-const baseClient = mpxClient({
-    accessToken: process.env.REACT_APP_MAPBOX_TOKEN
-});
+// const mpxClient = require("@mapbox/mapbox-sdk");
+// const geo = require("@mapbox/mapbox-sdk/services/geocoding");
 
-const geoClient = geo(baseClient);
+// const baseClient = mpxClient({
+//     accessToken: process.env.REACT_APP_MAPBOX_TOKEN
+// });
 
-
+// const geoClient = geo(baseClient);
 
 function RideFind(props) {
+    const [suggestions, setSuggestions] = useState({
+        start_location_id: [],
+        end_location_id: []
+    });
 
-    const {
-        values: { start_location_id, end_location_id }
-    } = props;
+    const [location, setLocation] = useState({
+        start_location_id: "",
+        end_location_id: ""
+    });
 
-    const [suggestions, setSuggestions] = React.useState([]);
+    const fetchSuggestions = (search_term, placement) => {
+        if (placement === "") return;
 
-    React.useEffect(()=>{
-        fetchSuggestions(start_location_id)
-    },[start_location_id, end_location_id ]);
-    React.useEffect(()=>{
-        fetchSuggestions(end_location_id)
-    },[end_location_id ]);
+        Axios.get(
+            `https://api.mapbox.com/geocoding/v5/mapbox.places/${search_term}.json?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`
+        )
+            .then((response) => {
+                setSuggestions({
+                    ...suggestions,
+                    [placement]: response.data.features[0].center
+                });
+                console.log(response.data.features[0].center);
+            })
+            .catch((error) => new Error(error));
+    };
 
-    const fetchSuggestions = (search_term) => {
-        if(start_location_id === '') return;
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
-        Axios.get( `https://api.mapbox.com/geocoding/v5/mapbox.places/${search_term}.json?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`
-        ).then(response => {
-            setSuggestions(response.data)
-        }).catch(error => new Error(error))
-    }
+        console.log(suggestions);
+
+        //axios call to BE
+    };
+
+    const handleChange = (e) => {
+        setLocation({
+            [e.target.name]: e.target.value
+        });
+        fetchSuggestions(e.target.value, e.target.name);
+    };
 
     return (
         <div className="search-ride-container">
             <div className="search-display">
                 <h1>Start a Ride</h1>
-                <Form>
-                    <LocationField
+                <form onSubmit={handleSubmit}>
+                    <input
+                        onChange={handleChange}
+                        type="text"
+                        className="search-ride-input"
                         name="start_location_id"
-                        placeholder="Start"
+                        placeholder="Pick Up location"
+                        value={location.start_location_id}
                     />
-                    <LocationField
+                    <input
+                        onChange={handleChange}
+                        type="text"
                         name="end_location_id"
+                        className="search-ride-input"
                         placeholder="Destination"
+                        value={location.end_location_id}
                     />
-                    <button type="submit">Find a ride</button>
-                </Form>
+                    {/* <button type="submit">Find a ride</button> */}
+                </form>
                 <p>or select one of your favorite locations</p>
                 {props.favoriteLocations &&
                     props.favoriteLocations.map((cur, i) => (
                         <button>{cur.name}</button>
                     ))}
+                {suggestions.start_location_id.length > 0 &&
+                    suggestions.end_location_id.length > 0 && (
+                        <div className="ridesContainer">
+                            <div className="searchedRides">
+                                {/* map over rides that match our query */}
+
+                                {/* test ride card */}
+                                <RiderCard name="Test Ride" />
+                            </div>
+                        </div>
+                    )}
+                <p>Want to offer this ride instead?</p>
+                <button /*  save ride function  */>Save Ride</button>
             </div>
             <div className="map-search">
-                <RideMap />
+                <RideMap
+                    start={suggestions.start_location_id}
+                    end={suggestions.end_location_id}
+                />
             </div>
         </div>
     );
 }
 
-const LocationForm = withFormik({
-    mapPropsToValues: (values) => {
-        return {
-            start_location_id: values.start_location_id || "",
-            end_location_id: values.end_location_id || ""
-        };
-    },
-    validationSchema: yup.object().shape({
-        start_location_id: yup.string().required("Start location required"),
-        end_location_id: yup.string().required("Destination required")
-    }),
+// const LocationForm = withFormik({
+//     mapPropsToValues: (values) => {
+//         return {
+//             start_location_id: values.start_location_id || "",
+//             end_location_id: values.end_location_id || ""
+//         };
+//     },
+//     validationSchema: yup.object().shape({
+//         start_location_id: yup.string().required("Start location required"),
+//         end_location_id: yup.string().required("Destination required")
+//     }),
 
-    async handleSubmit(values, { props }) {
-        // convert address to lat/long here
-        try {
-            const start = await geoClient
-                .forwardGeocode({
-                    query: values.start_location_id,
-                    countries: ["us"],
-                    limit: 1
-                })
-                .send();
-            const end = await geoClient
-                .forwardGeocode({
-                    query: values.end_location_id,
-                    countries: ["us"],
-                    limit: 1
-                })
-                .send();
-            console.log(start, end);
-        } catch (err) {
-            console.log(err);
-        }
+//     async handleSubmit(values, { props }) {
+//         // convert address to lat/long here
+//         // try {
+//         //     const start = await geoClient
+//         //         .forwardGeocode({
+//         //             query: values.start_location_id,
+//         //             countries: ["us"],
+//         //             limit: 1
+//         //         })
+//         //         .send();
+//         //     const end = await geoClient
+//         //         .forwardGeocode({
+//         //             query: values.end_location_id,
+//         //             countries: ["us"],
+//         //             limit: 1
+//         //         })
+//         //         .send();
+//         //     console.log(start, end);
+//         // } catch (err) {
+//         //     console.log(err);
+//         // }
+//         //send data to BE
+//     }
+// })(RideFind);
 
-        //send data to BE
-    }
-})(RideFind);
-
-export default connect(null, {})(LocationForm);
+export default connect(null, {})(RideFind);
