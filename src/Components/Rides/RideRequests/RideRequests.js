@@ -1,29 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import RideRequestsCards from "../RideRequestsCard/RideRequestsCard";
 
 import "./RideRequests.scss";
 
-export default function RideRequests(props) {
+import { connect } from "react-redux";
+
+import { SetUserAction } from "../../../Redux/Actions/UserAction";
+
+function RideRequests(props) {
+    const [user, setUser] = useState({});
+
+    useEffect(() => {
+        setUser({
+            ...props.user
+        });
+    }, []);
+
     const [isIncomingRequestsOpen, setIsIncomingRequestsOpen] = useState(false);
     const [isOutgoingRequestsOpen, setIsOutgoingRequestsOpen] = useState(false);
 
+    console.log(isIncomingRequestsOpen, isOutgoingRequestsOpen);
     return (
         <>
             <div>
                 <h3>Requests</h3>
             </div>
-            <div>
-                <h3>Incoming</h3>
-                <button
-                    onClick={() =>
-                        setIsIncomingRequestsOpen(!isIncomingRequestsOpen)
-                    }
-                >
-                    ...
-                </button>
-                {isIncomingRequestsOpen && <div>Incoming Request 1</div>}
-            </div>
-
+            {user.isDriver && (
+                <div>
+                    <h3>Incoming</h3>
+                    <button
+                        onClick={() =>
+                            setIsIncomingRequestsOpen(!isIncomingRequestsOpen)
+                        }
+                    >
+                        ...
+                    </button>
+                    {isIncomingRequestsOpen && (
+                        <div>
+                            <RideRequestsCards />
+                        </div>
+                    )}
+                </div>
+            )}
             <div>
                 <div>Outgoing</div>
                 <button
@@ -42,3 +60,10 @@ export default function RideRequests(props) {
         </>
     );
 }
+
+const mapStateToProps = (state) => ({
+    user: state.user.user,
+    error: state.user.error
+});
+
+export default connect(mapStateToProps, { SetUserAction })(RideRequests);
