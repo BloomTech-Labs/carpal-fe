@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import SavedRideCard from '../SavedRideCard/SavedRideCard'
 import { connect } from 'react-redux'
-import EditLocationName from '../SavedRideCard/EditLocationName'
+import AddLocationName from '../SavedRideCard/AddLocationName'
 import "./SavedRide.scss";
 
 
@@ -16,7 +16,7 @@ function SavedRides(props) {
 
     return (
         <div>
-            {show ? (<EditLocationName toggle={toggleClass} />) : (< div className='saved-rides' >
+            {show ? (<AddLocationName toggle={toggleClass} />) : (< div className='saved-rides' >
                 <section className='my-saved'>
                     <h1>My saved rides...</h1>
                     <button onClick={toggleClass}>Add New ride</button>

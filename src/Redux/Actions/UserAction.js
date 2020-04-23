@@ -6,6 +6,7 @@ export const SET_USER = "SET_USER";
 export const SET_EDITING = "SET_EDITING";
 export const SET_PROFILE_UPDATE = "SET_PROFILE_UPDATE";
 export const SET_FAVORITE_LOCATION = "SET_FAVORITE_LOCATION";
+export const ADD_LOCATION = "ADD_LOCATION"
 
 export function SignUpAction(user) {
     return (dispatch) => {
@@ -93,4 +94,22 @@ export function setFavoriteLocation(payload) {
                 });
             });
     };
+}
+
+export function AddSavedLocation(payload) {
+    return (dispatch) => {
+        dispatch({ type: REQUEST_START });
+        api().post('/locations/saved/edit', payload).then((response) => {
+            dispatch({ type: REQUEST_START });
+            dispatch({
+                type: ADD_LOCATION,
+                payload
+            });
+        })
+            .catch((error) => {
+                dispatch({
+                    type: REQUEST_ERROR
+                });
+            });
+    }
 }
