@@ -4,6 +4,8 @@ import RideMap from "../../MapBox/RideMap/RideMap";
 import "./RideFind.scss";
 import Axios from "axios";
 import "./RideFind.scss";
+import RiderCard from "../RiderCard/RiderCard";
+
 
 function RideFind(props) {
     //hold long and lat for both location
@@ -157,6 +159,19 @@ function RideFind(props) {
                     props.favoriteLocations.map((cur, i) => (
                         <button>{cur.name}</button>
                     ))}
+                {suggestions.start_location_id.length > 0 &&
+                    suggestions.end_location_id.length > 0 && (
+                        <div className="ridesContainer">
+                            <div className="searchedRides">
+                                {/* map over rides that match our query */}
+
+                                {/* test ride card */}
+                                <RiderCard name="Test Ride" />
+                            </div>
+                        </div>
+                    )}
+                <p>Want to offer this ride instead?</p>
+                <button /*  save ride function  */>Save Ride</button>
             </div>
             <div className="map-search">
                 <RideMap

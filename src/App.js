@@ -11,6 +11,7 @@ import ProtectedRoute from "./Utils/ProtectedRoute";
 import RideFind from "./Components/Rides/RideFind/RideFind";
 import Logout from "./Components/Login-SignUp/Logout";
 
+
 import "./App.scss";
 
 //TODO: update app to include loader if isLoading
@@ -28,6 +29,7 @@ function App() {
                     path="/profilepage"
                     component={ProfilePage}
                 />
+
                 <ProtectedRoute exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/" component={LandingPage} />
                 <ProtectedRoute exact path="/Home" component={RideFind} />
