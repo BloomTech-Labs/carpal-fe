@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import SavedRideCard from '../SavedRideCard/SavedRideCard'
 import { connect } from 'react-redux'
 import AddLocationName from '../SavedRideCard/AddLocationName'
@@ -8,11 +8,19 @@ import "./SavedRide.scss";
 
 function SavedRides(props) {
     const [show, setShow] = useState(false)
+    const [rides, setRides] = useState()
+
+    useEffect(() => {
+        setRides(props.savedRides)
+    }, [props.savedRides])
 
     const toggleClass = () => {
         setShow(!show)
         console.log(show)
     }
+
+    console.log(props.savedRides)
+
 
     return (
         <div>
@@ -23,7 +31,7 @@ function SavedRides(props) {
                 </section>
                 {/* <SavedRideCard /> */}
 
-                {props.savedRides.map(rideData => <SavedRideCard data={rideData} />)}
+                {props.savedRides.map(rideData => <SavedRideCard key={rideData.id} data={rideData} rides={rides} setRides={setRides} />)}
 
             </div >)}
         </div>

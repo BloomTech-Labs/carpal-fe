@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { withFormik, Form, Field } from 'formik'
-import * as Yup from 'yup'
+// import { withFormik, Form, Field } from 'formik'
+// import * as Yup from 'yup'
 import "./EditLocationName.scss"
 
 import { AddSavedLocation } from '../../../Redux/Actions/UserAction'
@@ -19,7 +19,8 @@ function AddLocationName(props) {
         zip_code: ''
 
     })
-    console.log(props)
+
+
 
     const handleChange = e => {
         setLocation({
@@ -28,23 +29,25 @@ function AddLocationName(props) {
         })
     }
 
-    const handleSubmit = e => {
+    const handleSubmit = (e, location, { props }) => {
         e.preventDefault()
-        AddSavedLocation(location)
+        console.log(location)
+        props.AddSavedLocation(location)
+        props.toggle()
 
     }
 
     return (
         <div className='edit-location-modal'>
             <h1>Add Location</h1>
-            <form className='location-edit-form'>
+            <form className='location-edit-form' onClick={handleSubmit}>
                 <input type='text' name='name' placeholder='location name' onChange={handleChange}></input>
                 <input type='text' name='house_number' placeholder='house number' onChange={handleChange}></input>
                 <input type='text' name='street' placeholder='street' onChange={handleChange}></input>
                 <input type='text' name='city' placeholder='city' onChange={handleChange}></input>
                 <input type='text' name='state' placeholder='state' onChange={handleChange}></input>
                 <input type='text' name='zip_code' placeholder='zip code' onChange={handleChange}></input>
-                <button type="submit" onClick={handleSubmit}>Save and Close</button>
+                <button type="submit" >Save and Close</button>
             </form>
 
         </div>
@@ -58,7 +61,7 @@ const mapStateToProps = (state) => ({
 
 
 
-export default connect(mapStateToProps)(AddLocationName);
+export default connect(mapStateToProps, { AddSavedLocation })(AddLocationName);
 
 {/* <Form className='formik-container' data-testid={"UpdateLocationForm"}>
 {/* {touched.name && errors.name} */}
