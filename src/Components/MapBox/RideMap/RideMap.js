@@ -11,6 +11,7 @@ config();
 const mapboxAPI = process.env.REACT_APP_MAPBOX_TOKEN;
 
 function RideMap(props) {
+    // console.log(props)
     const [viewport, setViewport] = useState({
         latitude: 0,
         longitude: 0,
@@ -29,7 +30,8 @@ function RideMap(props) {
     });
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(getUserLocation);
-        if (props.start && props.end) {
+        
+        if (props.start.length > 1 && props.end.length > 1) {
             const start = props.start.join(",");
             const end = props.end.join(",");
             getDirections(start,end);
