@@ -1,13 +1,15 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import TopNav from "../src/Components/Nav/TopNav";
-import Nav from "../src/Components/Nav/Nav";
-import Login from "../src/Components/Login-SignUp/Login";
-import SignUp from "../src/Components/Login-SignUp/SignUp";
-import Dashboard from "../src/Components/Dashboards/Dashboard";
-import ProfilePage from "../src/Components/Profile-Pages/Profile-Pages";
-import LandingPage from "../src/Components/Landing-Page/Landing-Page";
-import ProtectedRoute from "../src/Utils/ProtectedRoute";
+import TopNav from "./Components/Nav/TopNav";
+import Nav from "./Components/Nav/Nav";
+import Login from "./Components/Login-SignUp/Login";
+import SignUp from "./Components/Login-SignUp/SignUp";
+import Dashboard from "./Components/Dashboards/Dashboard";
+import ProfilePage from "./Components/Profile-Pages/Profile-Pages";
+import LandingPage from "./Components/Landing-Page/Landing-Page";
+import ProtectedRoute from "./Utils/ProtectedRoute";
+import RideFind from "./Components/Rides/RideFind/RideFind";
+import Logout from "./Components/Login-SignUp/Logout";
 
 import "./App.scss";
 
@@ -20,6 +22,7 @@ function App() {
             <div className="container">
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/signup" component={SignUp} />
+                <ProtectedRoute exact path="/logout" component={Logout} />
                 <ProtectedRoute
                     exact
                     path="/profilepage"
@@ -27,6 +30,7 @@ function App() {
                 />
                 <ProtectedRoute exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/" component={LandingPage} />
+                <ProtectedRoute exact path="/Home" component={RideFind} />
             </div>
             <Nav />
         </div>

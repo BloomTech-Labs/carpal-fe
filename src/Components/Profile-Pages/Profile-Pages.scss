@@ -135,19 +135,29 @@
     padding: 40px;
     margin: 50px auto;
     /////Input fields
-    .formik-fields,
-    option {
-        font-family: inherit;
-        font-size: 1.6rem;
-        width: 100%;
-        padding: 10px 20px;
-        margin: 10px 0px;
-        background-color: $carpalGreen;
-        border: none;
-        border-bottom: 2px solid $carpalWhite;
-        color: $carpalWhite;
-        outline: none;
+
+    ////////////////// Field Labels
+    .field-label {
+        @include formLabel;
     }
+
+    /////////////// Form Error Msg
+    .form-error {
+        @include formError;
+    }
+    /////////////// fields input styling
+    .formik-fields {
+        @include formikFields;
+    }
+
+    select {
+        @include formikSelect;
+    }
+
+    .select-label {
+        @include formLabel;
+    }
+
     .form-btn {
         font-family: inherit;
         font-size: 1.6rem;

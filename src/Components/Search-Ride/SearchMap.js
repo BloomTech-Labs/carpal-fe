@@ -1,35 +1,38 @@
 import React, { useState, useEffect } from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
-import { connect } from "react-redux";
+
 import Logo from "./../../img/Logo.png";
 
-import "./MapBox.scss";
+import "./SearchRide.scss";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { config } from "dotenv";
 config();
 
 const mapboxAPI = process.env.REACT_APP_MAPBOX_TOKEN;
 
-function MapBox(props) {
+function SearchMap() {
     const [viewport, setViewport] = useState({
-        latitude: props.favoriteLocation[0].latitude,
-        longitude: props.favoriteLocation[0].longitude,
+        latitude: 0,
+        longitude: 0,
         zoom: 15,
         width: "100%",
-        height: "200px",
+        height: "100vh",
         position: "center"
     });
     //State for keeping track of the Markers long/lat
     const [marker, setMarker] = useState({
-        latitude: props.favoriteLocation[0].latitude,
-        longitude: props.favoriteLocation[0].longitude
+        latitude: 0,
+        longitude: 0,
     });
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition(getUserLocation);
-    }, [viewport]);
-
+        // without this test will fail from not being able to run this function
+            navigator.geolocation.getCurrentPosition(getUserLocation);
+    
+    }, []);
+    console.log('Corsd')
     const getUserLocation = (position) => {
         var crd = position.coords;
+       
         setViewport({
             ...viewport,
             latitude: crd.latitude,
@@ -86,10 +89,5 @@ function MapBox(props) {
     );
 }
 
-const mapStateToProps = (state) => {
-    return {
-        favoriteLocation: state.user.user.favoriteLocation
-    };
-};
 
-export default connect(mapStateToProps, {})(MapBox);
+export default SearchMap;
