@@ -1,10 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import HomeIcon from "../../Img/footer-icons/HomeIcon.png";
-import homeIconInverse from "../../Img/footer-icons/HomeIcon-Inverse.png";
-import PalReq from "../../Img/footer-icons/CarPalReq-Inverted.png";
-import FindRide from "../../Img/footer-icons/RideRequest-Inverse.png";
-import RequestIcon from "../../Img/footer-icons/CarPalReq2-Inverted.png";
+//icons for nav
+import HomeIcon from "../../img/footer-icons/HomeIcon.png";
+import homeIconInverse from "../../img/footer-icons/HomeIcon-Inverse.png";
+import PalReq from "../../img/footer-icons/CarPalReq-Inverted.png";
+import FindRide from "../../img/footer-icons/RideRequest-Inverse.png";
+import RequestIcon from "../../img/footer-icons/CarPalReq2-Inverted.png";
 
 import "./Nav.scss";
 
@@ -26,7 +27,7 @@ export default function Nav(props) {
                     />
                 </NavLink>
                 {/* path to search for a ride */}
-                <NavLink to="/rideFind">
+                <NavLink to="/ridefind">
                     <img
                         className="profilePic"
                         src={FindRide}
@@ -38,7 +39,7 @@ export default function Nav(props) {
                     />
                 </NavLink>
                 {/* path to request a ride */}
-                <NavLink to="/rideRequest">
+                <NavLink to="/riderequest">
                     <img
                         className="profilePic"
                         src={RequestIcon}
@@ -76,10 +77,10 @@ export default function Nav(props) {
             >
                 not logged in
             </p>
-            <NavLink to="/dashboard">
+            <NavLink to="/">
                 <img
                     className="profilePic"
-                    src={homeIconInverse}
+                    src={HomeIcon}
                     alt="Patchy"
                     style={{
                         width: "40px",
@@ -91,7 +92,7 @@ export default function Nav(props) {
             <NavLink to="/dashboard">
                 <img
                     className="profilePic"
-                    src={PalReq}
+                    src={FindRide}
                     alt="Patchy"
                     style={{
                         width: "40px",
@@ -102,7 +103,6 @@ export default function Nav(props) {
         </nav>
     );
 }
-
 //Typo in static class property declaration  (error message when uncommented.)
 // Nav.PropTypes : {
 //     auth: React.PropTypes.object.isRequired
