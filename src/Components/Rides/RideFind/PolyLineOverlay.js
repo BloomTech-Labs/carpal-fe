@@ -6,7 +6,7 @@ export default class PolylineOverlay extends PureComponent {
         const {
             points,
             color = "#04ccbb",
-            lineWidth = 2,
+            lineWidth = 4,
             renderWhileDragging = true
         } = this.props;
         ctx.clearRect(0, 0, width, height);

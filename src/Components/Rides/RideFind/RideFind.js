@@ -87,21 +87,15 @@ function RideFind(props) {
                     ))}
                 {suggestions.start_location_id.length > 0 &&
                     suggestions.end_location_id.length > 0 && (
-                        <div>
-                            {/* map over rides that match our query */}
+                        <div className="ridesContainer">
+                            <div className="searchedRides">
+                                {/* map over rides that match our query */}
 
-                            {/* test ride card */}
-                            <RiderCard name="test" />
+                                {/* test ride card */}
+                                <RiderCard name="Test Ride" />
+                            </div>
                         </div>
                     )}
-                <div className="ridesContainer">
-                    <div className="searchedRides">
-                        {/* map over rides that match our query */}
-
-                        {/* test ride card */}
-                        <RiderCard name="test" />
-                    </div>
-                </div>
                 <p>Want to offer this ride instead?</p>
                 <button /*  save ride function  */>Save Ride</button>
             </div>

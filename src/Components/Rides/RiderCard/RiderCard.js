@@ -14,8 +14,10 @@ export default function RiderCard(props) {
             {open ? (
                 <div className="rideCardDiv">
                     {/* profile picture */}
-                    <h2>{props.name}</h2>
-                    <button onClick={handleClick}>Details</button>
+                    <h2 data-testid="nameField">{props.name}</h2>
+                    <button data-testid="detailsButton" onClick={handleClick}>
+                        Details
+                    </button>
                     <button /* onClick to send request to BE*/>Request</button>
                     <RiderCardMapping name="Hobbies" items={props.hobbies} />
 
@@ -32,8 +34,10 @@ export default function RiderCard(props) {
             ) : (
                 <div className="rideCardDiv">
                     {/* profile picture */}
-                    <h2>{props.name}</h2>
-                    <button onClick={handleClick}>Details</button>
+                    <h2 data-testid="nameField">{props.name}</h2>
+                    <button data-testid="detailsButton" onClick={handleClick}>
+                        Details
+                    </button>
                     <button /* onClick to send request to BE*/>Request</button>
                 </div>
             )}
