@@ -9,6 +9,7 @@ import ProfilePage from "./Components/Profile-Pages/Profile-Pages";
 import LandingPage from "./Components/Landing-Page/Landing-Page";
 import ProtectedRoute from "./Utils/ProtectedRoute";
 import RideFind from "./Components/Rides/RideFind/RideFind";
+import Logout from "./Components/Login-SignUp/Logout";
 
 import "./App.scss";
 
