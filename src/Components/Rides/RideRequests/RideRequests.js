@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import RideRequestsCards from "../RideRequestsCard/RideRequestsCard";
 
-import "./RideRequests.scss";
-
 import { connect } from "react-redux";
-
 import { SetUserAction } from "../../../Redux/Actions/UserAction";
+
+import "./RideRequests.scss";
 
 function RideRequests(props) {
     const [user, setUser] = useState({});
+    const [isIncomingRequestsOpen, setIsIncomingRequestsOpen] = useState(false);
+    const [isOutgoingRequestsOpen, setIsOutgoingRequestsOpen] = useState(false);
 
     useEffect(() => {
         setUser({
@@ -16,16 +17,13 @@ function RideRequests(props) {
         });
     }, []);
 
-    const [isIncomingRequestsOpen, setIsIncomingRequestsOpen] = useState(false);
-    const [isOutgoingRequestsOpen, setIsOutgoingRequestsOpen] = useState(false);
-
-    console.log(isIncomingRequestsOpen, isOutgoingRequestsOpen);
     return (
         <>
             <div>
                 <h3>Requests</h3>
             </div>
-            {user.isDriver && (
+            {/* Conditionally Render Incoming Request only if User is a Driver*/}
+            {user.is_driver && (
                 <div>
                     <h3>Incoming</h3>
                     <button
@@ -37,7 +35,7 @@ function RideRequests(props) {
                     </button>
                     {isIncomingRequestsOpen && (
                         <div>
-                            <RideRequestsCards />
+                            <RideRequestsCards incoming={true} />
                         </div>
                     )}
                 </div>
