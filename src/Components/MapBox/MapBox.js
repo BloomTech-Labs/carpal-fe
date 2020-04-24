@@ -17,8 +17,7 @@ function MapBox(props) {
         zoom: 15,
         width: "100%",
         height: "200px",
-        position: "center",
-        container: "mapContainer"
+        position: "center"
     });
     //State for keeping track of the Markers long/lat
     const [marker, setMarker] = useState({
@@ -26,10 +25,7 @@ function MapBox(props) {
         longitude: props.favoriteLocation[0].longitude
     });
     useEffect(() => {
-        // without this test will fail from not being able to run this function
-        if (!viewport.latitude || !viewport.longitude) {
-            navigator.geolocation.getCurrentPosition(getUserLocation);
-        }
+        navigator.geolocation.getCurrentPosition(getUserLocation);
     }, [viewport]);
 
     const getUserLocation = (position) => {

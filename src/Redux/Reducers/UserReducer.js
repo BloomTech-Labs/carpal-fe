@@ -5,7 +5,8 @@ import {
     SET_USER,
     SET_EDITING,
     SET_PROFILE_UPDATE,
-    SET_FAVORITE_LOCATION
+    SET_FAVORITE_LOCATION,
+    ADD_LOCATION
 } from "../Actions/UserAction";
 
 const initialState = {
@@ -25,6 +26,15 @@ const initialState = {
                 latitude: 32.715736,
                 longitude: -117.161087
             }
+        ],
+        savedRides: [{
+            id: 1,
+            name: 'Path to Work'
+        },
+        {
+            id: 2,
+            name: 'Grocery Run'
+        }
         ]
     },
     isEditing: false
@@ -77,6 +87,15 @@ export function UserReducer(state = initialState, action) {
                     favoriteLocation: [
                         ...state.user.favoriteLocation,
                         action.payload
+                    ]
+                }
+            };
+        case ADD_LOCATION:
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    savedRides: [...state.user.savedRides, action.payload
                     ]
                 }
             };

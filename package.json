@@ -3,6 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+        "@mapbox/mapbox-sdk": "^0.10.0",
         "@sentry/browser": "^5.15.4",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.5.0",
@@ -60,7 +61,6 @@
         "eslint-plugin-import": "^2.18.2",
         "eslint-plugin-jsx-a11y": "^6.2.3",
         "eslint-plugin-react": "^7.14.3",
-        "eslint-plugin-react-hooks": "^1.7.0",
-        "redux-mock-store": "^1.5.4"
+        "eslint-plugin-react-hooks": "^1.7.0"
     }
 }

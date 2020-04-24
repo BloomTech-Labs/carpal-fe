@@ -110,15 +110,21 @@ h2 {
     color: #474747;
     font-weight: 700;
     margin: 1em 0 1em 0;
-    font-size: 7vw;
+    font-size: 6vw;
 }
-
+.headerPara{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 .firstpara {
-    font-size: 2.5vw;
-    margin-top: -2em;
+    font-size: 1.8vw;
+    margin-top: -4em;
     line-height: 1.5em;
+    max-width: 1200px;
     color: #858585;
     margin: 15px;
+    text-align: left;
 }
 #first {
     display: flex;
@@ -201,17 +207,9 @@ h2 {
         vertical-align: baseline;
     }
 }
-.features {
-    display: flex;
-    flex-direction: row;
-    width: 100%; 
-    // height: 100%; 
-    @media (max-width: 600px) {
-        flex-direction: column-reverse;
-    }
-}
 .paraone {
     width: 100%;
+    text-align: left;
     @media (max-width: 600px) {
         padding: 5px;
         text-align: center;
@@ -223,7 +221,7 @@ h2 {
     padding: 0.5em;
     height: 100%;
     width: 100%;
-
+    text-align: left;
     @media (max-width: 600px) {
         font-size: 1em;
         margin-top: -1em;
@@ -338,7 +336,7 @@ h2 {
 .featuresflip {
     display: flex;
     justify-content: space-between;
-    flex-flow: row-reverse;
+    flex-flow: row;
     width: 100%;
 
     @media (max-width: 600px) {

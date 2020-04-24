@@ -7,6 +7,7 @@ $carpalWhite: #f3f4f4;
 $carpalYellow: #f3e962;
 $carpalRose: #fbb4b4;
 $carpalBlack: #1e1318;
+$carpalGrey: #f3f4f4;
 //////////////////////Media Breakpoints START
 $breakpoints: (
     "mobile": 450px,
@@ -127,36 +128,64 @@ img {
     margin-bottom: 20px;
 }
 
+.field-above {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    flex-wrap: wrap;
+}
+
 ////////////////// Field Labels The Field Inputs container
 @mixin formLabel {
-    display: flex;
-    flex-direction: column;
+    color: $carpalWhite;
     font-family: inherit;
     font-size: 1.6rem;
-    transition: all 0.3s;
-    padding: 1%;
+    margin: 5px 10px 0 0;
 }
 
 ////////////////// Form Error Msg
 @mixin formError {
-    color: $carpalYellow;
+    color: $carpalRose;
+    font-family: inherit;
+    font-size: 1.6rem;
+    transition: all 0.3s;
+    margin: 5px 0 0;
 }
 
 ////////////////// fields input styling
 @mixin formikFields {
-    font-family: inherit;
-    font-size: 1.6rem;
     width: 100%;
-    padding: 10px 20px;
-    margin: 10px 0px;
-    border-bottom: 2px solid $carpalWhite;
-    border-radius: 0px;
+    padding: 12px 20px;
+    margin: 10px auto 30px;
+    border-radius: 20px;
+    background: none;
+    border: 3px solid $carpalWhite;
     color: $carpalWhite;
-    outline: none;
+    font-size: 1.6rem;
+    font-family: inherit;
 
     //////////////////field placeholder text styling
     &::placeholder {
         color: $carpalWhite;
+        font-size: 1.6rem;
+    }
+}
+
+////////////////// fields select styling
+@mixin formikSelect {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px auto 30px;
+    border-radius: 20px;
+    background: none;
+    border: 3px solid $carpalWhite;
+    color: $carpalWhite;
+    font-size: 1.6rem;
+    font-family: inherit;
+    transition: all 0.3s;
+
+    option {
+        color: $carpalBlack;
     }
 }
 
