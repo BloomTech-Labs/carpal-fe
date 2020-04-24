@@ -10,7 +10,10 @@ import ProfilePages from '../../Profile-Pages/Profile-Pages'
 
 
 function AddLocationName(props) {
-    const [location, setLocation] = useState({
+
+    const [location, setLocation] = useState()
+
+    const [newLocation, setNewLocation] = useState({
         name: '',
         house_number: '',
         street: '',
@@ -20,19 +23,20 @@ function AddLocationName(props) {
 
     })
 
-
+    useEffect(() => {
+        setLocation(props.location)
+    })
 
     const handleChange = e => {
-        setLocation({
-            ...location,
+        setNewLocation({
+            ...newLocation,
             [e.target.name]: e.target.value
         })
     }
 
-    const handleSubmit = (e, location, { props }) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(location)
-        props.AddSavedLocation(location)
+        props.AddSavedLocation(newLocation)
         props.toggle()
 
     }
@@ -40,7 +44,7 @@ function AddLocationName(props) {
     return (
         <div className='edit-location-modal'>
             <h1>Add Location</h1>
-            <form className='location-edit-form' onClick={handleSubmit}>
+            <form className='location-edit-form' onSubmit={handleSubmit}>
                 <input type='text' name='name' placeholder='location name' onChange={handleChange}></input>
                 <input type='text' name='house_number' placeholder='house number' onChange={handleChange}></input>
                 <input type='text' name='street' placeholder='street' onChange={handleChange}></input>

@@ -31,7 +31,7 @@ function SavedRides(props) {
                 </section>
                 {/* <SavedRideCard /> */}
 
-                {props.savedRides.map(rideData => <SavedRideCard key={rideData.id} data={rideData} rides={rides} setRides={setRides} />)}
+                {props.savedRides.map((rideData, index) => <SavedRideCard key={index} data={rideData} rides={rides} setRides={setRides} />)}
 
             </div >)}
         </div>

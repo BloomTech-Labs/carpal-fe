@@ -10,6 +10,7 @@ import LandingPage from "./Components/Landing-Page/Landing-Page";
 import ProtectedRoute from "./Utils/ProtectedRoute";
 import RideFind from "./Components/Rides/RideFind/RideFind";
 import Logout from "./Components/Login-SignUp/Logout";
+import SavedRide from './Components/Rides/SavedRide/SavedRide'
 
 
 import "./App.scss";
@@ -29,6 +30,7 @@ function App() {
                     path="/profilepage"
                     component={ProfilePage}
                 />
+                <Route exact path="/saved" component={SavedRide} />
 
                 <ProtectedRoute exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/" component={LandingPage} />

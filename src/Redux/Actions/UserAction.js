@@ -98,6 +98,13 @@ export function setFavoriteLocation(payload) {
 
 export function AddSavedLocation(payload) {
     return (dispatch) => {
-        dispatch({ type: ADD_LOCATION })
-    }
+
+        api().post('/location', payload)
+            .then((resp) => { dispatch({ type: ADD_LOCATION, payload: resp.data }) })
+            .catch((error) => {
+                dispatch({
+                    type: REQUEST_ERROR
+                });
+            });
+    };
 }
