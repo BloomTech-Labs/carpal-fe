@@ -35,7 +35,16 @@ function RideRequests(props) {
                     </button>
                     {isIncomingRequestsOpen && (
                         <div>
-                            <RideRequestsCards incoming={true} />
+                            {props.user.incoming_ride_requests.map(
+                                (requests, index) => (
+                                    <RideRequestsCards
+                                        key={index}
+                                        incoming={true}
+                                        user={props.user}
+                                        index={index}
+                                    />
+                                )
+                            )}
                         </div>
                     )}
                 </div>
@@ -51,7 +60,15 @@ function RideRequests(props) {
                 </button>
                 {isOutgoingRequestsOpen && (
                     <div>
-                        <RideRequestsCards />
+                        {props.user.outgoing_ride_requests.map(
+                            (requests, index) => (
+                                <RideRequestsCards
+                                    key={index}
+                                    user={props.user}
+                                    index={index}
+                                />
+                            )
+                        )}
                     </div>
                 )}
             </div>

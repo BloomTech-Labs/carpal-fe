@@ -27,14 +27,33 @@ const initialState = {
                 longitude: -117.161087
             }
         ],
-        savedRides: [{
-            id: 1,
-            name: 'Path to Work'
-        },
-        {
-            id: 2,
-            name: 'Grocery Run'
-        }
+        savedRides: [
+            {
+                id: 1,
+                name: "Path to Work"
+            },
+            {
+                id: 2,
+                name: "Grocery Run"
+            }
+        ],
+        incoming_ride_requests: [
+            {
+                rider_name: "test ride"
+            },
+            {
+                rider_name: "test ride 2"
+            }
+        ],
+        outgoing_ride_requests: [
+            {
+                driver_name: "test driver",
+                status: "pending"
+            },
+            {
+                driver_name: "test driver 2",
+                status: "approved"
+            }
         ]
     },
     isEditing: false
@@ -95,8 +114,7 @@ export function UserReducer(state = initialState, action) {
                 ...state,
                 user: {
                     ...state.user,
-                    savedRides: [...state.user.savedRides, action.payload
-                    ]
+                    savedRides: [...state.user.savedRides, action.payload]
                 }
             };
         default:

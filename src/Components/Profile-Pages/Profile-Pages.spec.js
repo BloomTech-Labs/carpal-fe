@@ -35,8 +35,7 @@ const initState = {
     favoriteLocation: [
         {
             latitude: 32,
-            longitude: 117,
-            container: "mapContainer"
+            longitude: 117
         }
     ]
 };

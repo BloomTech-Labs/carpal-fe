@@ -4,6 +4,9 @@ import "./RideRequestsCard.scss";
 import Patchy from "../../../img/logos/Patchyv2.0.png";
 
 function RideRequestsCard(props) {
+    let outgoingRequests = props.user.outgoing_ride_requests;
+    let incomingRequests = props.user.incoming_ride_requests;
+
     return (
         <div>
             {props.incoming ? (
@@ -12,8 +15,8 @@ function RideRequestsCard(props) {
                         <img className="profilePic" src={Patchy} alt="Patchy" />
                     </div>
                     <div>
-                        <div>Requestor Name</div>
-                        <div>Request Status</div>
+                        <h3>{outgoingRequests[props.index].driver_name}</h3>
+                        <h3>{outgoingRequests[props.index].status}</h3>
                     </div>
                     <div>
                         <button>Details</button>
@@ -24,7 +27,7 @@ function RideRequestsCard(props) {
                 <div className="incoming-request-card">
                     <div>
                         <img className="profilePic" src={Patchy} alt="Patchy" />
-                        <h2>Requestor Name</h2>
+                        <h3>{incomingRequests[props.index].rider_name}</h3>
                     </div>
                     <div className="incoming-request-card-bottom">
                         <div>
