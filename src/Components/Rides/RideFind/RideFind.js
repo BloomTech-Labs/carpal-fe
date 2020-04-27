@@ -6,7 +6,6 @@ import Axios from "axios";
 import "./RideFind.scss";
 import RiderCard from "../RiderCard/RiderCard";
 
-
 function RideFind(props) {
     //hold long and lat for both location
     const [suggestions, setSuggestions] = useState({
@@ -77,6 +76,7 @@ function RideFind(props) {
             <ul>
                 {address_suggestions.map((address, index) => (
                     <li
+                        data-testid={`address${index}`}
                         key={index}
                         onClick={(e) => {
                             e.preventDefault();
