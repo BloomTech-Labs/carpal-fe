@@ -77,7 +77,7 @@ function RideMap(props) {
      
     // Function to render A Marker
     const renderMarker = (longLat, index = 0) => {
-
+        console.log(longLat)
         return (
             <Marker
                 key={index}
@@ -86,7 +86,7 @@ function RideMap(props) {
                 offsetLeft={-10}
                 offsetTop={-10}
                 draggable={true}
-                onDragEnd={handleDragEnd}
+                onDragEnd={e=> console.log(e)}
             >
                 <img
                     src={`${Logo}`}
