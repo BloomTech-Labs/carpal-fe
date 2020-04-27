@@ -7,7 +7,7 @@ import FindRide from "../../img/footer-icons/RideRequest-Inverse.png";
 
 import "./Nav.scss";
 
-export default function Nav(props) {
+export default function Nav() {
     const userAuthorized = localStorage.getItem("token");
     return (
         <>
