@@ -77,6 +77,7 @@ function RideMap(props) {
             <ReactMapGL
                 {...viewport}
                 mapboxApiAccessToken={mapboxAPI}
+                mapStyle="mapbox://styles/carpal/ck9bvhge005yl1io1hpfp1q7z"
                 onViewportChange={(viewport) => {
                     setViewport(viewport);
                 }}
