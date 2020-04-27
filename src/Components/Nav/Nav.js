@@ -28,8 +28,7 @@ function Nav() {
                                 }}
                             />
                         </NavLink>
-
-                        {/* path to request a ride */}
+                        {/* path to request a ride
                         <NavLink to="/riderequest">
                             <img
                                 className="profilePic"
@@ -40,7 +39,7 @@ function Nav() {
                                     height: "40px"
                                 }}
                             />
-                        </NavLink>
+                        </NavLink> */}
                         {/* path to search for a ride */}
                         <NavLink to="/home">
                             <img
