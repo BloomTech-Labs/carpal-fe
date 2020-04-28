@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, withFormik, Field } from "formik";
 import * as Yup from "yup";
 
@@ -50,6 +50,10 @@ function UpdateProfile(props) {
     //     newTags.splice(i, 1);
     //     setUser({ ...user, [name]: newTags });
     // };
+
+    useEffect(() => {
+        setUser({ ...props.user });
+    }, []);
 
     return (
         <div className="update-profile">
