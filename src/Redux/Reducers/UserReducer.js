@@ -48,11 +48,13 @@ const initialState = {
         outgoing_ride_requests: [
             {
                 driver_name: "test driver",
-                status: "pending"
+                status: "pending",
+                ride_id: 1
             },
             {
                 driver_name: "test driver 2",
-                status: "approved"
+                status: "approved",
+                ride_id: 2
             }
         ]
     },

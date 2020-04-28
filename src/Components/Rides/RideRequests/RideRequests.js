@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import RideRequestsCards from "../RideRequestsCard/RideRequestsCard";
 
 import { connect } from "react-redux";
-import { SetUserAction } from "../../../Redux/Actions/UserAction";
+import {
+    SetUserAction,
+    CancelRideRequest
+} from "../../../Redux/Actions/UserAction";
 
 import "./RideRequests.scss";
 
@@ -15,7 +18,16 @@ function RideRequests(props) {
         setUser({
             ...props.user
         });
-    }, []);
+    }, [props.user.incoming_ride_requests]);
+
+    function cancelRequest(item) {
+        let cancelConfirm = window.confirm(
+            `Ride request to ${item.driver_name} is about to be canceled. Are you sure?`
+        );
+        if (cancelConfirm == true) {
+            props.CancelRideRequest(item.ride_id);
+        }
+    }
 
     return (
         <>
@@ -66,6 +78,8 @@ function RideRequests(props) {
                                     key={index}
                                     user={props.user}
                                     index={index}
+                                    requests={requests}
+                                    cancel={cancelRequest}
                                 />
                             )
                         )}
@@ -81,4 +95,6 @@ const mapStateToProps = (state) => ({
     error: state.user.error
 });
 
-export default connect(mapStateToProps, { SetUserAction })(RideRequests);
+export default connect(mapStateToProps, { SetUserAction, CancelRideRequest })(
+    RideRequests
+);
