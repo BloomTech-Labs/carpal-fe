@@ -8,14 +8,16 @@ import CarPalReq from "../../img/footer-icons/CarPalReq-Inverted.png";
 import "./Nav.scss";
 
 function Nav() {
+    /// pulling token from localstorage
     const isAuthenticated = localStorage.getItem("token");
 
     return (
         <>
             <nav className="bottom-nav">
+                {/* if user is not authenticated then nav view with routing to login/signup  */}
                 {!isAuthenticated ? (
                     <>
-                        <NavLink to="/riderequest">
+                        <NavLink to="/signup">
                             <img
                                 className="profilePic"
                                 src={CarPalReq}
@@ -26,7 +28,7 @@ function Nav() {
                                 }}
                             />
                         </NavLink>
-                        <NavLink to="/dashboard">
+                        <NavLink to="/login">
                             <img
                                 className="profilePic"
                                 src={HomeIcon}
@@ -37,7 +39,7 @@ function Nav() {
                                 }}
                             />
                         </NavLink>
-                        <NavLink to="/home">
+                        <NavLink to="/login">
                             <img
                                 className="profilePic"
                                 src={FindRide}
@@ -50,8 +52,9 @@ function Nav() {
                         </NavLink>
                     </>
                 ) : (
+                    // if you are a user you will be given this footer-navigation.
                     <>
-                        <NavLink to="/">
+                        <NavLink to="/profilepage">
                             <img
                                 className="profilePic"
                                 src={HomeIcon}
@@ -62,6 +65,7 @@ function Nav() {
                                 }}
                             />
                         </NavLink>
+                        {/* link to finding/requesting a ride */}
                         <NavLink to="/home">
                             <img
                                 className="profilePic"
@@ -91,5 +95,5 @@ function Nav() {
         </>
     );
 }
-
+//  withRouter passes the closest routes match current location and history props to the wrapped component whenever it renders. simply connects component to the router.
 export default withRouter(Nav);
