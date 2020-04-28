@@ -19,8 +19,8 @@ const initialState = {
         email: "",
         is_driver: true,
         hobbies: [],
-        audio_love: [],
-        audio_hate: [],
+        audioLikes: [],
+        audioDislikes: [],
         favoriteLocation: [
             {
                 latitude: 32.715736,

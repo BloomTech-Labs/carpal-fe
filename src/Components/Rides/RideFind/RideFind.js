@@ -6,7 +6,6 @@ import Axios from "axios";
 import "./RideFind.scss";
 import RiderCard from "../RiderCard/RiderCard";
 
-
 function RideFind(props) {
     //hold long and lat for both location
     const [suggestions, setSuggestions] = useState({
@@ -77,6 +76,7 @@ function RideFind(props) {
             <ul>
                 {address_suggestions.map((address, index) => (
                     <li
+                        data-testid={`address${index}`}
                         key={index}
                         onClick={(e) => {
                             e.preventDefault();
@@ -85,7 +85,8 @@ function RideFind(props) {
                                 //Set the suggestion state to be sent down as props
                                 setSuggestions({
                                     ...suggestions,
-                                    start_location_id: address.center
+                                    //Restructure the array so it matches the marker state in Ridemap
+                                    start_location_id: [address.center[0], address.center[1]]
                                 });
                                 //set the input value to what ever the user clicked
                                 setLocation({
@@ -101,7 +102,7 @@ function RideFind(props) {
                                 //Same steps as on the if block
                                 setSuggestions({
                                     ...suggestions,
-                                    end_location_id: address.center
+                                    end_location_id: [address.center[0], address.center[1]]
                                 });
                                 setSuggestSection({
                                     start: false,
@@ -154,7 +155,7 @@ function RideFind(props) {
                     </div>
                     <button type="submit">Find a ride</button>
                 </form>
-                <p>or select one of your favorite locations</p>
+
                 {props.favoriteLocations &&
                     props.favoriteLocations.map((cur, i) => (
                         <button>{cur.name}</button>
