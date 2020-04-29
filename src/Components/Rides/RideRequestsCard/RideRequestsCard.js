@@ -4,12 +4,12 @@ import Patchy from "../../../img/logos/Patchyv2.0.png";
 
 function RideRequestsCard(props) {
     const [isDetailsOpen, setIsDetailsOpen] = useState(false);
-    let outgoingRequests = props.user.outgoing_ride_requests;
-    let incomingRequests = props.user.incoming_ride_requests;
 
     function toggleDetails() {
         setIsDetailsOpen(!isDetailsOpen);
     }
+
+    console.log(props.requests);
     return (
         <div>
             {props.incoming ? (
@@ -21,13 +21,31 @@ function RideRequestsCard(props) {
                                 src={Patchy}
                                 alt="Patchy"
                             />
-                            <h3>{incomingRequests[props.index].rider_name}</h3>
+                            <h3>{props.requests.rider_name}</h3>
                         </div>
                         <div className="incoming-request-card-bottom">
                             <div>
                                 <button onClick={toggleDetails}>Details</button>
-                                <button>Accept</button>
-                                <button>Decline</button>
+                                <button
+                                    onClick={() =>
+                                        props.handleRequest(
+                                            props.requests.ride_id,
+                                            "accepted"
+                                        )
+                                    }
+                                >
+                                    Accept
+                                </button>
+                                <button
+                                    onClick={() =>
+                                        props.handleRequest(
+                                            props.requests.ride_id,
+                                            "declined"
+                                        )
+                                    }
+                                >
+                                    Decline
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -50,8 +68,8 @@ function RideRequestsCard(props) {
                             />
                         </div>
                         <div>
-                            <h3>{outgoingRequests[props.index].driver_name}</h3>
-                            <h3>{outgoingRequests[props.index].status}</h3>
+                            <h3>{props.requests.driver_name}</h3>
+                            <h3>{props.requests.status}</h3>
                         </div>
                         <div>
                             <button onClick={toggleDetails}>Details</button>

@@ -6,7 +6,8 @@ import {
     SET_EDITING,
     SET_PROFILE_UPDATE,
     SET_FAVORITE_LOCATION,
-    ADD_LOCATION
+    ADD_LOCATION,
+    HANDLE_INCOMING_REQUESTS
 } from "../Actions/UserAction";
 
 const initialState = {
@@ -39,10 +40,14 @@ const initialState = {
         ],
         incoming_ride_requests: [
             {
-                rider_name: "test ride"
+                rider_id: 3,
+                status: "pending",
+                ride_id: 2
             },
             {
-                rider_name: "test ride 2"
+                rider_id: 2,
+                status: "pending",
+                ride_id: 2
             }
         ],
         outgoing_ride_requests: [
@@ -117,6 +122,17 @@ export function UserReducer(state = initialState, action) {
                 user: {
                     ...state.user,
                     savedRides: [...state.user.savedRides, action.payload]
+                }
+            };
+        case HANDLE_INCOMING_REQUESTS:
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    incoming_ride_requests: [
+                        ...state.user.incoming_ride_requests,
+                        action.payload
+                    ]
                 }
             };
         default:

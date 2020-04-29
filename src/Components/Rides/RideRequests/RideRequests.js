@@ -4,7 +4,8 @@ import RideRequestsCards from "../RideRequestsCard/RideRequestsCard";
 import { connect } from "react-redux";
 import {
     SetUserAction,
-    CancelRideRequest
+    CancelRideRequest,
+    handleRideRequest
 } from "../../../Redux/Actions/UserAction";
 
 import "./RideRequests.scss";
@@ -52,8 +53,9 @@ function RideRequests(props) {
                                     <RideRequestsCards
                                         key={index}
                                         incoming={true}
-                                        user={props.user}
+                                        requests={requests}
                                         index={index}
+                                        handleRequest={props.handleRideRequest}
                                     />
                                 )
                             )}
@@ -95,6 +97,8 @@ const mapStateToProps = (state) => ({
     error: state.user.error
 });
 
-export default connect(mapStateToProps, { SetUserAction, CancelRideRequest })(
-    RideRequests
-);
+export default connect(mapStateToProps, {
+    SetUserAction,
+    CancelRideRequest,
+    handleRideRequest
+})(RideRequests);
