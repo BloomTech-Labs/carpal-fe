@@ -7,7 +7,8 @@ import {
     SET_PROFILE_UPDATE,
     SET_FAVORITE_LOCATION,
     ADD_LOCATION,
-    DELETE_LOCATION
+    DELETE_LOCATION,
+    EDIT_LOCATION
 } from "../Actions/UserAction";
 
 const initialState = {
@@ -100,6 +101,15 @@ export function UserReducer(state = initialState, action) {
                     ]
                 }
             };
+        case EDIT_LOCATION:
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    savedRides: [...state.user.savedRides, action.payload
+                    ]
+                }
+            };
 
         case DELETE_LOCATION:
             return {
@@ -108,7 +118,7 @@ export function UserReducer(state = initialState, action) {
                     ...state.user,
                     savedRides: [...state.user.savedRides].filter(ride => ride.id !== action.payload)
                 }
-            }
+            };
         default:
             return state;
     }

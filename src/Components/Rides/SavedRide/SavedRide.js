@@ -14,20 +14,20 @@ function SavedRides(props) {
         setRides(props.savedRides)
     }, [props.savedRides])
 
-    const toggleClass = () => {
+    const toggleShow = () => {
         setShow(!show)
         console.log(show)
     }
 
-    console.log(props.savedRides)
+    console.log(props)
 
 
     return (
         <div>
-            {show ? (<AddLocationName toggle={toggleClass} />) : (< div className='saved-rides' >
+            {show ? (<AddLocationName toggle={toggleShow} />) : (< div className='saved-rides' >
                 <section className='my-saved'>
                     <h1>My saved rides...</h1>
-                    <button onClick={toggleClass}>Add New ride</button>
+                    <button onClick={toggleShow}>Add New ride</button>
                 </section>
                 {/* <SavedRideCard /> */}
 

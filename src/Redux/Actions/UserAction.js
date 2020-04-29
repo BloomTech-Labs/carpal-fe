@@ -8,6 +8,7 @@ export const SET_PROFILE_UPDATE = "SET_PROFILE_UPDATE";
 export const SET_FAVORITE_LOCATION = "SET_FAVORITE_LOCATION";
 export const ADD_LOCATION = "ADD_LOCATION";
 export const DELETE_LOCATION = "DELETE_LOCATION";
+export const EDIT_LOCATION = "EDIT_LOCATION"
 
 export function SignUpAction(user) {
     return (dispatch) => {
@@ -111,5 +112,13 @@ export function DeleteLocation(id) {
         dispatch(
             { type: DELETE_LOCATION, payload: id }
         )
+    }
+}
+
+export function EditLocation(id, payload) {
+    return (dispatch) => {
+        dispatch({
+            type: EDIT_LOCATION, payload
+        })
     }
 }
