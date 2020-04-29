@@ -98,7 +98,7 @@ const SignUpForm = withFormik({
             .required("Please enter your password.")
     }),
     handleSubmit(values, { props }) {
-        props.SignUpAction(values);
+        props.SignUpAction(values, props);
     }
 })(SignUp);
 

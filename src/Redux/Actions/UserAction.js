@@ -9,7 +9,7 @@ export const SET_FAVORITE_LOCATION = "SET_FAVORITE_LOCATION";
 export const ADD_LOCATION = "ADD_LOCATION";
 export const CANCEL_RIDE_REQUEST = "CANCEL_RIDE_REQUEST";
 
-export function SignUpAction(user) {
+export function SignUpAction(user, props) {
     return (dispatch) => {
         dispatch({ type: REQUEST_START });
         api()
@@ -18,7 +18,7 @@ export function SignUpAction(user) {
                 dispatch({ type: REQUEST_SUCCESS });
                 localStorage.setItem("token", res.data.token);
                 dispatch({ type: SET_USER, payload: res.data });
-                // props.history.push("/dashboard");
+                props.history.push("/profilepage");
             })
             .catch((err) => {
                 dispatch({ type: REQUEST_ERROR, payload: err });
@@ -26,7 +26,7 @@ export function SignUpAction(user) {
     };
 }
 
-export function LogInAction(user) {
+export function LogInAction(user, props) {
     return (dispatch) => {
         dispatch({ type: REQUEST_START });
         api()
@@ -35,7 +35,7 @@ export function LogInAction(user) {
                 dispatch({ type: REQUEST_SUCCESS });
                 localStorage.setItem("token", res.data.token);
                 dispatch({ type: SET_USER, payload: res.data });
-                // props.props.history.push("/dashboard");
+                props.history.push("/profilepage");
             })
             .catch((err) => {
                 dispatch({ type: REQUEST_ERROR, payload: err });
