@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ReactMapGL, { Marker } from "react-map-gl";
+import ReactMapGL, { Marker, FlyToInterpolator } from "react-map-gl";
 import Logo from "../../../img/Logo.png";
 import "./RideMap.scss";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -20,6 +20,10 @@ function RideMap(props) {
         height: "100vh",
         position: "center"
     });
+
+    useEffect(() => {
+        flyTo();
+    }, [props.start]);
 
     const [locations, setLocations] = useState([]);
 
@@ -49,7 +53,7 @@ function RideMap(props) {
             .catch((err) => console.log(err));
     };
 
-    //function for getting users coordinates using browsers geolocation API 
+    //function for getting users coordinates using browsers geolocation API
     const getUserLocation = (position) => {
         var crd = position.coords;
 
@@ -65,7 +69,6 @@ function RideMap(props) {
     };
 
     const handleDragEnd = (event) => {
-        console.log(event)
         setViewport({
             ...viewport,
             longitude: event.lngLat[0],
@@ -74,10 +77,22 @@ function RideMap(props) {
         //Update Users location on dragend
         setMarker([event.lngLat[0], event.lngLat[1]]);
     };
-     
+
+    const flyTo = () => {
+        const newViewport = {
+            ...viewport,
+            longitude: props.start[1],
+            latitude: props.start[0],
+            zoom: 15,
+            transitionDuration: 5000,
+            transitionInterpolator: new FlyToInterpolator()
+        };
+
+        setViewport(newViewport);
+    };
+
     // Function to render A Marker
-    const renderMarker = (longLat, index = 0) => {
-        console.log(longLat)
+    const renderMarker = (longLat, index = 0) => {;
         return (
             <Marker
                 key={index}
@@ -86,7 +101,7 @@ function RideMap(props) {
                 offsetLeft={-10}
                 offsetTop={-10}
                 draggable={true}
-                onDragEnd={e=> console.log(e)}
+                onDragEnd={(e) => console.log(e)}
             >
                 <img
                     src={`${Logo}`}
@@ -112,9 +127,9 @@ function RideMap(props) {
                 }}
             >
                 {Array.isArray(marker[0]) && Array.isArray(marker[1])
-                    ? marker.map((cur, index) => (
-                            renderMarker([cur[0], cur[1]], index)
-                      ))
+                    ? marker.map((cur, index) =>
+                          renderMarker([cur[0], cur[1]], index)
+                      )
                     : renderMarker(marker)}
 
                 <PolyLineOverlay points={locations} />

@@ -57,7 +57,6 @@ function RideFind(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        console.log(suggestions);
         //axios call to BE
     };
 
@@ -86,7 +85,10 @@ function RideFind(props) {
                                 setSuggestions({
                                     ...suggestions,
                                     //Restructure the array so it matches the marker state in Ridemap
-                                    start_location_id: [address.center[0], address.center[1]]
+                                    start_location_id: [
+                                        address.center[0],
+                                        address.center[1]
+                                    ]
                                 });
                                 //set the input value to what ever the user clicked
                                 setLocation({
@@ -102,7 +104,10 @@ function RideFind(props) {
                                 //Same steps as on the if block
                                 setSuggestions({
                                     ...suggestions,
-                                    end_location_id: [address.center[0], address.center[1]]
+                                    end_location_id: [
+                                        address.center[0],
+                                        address.center[1]
+                                    ]
                                 });
                                 setSuggestSection({
                                     start: false,
@@ -134,6 +139,7 @@ function RideFind(props) {
                             name="start_location_id"
                             placeholder="Pick Up location"
                             value={location.start_location_id}
+                            autoComplete="off"
                         />
 
                         {suggestSection.start &&
@@ -148,6 +154,7 @@ function RideFind(props) {
                             name="end_location_id"
                             placeholder="Destination"
                             value={location.end_location_id}
+                            autoComplete="off"
                         />
                         {suggestSection.end &&
                             features.length > 1 &&
@@ -183,42 +190,5 @@ function RideFind(props) {
         </div>
     );
 }
-
-// const LocationForm = withFormik({
-//     mapPropsToValues: (values) => {
-//         return {
-//             start_location_id: values.start_location_id || "",
-//             end_location_id: values.end_location_id || ""
-//         };
-//     },
-//     validationSchema: yup.object().shape({
-//         start_location_id: yup.string().required("Start location required"),
-//         end_location_id: yup.string().required("Destination required")
-//     }),
-
-//     async handleSubmit(values, { props }) {
-//         // convert address to lat/long here
-//         // try {
-//         //     const start = await geoClient
-//         //         .forwardGeocode({
-//         //             query: values.start_location_id,
-//         //             countries: ["us"],
-//         //             limit: 1
-//         //         })
-//         //         .send();
-//         //     const end = await geoClient
-//         //         .forwardGeocode({
-//         //             query: values.end_location_id,
-//         //             countries: ["us"],
-//         //             limit: 1
-//         //         })
-//         //         .send();
-//         //     console.log(start, end);
-//         // } catch (err) {
-//         //     console.log(err);
-//         // }
-//         //send data to BE
-//     }
-// })(RideFind);
 
 export default connect(null, {})(RideFind);
