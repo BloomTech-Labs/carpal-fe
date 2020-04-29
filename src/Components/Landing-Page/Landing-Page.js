@@ -1,4 +1,4 @@
-import React,  { useEffect } from "react";
+import React, { useEffect } from "react";
 import Slider from "../../img/CarPal.mp4";
 import Imgone from "../../img/Group 38 (1).png";
 import Imgtwo from "../../img/Group 29.png";
@@ -16,9 +16,7 @@ function LandingPage() {
                     <source src={Slider} type="video/mp4" />
                 </video>
                 <Link to="/Signup">
-                    <p className="overlaybutton">
-                        Sign Up
-                    </p>
+                    <p className="overlaybutton">Sign Up</p>
                 </Link>
             </div>
             <div className="main">
@@ -26,18 +24,21 @@ function LandingPage() {
                     <h1 data-testid="welcomeh1" className="introTitle">
                         Welcome to CarPal
                     </h1>
-                    <p data-testid="firstptag" className="firstpara">
-                        The future of networking and commuting at the same time.
-                        Yeah, we did it seriously. Watch this, with Carpal you
-                        will be able to join a community of drivers and riders
-                        who are looking to save money, lessen the impact on the
-                        enviorment, and gain a friend along the way.
-                    </p>
+                    <div className='headerPara'>
+                        <p data-testid="firstptag" className="firstpara">
+                            The future of networking and commuting at the same
+                            time. Yeah, we did it seriously. Watch this, with
+                            Carpal you will be able to join a community of
+                            drivers and riders who are looking to save money,
+                            lessen the impact on the enviorment, and gain a
+                            friend along the way.
+                        </p>
+                    </div>
                 </div>
                 <section className="container">
                     <div id="first">
                         <h2 data-testid="h2tag1">Features</h2>
-                        <div className="features">
+                        <div className="featuresflip">
                             <div className="paraone">
                                 <p className="para">
                                     With this awesome app, these are just a few
@@ -51,7 +52,7 @@ function LandingPage() {
                             </div>
                             <div className="imgone">
                                 <img
-                                    role= 'image'
+                                    role="image"
                                     className="allimg"
                                     src={Imgone}
                                     alt="Temp img"
@@ -84,7 +85,7 @@ function LandingPage() {
 
                     <div id="third">
                         <h2 data-testid="h2tag3">Riders</h2>
-                        <div className="features">
+                        <div className="featuresflip">
                             <div className="paraone">
                                 <p className="para">
                                     As a rider you gain many great features and

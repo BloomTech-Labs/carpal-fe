@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import UpdateProfile from "./UpdateProfile";
 import "./Profile-Pages.scss";
 import ProfileHeader from "./ProfileHeader";
-// import userDetail from "./userDetail";
+import UserDetail from "./userDetail";
 
 import { connect } from "react-redux";
 
@@ -19,6 +19,7 @@ function ProfilePage(props) {
         if (!props.user.first_name) {
             props.SetUserAction();
         }
+        console.log(props.user);
         setUser({
             ...props.user
         });
@@ -49,11 +50,13 @@ function ProfilePage(props) {
                                     <h2>You are a Rider</h2>
                                 )}
                                 <div className="profileSection">
-                                    {/* <userDetail title="Hobbies" item={user.hobbies} />
 
-                                    <userDetail title="Audio I love" item={user.audio_love} />
+                                    {/* FIX USERDETAIL CLASS /ENDPOINT FOR PUT */}
+                                    <UserDetail title="Hobbies" item={props.user.hobbies} />
 
-                                    <userDetail title="Audio I hate" item={user.audio_hate} /> */}
+                                    <UserDetail title="Audio I love" item={props.user.audioLikes} />
+
+                                    <UserDetail title="Audio I hate" item={props.user.audioDislikes} /> 
                                 </div>
                                 <MapBox />
                                 <div className="buttonContainer">

@@ -1,17 +1,17 @@
 import React from "react";
 
-const userDetail = (props) => {
+const UserDetail = (props) => {
     return (
         <div className="flexContainer">
             <h2>{props.title}</h2>
             {props.item &&
                 props.item.map((cur, i) => (
                     <div className="bubble" key={i}>
-                        {cur}
+                        {cur.name}
                     </div>
                 ))}
         </div>
     );
 };
 
-export default userDetail;
+export default UserDetail;

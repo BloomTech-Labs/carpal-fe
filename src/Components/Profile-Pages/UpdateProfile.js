@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, withFormik, Field } from "formik";
 import * as Yup from "yup";
 
 // import InputTags from "./InputTags";
 import MapBox from "../MapBox/MapBox";
+import LabelField from "../Form-Components/LabelField";
 
 import "./Profile-Pages.scss";
 
@@ -50,47 +51,65 @@ function UpdateProfile(props) {
     //     setUser({ ...user, [name]: newTags });
     // };
 
+    useEffect(() => {
+        setUser({ ...props.user });
+    }, []);
+
     return (
-        <div>
-            <Form className="formik-container" data-testid={"updateProfileForm"}>
-                {touched.name && errors.name}
-                <Field
+        <div className="update-profile">
+            <Form
+                className="formik-container"
+                data-testid={"updateProfileForm"}
+            >
+                <LabelField
                     name="first_name"
                     type="text"
-                    placeholder="First name"
-                    className="formik-fields"
-                    data-testid={"updateProfileFirstName"}
+                    placeholder="First Name"
+                    test={"updateProfileFirstName"}
+                    touched={touched.first_name}
+                    error={errors.first_name}
                 />
-                <Field
+                <LabelField
                     name="last_name"
                     type="text"
                     placeholder="Last name"
-                    className="formik-fields"
+                    touched={touched.last_name}
+                    error={errors.last_name}
                 />
-                <Field
+                <LabelField
                     name="email"
                     type="email"
                     placeholder="Email"
-                    className="formik-fields"
+                    touched={touched.email}
+                    error={errors.email}
                 />
-                <Field
+                <LabelField
                     name="phone_number"
-                    type=""
+                    type="tel"
                     placeholder="Phone Number"
-                    className="formik-fields"
+                    touched={touched.phone_number}
+                    error={errors.phone_number}
                 />
+                <div className="field-above">
+                    <label className="select-label" htmlFor="is_driver">
+                        Would you like to be a driver:
+                    </label>
+                    {touched.is_driver && errors.is_driver && (
+                        <p className="form-error">{errors.is_driver}</p>
+                    )}
+                </div>
                 <Field
                     name="is_driver"
-                    component="select"
-                    className="formik-fields"
                     data-testid={"updateProfileDriver"}
+                    component="select"
                 >
                     <option value="" disabled>
-                        Would you like to be a driver:
+                        Please select an option
                     </option>
                     <option value={true}>Yes</option>
                     <option value={false}>No</option>
                 </Field>
+
                 {/* <InputTags
                     handleInput={handleInput}
                     name="hobbies"
@@ -112,11 +131,19 @@ function UpdateProfile(props) {
                 <MapBox />
                 {user.phone_number ? (
                     // if user already has a phone number (stand in for profile), button displays "Update Profile", else "Save Profile"
-                    <button date-testid={"updateProfile"}type="submit" className="form-btn">
+                    <button
+                        date-testid={"updateProfile"}
+                        type="submit"
+                        className="form-btn"
+                    >
                         Update Profile
                     </button>
                 ) : (
-                    <button data-testid={"updateProfileSave"}type="submit" className="form-btn">
+                    <button
+                        data-testid={"updateProfileSave"}
+                        type="submit"
+                        className="form-btn"
+                    >
                         Save Profile
                     </button>
                 )}
@@ -142,7 +169,11 @@ const ProfileForm = withFormik({
         first_name: Yup.string().required("First Name Required"),
         last_name: Yup.string().required("Last Name Required"),
         email: Yup.string().email().required("Email Required"),
-        phone_number: Yup.number().integer().positive().min(10).required(),
+        phone_number: Yup.number()
+            .integer()
+            .positive()
+            .min(10)
+            .required("Phone Number Required"),
         is_driver: Yup.boolean().required("You must select a role"),
         hobbies: Yup.string(),
         audioDislikes: Yup.string(),

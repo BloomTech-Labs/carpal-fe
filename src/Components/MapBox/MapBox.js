@@ -25,10 +25,7 @@ function MapBox(props) {
         longitude: props.favoriteLocation[0].longitude
     });
     useEffect(() => {
-        // without this test will fail from not being able to run this function
-        if (!viewport.latitude || !viewport.longitude) {
-            navigator.geolocation.getCurrentPosition(getUserLocation);
-        }
+        navigator.geolocation.getCurrentPosition(getUserLocation);
     }, [viewport]);
 
     const getUserLocation = (position) => {
