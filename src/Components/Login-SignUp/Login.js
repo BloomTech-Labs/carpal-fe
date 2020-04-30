@@ -11,11 +11,6 @@ import { LogInAction } from "../../Redux/Actions/UserAction";
 function Login(props) {
     const { errors, touched } = props;
 
-    useEffect(() => {
-        if (localStorage.getItem("token")) {
-            props.history.push("/profilepage");
-        }
-    }, [localStorage.getItem("token")]);
 
     return (
         <div className="login-container">
@@ -88,7 +83,8 @@ const LoginForm = withFormik({
             .required("Please enter your password.")
     }),
     handleSubmit(values, { props }) {
-        props.LogInAction(values);
+        props.LogInAction(values, props);
+
     }
 })(Login);
 

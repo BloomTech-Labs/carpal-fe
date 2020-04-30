@@ -43,12 +43,16 @@ Object {
             >
               Welcome to CarPal
             </h1>
-            <p
-              class="firstpara"
-              data-testid="firstptag"
+            <div
+              class="headerPara"
             >
-              The future of networking and commuting at the same time. Yeah, we did it seriously. Watch this, with Carpal you will be able to join a community of drivers and riders who are looking to save money, lessen the impact on the enviorment, and gain a friend along the way.
-            </p>
+              <p
+                class="firstpara"
+                data-testid="firstptag"
+              >
+                The future of networking and commuting at the same time. Yeah, we did it seriously. Watch this, with Carpal you will be able to join a community of drivers and riders who are looking to save money, lessen the impact on the enviorment, and gain a friend along the way.
+              </p>
+            </div>
           </div>
           <section
             class="container"
@@ -62,7 +66,7 @@ Object {
                 Features
               </h2>
               <div
-                class="features"
+                class="featuresflip"
               >
                 <div
                   class="paraone"
@@ -125,7 +129,7 @@ Object {
                 Riders
               </h2>
               <div
-                class="features"
+                class="featuresflip"
               >
                 <div
                   class="paraone"
@@ -209,12 +213,16 @@ Object {
           >
             Welcome to CarPal
           </h1>
-          <p
-            class="firstpara"
-            data-testid="firstptag"
+          <div
+            class="headerPara"
           >
-            The future of networking and commuting at the same time. Yeah, we did it seriously. Watch this, with Carpal you will be able to join a community of drivers and riders who are looking to save money, lessen the impact on the enviorment, and gain a friend along the way.
-          </p>
+            <p
+              class="firstpara"
+              data-testid="firstptag"
+            >
+              The future of networking and commuting at the same time. Yeah, we did it seriously. Watch this, with Carpal you will be able to join a community of drivers and riders who are looking to save money, lessen the impact on the enviorment, and gain a friend along the way.
+            </p>
+          </div>
         </div>
         <section
           class="container"
@@ -228,7 +236,7 @@ Object {
               Features
             </h2>
             <div
-              class="features"
+              class="featuresflip"
             >
               <div
                 class="paraone"
@@ -291,7 +299,7 @@ Object {
               Riders
             </h2>
             <div
-              class="features"
+              class="featuresflip"
             >
               <div
                 class="paraone"
