@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './SavedRideCard.scss'
 import { DeleteLocation } from '../../../Redux/Actions/UserAction'
 import { connect } from 'react-redux'
-import EditLocation from './EditLocation'
+import EditLocationForm from './EditLocation'
 
 
 function SavedRideCard(props) {
@@ -25,7 +25,7 @@ function SavedRideCard(props) {
     console.log(props)
     return (
         <div className='saved-card'>
-            {show ? (<EditLocation locId={props.data.id} toggle={handleShow} />) : (<section className='saved-card'>
+            {show ? (<EditLocationForm locId={props.data.id} toggle={handleShow} />) : (<section className='saved-card'>
                 <h3>{props.data.name}</h3>
                 <button onClick={handleEdit}> Edit </button>
                 <button onClick={handleDelete}> Delete </button>

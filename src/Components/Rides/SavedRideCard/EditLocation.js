@@ -1,15 +1,26 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-// import { withFormik, Form, Field } from 'formik'
-// import * as Yup from 'yup'
 import "./AddLocationName.scss"
+import { EditLocation } from '../../../Redux/Actions/UserAction'
 
-function EditLocation(props) {
+function EditLocationForm(props) {
     const [currentLocation, setCurrentLocation] = useState()
     const locId = props.locId
-    const targetLoc = props.location.filter(loc => loc.id === locId)
-    console.log(currentLocation)
+    const [targetLoc] = props.location.filter(loc => loc.id === locId)
+
+
+    const [newLocation, setNewLocation] = useState({
+        id: targetLoc.id,
+        name: '',
+        house_number: '',
+        street: '',
+        city: '',
+        state: '',
+        zip_code: ''
+
+    })
+
+    console.log(targetLoc.name)
 
     useEffect(() => {
         setCurrentLocation(targetLoc)
@@ -17,19 +28,23 @@ function EditLocation(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        props.EditLocation(newLocation)
         props.toggle()
 
     }
 
     const handleChange = e => {
-        return
+        setNewLocation({
+            ...newLocation,
+            [e.target.name]: e.target.value
+        })
     }
 
     return (
         <div className='edit-form'>
             <h1>Edit Location</h1>
             <form className='location-edit-form' onSubmit={handleSubmit}>
-                <input type='text' name='name' placeholder='location name' onChange={handleChange}></input>
+                <input type='text' name='name' placeholder={targetLoc.name} onChange={handleChange}></input>
                 <input type='text' name='house_number' placeholder='house number' onChange={handleChange}></input>
                 <input type='text' name='street' placeholder='street' onChange={handleChange}></input>
                 <input type='text' name='city' placeholder='city' onChange={handleChange}></input>
@@ -46,8 +61,8 @@ function EditLocation(props) {
 
 
 const mapStateToProps = (state) => ({
-    location: state.user.user.savedRides
+    location: state.user.user.rides
 })
 
 
-export default connect(mapStateToProps)(EditLocation)
+export default connect(mapStateToProps, { EditLocation })(EditLocationForm)

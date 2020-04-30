@@ -101,8 +101,9 @@ export function setFavoriteLocation(payload) {
 export function AddSavedLocation(payload) {
     return (dispatch) => {
         dispatch({ type: ADD_LOCATION, payload })
+        // add a second dispatch to post to ride table
     }
-
+    //hit the api endpoint here to hit locations table and ride table
 
 }
 
@@ -112,6 +113,7 @@ export function DeleteLocation(id) {
         dispatch(
             { type: DELETE_LOCATION, payload: id }
         )
+        //instead of delete --> remove: change status pending/accepted
     }
 }
 

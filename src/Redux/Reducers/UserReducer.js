@@ -29,13 +29,20 @@ const initialState = {
                 longitude: -117.161087
             }
         ],
-        savedRides: [{
+        rides: [{
             id: 1,
-            name: 'Path to Work'
+            name: 'Path to Work',
+            status: 'pending'
         },
         {
             id: 2,
-            name: 'Grocery Run'
+            name: 'Grocery Run',
+            status: 'accepted'
+        },
+        {
+            id: 3,
+            name: 'Liquor store',
+            status: 'saved',
         }
         ]
     },
@@ -97,7 +104,7 @@ export function UserReducer(state = initialState, action) {
                 ...state,
                 user: {
                     ...state.user,
-                    savedRides: [...state.user.savedRides, action.payload
+                    rides: [...state.user.rides, action.payload
                     ]
                 }
             };
@@ -106,7 +113,7 @@ export function UserReducer(state = initialState, action) {
                 ...state,
                 user: {
                     ...state.user,
-                    savedRides: [...state.user.savedRides, action.payload
+                    rides: [...state.user.rides, action.payload
                     ]
                 }
             };
@@ -116,9 +123,11 @@ export function UserReducer(state = initialState, action) {
                 ...state,
                 user: {
                     ...state.user,
-                    savedRides: [...state.user.savedRides].filter(ride => ride.id !== action.payload)
+                    rides: [...state.user.rides].filter(ride => ride.id !== action.payload)
                 }
             };
+        // add ADD RIDE case
+
         default:
             return state;
     }

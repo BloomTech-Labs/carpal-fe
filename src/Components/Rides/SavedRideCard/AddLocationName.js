@@ -1,31 +1,23 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-// import { withFormik, Form, Field } from 'formik'
-// import * as Yup from 'yup'
 import "./AddLocationName.scss"
-
 import { AddSavedLocation } from '../../../Redux/Actions/UserAction'
-import ProfilePages from '../../Profile-Pages/Profile-Pages'
+import axios from 'axios'
 
 
 function AddLocationName(props) {
 
 
-    const [location, setLocation] = useState()
+    const [location, setLocation] = useState({
+        latitude: '',
+        longitude: ''
+    })
 
     const [newLocation, setNewLocation] = useState({
         name: '',
-        house_number: '',
-        street: '',
-        city: '',
-        state: '',
-        zip_code: ''
+        address: '',
+        status: 'saved'
 
-    })
-
-    useEffect(() => {
-        setLocation(props.location)
     })
 
     const handleChange = e => {
@@ -35,23 +27,35 @@ function AddLocationName(props) {
         })
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
+        // await geocode(newLocation)
         props.AddSavedLocation(newLocation)
         props.toggle()
-
+        //run the action to persist ride destination
     }
+
+
+    function geocode(location) {
+        axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${location.address}.json?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`)
+            .then(response => {
+                const match = response.data.features.filter(place => place.relevance > 0.9)
+                console.log(match[0].center)
+                setLocation({
+                    latitude: match[0].center[0],
+                    longitude: match[0].center[1]
+                })
+            })
+            .catch(err => console.log(err))
+    }
+
 
     return (
         <div className='edit-location-modal'>
             <h1>Add Location</h1>
             <form className='location-edit-form' onSubmit={handleSubmit}>
                 <input type='text' name='name' placeholder='location name' onChange={handleChange}></input>
-                <input type='text' name='house_number' placeholder='house number' onChange={handleChange}></input>
-                <input type='text' name='street' placeholder='street' onChange={handleChange}></input>
-                <input type='text' name='city' placeholder='city' onChange={handleChange}></input>
-                <input type='text' name='state' placeholder='state' onChange={handleChange}></input>
-                <input type='text' name='zip_code' placeholder='zip code' onChange={handleChange}></input>
+                <input type='text' name='address' placeholder='address' onChange={handleChange}></input>
                 <button type="submit" >Save and Close</button>
             </form>
 
