@@ -19,7 +19,6 @@ function ProfilePage(props) {
         if (!props.user.first_name) {
             props.SetUserAction();
         }
-        console.log(props.user);
         setUser({
             ...props.user
         });
