@@ -67,7 +67,6 @@ describe("Checking header fields", () => {
                 </Router>
             </Provider>
         );
-        console.log("First Render", wrapper.debug())
 
         const name = wrapper.queryByText(/Daniel/i);
         const button = wrapper.queryByText(/Edit Profile/i);

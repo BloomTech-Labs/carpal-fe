@@ -182,7 +182,6 @@ const ProfileForm = withFormik({
     handleSubmit(values, { props }) {
         props.SetProfileUpdate(values);
         props.EditProfileAction();
-        console.log("submit", values);
     }
 })(UpdateProfile);
 
