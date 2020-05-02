@@ -11,7 +11,6 @@ import thunk from "redux-thunk";
 import { UserReducer } from "./Redux/Reducers/UserReducer";
 
 
-
 const rootReducer = combineReducers({
     user: UserReducer
 });
