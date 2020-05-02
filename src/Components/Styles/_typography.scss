@@ -1,0 +1,38 @@
+// variables/mixins file path "importing your global styles."
+@import "../Styles/_variables.scss";
+//////////////////Login/Signup Form bckgrndIMG
+@mixin modelBackIMG {
+    background-image: url("../../img/background/Cutie-Trio-Bckgrnd.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 50% 50%;
+}
+
+//////////////////signup/login link
+a {
+    color: $carpalDarkGrey;
+    border-bottom: solid $carpalGreen;
+    border-bottom-width: thin;
+    text-decoration: none !important;
+    padding-bottom: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+
+    //////////////////changes border-bottom color
+    &:hover {
+        color: $carpalGreen;
+        transition: 0.5s;
+    }
+
+    //////////////////onclick/active highlights entire Link.
+    &:active {
+        color: $carpalGreen;
+    }
+}
+
+h2 {
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: x-large;
+    padding-top: 35px;
+}

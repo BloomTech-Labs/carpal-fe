@@ -15,8 +15,8 @@ function LandingPage() {
                 <video className="slider" autoPlay loop>
                     <source src={Slider} type="video/mp4" />
                 </video>
-                <Link to="/Signup">
-                    <p className="overlaybutton">Sign Up</p>
+                <Link className="overlaybutton btn" to="/Signup">
+                    Sign Up
                 </Link>
             </div>
             <div className="main">
@@ -24,7 +24,7 @@ function LandingPage() {
                     <h1 data-testid="welcomeh1" className="introTitle">
                         Welcome to CarPal
                     </h1>
-                    <div className='headerPara'>
+                    <div className="headerPara">
                         <p data-testid="firstptag" className="firstpara">
                             The future of networking and commuting at the same
                             time. Yeah, we did it seriously. Watch this, with
@@ -110,8 +110,8 @@ function LandingPage() {
 
             <section className="containertwo">
                 <h2 className="padding">Ready to gooooooooo?</h2>
-                <Link to="/Signup">
-                    <button name="signup">sign Up</button>
+                <Link className="btn" to="/Signup">
+                    Sign Up
                 </Link>
             </section>
         </div>

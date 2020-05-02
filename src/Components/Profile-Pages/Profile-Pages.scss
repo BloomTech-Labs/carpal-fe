@@ -1,8 +1,5 @@
-// variables/mixins file path "importing your global styles."
-@import "../Styles/_variables.scss";
+@import "../../index.scss";
 /////////// User Profile Container
-// .container { //////// there are three containers wrapping this components styling.
-////////user img and user details
 .profileHeader {
     width: 100%;
     display: flex;
@@ -65,7 +62,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: $carpalGreen;
     max-width: 500px;
     border-radius: 20px;
     padding: 10px 1%;
@@ -76,7 +72,7 @@
         font-size: 2.2rem;
         padding: 10px;
         margin: 2em 2em;
-        color: $carpalWhite;
+        color: $carpalDarkGrey;
     }
     .profileSection {
         display: flex;
@@ -105,23 +101,8 @@
     .buttonContainer {
         text-align: center;
         text-transform: none;
-        .edit {
-            font-family: inherit;
-            font-size: 1.6rem;
-            color: $carpalWhite;
-            background-color: $carpalGreen;
-            border: 1px solid $carpalWhite;
-            border-radius: 20px;
-            padding: 0px 30px;
-            margin: 10px;
-            cursor: pointer;
-            text-decoration: none;
-            text-transform: none;
-        }
     }
 }
-
-// }
 
 ////////////////////////Edit/Update Profile Container and Form////////////////////////
 .formik-container {
@@ -129,46 +110,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: $carpalGreen;
     max-width: 500px;
     border-radius: 20px;
     padding: 40px;
     margin: 50px auto;
-    /////Input fields
-
-    ////////////////// Field Labels
-    .field-label {
-        @include formLabel;
-    }
-
-    /////////////// Form Error Msg
-    .form-error {
-        @include formError;
-    }
-    /////////////// fields input styling
-    .formik-fields {
-        @include formikFields;
-    }
-
-    select {
-        @include formikSelect;
-    }
-
-    .select-label {
-        @include formLabel;
-    }
-
-    .form-btn {
-        font-family: inherit;
-        font-size: 1.6rem;
-        color: $carpalWhite;
-        background-color: $carpalGreen;
-        border: 1px solid $carpalWhite;
-        border-radius: 20px;
-        padding: 0px 30px;
-        margin: 10px;
-        cursor: pointer;
-        text-decoration: none;
-        text-transform: none;
-    }
 }

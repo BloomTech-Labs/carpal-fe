@@ -22,10 +22,6 @@ function Nav() {
                                 className="profilePic"
                                 src={CarPalReq}
                                 alt="Request"
-                                style={{
-                                    width: "40px",
-                                    height: "40px"
-                                }}
                             />
                         </NavLink>
                         <NavLink to="/login">
@@ -33,10 +29,6 @@ function Nav() {
                                 className="profilePic"
                                 src={HomeIcon}
                                 alt="Patchy"
-                                style={{
-                                    width: "40px",
-                                    height: "40px"
-                                }}
                             />
                         </NavLink>
                         <NavLink to="/login">
@@ -44,10 +36,6 @@ function Nav() {
                                 className="profilePic"
                                 src={FindRide}
                                 alt="Patchy"
-                                style={{
-                                    width: "40px",
-                                    height: "40px"
-                                }}
                             />
                         </NavLink>
                     </>
@@ -59,10 +47,6 @@ function Nav() {
                                 className="profilePic"
                                 src={HomeIcon}
                                 alt="Patchy"
-                                style={{
-                                    width: "40px",
-                                    height: "40px"
-                                }}
                             />
                         </NavLink>
                         {/* link to finding/requesting a ride */}
@@ -71,10 +55,6 @@ function Nav() {
                                 className="profilePic"
                                 src={FindRide}
                                 alt="Patchy"
-                                style={{
-                                    width: "40px",
-                                    height: "40px"
-                                }}
                             />
                         </NavLink>
 
@@ -83,10 +63,6 @@ function Nav() {
                                 className="profilePic"
                                 src={RequestIcon}
                                 alt="Request"
-                                style={{
-                                    width: "40px",
-                                    height: "40px"
-                                }}
                             />
                         </NavLink> */}
                     </>
