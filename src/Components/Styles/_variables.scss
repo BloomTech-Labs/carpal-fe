@@ -27,7 +27,7 @@ $breakpoints: (
     }
 }
 
-//////////////////////// media display classes
+//////////////////////// media display classes //
 .show-tablet {
     display: none;
     @include respond-to("tablet") {
