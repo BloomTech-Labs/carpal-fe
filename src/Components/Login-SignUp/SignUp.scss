@@ -1,11 +1,9 @@
 // variables/mixins file path "importing your global styles."
-@import "../Styles/_variables.scss";
-/////////////OVERIDES DEFAULT BROWSER INPUT STYLING
-@include formWebKit;
+@import "../../index.scss";
+
 // //body of component
 .signup-container {
     @include pageBody;
-    background-color: $carpalGreen;
     max-width: 800px;
     padding: 20px;
     margin-top: 50px;
@@ -21,31 +19,13 @@
     }
     //////////////////form container
     .formik-container {
-        @include formContainer;
-        background-color: $carpalGreen;
         margin: 20px;
-        ////////////////// signup form title
-        .signup-p {
-            @include formTitle;
-        }
-        ////////////////// Field Labels
-        .field-label {
-            @include formLabel;
-
-            /////////////// Form Error Msg
-            .form-error {
-                @include formError;
-            }
-            /////////////// fields input styling
-            .formik-fields {
-                @include formikFields;
-            }
-        }
-        ///// submit button styling
-        .form-btn {
-            @include formButton;
-            text-transform: none;
-        }
+    }
+    ////////////////// signup form title
+    .signup-p {
+        color: $carpalDarkGrey;
+        font-size: 2.2rem;
+        margin-bottom: 20px;
     }
     //login container for ppl already a user.
     .module-nav {
@@ -62,13 +42,9 @@
         }
         //// already a user? lets go!
         .module-p {
-            @include formTitle;
+            color: $carpalDarkGrey;
             font-size: 2rem;
             margin-bottom: 5px;
-        }
-        // signup button / link
-        .login-link {
-            @include Link;
         }
     }
 }
