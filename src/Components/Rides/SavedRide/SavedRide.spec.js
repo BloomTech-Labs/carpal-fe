@@ -32,7 +32,6 @@ test("should Render Save Ride Component", async () => {
     //Click button to render a AddLocation component
     await fireEvent.click(newRideBtn);
 
-
     expect(Wrapper.getByPlaceholderText("location name").nodeName).toBe("INPUT");
     expect(Wrapper.getByText("Save and Close").nodeName).toBeDefined();
 });
