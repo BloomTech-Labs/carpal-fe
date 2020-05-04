@@ -21,9 +21,15 @@
         text-decoration: none;
         font-size: 3rem;
         padding: 0 10px;
+
         &:hover {
             color: $carpalWhite;
         }
+    }
+
+    .nav-link-carpal {
+        font-style: italic;
+        font-weight: 600;
     }
 
     .hamburger {
