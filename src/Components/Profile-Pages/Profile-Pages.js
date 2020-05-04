@@ -19,7 +19,6 @@ function ProfilePage(props) {
         if (!props.user.first_name) {
             props.SetUserAction();
         }
-        console.log(props.user);
         setUser({
             ...props.user
         });
@@ -50,13 +49,21 @@ function ProfilePage(props) {
                                     <h2>You are a Rider</h2>
                                 )}
                                 <div className="profileSection">
-
                                     {/* FIX USERDETAIL CLASS /ENDPOINT FOR PUT */}
-                                    <UserDetail title="Hobbies" item={props.user.hobbies} />
+                                    <UserDetail
+                                        title="Hobbies"
+                                        item={props.user.hobbies}
+                                    />
 
-                                    <UserDetail title="Audio I love" item={props.user.audioLikes} />
+                                    <UserDetail
+                                        title="Audio I love"
+                                        item={props.user.audioLikes}
+                                    />
 
-                                    <UserDetail title="Audio I hate" item={props.user.audioDislikes} /> 
+                                    <UserDetail
+                                        title="Audio I hate"
+                                        item={props.user.audioDislikes}
+                                    />
                                 </div>
                                 <MapBox />
                                 <div className="buttonContainer">

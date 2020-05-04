@@ -61,7 +61,7 @@ describe("Checking header fields", () => {
             </Provider>
         );
 
-        const name = wrapper.queryByText(/phone/i);
+        const name = wrapper.getByText(/edit profile/i);
         console.log(name);
         expect(name).toBeInTheDocument();
         expect(name).toBeVisible();

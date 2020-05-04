@@ -4,7 +4,7 @@ import { NavLink, withRouter } from "react-router-dom";
 import HomeIcon from "../../img/footer-icons/HomeIcon.png";
 import FindRide from "../../img/footer-icons/RideRequest-Inverse.png";
 import CarPalReq from "../../img/footer-icons/CarPalReq-Inverted.png";
-
+import RequestIcon from "../../img/footer-icons/RideRequest.png";
 import "./Nav.scss";
 
 function Nav() {
@@ -78,7 +78,7 @@ function Nav() {
                             />
                         </NavLink>
 
-                        {/* <NavLink to="/riderequest">
+                        <NavLink to="/requests">
                             <img
                                 className="profilePic"
                                 src={RequestIcon}
@@ -88,7 +88,7 @@ function Nav() {
                                     height: "40px"
                                 }}
                             />
-                        </NavLink> */}
+                        </NavLink>
                     </>
                 )}
             </nav>
