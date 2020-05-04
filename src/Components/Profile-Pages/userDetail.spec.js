@@ -7,19 +7,17 @@ import "@testing-library/jest-dom/extend-expect";
 afterEach(rtl.cleanup);
 
 describe("userDetail renders without crashing", () => {
-    const testObject = {
-        hobbies: ["sing", "dance", "act"]
-    };
-
     test("userDetails renders to screen array that is passed to it via props", () => {
+        const title = ["sing", "dance", "play"];
         const wrapper = rtl.render(
             <Router>
-                <UserDetail item={testObject.hobbies} />
+                <UserDetail title={title} />
             </Router>
         );
 
-        const title = wrapper.queryByText(/sing/i);
-        expect(title).toBeInTheDocument();
-        expect(title).toBeVisible();
+        const bubble = wrapper.getByText(/sing/i);
+        console.log(wrapper);
+        expect(bubble).toBeInTheDocument();
+        expect(bubble).toBeVisible();
     });
 });
