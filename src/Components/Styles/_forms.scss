@@ -17,11 +17,9 @@ a.btn {
     text-decoration: none;
     text-transform: capitalize;
     &:hover {
-        background-color: $carpalRose;
-        color: $carpalWhite;
-        border: 1px solid $carpalRose;
+        color: $carpalBlack;
+        background-color: $carpalLightGreen;
         transition: 0.5s;
-        opacity: 0.9;
     }
     &:active {
         background-color: $carpalWhite;

@@ -30,9 +30,45 @@ a {
     }
 }
 
+em {
+    font-style: italic;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    color: $carpalDarkGrey;
+}
+
+h1 {
+    color: #474747;
+    font-weight: 700;
+    font-size: 5rem;
+    padding: 30px 0 20px;
+
+    @include respond-to("tablet") {
+        font-size: 8rem;
+    }
+}
+
 h2 {
     text-transform: uppercase;
-    font-weight: 900;
-    font-size: x-large;
-    padding-top: 35px;
+    font-weight: 700;
+    font-size: 3.6rem;
+    padding: 20px 0 10px;
+}
+
+h3 {
+    font-size: 3rem;
+    padding: 10px 0 15px;
+}
+
+p {
+    font-size: 2rem;
+    line-height: 1.6em;
+    padding: 10px 0 15px;
 }
