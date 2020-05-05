@@ -8,6 +8,13 @@ import thunk from "redux-thunk";
 import configureStore from "redux-mock-store";
 import * as actionMock from "../../Redux/Actions/UserAction";
 
+const mockGeolocation = {
+    getCurrentPosition: jest.fn().mockImplementationOnce((vals) => vals)
+};
+
+//assign geolocation the mockGeolocation obj
+navigator.geolocation = mockGeolocation;
+
 // mock actions that are used in UpdateProfile, without types you'll get warnings/errors
 jest.mock("../../Redux/Actions/UserAction", () => {
     return {
@@ -61,9 +68,11 @@ describe("Checking header fields", () => {
             </Provider>
         );
 
-        const name = wrapper.queryByText(/phone/i);
-        console.log(name);
+        const name = wrapper.queryByText(/Daniel/i);
+        const button = wrapper.queryByText(/Edit Profile/i);
+        
         expect(name).toBeInTheDocument();
         expect(name).toBeVisible();
+        
     });
 });

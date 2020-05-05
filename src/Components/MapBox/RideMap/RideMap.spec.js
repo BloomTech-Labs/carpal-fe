@@ -13,9 +13,9 @@ navigator.geolocation = mockGeolocation;
 test('Render RideMap without crashing', () => {
     //RideMap props
     const locationProps = {
-        start:  [-122.457827, 37.718436],
-        end: [-122.41915, 37.76067]
+        start:  [0, 0],
+        end: [0, 0]
     }
-    render(<RideMap  start={locationProps.start} end= {locationProps.end}/>);
-    
+    const wrapper = render(<RideMap start={locationProps.start} end={locationProps.end} />);
+
 })
