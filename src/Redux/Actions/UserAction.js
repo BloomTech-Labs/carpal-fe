@@ -9,6 +9,7 @@ export const SET_FAVORITE_LOCATION = "SET_FAVORITE_LOCATION";
 export const ADD_LOCATION = "ADD_LOCATION";
 export const CANCEL_RIDE_REQUEST = "CANCEL_RIDE_REQUEST";
 export const HANDLE_INCOMING_REQUESTS = "HANDLE_INCOMING_REQUESTS";
+export const HANDLE_OUTGOING_REQUESTS = "HANDLE_OUTGOING_REQUESTS";
 
 export function SignUpAction(user, props) {
     return (dispatch) => {
@@ -145,16 +146,42 @@ export function CancelRideRequest(id) {
     };
 }
 
-export function handleRideRequest(id, status) {
+export function handleIncomingRideRequest() {
     return (dispatch) => {
         dispatch({ type: REQUEST_START });
 
         api()
-            .put(`/rides/${id}/requests`, { status })
+            .get(`/rides/requests/driver`)
             .then((res) => {
+                console.log(res, "handleriderequest action");
                 dispatch({ type: REQUEST_SUCCESS });
-                dispatch({ type: HANDLE_INCOMING_REQUESTS });
-                // update requests somewhere
+                dispatch({
+                    type: HANDLE_INCOMING_REQUESTS,
+                    payload: res
+                });
+            })
+            .catch((error) => {
+                dispatch({
+                    type: REQUEST_ERROR,
+                    payload: error
+                });
+            });
+    };
+}
+
+export function handleOutgoingRideRequest() {
+    return (dispatch) => {
+        dispatch({ type: REQUEST_START });
+
+        api()
+            .get(`/rides/requests/rider`)
+            .then((res) => {
+                console.log(res, "handle outgoing riderequest action");
+                dispatch({ type: REQUEST_SUCCESS });
+                dispatch({
+                    type: HANDLE_OUTGOING_REQUESTS,
+                    payload: res
+                });
             })
             .catch((error) => {
                 dispatch({

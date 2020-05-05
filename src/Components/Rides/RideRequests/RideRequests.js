@@ -5,7 +5,8 @@ import { connect } from "react-redux";
 import {
     SetUserAction,
     CancelRideRequest,
-    handleRideRequest
+    handleIncomingRideRequest,
+    handleOutgoingRideRequest
 } from "../../../Redux/Actions/UserAction";
 
 import "./RideRequests.scss";
@@ -16,10 +17,14 @@ function RideRequests(props) {
     const [isOutgoingRequestsOpen, setIsOutgoingRequestsOpen] = useState(false);
 
     useEffect(() => {
+        //previously subscribed to - props.user.incoming_ride_requests
+
+        props.handleIncomingRideRequest();
+        props.handleOutgoingRideRequest();
         setUser({
             ...props.user
         });
-    }, [props.user.incoming_ride_requests]);
+    }, []);
 
     function cancelRequest(item) {
         let cancelConfirm = window.confirm(
@@ -29,7 +34,7 @@ function RideRequests(props) {
             props.CancelRideRequest(item.ride_id);
         }
     }
-
+    console.log(user);
     return (
         <>
             <div>
@@ -46,9 +51,13 @@ function RideRequests(props) {
                     >
                         ...
                     </button>
+                    {console.log(
+                        props.user.incoming_ride_requests,
+                        "incoming ride request"
+                    )}
                     {isIncomingRequestsOpen && (
                         <div>
-                            {props.user.incoming_ride_requests.map(
+                            {props.user.incoming_ride_requests[0].data.map(
                                 (requests, index) => (
                                     <RideRequestsCards
                                         key={index}
@@ -74,7 +83,7 @@ function RideRequests(props) {
                 </button>
                 {isOutgoingRequestsOpen && (
                     <div>
-                        {props.user.outgoing_ride_requests.map(
+                        {props.user.outgoing_ride_requests[0].data.map(
                             (requests, index) => (
                                 <RideRequestsCards
                                     key={index}
@@ -100,5 +109,6 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
     SetUserAction,
     CancelRideRequest,
-    handleRideRequest
+    handleIncomingRideRequest,
+    handleOutgoingRideRequest
 })(RideRequests);

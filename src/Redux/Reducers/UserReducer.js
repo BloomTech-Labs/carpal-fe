@@ -7,7 +7,8 @@ import {
     SET_PROFILE_UPDATE,
     SET_FAVORITE_LOCATION,
     ADD_LOCATION,
-    HANDLE_INCOMING_REQUESTS
+    HANDLE_INCOMING_REQUESTS,
+    HANDLE_OUTGOING_REQUESTS
 } from "../Actions/UserAction";
 
 const initialState = {
@@ -38,30 +39,8 @@ const initialState = {
                 name: "Grocery Run"
             }
         ],
-        incoming_ride_requests: [
-            {
-                rider_id: 3,
-                status: "pending",
-                ride_id: 2
-            },
-            {
-                rider_id: 2,
-                status: "pending",
-                ride_id: 2
-            }
-        ],
-        outgoing_ride_requests: [
-            {
-                driver_name: "test driver",
-                status: "pending",
-                ride_id: 1
-            },
-            {
-                driver_name: "test driver 2",
-                status: "approved",
-                ride_id: 2
-            }
-        ]
+        incoming_ride_requests: [],
+        outgoing_ride_requests: []
     },
     isEditing: false
 };
@@ -131,6 +110,18 @@ export function UserReducer(state = initialState, action) {
                     ...state.user,
                     incoming_ride_requests: [
                         ...state.user.incoming_ride_requests,
+                        action.payload
+                    ]
+                }
+            };
+
+        case HANDLE_OUTGOING_REQUESTS:
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    outgoing_ride_requests: [
+                        ...state.user.outgoing_ride_requests,
                         action.payload
                     ]
                 }

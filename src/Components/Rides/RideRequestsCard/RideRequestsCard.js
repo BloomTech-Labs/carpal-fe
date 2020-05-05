@@ -9,11 +9,11 @@ function RideRequestsCard(props) {
         setIsDetailsOpen(!isDetailsOpen);
     }
 
-    console.log(props.requests);
+    console.log(props.requests, "props.request in card");
     return (
         <div>
             {props.incoming ? (
-                <div className="outgoing-request-card">
+                <div className="incoming-request-card">
                     <div>
                         <div>
                             <img
@@ -23,30 +23,28 @@ function RideRequestsCard(props) {
                             />
                             <h3>{props.requests.rider_name}</h3>
                         </div>
-                        <div className="incoming-request-card-bottom">
-                            <div>
-                                <button onClick={toggleDetails}>Details</button>
-                                <button
-                                    onClick={() =>
-                                        props.handleRequest(
-                                            props.requests.ride_id,
-                                            "accepted"
-                                        )
-                                    }
-                                >
-                                    Accept
-                                </button>
-                                <button
-                                    onClick={() =>
-                                        props.handleRequest(
-                                            props.requests.ride_id,
-                                            "declined"
-                                        )
-                                    }
-                                >
-                                    Decline
-                                </button>
-                            </div>
+                        <div>
+                            <button onClick={toggleDetails}>Details</button>
+                            <button
+                                onClick={() =>
+                                    props.handleRequest(
+                                        props.requests.ride_id,
+                                        "accepted"
+                                    )
+                                }
+                            >
+                                Accept
+                            </button>
+                            <button
+                                onClick={() =>
+                                    props.handleRequest(
+                                        props.requests.ride_id,
+                                        "declined"
+                                    )
+                                }
+                            >
+                                Decline
+                            </button>
                         </div>
                     </div>
                     {isDetailsOpen ? (
@@ -58,7 +56,7 @@ function RideRequestsCard(props) {
                     ) : null}
                 </div>
             ) : (
-                <div className="incoming-request-card">
+                <div className="outgoing-request-card">
                     <div>
                         <div>
                             <img
@@ -68,16 +66,20 @@ function RideRequestsCard(props) {
                             />
                         </div>
                         <div>
-                            <h3>{props.requests.driver_name}</h3>
+                            <h3>Driver Name</h3>
                             <h3>{props.requests.status}</h3>
                         </div>
-                        <div>
-                            <button onClick={toggleDetails}>Details</button>
-                            <button
-                                onClick={() => props.cancel(props.requests)}
-                            >
-                                Cancel
-                            </button>
+
+                        <div className="outgoing-request-card-bottom">
+                            <div>
+                                <button onClick={toggleDetails}>Details</button>
+
+                                <button
+                                    onClick={() => props.cancel(props.requests)}
+                                >
+                                    Cancel
+                                </button>
+                            </div>
                         </div>
                     </div>
                     {isDetailsOpen ? (
