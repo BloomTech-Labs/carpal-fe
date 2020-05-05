@@ -1,0 +1,74 @@
+// variables/mixins file path "importing your global styles."
+@import "../Styles/_variables.scss";
+//////////////////Login/Signup Form bckgrndIMG
+@mixin modelBackIMG {
+    background-image: url("../../img/background/Cutie-Trio-Bckgrnd.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 50% 50%;
+}
+
+//////////////////signup/login link
+a {
+    color: $carpalDarkGrey;
+    border-bottom: solid $carpalGreen;
+    border-bottom-width: thin;
+    text-decoration: none !important;
+    padding-bottom: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+
+    //////////////////changes border-bottom color
+    &:hover {
+        color: $carpalGreen;
+        transition: 0.5s;
+    }
+
+    //////////////////onclick/active highlights entire Link.
+    &:active {
+        color: $carpalGreen;
+    }
+}
+
+em {
+    font-style: italic;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    color: $carpalDarkGrey;
+}
+
+h1 {
+    color: #474747;
+    font-weight: 700;
+    font-size: 5rem;
+    padding: 30px 0 20px;
+
+    @include respond-to("tablet") {
+        font-size: 8rem;
+    }
+}
+
+h2 {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 3.6rem;
+    padding: 20px 0 10px;
+}
+
+h3 {
+    font-size: 3rem;
+    padding: 10px 0 15px;
+}
+
+p {
+    font-size: 2rem;
+    line-height: 1.6em;
+    padding: 10px 0 15px;
+}

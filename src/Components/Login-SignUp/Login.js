@@ -11,7 +11,6 @@ import { LogInAction } from "../../Redux/Actions/UserAction";
 function Login(props) {
     const { errors, touched } = props;
 
-
     return (
         <div className="login-container">
             {/* form container */}
@@ -41,11 +40,9 @@ function Login(props) {
                     </p>
                 )}
 
-                <button className="form-btn" type="submit">
-                    Submit
-                </button>
+                <button type="submit">Submit</button>
                 <a
-                    className="form-btn"
+                    className="btn"
                     href="https://staging-carpal.herokuapp.com/auth/google/testing"
                 >
                     Login With Google
@@ -84,7 +81,6 @@ const LoginForm = withFormik({
     }),
     handleSubmit(values, { props }) {
         props.LogInAction(values, props);
-
     }
 })(Login);
 

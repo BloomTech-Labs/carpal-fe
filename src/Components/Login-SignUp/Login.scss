@@ -1,79 +1,59 @@
 // variables/mixins file path "importing your global styles."
-@import "../Styles/_variables.scss";
-/////////////OVERIDES DEFAULT BROWSER INPUT STYLING
-@include formWebKit;
+@import "../../index.scss";
 ////////////////////body of component
 .login-container {
-    @include pageBody;
-    background-color: $carpalGreen;
-    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
     padding: 20px;
-    margin-top: 50px;
-
-    //tablet media breakpoint
-    @include respond-to("tablet") {
-        border-radius: 20px;
-    }
+    margin: 0px auto 70px;
     //desktop media breakpoint
     @include respond-to("desktop") {
         flex-direction: row;
-        border-radius: 20px;
     }
     //////////////////form container
     .formik-container {
-        @include formContainer;
-        background-color: $carpalGreen;
         margin: 20px;
-        ////////////////// Login form title
-        .login-p {
-            @include formTitle;
-        }
-        ////////////////// Field Labels
-        .field-label {
-            @include formLabel;
-        }
-
-        /////////////// Form Error Msg
-        .form-error {
-            @include formError;
-        }
-      
-        /////////////// fields input styling
-        .formik-fields {
-            @include formikFields;
-        }
-      
-        ///// submit button google login styling
-        .form-btn,
-        a {
-            @include formButton;
-            background-color: none;
-            text-transform: none;
-        }
-        //////// forgot password link. links to signup for now.
-        .forgot-password {
-            text-decoration: none;
-            font-size: 1.6rem;
-            color: $carpalWhite;
-            background-color: $carpalGreen;
+    }
+    ////////////////// Login form title
+    .login-p {
+        color: $carpalDarkGrey;
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+    //////// forgot password link. links to signup for now.
+    .forgot-password {
+        text-decoration: none;
+        font-size: 1.6rem;
+        color: $carpalDarkGrey;
+        border: none;
+        margin: 10px;
+        &:hover {
+            color: $carpalGreen;
+            opacity: 0.4;
             border: none;
-            margin: 10px;
-            &:hover {
-                color: $carpalRose;
-                background-color: $carpalGreen;
-                border: none;
-            }
-            &:active {
-                color: $carpalRose;
-                background-color: $carpalGreen;
-                border: none;
-            }
+        }
+        &:active {
+            opacity: 1;
+            border: none;
         }
     }
     //////////////////// Signup create account box/link/container
     .module-nav {
-        @include modelNav;
-        @include modelBackIMG;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: 200px;
+        width: 100%;
+        padding: 10px;
+        background-image: url("../../img/background/Cutie-Trio-Bckgrnd.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: 50% 50%;
         @include respond-to("tablet") {
             background-position: 50% 50%;
         }
@@ -83,15 +63,11 @@
             background-position: cover;
             height: 300px;
         }
-        // new to the website? lets go!
-        .module-p {
-            @include formTitle;
-            font-size: 2rem;
-            margin-bottom: 5px;
-            // signup button / link
-            .signup-link {
-                @include Link;
-            }
-        }
+    }
+    ////// New to the website? signup/login p tag
+    .module-p {
+        color: $carpalDarkGrey;
+        font-size: 2rem;
+        margin-bottom: 5px;
     }
 }

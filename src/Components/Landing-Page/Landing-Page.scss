@@ -1,444 +1,113 @@
-button {
-    background-color: #04ccbb;
-    border: none;
-    border-radius: 12px;
-    width: 15rem;
-    font-size: larger;
-    text-transform: uppercase;
-    height: 4.5rem;
-    color: white;
-}
-h2 {
-    text-transform: uppercase;
-    font-weight: 900;
-    font-size: x-large;
-    padding-top: 35px;
-}
-.hero {
-    display: inline-block;
-    position: relative;
-    width: 100%;
-    @media (max-width: 1640px) {
-        padding-top: 25px;
-    }
-    @media (max-width: 1395px) {
-        padding-top: 50px;
-    }
-    @media (max-width: 535px) {
-        padding-top: 55px;
-    }
-}
-.slider {
-    width: 100%;
-}
-.hero .slider {
-    max-width: 100%;
-    
-}
-.hero .overlaybutton {
-    position: absolute;
-    background-color: white;
-    bottom: 1em;
-    right: 2em;
-    font-size: calc(20px + (26 - 18) * ((100vw - 300px) / (1600 - 300)));
-    color: #04ccbb;
-    text-transform: uppercase;
-    padding: 1em 1.5em;
-    border-radius: 12px;
-    // width: 2vw;
-    height: 1rem;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+// variables/mixins file path "importing your global styles."
+@import "../../index.scss";
 
-    @media (max-width: 600px) {
-        width: 15rem;
-        font-size: medium;
-        bottom: 1em;
-        right: 9em;
+.landing-page {
+    color: $carpalDarkGrey;
+    text-align: center;
+
+    .hero {
+        display: inline-block;
+        position: relative;
+        width: 100%;
     }
-    @media (max-width: 516px) {
-        
-        bottom: 1em;
-        right: 0em;
+
+    .slider {
+        width: 100%;
+    }
+
+    .hero .slider {
+        max-width: 100%;
+    }
+
+    .hero .overlaybutton {
         position: absolute;
-    }
-}
-.main {
-    font-size: calc(1px + (26 - 18) * ((100vw - 300px) / (1600 - 300)));
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-    background-color: #f5f5f5;
-    text-align: center;
-    color: #444;
+        bottom: 0;
+        right: 0;
+        color: #04ccbb;
+        background-color: white;
+        padding: 5px 20px;
+        cursor: pointer;
 
-    @media (max-width: 600px) {
-        background-color: #f5f5f5;
-        border-bottom: 2px solid rgba(144, 144, 144, 0.25);
-        border-top: 2px solid rgba(144, 144, 144, 0.25);
-        text-align: center;
-        padding: 4em, 0em, 2em;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        @include respond-to("mobile") {
+            font-size: 2rem;
+            bottom: 5px;
+            right: 5px;
+        }
+
+        @include respond-to("tablet") {
+            padding: 10px 30px;
+            font-size: 3rem;
+        }
     }
 
-    @media (max-width: 1400px) {
-        background-color: #f5f5f5;
-        border-bottom: 2px solid rgba(144, 144, 144, 0.25);
-        border-top: 2px solid rgba(144, 144, 144, 0.25);
-        text-align: center;
-        padding: 4em, 0em, 2em;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-}
-.intro {
-    text-align: center;
-    margin-bottom: 4em;
-    line-height: 1.5em;
-    width: 100%;
-}
+    .intro {
+        margin: 15rem auto 6rem;
+        padding: 36px 10%;
 
-.introTitle {
-    color: #474747;
-    font-weight: 700;
-    margin: 1em 0 1em 0;
-    font-size: 6vw;
-}
-.headerPara{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-.firstpara {
-    font-size: 1.8vw;
-    margin-top: -4em;
-    line-height: 1.5em;
-    max-width: 1200px;
-    color: #858585;
-    margin: 15px;
-    text-align: left;
-}
-#first {
-    display: flex;
-    flex-flow: row;
-    flex-wrap: wrap;
-    max-width: 1200px;   
-    background-color: rgb(255, 255, 255);
-    box-sizing: border-box;
-    color: rgb(68, 68, 68);
-    display: block;
-    font-size: 16px;
-    font-stretch: 100%;
-    font-style: normal;
-    font-variant-caps: normal;
-    font-variant-east-asian: normal;
-    font-variant-ligatures: normal;
-    font-variant-numeric: normal;
-    font-weight: 400;
-    height: 379.594px;
-    line-height: 26.4px;
-    margin-bottom: 32px;
-    margin-left: 32px;
-    margin-right: 32px;
-    margin-top: 32px;
-    padding-bottom: 48px;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-top: 0px;
-    text-align: center;
-    text-size-adjust: 100%;
-    vertical-align: baseline;
+        @include respond-to("tablet") {
+            padding: 36px 15%;
+        }
 
-    @media (max-width: 600px) {
-        width: 405px;
-        background-color: rgb(255, 255, 255);
-        border-bottom-color: rgba(144, 144, 144, 0.25);
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 4px;
-        border-bottom-style: solid;
-        border-bottom-width: 1px;
-        border-image-outset: 0px;
-        border-image-repeat: stretch;
-        border-image-slice: 100%;
-        border-image-source: none;
-        border-image-width: 1;
-        border-left-color: rgba(144, 144, 144, 0.25);
-        border-left-style: solid;
-        border-left-width: 1px;
-        border-right-color: rgba(144, 144, 144, 0.25);
-        border-right-style: solid;
-        border-right-width: 1px;
-        border-top-color: rgba(144, 144, 144, 0.25);
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
-        border-top-style: solid;
-        border-top-width: 1px;
-        box-sizing: border-box;
-        color: rgb(68, 68, 68);
-        display: block;
-        font-size: 16px;
-        font-stretch: 100%;
-        font-style: normal;
-        font-variant-caps: normal;
-        font-variant-east-asian: normal;
-        font-variant-ligatures: normal;
-        font-variant-numeric: normal;
-        font-weight: 400;
-        height: 429.594px;
-        line-height: 26.4px;
-        margin-bottom: 32px;
-        margin-left: 0px;
-        margin-right: 0px;
-        margin-top: 0px;
-        padding-bottom: 48px;
-        padding-left: 40px;
-        padding-right: 40px;
-        padding-top: 0px;
-        text-align: center;
-        text-size-adjust: 100%;
-        vertical-align: baseline;
+        p {
+            margin: 15px auto;
+            text-align: left;
+            max-width: 800px;
+            @include respond-to("tablet") {
+                font-size: 3.2rem;
+                line-height: 1.6em;
+            }
+        }
     }
-}
-.paraone {
-    width: 100%;
-    text-align: left;
-    @media (max-width: 600px) {
-        padding: 5px;
-        text-align: center;
-    }
-}
-.para {
-    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
-    line-height: 1.5em;
-    padding: 0.5em;
-    height: 100%;
-    width: 100%;
-    text-align: left;
-    @media (max-width: 600px) {
-        font-size: 1em;
-        margin-top: -1em;
-    }
-}
-.imgone {
-    max-width: 450px;
-    max-height: 25vw;
-    @media (max-width: 600px) {
-        max-height: 250px;
-        padding-top: 20px;
-    }
-}
-.allimg {
-    width: 100%;
-    height: 100%;
-    padding-bottom: 20px;
 
-    @media (max-width: 600px) {
-        width: 45%;
-        height: 10em;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-#second {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    flex-wrap: wrap;
-    display: flex;
-    flex-flow: column;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    background-color: rgb(255, 255, 255);
-    box-sizing: border-box;
-    color: rgb(68, 68, 68);
-    display: block;
-    font-size: 16px;
-    font-stretch: 100%;
-    font-style: normal;
-    font-variant-caps: normal;
-    font-variant-east-asian: normal;
-    font-variant-ligatures: normal;
-    font-variant-numeric: normal;
-    font-weight: 400;
-    height: 379.594px;
-    line-height: 26.4px;
-    margin-bottom: 32px;
-    margin-left: 32px;
-    margin-right: 32px;
-    margin-top: 32px;
-    padding-bottom: 48px;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-top: 0px;
-    text-align: center;
-    text-size-adjust: 100%;
-    vertical-align: baseline;
+    .features {
+        .features-box {
+            background-color: $carpalGrey;
+            padding: 20px 5% 50px;
+            margin: 4rem auto 8rem;
 
-    @media (max-width: 600px) {
-        width: 405px;
-        background-color: rgb(255, 255, 255);
-        border-bottom-color: rgba(144, 144, 144, 0.25);
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 4px;
-        border-bottom-style: solid;
-        border-bottom-width: 1px;
-        border-image-outset: 0px;
-        border-image-repeat: stretch;
-        border-image-slice: 100%;
-        border-image-source: none;
-        border-image-width: 1;
-        border-left-color: rgba(144, 144, 144, 0.25);
-        border-left-style: solid;
-        border-left-width: 1px;
-        border-right-color: rgba(144, 144, 144, 0.25);
-        border-right-style: solid;
-        border-right-width: 1px;
-        border-top-color: rgba(144, 144, 144, 0.25);
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
-        border-top-style: solid;
-        border-top-width: 1px;
-        box-sizing: border-box;
-        color: rgb(68, 68, 68);
-        display: block;
-        font-size: 16px;
-        font-stretch: 100%;
-        font-style: normal;
-        font-variant-caps: normal;
-        font-variant-east-asian: normal;
-        font-variant-ligatures: normal;
-        font-variant-numeric: normal;
-        font-weight: 400;
-        height: 429.594px;
-        line-height: 26.4px;
-        margin-bottom: 32px;
-        margin-left: 0px;
-        margin-right: 0px;
-        margin-top: 0px;
-        padding-bottom: 48px;
-        padding-left: 40px;
-        padding-right: 40px;
-        padding-top: 0px;
-        text-align: center;
-        text-size-adjust: 100%;
-        vertical-align: baseline;
-    }
-}
-.featuresflip {
-    display: flex;
-    justify-content: space-between;
-    flex-flow: row;
-    width: 100%;
+            img {
+                max-width: 200px;
+                margin: 20px auto;
+            }
 
-    @media (max-width: 600px) {
-        flex-direction: column-reverse;
-    }
-}
-#third {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    flex-wrap: wrap;
-    display: flex;
-    flex-flow: column;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    background-color: rgb(255, 255, 255);
-    box-sizing: border-box;
-    color: rgb(68, 68, 68);
-    display: block;
-    font-size: 16px;
-    font-stretch: 100%;
-    font-style: normal;
-    font-variant-caps: normal;
-    font-variant-east-asian: normal;
-    font-variant-ligatures: normal;
-    font-variant-numeric: normal;
-    font-weight: 400;
-    height: 379.594px;
-    line-height: 26.4px;
-    margin-bottom: 32px;
-    margin-left: 32px;
-    margin-right: 32px;
-    margin-top: 32px;
-    padding-bottom: 48px;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-top: 0px;
-    text-align: center;
-    text-size-adjust: 100%;
-    vertical-align: baseline;
+            @include respond-to("tablet") {
+                display: flex;
+                align-items: center;
+                text-align: left;
+                padding: 10px 25px;
+                margin: 4rem auto 8rem;
+                max-width: 900px;
+                min-height: 500px;
+                border-radius: 20px;
 
-    @media (max-width: 600px) {
-        width: 405px;
-        background-color: rgb(255, 255, 255);
-        border-bottom-color: rgba(144, 144, 144, 0.25);
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 4px;
-        border-bottom-style: solid;
-        border-bottom-width: 1px;
-        border-image-outset: 0px;
-        border-image-repeat: stretch;
-        border-image-slice: 100%;
-        border-image-source: none;
-        border-image-width: 1;
-        border-left-color: rgba(144, 144, 144, 0.25);
-        border-left-style: solid;
-        border-left-width: 1px;
-        border-right-color: rgba(144, 144, 144, 0.25);
-        border-right-style: solid;
-        border-right-width: 1px;
-        border-top-color: rgba(144, 144, 144, 0.25);
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
-        border-top-style: solid;
-        border-top-width: 1px;
-        box-sizing: border-box;
-        color: rgb(68, 68, 68);
-        display: block;
-        font-size: 16px;
-        font-stretch: 100%;
-        font-style: normal;
-        font-variant-caps: normal;
-        font-variant-east-asian: normal;
-        font-variant-ligatures: normal;
-        font-variant-numeric: normal;
-        font-weight: 400;
-        height: 429.594px;
-        line-height: 26.4px;
-        margin-bottom: 32px;
-        margin-left: 0px;
-        margin-right: 0px;
-        margin-top: 0px;
-        padding-bottom: 48px;
-        padding-left: 40px;
-        padding-right: 40px;
-        padding-top: 0px;
-        text-align: center;
-        text-size-adjust: 100%;
-        vertical-align: baseline;
+                .flex-three-quarters {
+                    flex: 2;
+                    padding: 0 15px;
+                }
+
+                .flex-quarter {
+                    flex: 1;
+                    padding: 0 15px;
+                }
+            }
+        }
     }
-}
-.containertwo {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 100px;
-    background-color: rgb(255, 255, 255);
-    padding-top: 3em;
-}
-.padding {
-    padding-bottom: 15px;
-    font-size: x-large;
-    font-weight: 900;
+
+    .sign-up {
+        margin: 3rem auto 20rem;
+        padding: 0 5%;
+        @include respond-to("mobile") {
+            padding: 0 15%;
+            max-width: 1000px;
+        }
+
+        h2 {
+            text-align: left;
+            padding: 20px 0 50px;
+        }
+
+        a {
+            font-size: 3rem;
+        }
+    }
 }

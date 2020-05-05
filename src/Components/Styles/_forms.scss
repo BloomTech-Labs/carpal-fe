@@ -1,0 +1,102 @@
+// variables/mixins file path "importing your global styles."
+@import "../Styles/_variables.scss";
+//////////////////////// Button Styling
+/// signup/login forms "submit" button as example. with hover and active styles.
+
+button,
+a.btn {
+    font-family: inherit;
+    font-size: 1.6rem;
+    color: $carpalWhite;
+    background-color: $carpalGreen;
+    border: 1px solid $carpalWhite;
+    border-radius: 20px;
+    padding: 10px 30px;
+    margin: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: capitalize;
+    &:hover {
+        color: $carpalBlack;
+        background-color: $carpalLightGreen;
+        transition: 0.5s;
+    }
+    &:active {
+        background-color: $carpalWhite;
+        color: $carpalGreen;
+        border: 1px solid $carpalWhite;
+    }
+}
+/// FORM STYLE MIXINS ////////////////////////////////////////////////////////////////////////
+//// WEBKIT STYLING stops basic default browswer styles in your inputs aka "formik-fields" WebKit */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: $carpalGreen;
+    transition: background-color 5000s ease-in-out 0s;
+}
+////////////////// Form Container
+.formik-container {
+    width: 100%;
+    height: 100%;
+    padding-top: 30px;
+}
+.field-above {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    flex-wrap: wrap;
+}
+
+////////////////// Field Labels The Field Inputs container
+label {
+    color: $carpalDarkGrey;
+    font-family: inherit;
+    font-size: 1.6rem;
+    margin: 5px 10px 0 0;
+}
+
+////////////////// Form Error Msg
+.form-error {
+    color: $carpalGreen;
+    font-family: inherit;
+    font-size: 1.6rem;
+    transition: all 0.3s;
+    margin: 5px 0 0;
+}
+////////////////// fields input styling
+.formik-fields {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px auto 30px;
+    border-radius: 20px;
+    background: none;
+    border: 3px solid $carpalDarkGrey;
+    color: $carpalGreen;
+    font-size: 1.6rem;
+    font-family: inherit;
+    //////////////////field placeholder text styling
+    &::placeholder {
+        color: $carpalGreen;
+        font-size: 1.6rem;
+    }
+}
+
+////////////////// fields select styling
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px auto 30px;
+    border-radius: 20px;
+    background: none;
+    border: 3px solid $carpalDarkGrey;
+    color: $carpalGreen;
+    font-size: 1.6rem;
+    font-family: inherit;
+    transition: all 0.3s;
+
+    option {
+        color: $carpalBlack;
+    }
+}
