@@ -3,12 +3,13 @@
 $font-stack: Lato, sans-serif;
 //////////////////////CarPal Colors
 $carpalGreen: #04ccbb;
-$carpalWhite: #f3f4f4;
+$carpalWhite: #ffffff; //same color as grey?
 $carpalYellow: #f3e962;
 $carpalRose: #fbb4b4;
 $carpalBlack: #1e1318;
 $carpalGrey: #f3f4f4;
-$carpalDarkGrey: #696969;
+$carpalDarkGrey: #4e4e4e;
+$carpalLightGreen: #adebe4;
 //////////////////////Media Breakpoints START
 $breakpoints: (
     "mobile": 450px,
@@ -56,25 +57,25 @@ $breakpoints: (
 }
 
 //////////////////FORM PAGE BODY LAYOUT
-@mixin pageBody {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    padding-bottom: 30px;
-    // top-px, width-auto, bottom-px;
-    margin: 0px auto 70px;
-}
+// @mixin pageBody {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     width: 100%;
+//     height: 100%;
+//     padding-bottom: 30px;
+//     // top-px, width-auto, bottom-px;
+//     margin: 0px auto 70px;
+// }
 
-//////////////////Signup create account box/link/container
-@mixin modelNav {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    height: 200px;
-    width: 100%;
-    padding: 10px;
-}
+// //////////////////Signup create account box/link/container
+// @mixin modelNav {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: flex-start;
+//     align-items: center;
+//     height: 200px;
+//     width: 100%;
+//     padding: 10px;
+// }

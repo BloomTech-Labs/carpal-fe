@@ -45,9 +45,13 @@ function ProfilePage(props) {
                             <div className="bar"></div>
                             <div className="profileDetails">
                                 {user.is_driver ? (
-                                    <h2>You are a Driver</h2>
+                                    <h2>
+                                        You are a <em>Driver</em>
+                                    </h2>
                                 ) : (
-                                    <h2>You are a Rider</h2>
+                                    <h2>
+                                        You are a <em>Rider</em>
+                                    </h2>
                                 )}
                                 <div className="profileSection">
                                     {/* FIX USERDETAIL CLASS /ENDPOINT FOR PUT */}
