@@ -8,7 +8,8 @@ import {
     SET_FAVORITE_LOCATION,
     ADD_LOCATION,
     HANDLE_INCOMING_REQUESTS,
-    HANDLE_OUTGOING_REQUESTS
+    HANDLE_OUTGOING_REQUESTS,
+    CANCEL_RIDE_REQUEST
 } from "../Actions/UserAction";
 
 const initialState = {
@@ -116,6 +117,18 @@ export function UserReducer(state = initialState, action) {
             };
 
         case HANDLE_OUTGOING_REQUESTS:
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    outgoing_ride_requests: [
+                        ...state.user.outgoing_ride_requests,
+                        action.payload
+                    ]
+                }
+            };
+
+        case CANCEL_RIDE_REQUEST:
             return {
                 ...state,
                 user: {

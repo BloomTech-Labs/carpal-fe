@@ -34,7 +34,6 @@ function RideRequests(props) {
             props.CancelRideRequest(item.ride_id);
         }
     }
-    console.log(user);
     return (
         <>
             <div>
@@ -51,10 +50,6 @@ function RideRequests(props) {
                     >
                         ...
                     </button>
-                    {console.log(
-                        props.user.incoming_ride_requests,
-                        "incoming ride request"
-                    )}
                     {isIncomingRequestsOpen && (
                         <div>
                             {props.user.incoming_ride_requests[0].data.map(

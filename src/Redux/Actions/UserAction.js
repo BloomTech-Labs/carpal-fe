@@ -129,12 +129,14 @@ export function AddSavedLocation(payload) {
             });
     };
 }
-export function CancelRideRequest(id) {
+export function CancelRideRequest(payload) {
     return (dispatch) => {
         dispatch({ type: REQUEST_START });
+        console.log(payload);
         api()
-            .delete(`/rides/${id}/requests`)
+            .delete(`/rides/requests`, payload)
             .then((res) => {
+                dispatch({ type: CANCEL_RIDE_REQUEST, payload });
                 dispatch({ type: REQUEST_SUCCESS });
             })
             .catch((error) => {
@@ -153,7 +155,6 @@ export function handleIncomingRideRequest() {
         api()
             .get(`/rides/requests/driver`)
             .then((res) => {
-                console.log(res, "handleriderequest action");
                 dispatch({ type: REQUEST_SUCCESS });
                 dispatch({
                     type: HANDLE_INCOMING_REQUESTS,
@@ -176,7 +177,6 @@ export function handleOutgoingRideRequest() {
         api()
             .get(`/rides/requests/rider`)
             .then((res) => {
-                console.log(res, "handle outgoing riderequest action");
                 dispatch({ type: REQUEST_SUCCESS });
                 dispatch({
                     type: HANDLE_OUTGOING_REQUESTS,

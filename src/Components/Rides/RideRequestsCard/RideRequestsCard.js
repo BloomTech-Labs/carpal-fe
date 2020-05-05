@@ -9,7 +9,7 @@ function RideRequestsCard(props) {
         setIsDetailsOpen(!isDetailsOpen);
     }
 
-    console.log(props.requests, "props.request in card");
+    console.log(props, "props.request in card");
     return (
         <div>
             {props.incoming ? (
