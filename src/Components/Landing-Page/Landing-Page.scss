@@ -94,7 +94,7 @@
     }
 
     .sign-up {
-        margin:  3rem auto 20rem;
+        margin: 3rem auto 20rem;
         padding: 0 5%;
         @include respond-to("mobile") {
             padding: 0 15%;
@@ -107,7 +107,7 @@
         }
 
         a {
-                font-size: 3rem;
+            font-size: 3rem;
         }
     }
 }

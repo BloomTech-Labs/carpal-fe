@@ -1,49 +1,47 @@
 @import "../../index.scss";
-/////////// User Profile Container
+/////////////////////////////profileHeader.js
 .profileHeader {
-    width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    padding: 15px 0;
+    padding: 15px 0px;
+    // necessary max-width? if so bump to 800
     max-width: 600px;
+    width: 100%;
     margin: 0 auto;
     .headerImage {
-        display: inline-block;
-        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
         padding: 10px;
         .profilePic {
-            width: 10rem;
-            height: 10rem;
-            border-radius: 55%;
+            width: 125px;
+            height: 125px;
+            padding: 10px;
+            border-radius: 50%;
+            @include respond-to("tablet") {
+                width: 150px;
+                height: 150px;
+            }
         }
+        ///// change element to btn and className in js file to apply global styles..
         .overlaybutton {
-            position: absolute;
             background-color: $carpalWhite;
-            font-size: 10px;
-            bottom: 6em;
-            right: 3em;
             color: $carpalGreen;
-            padding: 1em 1.25em;
-            border-radius: 12px;
-            width: 5rem;
-            height: 0rem;
-            margin: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
+            border-radius: 20px;
+            padding: inherit;
         }
     }
     .headerDetails {
-        font-size: x-large;
         padding: 10px;
         h3 {
             margin: 10px 0;
             font-size: 1.8rem;
-
-            @include respond-to("mobile") {
-                font-size: 2.2rem;
+            padding: 0;
+            @include respond-to("tablet") {
+                font-size: 2rem;
             }
         }
         .bold {
@@ -51,27 +49,22 @@
         }
     }
 }
-///////////dividing bar
-.bar {
-    width: 100%;
-    background-color: $carpalGreen;
-    height: 2rem;
-}
-////////////// user profile selected likes etc
+/////////////////////////////profileHeader.js
+/////////////////////////////userDetail.js
 .profileDetails {
     display: flex;
     flex-direction: column;
     align-items: center;
     max-width: 500px;
     border-radius: 20px;
-    padding: 10px 1%;
-    margin: 50px auto 0;
+    padding: 10px 5px;
+    margin: 10px auto 0;
     h2 {
         text-transform: initial;
         font-weight: initial;
         font-size: 2.2rem;
         padding: 10px;
-        margin: 2em 2em;
+        margin: auto;
         color: $carpalDarkGrey;
     }
     .profileSection {
@@ -79,31 +72,27 @@
         flex-direction: column;
         flex-wrap: wrap;
         padding: 0.5rem 0;
-
         .flexContainer {
             display: flex;
-            justify-content: space-evenly;
+            flex-direction: column;
+            // justify-content: space-evenly;
             align-items: center;
-            flex-direction: row;
-            background-color: none;
+            padding: 10px;
+            //////////// change to a different element and can push this to the typography file.
             .bubble {
-                text-align: center;
-                padding: 5px;
-                background: $carpalGreen;
+                background: $carpalGrey;
                 -webkit-border-radius: 20px;
                 -moz-border-radius: 20px;
                 border-radius: 20px;
-                margin: 0 10px;
+                //temp font size
+                font-size: medium;
+                text-transform: capitalize;
+                padding: 5px 15px;
+                margin: 5px auto 10px;
             }
         }
     }
-    ///////////Profile Page Button and Button Container
-    .buttonContainer {
-        text-align: center;
-        text-transform: none;
-    }
 }
-
 ////////////////////////Edit/Update Profile Container and Form////////////////////////
 .formik-container {
     display: flex;
@@ -111,6 +100,7 @@
     justify-content: center;
     align-items: center;
     max-width: 500px;
-    padding: 0 2%;
+    border-radius: 20px;
+    padding: 40px;
     margin: 50px auto;
 }
