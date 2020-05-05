@@ -21,7 +21,9 @@ function LandingPage() {
             </section>
             <section className="main">
                 <div className="intro">
-                    <h1 data-testid="welcomeh1">Welcome to CarPal</h1>
+                    <h1 data-testid="welcomeh1" className="introTitle">
+                        Welcome to CarPal
+                    </h1>
                     <p data-testid="firstptag">
                         The future of networking and commuting at the same time.
                         With Carpal you will be able to join a community of
