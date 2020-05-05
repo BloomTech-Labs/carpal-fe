@@ -5,10 +5,7 @@ import {
     SET_USER,
     SET_EDITING,
     SET_PROFILE_UPDATE,
-    SET_FAVORITE_LOCATION,
-    ADD_LOCATION,
-    DELETE_LOCATION,
-    EDIT_LOCATION
+
 } from "../Actions/UserAction";
 
 const initialState = {
@@ -29,6 +26,8 @@ const initialState = {
                 longitude: -117.161087
             }
         ],
+        //can remove status
+
         rides: [{
             id: 1,
             name: 'Path to Work',
@@ -88,45 +87,6 @@ export function UserReducer(state = initialState, action) {
                 ...state,
                 user: action.payload
             };
-        case SET_FAVORITE_LOCATION:
-            return {
-                ...state,
-                user: {
-                    ...state.user,
-                    favoriteLocation: [
-                        ...state.user.favoriteLocation,
-                        action.payload
-                    ]
-                }
-            };
-        case ADD_LOCATION:
-            return {
-                ...state,
-                user: {
-                    ...state.user,
-                    rides: [...state.user.rides, action.payload
-                    ]
-                }
-            };
-        case EDIT_LOCATION:
-            return {
-                ...state,
-                user: {
-                    ...state.user,
-                    rides: [...state.user.rides, action.payload
-                    ]
-                }
-            };
-
-        case DELETE_LOCATION:
-            return {
-                ...state,
-                user: {
-                    ...state.user,
-                    rides: [...state.user.rides].filter(ride => ride.id !== action.payload)
-                }
-            };
-        // add ADD RIDE case
 
         default:
             return state;

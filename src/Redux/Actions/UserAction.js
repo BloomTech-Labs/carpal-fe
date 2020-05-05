@@ -5,10 +5,8 @@ export const REQUEST_ERROR = "REQUEST_ERROR";
 export const SET_USER = "SET_USER";
 export const SET_EDITING = "SET_EDITING";
 export const SET_PROFILE_UPDATE = "SET_PROFILE_UPDATE";
-export const SET_FAVORITE_LOCATION = "SET_FAVORITE_LOCATION";
-export const ADD_LOCATION = "ADD_LOCATION";
-export const DELETE_LOCATION = "DELETE_LOCATION";
-export const EDIT_LOCATION = "EDIT_LOCATION"
+
+
 
 export function SignUpAction(user) {
     return (dispatch) => {
@@ -78,49 +76,5 @@ export function SetProfileUpdate(user) {
     };
 }
 
-export function setFavoriteLocation(payload) {
-    return (dispatch) => {
-        dispatch({ type: REQUEST_START });
-        api()
-            .post("/locations/favorites/add", payload)
-            .then((response) => {
-                dispatch({ type: REQUEST_START });
-                dispatch({
-                    type: SET_FAVORITE_LOCATION,
-                    payload
-                });
-            })
-            .catch((error) => {
-                dispatch({
-                    type: REQUEST_ERROR
-                });
-            });
-    };
-}
-
-export function AddSavedLocation(payload) {
-    return (dispatch) => {
-        dispatch({ type: ADD_LOCATION, payload })
-        // add a second dispatch to post to ride table
-    }
-    //hit the api endpoint here to hit locations table and ride table
-
-}
 
 
-export function DeleteLocation(id) {
-    return (dispatch) => {
-        dispatch(
-            { type: DELETE_LOCATION, payload: id }
-        )
-        //instead of delete --> remove: change status pending/accepted
-    }
-}
-
-export function EditLocation(id, payload) {
-    return (dispatch) => {
-        dispatch({
-            type: EDIT_LOCATION, payload
-        })
-    }
-}

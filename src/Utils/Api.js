@@ -19,7 +19,7 @@ export default function () {
         });
     }
     if (process.env.NODE_ENV === "development") {
-        const url = "http://127.0.0.1:3001/";
+        const url = "https://staging-carpal.herokuapp.com/";
         return axiosInstance("development", url);
     } else if (process.env.NODE_ENV === "production") {
         const url = "https://carpal-production.herokuapp.com/";
