@@ -39,7 +39,7 @@ describe("ProfileHeader renders without crashing", () => {
         );
 
         console.log(wrapper.baseElement);
-        const imgAlt = wrapper.queryByText("Upload");
+        const imgAlt = wrapper.queryByText("Upload Image");
         expect(imgAlt).toBeInTheDocument();
         expect(imgAlt).toBeVisible();
     });

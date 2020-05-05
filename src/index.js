@@ -12,7 +12,6 @@ import { UserReducer } from "./Redux/Reducers/UserReducer";
 import { locationReducer } from './Redux/Reducers/LocationReducer'
 
 
-
 const rootReducer = combineReducers({
     user: UserReducer,
     locations: locationReducer

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react'
 import SavedRideCard from '../SavedRideCard/SavedRideCard'
 import { connect } from 'react-redux'
@@ -12,7 +13,6 @@ import "./SavedRide.scss";
 function SavedRides(props) {
     const [show, setShow] = useState(false)
     // const [favoriteLocations, setFavoriteLocations] = useState()
-
     useEffect(() => {
         props.getFavorites()
 
@@ -26,10 +26,10 @@ function SavedRides(props) {
     }
 
     console.log(props)
-
-
+    
     return (
         <div>
+
             {show ? (<AddLocationName toggle={toggleShow} />) : (< div className='saved-rides' >
                 <section className='my-saved'>
                     <h1>My saved rides...</h1>
@@ -41,8 +41,7 @@ function SavedRides(props) {
 
             </div >)}
         </div>
-    )
-
+    );
 }
 
 const mapStateToProps = (state) => ({
@@ -56,3 +55,4 @@ export default connect(mapStateToProps, { getFavorites })(SavedRides)
 
 
 
+export default connect(mapStateToProps)(SavedRides);

@@ -6,9 +6,9 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="mainContainer"
+        class="landing-page main-container"
       >
-        <div
+        <section
           class="hero"
         >
           <video
@@ -22,16 +22,13 @@ Object {
             />
           </video>
           <a
+            class="overlaybutton btn"
             href="/Signup"
           >
-            <p
-              class="overlaybutton"
-            >
-              Sign Up
-            </p>
+            Sign Up
           </a>
-        </div>
-        <div
+        </section>
+        <section
           class="main"
         >
           <div
@@ -44,127 +41,124 @@ Object {
               Welcome to CarPal
             </h1>
             <p
-              class="firstpara"
               data-testid="firstptag"
             >
-              The future of networking and commuting at the same time. Yeah, we did it seriously. Watch this, with Carpal you will be able to join a community of drivers and riders who are looking to save money, lessen the impact on the enviorment, and gain a friend along the way.
+              The future of networking and commuting at the same time. With Carpal you will be able to join a community of drivers and riders who are looking to save money, lessen their impact on the enviorment, and gain a friend along the way.
             </p>
           </div>
           <section
-            class="container"
+            class="features"
           >
             <div
+              class="flex-container features-box"
               id="first"
             >
-              <h2
-                data-testid="h2tag1"
-              >
-                Features
-              </h2>
               <div
-                class="features"
+                class="flex-three-quarters"
               >
-                <div
-                  class="paraone"
+                <h2
+                  data-testid="h2tag1"
                 >
-                  <p
-                    class="para"
-                  >
-                    With this awesome app, these are just a few of the features you will get such as SMS messaging, friends list, gamification (user stats and point system) and even driver's real-time location, but wait there's more and its just five clicks away front becoming a Carpaller.
-                  </p>
-                </div>
-                <div
-                  class="imgone"
-                >
-                  <img
-                    alt="Temp img"
-                    class="allimg"
-                    role="image"
-                    src="Group 38 (1).png"
-                  />
-                </div>
+                  Features
+                </h2>
+                <img
+                  alt="CarPal cutie"
+                  class="allimg hide-tablet"
+                  role="image"
+                  src="happy-cutie.png"
+                />
+                <p>
+                  With this awesome app, these are just a few of the features you will get such as SMS messaging, friends list, gamification (user stats and point system) and even driver's real-time location, but wait there's more and its just five clicks away front becoming a Carpaller.
+                </p>
+              </div>
+              <div
+                class="flex-quarter"
+              >
+                <img
+                  alt="CarPal cutie"
+                  class="allimg show-tablet"
+                  role="image"
+                  src="happy-cutie.png"
+                />
               </div>
             </div>
             <div
+              class="flex-container features-box"
               id="second"
             >
-              <h2
-                data-testid="h2tag2"
-              >
-                Drivers
-              </h2>
               <div
-                class="featuresflip"
+                class="flex-three-quarters"
               >
-                <div
-                  class="paraone"
+                <h2
+                  data-testid="h2tag2"
                 >
-                  <p
-                    class="para"
-                  >
-                    Are you a current driver who loves to drive or even hates to drive, well guess what you in luck. The Carpal developer kept you in mind when building this app I might even add that they made it just for you.
-                  </p>
-                </div>
-                <div
-                  class="imgone"
-                >
-                  <img
-                    alt="Temp img"
-                    class="allimg"
-                    src="Group 29.png"
-                  />
-                </div>
+                  Drivers
+                </h2>
+                <img
+                  alt="CarPal cutie"
+                  class="allimg hide-tablet"
+                  role="image"
+                  src="cutie-in-car.png"
+                />
+                <p>
+                  Are you a current driver who loves to drive or even hates to drive, well guess what you in luck. The Carpal developer kept you in mind when building this app I might even add that they made it just for you.
+                </p>
+              </div>
+              <div
+                class="flex-quarter"
+              >
+                <img
+                  alt="CarPal cutie"
+                  class="allimg show-tablet"
+                  src="cutie-in-car.png"
+                />
               </div>
             </div>
             <div
+              class="flex-container features-box"
               id="third"
             >
-              <h2
-                data-testid="h2tag3"
-              >
-                Riders
-              </h2>
               <div
-                class="features"
+                class="flex-three-quarters"
               >
-                <div
-                  class="paraone"
+                <h2
+                  data-testid="h2tag3"
                 >
-                  <p
-                    class="para"
-                  >
-                    As a rider you gain many great features and here are just a few of those. Request a ride to your destination, customize the type of driver you are interested in meet, and rate each Carpal experience to make sure our community stays the best in the business.
-                  </p>
-                </div>
-                <div
-                  class="imgone"
-                >
-                  <img
-                    alt="Temp img"
-                    class="allimg"
-                    src="Group 39.png"
-                  />
-                </div>
+                  Riders
+                </h2>
+                <img
+                  alt="CarPal cutie"
+                  class="allimg hide-tablet"
+                  role="image"
+                  src="cuties-duo-in-car.png"
+                />
+                <p>
+                  As a rider you gain many great features and here are just a few of those. Request a ride to your destination, customize the type of driver you are interested in meet, and rate each Carpal experience to make sure our community stays the best in the business.
+                </p>
+              </div>
+              <div
+                class="flex-quarter"
+              >
+                <img
+                  alt="CarPal Cutie"
+                  class="allimg show-tablet"
+                  src="cuties-duo-in-car.png"
+                />
               </div>
             </div>
           </section>
-        </div>
+        </section>
         <section
-          class="containertwo"
+          class="sign-up"
         >
-          <h2
-            class="padding"
-          >
-            Ready to gooooooooo?
+          <h2>
+            Ready to goooooooo?
           </h2>
           <a
+            class="btn"
             href="/Signup"
           >
-            <button
-              name="signup"
-            >
-              sign Up
-            </button>
+            Sign Up
           </a>
         </section>
       </div>
@@ -172,9 +166,9 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mainContainer"
+      class="landing-page main-container"
     >
-      <div
+      <section
         class="hero"
       >
         <video
@@ -188,16 +182,13 @@ Object {
           />
         </video>
         <a
+          class="overlaybutton btn"
           href="/Signup"
         >
-          <p
-            class="overlaybutton"
-          >
-            Sign Up
-          </p>
+          Sign Up
         </a>
-      </div>
-      <div
+      </section>
+      <section
         class="main"
       >
         <div
@@ -210,127 +201,124 @@ Object {
             Welcome to CarPal
           </h1>
           <p
-            class="firstpara"
             data-testid="firstptag"
           >
-            The future of networking and commuting at the same time. Yeah, we did it seriously. Watch this, with Carpal you will be able to join a community of drivers and riders who are looking to save money, lessen the impact on the enviorment, and gain a friend along the way.
+            The future of networking and commuting at the same time. With Carpal you will be able to join a community of drivers and riders who are looking to save money, lessen their impact on the enviorment, and gain a friend along the way.
           </p>
         </div>
         <section
-          class="container"
+          class="features"
         >
           <div
+            class="flex-container features-box"
             id="first"
           >
-            <h2
-              data-testid="h2tag1"
-            >
-              Features
-            </h2>
             <div
-              class="features"
+              class="flex-three-quarters"
             >
-              <div
-                class="paraone"
+              <h2
+                data-testid="h2tag1"
               >
-                <p
-                  class="para"
-                >
-                  With this awesome app, these are just a few of the features you will get such as SMS messaging, friends list, gamification (user stats and point system) and even driver's real-time location, but wait there's more and its just five clicks away front becoming a Carpaller.
-                </p>
-              </div>
-              <div
-                class="imgone"
-              >
-                <img
-                  alt="Temp img"
-                  class="allimg"
-                  role="image"
-                  src="Group 38 (1).png"
-                />
-              </div>
+                Features
+              </h2>
+              <img
+                alt="CarPal cutie"
+                class="allimg hide-tablet"
+                role="image"
+                src="happy-cutie.png"
+              />
+              <p>
+                With this awesome app, these are just a few of the features you will get such as SMS messaging, friends list, gamification (user stats and point system) and even driver's real-time location, but wait there's more and its just five clicks away front becoming a Carpaller.
+              </p>
+            </div>
+            <div
+              class="flex-quarter"
+            >
+              <img
+                alt="CarPal cutie"
+                class="allimg show-tablet"
+                role="image"
+                src="happy-cutie.png"
+              />
             </div>
           </div>
           <div
+            class="flex-container features-box"
             id="second"
           >
-            <h2
-              data-testid="h2tag2"
-            >
-              Drivers
-            </h2>
             <div
-              class="featuresflip"
+              class="flex-three-quarters"
             >
-              <div
-                class="paraone"
+              <h2
+                data-testid="h2tag2"
               >
-                <p
-                  class="para"
-                >
-                  Are you a current driver who loves to drive or even hates to drive, well guess what you in luck. The Carpal developer kept you in mind when building this app I might even add that they made it just for you.
-                </p>
-              </div>
-              <div
-                class="imgone"
-              >
-                <img
-                  alt="Temp img"
-                  class="allimg"
-                  src="Group 29.png"
-                />
-              </div>
+                Drivers
+              </h2>
+              <img
+                alt="CarPal cutie"
+                class="allimg hide-tablet"
+                role="image"
+                src="cutie-in-car.png"
+              />
+              <p>
+                Are you a current driver who loves to drive or even hates to drive, well guess what you in luck. The Carpal developer kept you in mind when building this app I might even add that they made it just for you.
+              </p>
+            </div>
+            <div
+              class="flex-quarter"
+            >
+              <img
+                alt="CarPal cutie"
+                class="allimg show-tablet"
+                src="cutie-in-car.png"
+              />
             </div>
           </div>
           <div
+            class="flex-container features-box"
             id="third"
           >
-            <h2
-              data-testid="h2tag3"
-            >
-              Riders
-            </h2>
             <div
-              class="features"
+              class="flex-three-quarters"
             >
-              <div
-                class="paraone"
+              <h2
+                data-testid="h2tag3"
               >
-                <p
-                  class="para"
-                >
-                  As a rider you gain many great features and here are just a few of those. Request a ride to your destination, customize the type of driver you are interested in meet, and rate each Carpal experience to make sure our community stays the best in the business.
-                </p>
-              </div>
-              <div
-                class="imgone"
-              >
-                <img
-                  alt="Temp img"
-                  class="allimg"
-                  src="Group 39.png"
-                />
-              </div>
+                Riders
+              </h2>
+              <img
+                alt="CarPal cutie"
+                class="allimg hide-tablet"
+                role="image"
+                src="cuties-duo-in-car.png"
+              />
+              <p>
+                As a rider you gain many great features and here are just a few of those. Request a ride to your destination, customize the type of driver you are interested in meet, and rate each Carpal experience to make sure our community stays the best in the business.
+              </p>
+            </div>
+            <div
+              class="flex-quarter"
+            >
+              <img
+                alt="CarPal Cutie"
+                class="allimg show-tablet"
+                src="cuties-duo-in-car.png"
+              />
             </div>
           </div>
         </section>
-      </div>
+      </section>
       <section
-        class="containertwo"
+        class="sign-up"
       >
-        <h2
-          class="padding"
-        >
-          Ready to gooooooooo?
+        <h2>
+          Ready to goooooooo?
         </h2>
         <a
+          class="btn"
           href="/Signup"
         >
-          <button
-            name="signup"
-          >
-            sign Up
-          </button>
+          Sign Up
         </a>
       </section>
     </div>

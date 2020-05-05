@@ -11,12 +11,6 @@ import { LogInAction } from "../../Redux/Actions/UserAction";
 function Login(props) {
     const { errors, touched } = props;
 
-    useEffect(() => {
-        if (localStorage.getItem("token")) {
-            props.history.push("/profilepage");
-        }
-    }, [localStorage.getItem("token")]);
-
     return (
         <div className="login-container">
             {/* form container */}
@@ -46,11 +40,9 @@ function Login(props) {
                     </p>
                 )}
 
-                <button className="form-btn" type="submit">
-                    Submit
-                </button>
+                <button type="submit">Submit</button>
                 <a
-                    className="form-btn"
+                    className="btn"
                     href="https://staging-carpal.herokuapp.com/auth/google/testing"
                 >
                     Login With Google
@@ -88,7 +80,7 @@ const LoginForm = withFormik({
             .required("Please enter your password.")
     }),
     handleSubmit(values, { props }) {
-        props.LogInAction(values);
+        props.LogInAction(values, props);
     }
 })(Login);
 
