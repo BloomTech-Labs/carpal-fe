@@ -5,6 +5,8 @@ import {
     SetUserAction,
     EditProfileAction
 } from "../../Redux/Actions/UserAction";
+import profileImage from "./Profile-img-upload";
+import { Link } from "react-router-dom";
 
 function ProfileHeader(props) {
     const [user, setUser] = useState({});
@@ -26,9 +28,12 @@ function ProfileHeader(props) {
                     src="https://pbs.twimg.com/profile_images/1232869769013014535/iwN5kET4_400x400.jpg"
                     alt="img1"
                 ></img>
-                <a className="overlaybutton" href="#" alt="Profile">
+                <Link className="overlaybutton" to="/upload">
                     Upload Image
-                </a>
+                </Link>
+                {/* <a className="overlaybutton" href="#" alt="Profile">
+                    Upload Image
+                </a> */}
             </div>
             <div className="headerDetails">
                 <h3 role="header name" className="bold">
