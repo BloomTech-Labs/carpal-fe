@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import RideMap from "../../MapBox/RideMap/RideMap";
 import "./RideFind.scss";
 import Axios from "axios";
 import "./RideFind.scss";
 import RiderCard from "../RiderCard/RiderCard";
-
+import api from "./../../../Utils/Api";
 function RideFind(props) {
     //hold long and lat for both location
     const [suggestions, setSuggestions] = useState({
@@ -28,6 +28,7 @@ function RideFind(props) {
         end_location_id: ""
     });
 
+    const [rides, setRides] = useState([]);
     //Fetch user location depending on which form the user is filling to be able to correctly set the feature state
     const fetchSuggestions = (search_term, placement) => {
         if (placement === "") return;
@@ -69,6 +70,35 @@ function RideFind(props) {
         fetchSuggestions(e.target.value, e.target.name);
     };
 
+    useEffect(() => {
+        if (
+            suggestions.end_location_id.length > 1 &&
+            suggestions.start_location_id.length > 1
+        ) {
+            getRides({
+                start_location: {
+                    long: 0,
+                    lat: 0
+                },
+                end_location: {
+                    long: 1,
+                    lat: 1
+                }
+            });
+        }
+    }, [suggestions.start_location_id, suggestions.end_location_id]);
+
+    const getRides = (latlong) => {
+        api()
+            .get("/rides", latlong)
+            .then((res) => {
+
+                setRides(res.data);
+            })
+            .catch((err) => {
+                throw Error(err.message);
+            });
+    };
     //Auto suggest component
     const renderAutoSuggest = (address_suggestions, subsection) => {
         return (
@@ -115,7 +145,7 @@ function RideFind(props) {
                                 });
                                 setLocation({
                                     ...location,
-                                    end_location_id: address.place_name
+                                    end_location_id: address.place_names
                                 });
                             }
                         }}
@@ -138,7 +168,10 @@ function RideFind(props) {
                             type="text"
                             name="start_location_id"
                             placeholder="Pick Up location"
-                            value={location.start_location_id}
+                            value={
+                                location.start_location_id ||
+                                "654 Lakeview Avenue, San Francisco, California "
+                            }
                             autoComplete="off"
                         />
 
@@ -153,7 +186,10 @@ function RideFind(props) {
                             type="text"
                             name="end_location_id"
                             placeholder="Destination"
-                            value={location.end_location_id}
+                            value={
+                                location.end_location_id ||
+                                "Mission, San Francisco, California 94110, United States"
+                            }
                             autoComplete="off"
                         />
                         {suggestSection.end &&
@@ -174,7 +210,14 @@ function RideFind(props) {
                                 {/* map over rides that match our query */}
 
                                 {/* test ride card */}
-                                <RiderCard name="Test Ride" />
+                                {rides.length > 1 &&
+                                    rides.map((ride, index) => (
+                                        <RiderCard 
+                                            key={index}
+                                            name={ride.driver_name} 
+                                            ride_id={ride.id}
+                                            />
+                                    ))}
                             </div>
                         </div>
                     )}

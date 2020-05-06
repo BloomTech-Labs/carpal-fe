@@ -81,8 +81,8 @@ function RideMap(props) {
     const flyTo = () => {
         const newViewport = {
             ...viewport,
-            longitude: props.start[1],
-            latitude: props.start[0],
+            longitude: props.start[0],
+            latitude: props.start[1],
             zoom: 15,
             transitionDuration: 5000,
             transitionInterpolator: new FlyToInterpolator()
