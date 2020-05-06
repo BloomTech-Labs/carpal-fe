@@ -14,8 +14,8 @@ function RideRequestsCard(props) {
         <div>
             {props.incoming ? (
                 <div className="incoming-request-card">
-                    <div>
-                        <div>
+                    <div className="incoming-request-overview">
+                        <div clasName="request-card-upper">
                             <img
                                 className="profilePic"
                                 src={Patchy}
@@ -23,7 +23,7 @@ function RideRequestsCard(props) {
                             />
                             <h3>{props.requests.rider_name}</h3>
                         </div>
-                        <div>
+                        <div className="request-card-lower">
                             <button onClick={toggleDetails}>Details</button>
                             <button
                                 onClick={() =>
@@ -57,29 +57,21 @@ function RideRequestsCard(props) {
                 </div>
             ) : (
                 <div className="outgoing-request-card">
-                    <div>
-                        <div>
-                            <img
-                                className="profilePic"
-                                src={Patchy}
-                                alt="Patchy"
-                            />
-                        </div>
-                        <div>
+                    <div className="outgoing-request-overview">
+                        <img className="profilePic" src={Patchy} alt="Patchy" />
+                        <div className="name-status">
                             <h3>Driver Name</h3>
                             <h3>{props.requests.status}</h3>
                         </div>
 
                         <div className="outgoing-request-card-bottom">
-                            <div>
-                                <button onClick={toggleDetails}>Details</button>
+                            <button onClick={toggleDetails}>Details</button>
 
-                                <button
-                                    onClick={() => props.cancel(props.requests)}
-                                >
-                                    Cancel
-                                </button>
-                            </div>
+                            <button
+                                onClick={() => props.cancel(props.requests)}
+                            >
+                                Cancel
+                            </button>
                         </div>
                     </div>
                     {isDetailsOpen ? (

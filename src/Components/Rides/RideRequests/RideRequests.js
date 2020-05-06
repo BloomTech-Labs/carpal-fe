@@ -31,18 +31,16 @@ function RideRequests(props) {
             `Ride request to ${item.driver_name} is about to be canceled. Are you sure?`
         );
         if (cancelConfirm == true) {
-            props.CancelRideRequest(item.ride_id);
+            props.CancelRideRequest({ request_id: item.id });
         }
     }
     return (
-        <>
-            <div>
-                <h3>Requests</h3>
-            </div>
+        <div className="ride-request">
+            <h1>Requests</h1>
             {/* Conditionally Render Incoming Request only if User is a Driver*/}
             {user.is_driver && (
-                <div>
-                    <h3>Incoming</h3>
+                <div className="incoming-requests">
+                    <h2>Incoming</h2>
                     <button
                         onClick={() =>
                             setIsIncomingRequestsOpen(!isIncomingRequestsOpen)
@@ -67,8 +65,8 @@ function RideRequests(props) {
                     )}
                 </div>
             )}
-            <div>
-                <div>Outgoing</div>
+            <div className="outgoing-requests">
+                <h2>Outgoing</h2>
                 <button
                     onClick={() =>
                         setIsOutgoingRequestsOpen(!isOutgoingRequestsOpen)
@@ -78,6 +76,7 @@ function RideRequests(props) {
                 </button>
                 {isOutgoingRequestsOpen && (
                     <div>
+                        {console.log(props.user)}
                         {props.user.outgoing_ride_requests[0].data.map(
                             (requests, index) => (
                                 <RideRequestsCards
@@ -92,7 +91,7 @@ function RideRequests(props) {
                     </div>
                 )}
             </div>
-        </>
+        </div>
     );
 }
 
