@@ -2,11 +2,9 @@
 /////////////////////////////profileHeader.js
 .profileHeader {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     padding: 15px 0px;
-    // necessary max-width? if so bump to 800
-    max-width: 600px;
     width: 100%;
     margin: 0 auto;
     .headerImage {
@@ -55,7 +53,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 500px;
+    max-width: 800px;
     border-radius: 20px;
     padding: 10px 5px;
     margin: 10px auto 0;
@@ -92,15 +90,4 @@
             }
         }
     }
-}
-////////////////////////Edit/Update Profile Container and Form////////////////////////
-.formik-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 500px;
-    border-radius: 20px;
-    padding: 40px;
-    margin: 50px auto;
 }

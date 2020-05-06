@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink, withRouter } from "react-router-dom";
 //icons for footer-nav
-import HomeIcon from "../../img/footer-icons/HomeIcon.png";
-import FindRide from "../../img/footer-icons/RideRequest-Inverse.png";
-import CarPalReq from "../../img/footer-icons/CarPalReq-Inverted.png";
+import iconHome from "../../img/footer-icons/icon-home.png";
+import iconRequests from "../../img/footer-icons/icon-requests.png";
+import iconSaved from "../../img/footer-icons/icon-saved.png";
 
 import "./Nav.scss";
 
@@ -17,54 +17,52 @@ function Nav() {
                 {/* if user is not authenticated then nav view with routing to login/signup  */}
                 {!isAuthenticated ? (
                     <>
-                        <NavLink to="/signup">
+                        <NavLink to="/login">
                             <img
                                 className="profilePic"
-                                src={CarPalReq}
-                                alt="Request"
+                                src={iconSaved}
+                                alt="My Rides"
                             />
                         </NavLink>
                         <NavLink to="/login">
                             <img
                                 className="profilePic"
-                                src={HomeIcon}
-                                alt="Patchy"
+                                src={iconHome}
+                                alt="Find a Ride"
                             />
                         </NavLink>
                         <NavLink to="/login">
                             <img
                                 className="profilePic"
-                                src={FindRide}
-                                alt="Patchy"
+                                src={iconRequests}
+                                alt="Ride Requests"
                             />
                         </NavLink>
                     </>
                 ) : (
                     // if you are a user you will be given this footer-navigation.
                     <>
-                        <NavLink to="/profilepage">
+                        <NavLink to="/saved">
                             <img
                                 className="profilePic"
-                                src={HomeIcon}
-                                alt="Patchy"
+                                src={iconSaved}
+                                alt="My Rides"
                             />
                         </NavLink>
-                        {/* link to finding/requesting a ride */}
                         <NavLink to="/home">
                             <img
                                 className="profilePic"
-                                src={FindRide}
-                                alt="Patchy"
+                                src={iconHome}
+                                alt="Find a Ride"
                             />
                         </NavLink>
-
-                        {/* <NavLink to="/riderequest">
+                        <NavLink to="/requests">
                             <img
                                 className="profilePic"
-                                src={RequestIcon}
-                                alt="Request"
+                                src={iconRequests}
+                                alt="Ride Requests"
                             />
-                        </NavLink> */}
+                        </NavLink>
                     </>
                 )}
             </nav>
