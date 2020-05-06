@@ -5,6 +5,15 @@
     color: $carpalDarkGrey;
     text-align: center;
 
+    h2 {
+        font-size: 3.6rem;
+        padding: 20px 0 10px;
+    }
+
+    p {
+        font-size: 2rem;
+    }
+
     .hero {
         display: inline-block;
         position: relative;
@@ -46,6 +55,16 @@
 
         @include respond-to("tablet") {
             padding: 36px 15%;
+        }
+
+        h1 {
+            font-weight: 700;
+            font-size: 5rem;
+            padding: 30px 0 20px;
+
+            @include respond-to("tablet") {
+                font-size: 8rem;
+            }
         }
 
         p {

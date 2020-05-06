@@ -5,20 +5,10 @@
         padding: 40px 5%;
         width: 100%;
 
-        h1 {
-            font-size: 2.4rem;
-            padding: 0;
-            margin: 10px;
-        }
-
         @include respond-to("mobile") {
             display: flex;
             justify-content: space-around;
             align-items: center;
-
-            h1 {
-                font-size: 3rem;
-            }
         }
     }
 }
