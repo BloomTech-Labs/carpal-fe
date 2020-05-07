@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import UpdateProfile from "./UpdateProfile";
 import "./Profile-Pages.scss";
 import ProfileHeader from "./ProfileHeader";
-import UserDetail from "./userDetail";
+import UserDetail from "./UserDetail";
 
 import { connect } from "react-redux";
 
