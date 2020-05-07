@@ -61,10 +61,6 @@ function AutoSuggest(props) {
                                 ...location,
                                 end_location_id: address.place_name
                             });
-                            setLocation({
-                                ...location,
-                                start_location_id: address.place_name
-                            });
                         }
                     }}
                 >

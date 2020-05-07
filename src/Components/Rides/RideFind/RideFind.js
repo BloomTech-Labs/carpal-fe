@@ -26,9 +26,8 @@ function RideFind(props) {
 
     // for handling input change
     const [location, setLocation] = useState({
-        start_location_id:
-            "654 Lakeview Avenue, San Francisco, California 94112, United States",
-        end_location_id: "1100 ocean avenue san"
+        start_location_id: "",
+        end_location_id: ""
     });
 
     const [auto, setAuto] = useState({
@@ -74,29 +73,26 @@ function RideFind(props) {
             ...location,
             [e.target.name]: e.target.value
         });
-        console.log(auto);
         fetchSuggestions(e.target.value, e.target.name);
     };
 
-    console.log(location);
-
-    // useEffect(() => {
-    //     if (
-    //         suggestions.end_location_id.length > 1 &&
-    //         suggestions.start_location_id.length > 1
-    //     ) {
-    //         getRides({
-    //             start_location: {
-    //                 long: 0,
-    //                 lat: 0
-    //             },
-    //             end_location: {
-    //                 long: 1,
-    //                 lat: 1
-    //             }
-    //         });
-    //     }
-    // }, [suggestions.start_location_id, suggestions.end_location_id]);
+    useEffect(() => {
+        if (
+            suggestions.end_location_id.length > 1 &&
+            suggestions.start_location_id.length > 1
+        ) {
+            getRides({
+                start_location: {
+                    long: 0,
+                    lat: 0
+                },
+                end_location: {
+                    long: 1,
+                    lat: 1
+                }
+            });
+        }
+    }, [suggestions.start_location_id, suggestions.end_location_id]);
 
     const getRides = (latlong) => {
         api()
@@ -105,7 +101,7 @@ function RideFind(props) {
                 setRides(res.data);
             })
             .catch((err) => {
-                throw Error(err.message);
+                console.error(err.message);
             });
     };
 
