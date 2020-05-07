@@ -6,6 +6,8 @@ import Axios from "axios";
 import "./RideFind.scss";
 import RiderCard from "../RiderCard/RiderCard";
 import api from "./../../../Utils/Api";
+import AutoSuggest from "./../../AutoSuggest/AutoSuggest";
+
 function RideFind(props) {
     //hold long and lat for both location
     const [suggestions, setSuggestions] = useState({
@@ -24,10 +26,15 @@ function RideFind(props) {
 
     // for handling input change
     const [location, setLocation] = useState({
-        start_location_id: "",
-        end_location_id: ""
+        start_location_id:
+            "654 Lakeview Avenue, San Francisco, California 94112, United States",
+        end_location_id: "1100 ocean avenue san"
     });
 
+    const [auto, setAuto] = useState({
+        begin_ride_addy: "",
+        end_ride_addy: ""
+    });
     const [rides, setRides] = useState([]);
     //Fetch user location depending on which form the user is filling to be able to correctly set the feature state
     const fetchSuggestions = (search_term, placement) => {
@@ -67,96 +74,41 @@ function RideFind(props) {
             ...location,
             [e.target.name]: e.target.value
         });
+        console.log(auto);
         fetchSuggestions(e.target.value, e.target.name);
     };
 
-    useEffect(() => {
-        if (
-            suggestions.end_location_id.length > 1 &&
-            suggestions.start_location_id.length > 1
-        ) {
-            getRides({
-                start_location: {
-                    long: 0,
-                    lat: 0
-                },
-                end_location: {
-                    long: 1,
-                    lat: 1
-                }
-            });
-        }
-    }, [suggestions.start_location_id, suggestions.end_location_id]);
+    console.log(location);
+
+    // useEffect(() => {
+    //     if (
+    //         suggestions.end_location_id.length > 1 &&
+    //         suggestions.start_location_id.length > 1
+    //     ) {
+    //         getRides({
+    //             start_location: {
+    //                 long: 0,
+    //                 lat: 0
+    //             },
+    //             end_location: {
+    //                 long: 1,
+    //                 lat: 1
+    //             }
+    //         });
+    //     }
+    // }, [suggestions.start_location_id, suggestions.end_location_id]);
 
     const getRides = (latlong) => {
         api()
             .get("/rides", latlong)
             .then((res) => {
-
                 setRides(res.data);
             })
             .catch((err) => {
                 throw Error(err.message);
             });
     };
-    //Auto suggest component
-    const renderAutoSuggest = (address_suggestions, subsection) => {
-        return (
-            <ul>
-                {address_suggestions.map((address, index) => (
-                    <li
-                        data-testid={`address${index}`}
-                        key={index}
-                        onClick={(e) => {
-                            e.preventDefault();
-                            //If this true we render the component to the left(start_location_id) input field else we render it to the right input field
-                            if (subsection.start) {
-                                //Set the suggestion state to be sent down as props
-                                setSuggestions({
-                                    ...suggestions,
-                                    //Restructure the array so it matches the marker state in Ridemap
-                                    start_location_id: [
-                                        address.center[0],
-                                        address.center[1]
-                                    ]
-                                });
-                                //set the input value to what ever the user clicked
-                                setLocation({
-                                    ...location,
-                                    start_location_id: address.place_name
-                                });
-                                // Set all fields to false so we don't render autosuggest component
-                                setSuggestSection({
-                                    start: false,
-                                    end: false
-                                });
-                            } else {
-                                //Same steps as on the if block
-                                setSuggestions({
-                                    ...suggestions,
-                                    end_location_id: [
-                                        address.center[0],
-                                        address.center[1]
-                                    ]
-                                });
-                                setSuggestSection({
-                                    start: false,
-                                    end: false
-                                });
-                                setLocation({
-                                    ...location,
-                                    end_location_id: address.place_names
-                                });
-                            }
-                        }}
-                    >
-                        {" "}
-                        {address.place_name}
-                    </li>
-                ))}
-            </ul>
-        );
-    };
+
     return (
         <div className="search-ride-container">
             <div className="search-display">
@@ -168,16 +120,23 @@ function RideFind(props) {
                             type="text"
                             name="start_location_id"
                             placeholder="Pick Up location"
-                            value={
-                                location.start_location_id ||
-                                "654 Lakeview Avenue, San Francisco, California "
-                            }
+                            value={location.start_location_id}
                             autoComplete="off"
                         />
 
-                        {suggestSection.start &&
-                            features.length > 1 &&
-                            renderAutoSuggest(features, suggestSection)}
+                        {suggestSection.start && features.length > 1 && (
+                            <AutoSuggest
+                                features={features}
+                                suggestSection={suggestSection}
+                                setSuggestions={setSuggestions}
+                                setLocation={setLocation}
+                                setSuggestSection={setSuggestSection}
+                                suggestions={suggestions}
+                                setAuto={setAuto}
+                                auto={auto}
+                                location={location}
+                            />
+                        )}
                     </div>
 
                     <div className="search-ride-input">
@@ -186,15 +145,22 @@ function RideFind(props) {
                             type="text"
                             name="end_location_id"
                             placeholder="Destination"
-                            value={
-                                location.end_location_id ||
-                                "Mission, San Francisco, California 94110, United States"
-                            }
+                            value={location.end_location_id}
                             autoComplete="off"
                         />
-                        {suggestSection.end &&
-                            features.length > 1 &&
-                            renderAutoSuggest(features, suggestSection)}
+                        {suggestSection.end && features.length > 1 && (
+                            <AutoSuggest
+                                features={features}
+                                suggestSection={suggestSection}
+                                setSuggestions={setSuggestions}
+                                setLocation={setLocation}
+                                setSuggestSection={setSuggestSection}
+                                suggestions={suggestions}
+                                setAuto={setAuto}
+                                auto={auto}
+                                location={location}
+                            />
+                        )}
                     </div>
                     <button type="submit">Find a ride</button>
                 </form>
@@ -212,11 +178,11 @@ function RideFind(props) {
                                 {/* test ride card */}
                                 {rides.length > 1 &&
                                     rides.map((ride, index) => (
-                                        <RiderCard 
+                                        <RiderCard
                                             key={index}
-                                            name={ride.driver_name} 
+                                            name={ride.driver_name}
                                             ride_id={ride.id}
-                                            />
+                                        />
                                     ))}
                             </div>
                         </div>
