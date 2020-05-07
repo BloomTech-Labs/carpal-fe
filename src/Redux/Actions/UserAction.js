@@ -10,6 +10,7 @@ export const ADD_LOCATION = "ADD_LOCATION";
 export const CANCEL_RIDE_REQUEST = "CANCEL_RIDE_REQUEST";
 export const HANDLE_INCOMING_REQUESTS = "HANDLE_INCOMING_REQUESTS";
 export const HANDLE_OUTGOING_REQUESTS = "HANDLE_OUTGOING_REQUESTS";
+export const UPDATE_RIDE_REQUEST = "UPDATE_RIDE_REQUEST";
 
 export function SignUpAction(user, props) {
     return (dispatch) => {
@@ -134,10 +135,11 @@ export function CancelRideRequest(payload) {
         dispatch({ type: REQUEST_START });
         console.log(payload);
         api()
-            .delete(`/rides/requests`, payload)
+            .delete(`/rides/requests/${payload.request_id}`)
             .then((res) => {
                 dispatch({ type: CANCEL_RIDE_REQUEST, payload });
                 dispatch({ type: REQUEST_SUCCESS });
+                // dispatch({ type: SET_USER });
             })
             .catch((error) => {
                 dispatch({
@@ -158,7 +160,7 @@ export function handleIncomingRideRequest() {
                 dispatch({ type: REQUEST_SUCCESS });
                 dispatch({
                     type: HANDLE_INCOMING_REQUESTS,
-                    payload: res
+                    payload: res.data
                 });
             })
             .catch((error) => {
@@ -180,8 +182,40 @@ export function handleOutgoingRideRequest() {
                 dispatch({ type: REQUEST_SUCCESS });
                 dispatch({
                     type: HANDLE_OUTGOING_REQUESTS,
-                    payload: res
+                    payload: res.data
                 });
+            })
+            .catch((error) => {
+                dispatch({
+                    type: REQUEST_ERROR,
+                    payload: error
+                });
+            });
+    };
+}
+
+export function handleUpdateRideRequest(payload) {
+    return (dispatch) => {
+        dispatch({ type: REQUEST_START });
+        console.log(payload);
+        api()
+            .put("/rides/requests", payload)
+            .then((res) => {
+                dispatch({ type: REQUEST_SUCCESS });
+                api()
+                    .get("/rides/requests/driver")
+                    .then((res) => {
+                        dispatch({
+                            type: UPDATE_RIDE_REQUEST,
+                            payload: res.data
+                        });
+                    })
+                    .catch((error) => {
+                        dispatch({
+                            type: REQUEST_ERROR,
+                            payload: error
+                        });
+                    });
             })
             .catch((error) => {
                 dispatch({

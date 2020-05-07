@@ -9,7 +9,8 @@ import {
     ADD_LOCATION,
     HANDLE_INCOMING_REQUESTS,
     HANDLE_OUTGOING_REQUESTS,
-    CANCEL_RIDE_REQUEST
+    CANCEL_RIDE_REQUEST,
+    UPDATE_RIDE_REQUEST
 } from "../Actions/UserAction";
 
 const initialState = {
@@ -110,8 +111,8 @@ export function UserReducer(state = initialState, action) {
                 user: {
                     ...state.user,
                     incoming_ride_requests: [
-                        ...state.user.incoming_ride_requests,
-                        action.payload
+                        // ...state.user.incoming_ride_requests,
+                        ...action.payload
                     ]
                 }
             };
@@ -122,21 +123,35 @@ export function UserReducer(state = initialState, action) {
                 user: {
                     ...state.user,
                     outgoing_ride_requests: [
-                        ...state.user.outgoing_ride_requests,
-                        action.payload
+                        // ...state.user.outgoing_ride_requests,
+                        ...action.payload
                     ]
                 }
             };
 
         case CANCEL_RIDE_REQUEST:
+            const cancelledId = action.payload.request_id;
+            // console.log(action.payload.request_id, "cancel");
             return {
                 ...state,
                 user: {
                     ...state.user,
-                    outgoing_ride_requests: [
-                        ...state.user.outgoing_ride_requests,
-                        action.payload
-                    ]
+                    // outgoing_ride_requests: [
+                    //     ...state.user.outgoing_ride_requests,
+                    //     action.payload
+                    // ]
+                    outgoing_ride_requests: state.user.outgoing_ride_requests.filter(
+                        (outgoing_rides) => outgoing_rides.id !== cancelledId
+                    )
+                }
+            };
+
+        case UPDATE_RIDE_REQUEST:
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    incoming_ride_requests: [...action.payload]
                 }
             };
         default:

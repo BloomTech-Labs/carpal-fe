@@ -6,32 +6,37 @@ import {
     SetUserAction,
     CancelRideRequest,
     handleIncomingRideRequest,
-    handleOutgoingRideRequest
+    handleOutgoingRideRequest,
+    handleUpdateRideRequest
 } from "../../../Redux/Actions/UserAction";
 
 import "./RideRequests.scss";
 
 function RideRequests(props) {
     const [user, setUser] = useState({});
-    const [isIncomingRequestsOpen, setIsIncomingRequestsOpen] = useState(false);
-    const [isOutgoingRequestsOpen, setIsOutgoingRequestsOpen] = useState(false);
-
+    // const [isIncomingRequestsOpen, setIsIncomingRequestsOpen] = useState(false);
+    // const [isOutgoingRequestsOpen, setIsOutgoingRequestsOpen] = useState(false);
+    const [isCancelled, setIsCancelled] = useState(false);
+    console.log(isCancelled);
     useEffect(() => {
-        //previously subscribed to - props.user.incoming_ride_requests
-
         props.handleIncomingRideRequest();
         props.handleOutgoingRideRequest();
+        // props.SetUserAction();
         setUser({
             ...props.user
         });
-    }, []);
+
+        console.log(props.user.outgoing_ride_requests);
+    }, [isCancelled]);
 
     function cancelRequest(item) {
         let cancelConfirm = window.confirm(
-            `Ride request to ${item.driver_name} is about to be canceled. Are you sure?`
+            `Your ride request is about to be canceled. Are you sure?`
         );
         if (cancelConfirm == true) {
             props.CancelRideRequest({ request_id: item.id });
+            // props.handleIncomingRideRequest();
+            setIsCancelled(!isCancelled);
         }
     }
     return (
@@ -41,23 +46,25 @@ function RideRequests(props) {
             {user.is_driver && (
                 <div className="incoming-requests">
                     <h2>Incoming</h2>
-                    <button
+                    {/* <button
                         onClick={() =>
                             setIsIncomingRequestsOpen(!isIncomingRequestsOpen)
                         }
                     >
                         ...
-                    </button>
-                    {isIncomingRequestsOpen && (
+                    </button> */}
+                    {props.user.incoming_ride_requests && (
                         <div>
-                            {props.user.incoming_ride_requests[0].data.map(
+                            {props.user.incoming_ride_requests.map(
                                 (requests, index) => (
                                     <RideRequestsCards
                                         key={index}
                                         incoming={true}
                                         requests={requests}
                                         index={index}
-                                        handleRequest={props.handleRideRequest}
+                                        handleRequest={
+                                            props.handleUpdateRideRequest
+                                        }
                                     />
                                 )
                             )}
@@ -67,21 +74,20 @@ function RideRequests(props) {
             )}
             <div className="outgoing-requests">
                 <h2>Outgoing</h2>
-                <button
+                {/* <button
                     onClick={() =>
                         setIsOutgoingRequestsOpen(!isOutgoingRequestsOpen)
                     }
                 >
                     ...
-                </button>
-                {isOutgoingRequestsOpen && (
+                </button> */}
+                {props.user.outgoing_ride_requests && (
                     <div>
-                        {console.log(props.user)}
-                        {props.user.outgoing_ride_requests[0].data.map(
+                        {props.user.outgoing_ride_requests.map(
                             (requests, index) => (
                                 <RideRequestsCards
                                     key={index}
-                                    user={props.user}
+                                    // user={props.user}
                                     index={index}
                                     requests={requests}
                                     cancel={cancelRequest}
@@ -104,5 +110,6 @@ export default connect(mapStateToProps, {
     SetUserAction,
     CancelRideRequest,
     handleIncomingRideRequest,
-    handleOutgoingRideRequest
+    handleOutgoingRideRequest,
+    handleUpdateRideRequest
 })(RideRequests);
