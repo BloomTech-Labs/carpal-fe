@@ -1,30 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import "./AddLocationName.scss"
-import { EditLocation } from '../../../Redux/Actions/UserAction'
+import { EditLocation } from '../../../Redux/Actions/LocationActions'
 
 function EditLocationForm(props) {
     const [currentLocation, setCurrentLocation] = useState()
-    const locId = props.locId
-    const [targetLoc] = props.location.filter(loc => loc.id === locId)
 
 
     const [newLocation, setNewLocation] = useState({
-        id: targetLoc.id,
         name: '',
-        house_number: '',
-        street: '',
-        city: '',
-        state: '',
-        zip_code: ''
-
+        address: ''
     })
 
-    console.log(targetLoc.name)
+    console.log(props)
 
-    useEffect(() => {
-        setCurrentLocation(targetLoc)
-    }, [])
+    // useEffect(() => {
+    //     setCurrentLocation(props.favoriteLocations)
+    // }, [])
+
+    // console.log(currentLocation)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -44,12 +38,8 @@ function EditLocationForm(props) {
         <div className='edit-form'>
             <h1>Edit Location</h1>
             <form className='location-edit-form' onSubmit={handleSubmit}>
-                <input type='text' name='name' placeholder={targetLoc.name} onChange={handleChange}></input>
-                <input type='text' name='house_number' placeholder='house number' onChange={handleChange}></input>
-                <input type='text' name='street' placeholder='street' onChange={handleChange}></input>
-                <input type='text' name='city' placeholder='city' onChange={handleChange}></input>
-                <input type='text' name='state' placeholder='state' onChange={handleChange}></input>
-                <input type='text' name='zip_code' placeholder='zip code' onChange={handleChange}></input>
+                <input type='text' name='name' placeholder='name' onChange={handleChange}></input>
+                <input type='text' name='address' placeholder='address' onChange={handleChange}></input>
                 <button type="submit" >Save and Close</button>
             </form>
         </div>
@@ -61,7 +51,7 @@ function EditLocationForm(props) {
 
 
 const mapStateToProps = (state) => ({
-    location: state.user.user.rides
+    favoriteLocations: state.locations.favoriteLocations
 })
 
 

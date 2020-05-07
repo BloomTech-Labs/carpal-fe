@@ -1,17 +1,24 @@
-import React, { useState, useEffect } from "react";
-import SavedRideCard from "../SavedRideCard/SavedRideCard";
-import { connect } from "react-redux";
-import AddLocationName from "../SavedRideCard/AddLocationName";
+
+import React, { useState, useEffect } from 'react'
+import SavedRideCard from '../SavedRideCard/SavedRideCard'
+import { connect } from 'react-redux'
+import AddLocationName from '../SavedRideCard/AddFavoriteLocation'
+import { getFavorites } from '../../../Redux/Actions/LocationActions'
 import "./SavedRide.scss";
 
-function SavedRides(props) {
-    const [show, setShow] = useState(false);
-    const [rides, setRides] = useState();
 
+
+
+
+function SavedRides(props) {
+    const [show, setShow] = useState(false)
+    // const [favoriteLocations, setFavoriteLocations] = useState()
     useEffect(() => {
-        //make api call to set state for rides ?
-        setRides(props.rides)
-    }, [props.rides])
+        props.getFavorites()
+
+    }, [])
+
+
 
     const toggleShow = () => {
         setShow(!show)
@@ -29,9 +36,8 @@ function SavedRides(props) {
                     <button onClick={toggleShow}>Add New ride</button>
                 </section>
 
-                {props.rides
-                    .filter(ride => ride.status === 'saved')
-                    .map((rideData, index) => <SavedRideCard key={index} data={rideData} rides={rides} setRides={setRides} />)}
+                {props.favoriteLocation
+                    .map((rideData, index) => <SavedRideCard key={index} data={rideData} />)}
 
             </div >)}
         </div>
@@ -39,7 +45,14 @@ function SavedRides(props) {
 }
 
 const mapStateToProps = (state) => ({
-    rides: state.user.user.rides
+
+    favoriteLocation: state.locations.favoriteLocation
+
 });
+
+export default connect(mapStateToProps, { getFavorites })(SavedRides)
+
+
+
 
 export default connect(mapStateToProps)(SavedRides);

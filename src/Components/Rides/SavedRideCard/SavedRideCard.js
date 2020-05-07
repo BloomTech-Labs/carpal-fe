@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './SavedRideCard.scss'
-import { DeleteLocation } from '../../../Redux/Actions/UserAction'
+import { DeleteLocation } from '../../../Redux/Actions/LocationActions'
 import { connect } from 'react-redux'
 import EditLocationForm from './EditLocation'
 
@@ -9,8 +9,8 @@ function SavedRideCard(props) {
     const [show, setShow] = useState(false)
 
     const handleDelete = (id) => {
-        console.log(props.data.id)
-        props.DeleteLocation(props.data.id)
+        console.log(props)
+        props.DeleteLocation(props.data.name)
     }
 
     const handleEdit = (id) => {
@@ -25,7 +25,7 @@ function SavedRideCard(props) {
     console.log(props)
     return (
         <div className='saved-card'>
-            {show ? (<EditLocationForm locId={props.data.id} toggle={handleShow} />) : (<section className='saved-card'>
+            {show ? (<EditLocationForm toggle={handleShow} />) : (<section className='saved-card'>
                 <h3>{props.data.name}</h3>
                 <button onClick={handleEdit}> Edit </button>
                 <button onClick={handleDelete}> Delete </button>
@@ -37,7 +37,7 @@ function SavedRideCard(props) {
 }
 
 const mapStateToProps = (state) => ({
-    location: state.user.user.savedRides
+    location: state.locations.favoriteLocation
 })
 
 
