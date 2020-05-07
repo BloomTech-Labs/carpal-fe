@@ -1,19 +1,16 @@
-
 .rideCardDiv {
     display: flex;
-    flex-flow: row wrap;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
-    max-height: 125px;
-    min-height: 65px;
+    padding: 11px 0;
+    margin: 10px auto 0;
 
     button {
         color: #04ccbb;
         border: 1px solid #04ccbb;
         background-color: transparent;
-        height: 80%;
-        width: 15%;
         padding: 5px;
         text-transform: none;
     }
@@ -22,14 +19,14 @@
         text-transform: none;
         padding: 0px;
     }
-    
+
     ul {
         width: 100%;
         font-size: 1.5rem;
-        margin-top: 10px;
+        margin: 8px 5%;
         display: flex;
         flex-flow: column wrap;
-        align-items:flex-start;
+        align-items: flex-start;
         justify-content: space-between;
     }
 }

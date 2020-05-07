@@ -5,8 +5,6 @@ import {
     SET_USER,
     SET_EDITING,
     SET_PROFILE_UPDATE,
-    SET_FAVORITE_LOCATION,
-    ADD_LOCATION,
     HANDLE_INCOMING_REQUESTS,
     HANDLE_OUTGOING_REQUESTS,
     CANCEL_RIDE_REQUEST,
@@ -31,15 +29,23 @@ const initialState = {
                 longitude: -117.161087
             }
         ],
-        savedRides: [
-            {
-                id: 1,
-                name: "Path to Work"
-            },
-            {
-                id: 2,
-                name: "Grocery Run"
-            }
+
+
+        rides: [{
+            id: 1,
+            name: 'Path to Work',
+            status: 'pending'
+        },
+        {
+            id: 2,
+            name: 'Grocery Run',
+            status: 'accepted'
+        },
+        {
+            id: 3,
+            name: 'Liquor store',
+            status: 'saved',
+        }
         ],
         incoming_ride_requests: [],
         outgoing_ride_requests: []
@@ -86,25 +92,8 @@ export function UserReducer(state = initialState, action) {
                 ...state,
                 user: action.payload
             };
-        case SET_FAVORITE_LOCATION:
-            return {
-                ...state,
-                user: {
-                    ...state.user,
-                    favoriteLocation: [
-                        ...state.user.favoriteLocation,
-                        action.payload
-                    ]
-                }
-            };
-        case ADD_LOCATION:
-            return {
-                ...state,
-                user: {
-                    ...state.user,
-                    savedRides: [...state.user.savedRides, action.payload]
-                }
-            };
+
+        
         case HANDLE_INCOMING_REQUESTS:
             return {
                 ...state,

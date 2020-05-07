@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import UpdateProfile from "./UpdateProfile";
 import "./Profile-Pages.scss";
 import ProfileHeader from "./ProfileHeader";
-import UserDetail from "./userDetail";
+import UserDetail from "./UserDetail";
 
 import { connect } from "react-redux";
 
@@ -44,9 +44,13 @@ function ProfilePage(props) {
                             <div className="bar"></div>
                             <div className="profileDetails">
                                 {user.is_driver ? (
-                                    <h2>You are a Driver</h2>
+                                    <h2>
+                                        You are a <em>Driver</em>
+                                    </h2>
                                 ) : (
-                                    <h2>You are a Rider</h2>
+                                    <h2>
+                                        You are a <em>Rider</em>
+                                    </h2>
                                 )}
                                 <div className="profileSection">
                                     {/* FIX USERDETAIL CLASS /ENDPOINT FOR PUT */}
@@ -67,10 +71,7 @@ function ProfilePage(props) {
                                 </div>
                                 <MapBox />
                                 <div className="buttonContainer">
-                                    <button
-                                        className="edit"
-                                        onClick={onEditProfileSubmit}
-                                    >
+                                    <button onClick={onEditProfileSubmit}>
                                         Edit Profile
                                     </button>
                                 </div>

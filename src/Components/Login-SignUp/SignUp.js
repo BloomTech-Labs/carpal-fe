@@ -56,11 +56,9 @@ function SignUp(props) {
                     error={errors.password}
                 />
 
-                <button className="form-btn" type="submit">
-                    Submit
-                </button>
+                <button type="submit">Submit</button>
                 <a
-                    className="form-btn"
+                    className="btn"
                     href="https://staging-carpal.herokuapp.com/auth/google/testing"
                 >
                     Signup With Google

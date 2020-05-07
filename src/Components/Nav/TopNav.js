@@ -21,7 +21,9 @@ function TopNav() {
             <Link to="/profilepage">
                 <img className="profilePic" src={Patchy} alt="Patchy" />
             </Link>
-            <Link to="/">CarPal</Link>
+            <Link className="nav-link-carpal" to="/">
+                CarPal
+            </Link>
             {/* Anything in this NAV is within the Hamburger Menu */}
             <nav
                 className="hamburger-nav"

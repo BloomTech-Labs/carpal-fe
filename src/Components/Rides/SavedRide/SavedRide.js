@@ -1,50 +1,58 @@
+
 import React, { useState, useEffect } from 'react'
 import SavedRideCard from '../SavedRideCard/SavedRideCard'
 import { connect } from 'react-redux'
-import AddLocationName from '../SavedRideCard/AddLocationName'
+import AddLocationName from '../SavedRideCard/AddFavoriteLocation'
+import { getFavorites } from '../../../Redux/Actions/LocationActions'
 import "./SavedRide.scss";
+
+
 
 
 
 function SavedRides(props) {
     const [show, setShow] = useState(false)
-    const [rides, setRides] = useState()
-
+    // const [favoriteLocations, setFavoriteLocations] = useState()
     useEffect(() => {
-        setRides(props.savedRides)
-    }, [props.savedRides])
+        props.getFavorites()
 
-    const toggleClass = () => {
+    }, [])
+
+
+
+    const toggleShow = () => {
         setShow(!show)
         console.log(show)
     }
 
-    console.log(props.savedRides)
-
-
+    console.log(props)
+    
     return (
         <div>
-            {show ? (<AddLocationName toggle={toggleClass} />) : (< div className='saved-rides' >
+
+            {show ? (<AddLocationName toggle={toggleShow} />) : (< div className='saved-rides' >
                 <section className='my-saved'>
                     <h1>My saved rides...</h1>
-                    <button onClick={toggleClass}>Add New ride</button>
+                    <button onClick={toggleShow}>Add New ride</button>
                 </section>
-                {/* <SavedRideCard /> */}
 
-                {props.savedRides.map((rideData, index) => <SavedRideCard key={index} data={rideData} rides={rides} setRides={setRides} />)}
+                {props.favoriteLocation
+                    .map((rideData, index) => <SavedRideCard key={index} data={rideData} />)}
 
             </div >)}
         </div>
-    )
-
+    );
 }
 
 const mapStateToProps = (state) => ({
-    savedRides: state.user.user.savedRides
+
+    favoriteLocation: state.locations.favoriteLocation
+
 });
 
-export default connect(mapStateToProps)(SavedRides)
+export default connect(mapStateToProps, { getFavorites })(SavedRides)
 
 
 
 
+export default connect(mapStateToProps)(SavedRides);

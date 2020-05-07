@@ -13,6 +13,7 @@ import {
 import "./RideRequests.scss";
 
 function RideRequests(props) {
+    
     const [user, setUser] = useState({});
     // const [isIncomingRequestsOpen, setIsIncomingRequestsOpen] = useState(false);
     // const [isOutgoingRequestsOpen, setIsOutgoingRequestsOpen] = useState(false);
