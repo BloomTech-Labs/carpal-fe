@@ -5,7 +5,10 @@ import {
     SET_USER,
     SET_EDITING,
     SET_PROFILE_UPDATE,
-
+    HANDLE_INCOMING_REQUESTS,
+    HANDLE_OUTGOING_REQUESTS,
+    CANCEL_RIDE_REQUEST,
+    UPDATE_RIDE_REQUEST
 } from "../Actions/UserAction";
 
 const initialState = {
@@ -44,26 +47,8 @@ const initialState = {
             status: 'saved',
         }
         ],
-        incoming_ride_requests: [
-            {
-                rider_name: "test ride"
-            },
-            {
-                rider_name: "test ride 2"
-            }
-        ],
-        outgoing_ride_requests: [
-            {
-                driver_name: "test driver",
-                status: "pending",
-                ride_id: 1
-            },
-            {
-                driver_name: "test driver 2",
-                status: "approved",
-                ride_id: 2
-            }
-        ]
+        incoming_ride_requests: [],
+        outgoing_ride_requests: []
     },
     isEditing: false
 };
@@ -108,6 +93,56 @@ export function UserReducer(state = initialState, action) {
                 user: action.payload
             };
 
+        
+        case HANDLE_INCOMING_REQUESTS:
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    incoming_ride_requests: [
+                        // ...state.user.incoming_ride_requests,
+                        ...action.payload
+                    ]
+                }
+            };
+
+        case HANDLE_OUTGOING_REQUESTS:
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    outgoing_ride_requests: [
+                        // ...state.user.outgoing_ride_requests,
+                        ...action.payload
+                    ]
+                }
+            };
+
+        case CANCEL_RIDE_REQUEST:
+            const cancelledId = action.payload.request_id;
+            // console.log(action.payload.request_id, "cancel");
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    // outgoing_ride_requests: [
+                    //     ...state.user.outgoing_ride_requests,
+                    //     action.payload
+                    // ]
+                    outgoing_ride_requests: state.user.outgoing_ride_requests.filter(
+                        (outgoing_rides) => outgoing_rides.id !== cancelledId
+                    )
+                }
+            };
+
+        case UPDATE_RIDE_REQUEST:
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    incoming_ride_requests: [...action.payload]
+                }
+            };
         default:
             return state;
     }

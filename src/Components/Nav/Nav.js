@@ -1,9 +1,11 @@
 import React from "react";
 import { NavLink, withRouter } from "react-router-dom";
 //icons for footer-nav
+
 import iconHome from "../../img/footer-icons/icon-home.png";
 import iconRequests from "../../img/footer-icons/icon-requests.png";
 import iconSaved from "../../img/footer-icons/icon-saved.png";
+
 
 import "./Nav.scss";
 

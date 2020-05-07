@@ -68,9 +68,10 @@ describe("Checking header fields", () => {
             </Provider>
         );
 
-        const name = wrapper.queryByText(/Daniel/i);
-        const button = wrapper.queryByText(/Edit Profile/i);
-        
+
+        const name = wrapper.getByText(/edit profile/i);
+        console.log(name);
+
         expect(name).toBeInTheDocument();
         expect(name).toBeVisible();
         

@@ -4,7 +4,10 @@ import RideRequestsCards from "../RideRequestsCard/RideRequestsCard";
 import { connect } from "react-redux";
 import {
     SetUserAction,
-    CancelRideRequest
+    CancelRideRequest,
+    handleIncomingRideRequest,
+    handleOutgoingRideRequest,
+    handleUpdateRideRequest
 } from "../../../Redux/Actions/UserAction";
 
 import "./RideRequests.scss";
@@ -12,49 +15,57 @@ import "./RideRequests.scss";
 function RideRequests(props) {
     
     const [user, setUser] = useState({});
-    const [isIncomingRequestsOpen, setIsIncomingRequestsOpen] = useState(false);
-    const [isOutgoingRequestsOpen, setIsOutgoingRequestsOpen] = useState(false);
-
+    // const [isIncomingRequestsOpen, setIsIncomingRequestsOpen] = useState(false);
+    // const [isOutgoingRequestsOpen, setIsOutgoingRequestsOpen] = useState(false);
+    const [isCancelled, setIsCancelled] = useState(false);
+    console.log(isCancelled);
     useEffect(() => {
+        props.handleIncomingRideRequest();
+        props.handleOutgoingRideRequest();
+        // props.SetUserAction();
         setUser({
             ...props.user
         });
-    }, [props.user.incoming_ride_requests]);
+
+        console.log(props.user.outgoing_ride_requests);
+    }, [isCancelled]);
 
     function cancelRequest(item) {
         let cancelConfirm = window.confirm(
-            `Ride request to ${item.driver_name} is about to be canceled. Are you sure?`
+            `Your ride request is about to be canceled. Are you sure?`
         );
         if (cancelConfirm == true) {
-            props.CancelRideRequest(item.ride_id);
+            props.CancelRideRequest({ request_id: item.id });
+            // props.handleIncomingRideRequest();
+            setIsCancelled(!isCancelled);
         }
     }
-
     return (
-        <>
-            <div>
-                <h3>Requests</h3>
-            </div>
+        <div className="ride-request">
+            <h1>Requests</h1>
             {/* Conditionally Render Incoming Request only if User is a Driver*/}
             {user.is_driver && (
-                <div>
-                    <h3>Incoming</h3>
-                    <button
+                <div className="incoming-requests">
+                    <h2>Incoming</h2>
+                    {/* <button
                         onClick={() =>
                             setIsIncomingRequestsOpen(!isIncomingRequestsOpen)
                         }
                     >
                         ...
-                    </button>
-                    {isIncomingRequestsOpen && (
+                    </button> */}
+                    {props.user.incoming_ride_requests && (
                         <div>
                             {props.user.incoming_ride_requests.map(
                                 (requests, index) => (
                                     <RideRequestsCards
                                         key={index}
                                         incoming={true}
-                                        user={props.user}
+                                        requests={requests}
                                         index={index}
+                                        handleRequest={
+                                            props.handleUpdateRideRequest
+                                        }
                                     />
                                 )
                             )}
@@ -62,22 +73,22 @@ function RideRequests(props) {
                     )}
                 </div>
             )}
-            <div>
-                <div>Outgoing</div>
-                <button
+            <div className="outgoing-requests">
+                <h2>Outgoing</h2>
+                {/* <button
                     onClick={() =>
                         setIsOutgoingRequestsOpen(!isOutgoingRequestsOpen)
                     }
                 >
                     ...
-                </button>
-                {isOutgoingRequestsOpen && (
+                </button> */}
+                {props.user.outgoing_ride_requests && (
                     <div>
                         {props.user.outgoing_ride_requests.map(
                             (requests, index) => (
                                 <RideRequestsCards
                                     key={index}
-                                    user={props.user}
+                                    // user={props.user}
                                     index={index}
                                     requests={requests}
                                     cancel={cancelRequest}
@@ -87,7 +98,7 @@ function RideRequests(props) {
                     </div>
                 )}
             </div>
-        </>
+        </div>
     );
 }
 
@@ -96,6 +107,10 @@ const mapStateToProps = (state) => ({
     error: state.user.error
 });
 
-export default connect(mapStateToProps, { SetUserAction, CancelRideRequest })(
-    RideRequests
-);
+export default connect(mapStateToProps, {
+    SetUserAction,
+    CancelRideRequest,
+    handleIncomingRideRequest,
+    handleOutgoingRideRequest,
+    handleUpdateRideRequest
+})(RideRequests);

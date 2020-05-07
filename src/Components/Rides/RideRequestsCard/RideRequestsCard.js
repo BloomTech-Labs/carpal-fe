@@ -5,31 +5,66 @@ import Patchy from "../../../img/logos/Patchyv2.0.png";
 function RideRequestsCard(props) {
 
     const [isDetailsOpen, setIsDetailsOpen] = useState(false);
-    let outgoingRequests = props.user.outgoing_ride_requests;
-    let incomingRequests = props.user.incoming_ride_requests;
 
     function toggleDetails() {
         setIsDetailsOpen(!isDetailsOpen);
     }
+
+    console.log(props, "props.request in card");
     return (
         <div>
             {props.incoming ? (
-                <div className="outgoing-request-card">
-                    <div>
-                        <div>
+                <div className="incoming-request-card">
+                    <div className="incoming-request-overview">
+                        <div className="request-card-upper">
                             <img
                                 className="profilePic"
                                 src={Patchy}
                                 alt="Patchy"
                             />
-                            <h3>{incomingRequests[props.index].rider_name}</h3>
+                            <h3>{props.requests.rider_name}</h3>
+                            <h3>{props.requests.status}</h3>
                         </div>
-                        <div className="incoming-request-card-bottom">
-                            <div>
-                                <button onClick={toggleDetails}>Details</button>
-                                <button>Accept</button>
-                                <button>Decline</button>
-                            </div>
+                        <div className="request-card-lower">
+                            <button onClick={toggleDetails}>Details</button>
+                            {props.requests.status === "pending" ? (
+                                <>
+                                    <button
+                                        onClick={() =>
+                                            props.handleRequest({
+                                                ride_id: props.requests.ride_id,
+                                                request_id: props.requests.id,
+                                                status: "accepted"
+                                            })
+                                        }
+                                    >
+                                        Accept
+                                    </button>
+                                    <button
+                                        onClick={() =>
+                                            props.handleRequest({
+                                                ride_id: props.requests.ride_id,
+                                                request_id: props.requests.id,
+                                                status: "declined"
+                                            })
+                                        }
+                                    >
+                                        Decline
+                                    </button>
+                                </>
+                            ) : (
+                                <button
+                                    onClick={() =>
+                                        props.handleRequest({
+                                            ride_id: props.requests.ride_id,
+                                            request_id: props.requests.id,
+                                            status: "declined"
+                                        })
+                                    }
+                                >
+                                    Decline
+                                </button>
+                            )}
                         </div>
                     </div>
                     {isDetailsOpen && (
@@ -41,21 +76,17 @@ function RideRequestsCard(props) {
                     )}
                 </div>
             ) : (
-                <div className="incoming-request-card">
-                    <div>
-                        <div>
-                            <img
-                                className="profilePic"
-                                src={Patchy}
-                                alt="Patchy"
-                            />
+                <div className="outgoing-request-card">
+                    <div className="outgoing-request-overview">
+                        <img className="profilePic" src={Patchy} alt="Patchy" />
+                        <div className="name-status">
+                            <h3>{props.requests.driver_name}</h3>
+                            <h3>{props.requests.status}</h3>
                         </div>
-                        <div>
-                            <h3>{outgoingRequests[props.index].driver_name}</h3>
-                            <h3>{outgoingRequests[props.index].status}</h3>
-                        </div>
-                        <div>
+
+                        <div className="outgoing-request-card-bottom">
                             <button onClick={toggleDetails}>Details</button>
+
                             <button
                                 onClick={() => props.cancel(props.requests)}
                             >
