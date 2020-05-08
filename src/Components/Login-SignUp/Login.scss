@@ -60,15 +60,16 @@
         }
         @include respond-to("desktop") {
             justify-content: center;
-            align-items: center;
+            align-items: stretch;
             background-position: cover;
             height: 300px;
         }
-    }
-    ////// New to the website? signup/login p tag
-    .module-p {
-        color: $carpalDarkGrey;
-        font-size: 2rem;
-        margin-bottom: 5px;
+
+        ////// New to the website? signup/login p tag
+        .module-p {
+            color: $carpalDarkGrey;
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
     }
 }
