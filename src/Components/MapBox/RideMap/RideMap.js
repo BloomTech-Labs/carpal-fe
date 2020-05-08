@@ -6,8 +6,6 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import PolyLineOverlay from "../../Rides/RideFind/PolyLineOverlay";
 import Axios from "axios";
 
-import { config } from "dotenv";
-config();
 const mapboxAPI = process.env.REACT_APP_MAPBOX_TOKEN;
 
 function RideMap(props) {
@@ -21,10 +19,6 @@ function RideMap(props) {
         position: "center"
     });
 
-    useEffect(() => {
-        flyTo();
-    }, [props.start]);
-
     const [locations, setLocations] = useState([]);
 
     //State for keeping track of the Markers long/lat
@@ -32,6 +26,8 @@ function RideMap(props) {
     const [marker, setMarker] = useState([-122.457827, 37.718436]);
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(getUserLocation);
+
+        flyTo();
 
         if (props.start.length > 1 && props.end.length > 1) {
             const start = props.start.join(",");
@@ -92,7 +88,7 @@ function RideMap(props) {
     };
 
     // Function to render A Marker
-    const renderMarker = (longLat, index = 0) => {;
+    const renderMarker = (longLat, index = 0) => {
         return (
             <Marker
                 key={index}
