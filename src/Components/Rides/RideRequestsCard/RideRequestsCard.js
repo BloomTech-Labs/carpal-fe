@@ -3,7 +3,6 @@ import "./RideRequestsCard.scss";
 import Patchy from "../../../img/logos/Patchyv2.0.png";
 
 function RideRequestsCard(props) {
-
     const [isDetailsOpen, setIsDetailsOpen] = useState(false);
 
     function toggleDetails() {

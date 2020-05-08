@@ -1,13 +1,6 @@
 // variables/mixins file path "importing your global styles."
 @import "../Styles/_variables.scss";
-//////////////////Login/Signup Form bckgrndIMG
-@mixin modelBackIMG {
-    background-image: url("../../img/background/Cutie-Trio-Bckgrnd.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: 50% 50%;
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
 //////////////////signup/login link
 a {
     color: $carpalDarkGrey;

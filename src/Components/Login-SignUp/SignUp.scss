@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 800px;
     width: 100%;
     height: 100%;
     padding: 20px;
@@ -21,34 +22,29 @@
     .signup-p {
         color: $carpalDarkGrey;
         font-size: 3rem;
-        margin-bottom: 20px;
     }
     .module-nav {
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
         height: 200px;
         width: 100%;
-        padding: 10px;
-        background-image: url("../../img/background/Cutie-Trio-Bckgrnd.png");
-        background-repeat: no-repeat;
-        background-size: 100%;
-        background-position: 50% 50%;
-        @include respond-to("tablet") {
-            background-position: 50% 50%;
-        }
+
         @include respond-to("desktop") {
             justify-content: center;
             align-items: center;
             background-position: cover;
             height: 300px;
         }
-    }
-    ////// New to the website? signup/login p tag
-    .module-p {
-        color: $carpalDarkGrey;
-        font-size: 2rem;
-        margin-bottom: 5px;
+        .module-cuties {
+            max-width: 300px;
+        }
+        ////// New to the website? signup/login p tag
+        .module-p {
+            color: $carpalDarkGrey;
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
     }
 }

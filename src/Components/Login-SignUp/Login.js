@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { withFormik, Form, Field } from "formik";
+import { withFormik, Form } from "formik";
 import * as Yup from "yup";
 import "./Login.scss";
 import LabelField from "../Form-Components/LabelField";
+import cuties from "../../img/background/Cutie-Trio-Bckgrnd.png";
 import getGoogleRoute from "../../Utils/GoogleRoute";
 
 import { LogInAction } from "../../Redux/Actions/UserAction";
@@ -64,6 +65,8 @@ function Login(props) {
             </Form>
 
             <div className="module-nav">
+                <img className="module-cuties" src={cuties} alt="cuties" />
+
                 <p className="module-p">
                     New to the website?
                     <Link className="signup-link" to="/signup">
