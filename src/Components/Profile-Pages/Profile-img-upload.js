@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import $ from "jquery";
+import $ from "jquery";
 
 class profileImage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedFile: null,
-            selectedFiles: null
+            selectedFile: null
         };
     }
 
@@ -15,24 +14,39 @@ class profileImage extends Component {
         this.setState({
             selectedFile: event.target.files[0]
         });
+        // display selected image
+        if (event.target.files && event.target.files[0]) {
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                this.setState({
+                    image: e.target.result
+                });
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
     };
-    singleFileUploadHandler = (event) => {
+
+    singleFileUploadHandler = () => {
         const data = new FormData();
         // If file selected
         if (this.state.selectedFile) {
             data.append(
-                "profileImage",
+                "image",
                 this.state.selectedFile,
                 this.state.selectedFile.name
             );
             axios
-                .post("/profile/profile-img-upload", data, {
-                    headers: {
-                        accept: "application/json",
-                        "Accept-Language": "en-US,en;q=0.8",
-                        "Content-Type": `multipart/form-data; boundary=${data._boundary}`
+                .post(
+                    "http://localhost:3001/profile/profile-img-upload",
+                    data,
+                    {
+                        headers: {
+                            accept: "application/json",
+                            "Accept-Language": "en-US,en;q=0.8",
+                            "Content-Type": `multipart/form-data; boundary=${data._boundary}`
+                        }
                     }
-                })
+                )
                 .then((response) => {
                     if (200 === response.status) {
                         // If file size is larger than expected.
@@ -64,32 +78,67 @@ class profileImage extends Component {
         }
     };
 
+    // ShowAlert Function
+    ocShowAlert = (message, background = "#3089cf") => {
+        let alertContainer = document.querySelector("#oc-alert-container"),
+            alertEl = document.createElement("div"),
+            textNode = document.createTextNode(message);
+        alertEl.setAttribute("class", "oc-alert-pop-up");
+        $(alertEl).css("background", background);
+        alertEl.appendChild(textNode);
+        alertContainer.appendChild(alertEl);
+        setTimeout(function () {
+            $(alertEl).fadeOut("slow");
+            $(alertEl).remove();
+        }, 3000);
+    };
+
     render() {
+        console.log(this.state);
         return (
             <div>
-                {/* Single File Upload*/}
-                <div
-                    style={{ boxShadow: "0 5px 10px 2px rgba(195,192,192,.5)" }}
-                >
-                    <div>
-                        <h3>Profile Image Upload</h3>
-                        <p>Upload Size: 250px x 250px ( Max 2MB )</p>
-                    </div>
-                    <div>
-                        <p className="card-text">
-                            Please upload an image for your profile
-                        </p>
-                        <input
-                            type="file"
-                            onChange={this.singleFileChangedHandler}
-                        />
-                        <div className="mt-5">
-                            <button
-                                className="btn btn-info"
-                                onClick={this.singleFileUploadHandler}
+                <div className="container">
+                    {/* For Alert box*/}
+                    <div id="oc-alert-container"></div>
+
+                    {/* Single File Upload*/}
+                    <div
+                        className="card border-light mb-3 mt-5"
+                        style={{
+                            boxShadow: "0 5px 10px 2px rgba(195,192,192,.5)"
+                        }}
+                    >
+                        <div className="card-header">
+                            <h3 style={{ color: "#555", marginLeft: "12px" }}>
+                                Single Image Upload
+                            </h3>
+                            <p
+                                className="text-muted"
+                                style={{ marginLeft: "12px" }}
                             >
-                                Upload!
-                            </button>
+                                Upload Size: 250px x 250px ( Max 2MB )
+                            </p>
+                        </div>
+                        <div className="card-body">
+                            <p className="card-text">
+                                Please upload an image for your profile
+                            </p>
+                            <img id="target" src={this.state.image} />
+                            <input
+                                id="profile-img"
+                                name="file"
+                                type="file"
+                                onChange={this.singleFileChangedHandler}
+                            />
+
+                            <div className="mt-5">
+                                <button
+                                    className="btn btn-info"
+                                    onClick={this.singleFileUploadHandler}
+                                >
+                                    Upload!
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -97,5 +146,4 @@ class profileImage extends Component {
         );
     }
 }
-
 export default profileImage;
