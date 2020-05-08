@@ -17,6 +17,9 @@
             h3 {
                 font-size: 1.5rem;
                 margin: 10px 10px;
+                @include respond-to("tablet") {
+                    font-size: 2rem;
+                }
             }
         }
 
@@ -45,10 +48,18 @@
         }
     }
     .request-card-details {
+        display: flex;
+        flex-direction: column;
         padding: 20px 0px 0px 0px;
+        @include respond-to("mobile") {
+            align-items: center;
+        }
         h3 {
             font-size: 1.5rem;
             padding: 8px 10px;
+            @include respond-to("tablet") {
+                font-size: 1.8rem;
+            }
         }
     }
 }
@@ -73,6 +84,9 @@
                 font-size: 1.5rem;
                 padding: 2px 2px;
                 margin: 0px 10px;
+                @include respond-to("tablet") {
+                    font-size: 2rem;
+                }
             }
         }
         .outgoing-request-card-bottom {
@@ -98,10 +112,18 @@
         }
     }
     .request-card-details {
+        display: flex;
+        flex-direction: column;
         padding: 20px 0px 0px 0px;
+        @include respond-to("mobile") {
+            align-items: center;
+        }
         h3 {
             font-size: 1.5rem;
             padding: 8px 10px;
+            @include respond-to("tablet") {
+                font-size: 1.8rem;
+            }
         }
     }
 }
