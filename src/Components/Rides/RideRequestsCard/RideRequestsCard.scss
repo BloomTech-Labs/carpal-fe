@@ -2,9 +2,11 @@
 
 .incoming-request-card {
     max-width: 800px;
-    background-color: $carpalLightGreen;
     padding: 10px 20px;
     margin: 0 auto;
+    &:hover {
+        background-color: $carpalLightGreen;
+    }
     .incoming-request-overview {
         .request-card-upper {
             display: flex;
@@ -67,9 +69,11 @@
 ///outgoing requests card div
 .outgoing-request-card {
     max-width: 800px;
-    background-color: $carpalLightGreen;
     padding: 10px 20px;
     margin: 0 auto;
+    &:hover {
+        background-color: $carpalLightGreen;
+    }
 
     .outgoing-request-overview {
         display: flex;
