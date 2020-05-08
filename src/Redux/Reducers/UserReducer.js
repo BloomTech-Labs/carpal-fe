@@ -25,8 +25,8 @@ const initialState = {
         audioDislikes: [],
         favoriteLocation: [
             {
-                latitude: 32.715736,
-                longitude: -117.161087
+                latitude: 0,
+                longitude: 0
             }
         ],
 
