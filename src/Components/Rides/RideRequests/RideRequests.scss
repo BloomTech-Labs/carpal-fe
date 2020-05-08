@@ -1,22 +1,39 @@
 @import "../../../index.scss";
 
 .ride-request {
+    max-width: 800px;
     margin: 0 auto;
-    //h1 slot - globally styled.
+    h1 {
+        font-size: 3rem;
+        margin: 10px 0px;
+        @include respond-to("tablet") {
+            margin: 30px 0px;
+        }
+    }
     .incoming-requests {
         h2 {
+            display: flex;
+            justify-content: flex-start;
             text-transform: capitalize;
             font-weight: 400;
             font-size: 2rem;
-            padding: 10px 10px;
+            padding: 10px 0px;
+            @include respond-to("tablet") {
+                padding: 5px 0px 15px 0px;
+            }
         }
     }
     .outgoing-requests {
         h2 {
+            display: flex;
+            justify-content: flex-start;
             text-transform: capitalize;
             font-weight: 400;
             font-size: 2rem;
-            padding: 10px 10px;
+            padding: 10px 0px;
+            @include respond-to("tablet") {
+                padding: 15px 0px;
+            }
         }
     }
 }

@@ -4,6 +4,7 @@
     max-width: 800px;
     background-color: $carpalLightGreen;
     padding: 10px 20px;
+    margin: 0 auto;
     .incoming-request-overview {
         .request-card-upper {
             display: flex;
@@ -29,7 +30,7 @@
                 color: $carpalGreen;
                 background-color: $carpalWhite;
                 font-size: 1.5rem;
-                padding: 7px 12px;
+                padding: 5px 10px;
                 margin: 2px 5px;
                 &:hover {
                     color: $carpalBlack;
@@ -57,6 +58,8 @@
     max-width: 800px;
     background-color: $carpalLightGreen;
     padding: 10px 20px;
+    margin: 0 auto;
+
     .outgoing-request-overview {
         display: flex;
         flex-direction: row;
@@ -80,7 +83,7 @@
                 color: $carpalGreen;
                 background-color: $carpalWhite;
                 font-size: 1.5rem;
-                padding: 7px 12px;
+                padding: 5px 10px;
                 margin: 2px;
                 &:hover {
                     color: $carpalBlack;
