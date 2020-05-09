@@ -2,36 +2,57 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import "./AddLocationName.scss"
 import { EditLocation } from '../../../Redux/Actions/LocationActions'
+import api from '../../../Utils/Api'
+import geocode from '../../../Utils/geocoder'
 
 function EditLocationForm(props) {
-    const [currentLocation, setCurrentLocation] = useState()
 
-
-    const [newLocation, setNewLocation] = useState({
+    const [updatedLocation, setUpdatedLocation] = useState({
         name: '',
+        lat: 0,
+        long: 0,
         address: ''
+
     })
+    //sets the state for the current location
+    useEffect(() => {
+        api().get(`/locations/favorites/`).then(resp => {
+            console.log(resp)
+            setUpdatedLocation(resp.data[0])
+            console.log(updatedLocation)
+        })
 
-    console.log(props)
+    }, [])
+    //geocodes the updated input
+    useEffect(() => {
+        let point = geocode(updatedLocation)
+        const coords = Promise.resolve(point)
+        coords.then(resp => {
+            {
+                resp ? (setUpdatedLocation({
+                    ...updatedLocation,
+                    lat: resp[0],
+                    long: resp[1]
+                })) : (resp = null)
+            }
+        })
+    }, [updatedLocation.address])
 
-    // useEffect(() => {
-    //     setCurrentLocation(props.favoriteLocations)
-    // }, [])
-
-    // console.log(currentLocation)
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        props.EditLocation(newLocation)
+        console.log(updatedLocation)
+        props.EditLocation(updatedLocation)
         props.toggle()
 
     }
 
     const handleChange = e => {
-        setNewLocation({
-            ...newLocation,
+        setUpdatedLocation({
+            ...updatedLocation,
             [e.target.name]: e.target.value
         })
+
     }
 
     return (
@@ -51,7 +72,7 @@ function EditLocationForm(props) {
 
 
 const mapStateToProps = (state) => ({
-    favoriteLocations: state.locations.favoriteLocations
+    location: state.locations.favoriteLocations
 })
 
 

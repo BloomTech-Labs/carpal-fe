@@ -16,9 +16,9 @@ function SavedRides(props) {
     useEffect(() => {
         props.getFavorites()
 
-    }, [])
+    }, [(props.favoriteLocation.name || props.favoriteLocation.address) && props.favoriteLocation.length])
 
-
+    console.log(props.favoriteLocation)
 
     const toggleShow = () => {
         setShow(!show)

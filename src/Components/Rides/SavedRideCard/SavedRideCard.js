@@ -10,7 +10,7 @@ function SavedRideCard(props) {
 
     const handleDelete = (id) => {
         console.log(props)
-        props.DeleteLocation(props.data.name)
+        props.DeleteLocation(props.data.id)
     }
 
     const handleEdit = (id) => {
@@ -22,10 +22,9 @@ function SavedRideCard(props) {
         setShow(!show)
     }
 
-    console.log(props)
     return (
         <div className='saved-card'>
-            {show ? (<EditLocationForm toggle={handleShow} />) : (<section className='saved-card'>
+            {show ? (<EditLocationForm toggle={handleShow} location_id={props.data.id} />) : (<section className='saved-card'>
                 <h3>{props.data.name}</h3>
                 <button onClick={handleEdit}> Edit </button>
                 <button onClick={handleDelete}> Delete </button>

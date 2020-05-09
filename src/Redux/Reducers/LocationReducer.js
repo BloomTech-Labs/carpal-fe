@@ -45,8 +45,10 @@ export function locationReducer(state = initState, action) {
         case EDIT_LOCATION:
             return {
                 ...state,
-                favoriteLocation: [...state.favoriteLocation.map(place => {
-                    return
+                favoriteLocation: [...state.favoriteLocation.filter(place => {
+                    if (place.id === action.payload.id) {
+                        return action.payload
+                    }
                 })]
             };
 
