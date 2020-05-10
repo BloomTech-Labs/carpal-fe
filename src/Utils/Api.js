@@ -18,12 +18,15 @@ export default function () {
             }
         });
     }
+    console.log(process.env.NODE_ENV);
+    console.log(process.env.AWS_BRANCH);
+    console.log(AWS_BRANCH);
     if (process.env.NODE_ENV === "development") {
         const url = "https://staging-carpal.herokuapp.com/";
         return axiosInstance("development", url);
-    } else if (process.env.REACT_APP_IS_STAGING === 1) {
+    } else if (process.env.AWS_BRANCH == "staging") {
         const url = "https://staging-carpal.herokuapp.com/";
-        return axiosInstance("development", url);
+        return axiosInstance("staging", url);
     } else if (
         process.env.NODE_ENV === "production" ||
         process.env.REACT_APP_IS_STAGING === 0
