@@ -21,11 +21,14 @@ export default function () {
     if (process.env.NODE_ENV === "development") {
         const url = "https://staging-carpal.herokuapp.com/";
         return axiosInstance("development", url);
-    } else if (process.env.NODE_ENV === "production" || process_env.REACT_APP_IS_STAGING === 0) {
-        const url = "https://carpal-production.herokuapp.com/";
-        return axiosInstance("production", url);
     } else if (process_env.REACT_APP_IS_STAGING === 1) {
         const url = "https://staging-carpal.herokuapp.com/";
         return axiosInstance("development", url);
+    } else if (
+        process.env.NODE_ENV === "production" ||
+        process_env.REACT_APP_IS_STAGING === 0
+    ) {
+        const url = "https://carpal-production.herokuapp.com/";
+        return axiosInstance("production", url);
     }
 }
