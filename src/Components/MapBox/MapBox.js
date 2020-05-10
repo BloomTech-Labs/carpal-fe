@@ -2,11 +2,8 @@ import React, { useState, useEffect } from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
 import { connect } from "react-redux";
 import Logo from "./../../img/Logo.png";
-
 import "./MapBox.scss";
 import "mapbox-gl/dist/mapbox-gl.css";
-import { config } from "dotenv";
-config();
 
 const mapboxAPI = process.env.REACT_APP_MAPBOX_TOKEN;
 
@@ -25,10 +22,13 @@ function MapBox(props) {
         longitude: props.favoriteLocation[0].longitude
     });
     useEffect(() => {
-        if (navigator.geolocation) {
+        if (
+            props.favoriteLocation[0].latitude === 0 &&
+            props.favoriteLocation[0].longitude === 0
+        ) {
             navigator.geolocation.getCurrentPosition(getUserLocation);
         }
-    }, [viewport]);
+    }, []);
 
     const getUserLocation = (position) => {
         var crd = position.coords;
