@@ -24,13 +24,10 @@ export default function () {
     if (process.env.NODE_ENV === "development") {
         const url = "https://staging-carpal.herokuapp.com/";
         return axiosInstance("development", url);
-    } else if (process.env.AWS_BRANCH == "staging") {
+    } else if (process.env.REACT_APP_IS_STAGING == 1) {
         const url = "https://staging-carpal.herokuapp.com/";
         return axiosInstance("staging", url);
-    } else if (
-        process.env.NODE_ENV === "production" ||
-        process.env.REACT_APP_IS_STAGING === 0
-    ) {
+    } else if (process.env.REACT_APP_IS_STAGING == 0) {
         const url = "https://carpal-production.herokuapp.com/";
         return axiosInstance("production", url);
     }
