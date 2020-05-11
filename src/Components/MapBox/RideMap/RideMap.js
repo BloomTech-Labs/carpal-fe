@@ -6,12 +6,10 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import PolyLineOverlay from "../../Rides/RideFind/PolyLineOverlay";
 import Axios from "axios";
 
-import { config } from "dotenv";
-config();
 const mapboxAPI = process.env.REACT_APP_MAPBOX_TOKEN;
 
 function RideMap(props) {
-    // console.log(props)
+    
     const [viewport, setViewport] = useState({
         latitude: 0,
         longitude: 0,
@@ -21,10 +19,6 @@ function RideMap(props) {
         position: "center"
     });
 
-    useEffect(() => {
-        flyTo();
-    }, [props.start]);
-
     const [locations, setLocations] = useState([]);
 
     //State for keeping track of the Markers long/lat
@@ -32,6 +26,8 @@ function RideMap(props) {
     const [marker, setMarker] = useState([-122.457827, 37.718436]);
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(getUserLocation);
+
+        flyTo();
 
         if (props.start.length > 1 && props.end.length > 1) {
             const start = props.start.join(",");
@@ -63,7 +59,12 @@ function RideMap(props) {
             latitude: crd.latitude,
             longitude: crd.longitude
         });
-
+        
+        //Set proximity coordinates to prioritize search location result based on users current location
+        props.setProximityCords({
+            longitude: crd.longitude,
+            latitude: crd.latitude,
+        })
         //When we Get users location we set the marker to the users current location
         setMarker([crd.longitude, crd.latitude]);
     };
@@ -81,8 +82,8 @@ function RideMap(props) {
     const flyTo = () => {
         const newViewport = {
             ...viewport,
-            longitude: props.start[1],
-            latitude: props.start[0],
+            longitude: props.start[0],
+            latitude: props.start[1],
             zoom: 15,
             transitionDuration: 5000,
             transitionInterpolator: new FlyToInterpolator()
@@ -92,7 +93,7 @@ function RideMap(props) {
     };
 
     // Function to render A Marker
-    const renderMarker = (longLat, index = 0) => {;
+    const renderMarker = (longLat, index = 0) => {
         return (
             <Marker
                 key={index}

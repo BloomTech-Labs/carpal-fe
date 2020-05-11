@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import RideMap from "../../MapBox/RideMap/RideMap";
 import "./RideFind.scss";
 import Axios from "axios";
 import "./RideFind.scss";
 import RiderCard from "../RiderCard/RiderCard";
+import api from "./../../../Utils/Api";
+import AutoSuggest from "./../../AutoSuggest/AutoSuggest";
 
 function RideFind(props) {
     //hold long and lat for both location
@@ -28,13 +30,27 @@ function RideFind(props) {
         end_location_id: ""
     });
 
+    const [auto, setAuto] = useState({
+        begin_ride_addy: "",
+        end_ride_addy: ""
+    });
+    const [rides, setRides] = useState([]);
+
+    // State to handle proximity search based on the users geolocation
+    const [proximityCords, setProximityCords ] = useState({
+        longitude: 0,
+        latitude: 0
+    });
+
+
     //Fetch user location depending on which form the user is filling to be able to correctly set the feature state
     const fetchSuggestions = (search_term, placement) => {
         if (placement === "") return;
 
+
         //Axios call for fetching locations based on what the user is typing
         Axios.get(
-            `https://api.mapbox.com/geocoding/v5/mapbox.places/${search_term}.json?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`
+            `https://api.mapbox.com/geocoding/v5/mapbox.places/${search_term}.json?proximity=${proximityCords.longitude},${proximityCords.latitude}&access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`
         )
             .then((response) => {
                 setFeatures(response.data.features);
@@ -66,67 +82,39 @@ function RideFind(props) {
             ...location,
             [e.target.name]: e.target.value
         });
+
         fetchSuggestions(e.target.value, e.target.name);
     };
 
-    //Auto suggest component
-    const renderAutoSuggest = (address_suggestions, subsection) => {
-        return (
-            <ul>
-                {address_suggestions.map((address, index) => (
-                    <li
-                        data-testid={`address${index}`}
-                        key={index}
-                        onClick={(e) => {
-                            e.preventDefault();
-                            //If this true we render the component to the left(start_location_id) input field else we render it to the right input field
-                            if (subsection.start) {
-                                //Set the suggestion state to be sent down as props
-                                setSuggestions({
-                                    ...suggestions,
-                                    //Restructure the array so it matches the marker state in Ridemap
-                                    start_location_id: [
-                                        address.center[0],
-                                        address.center[1]
-                                    ]
-                                });
-                                //set the input value to what ever the user clicked
-                                setLocation({
-                                    ...location,
-                                    start_location_id: address.place_name
-                                });
-                                // Set all fields to false so we don't render autosuggest component
-                                setSuggestSection({
-                                    start: false,
-                                    end: false
-                                });
-                            } else {
-                                //Same steps as on the if block
-                                setSuggestions({
-                                    ...suggestions,
-                                    end_location_id: [
-                                        address.center[0],
-                                        address.center[1]
-                                    ]
-                                });
-                                setSuggestSection({
-                                    start: false,
-                                    end: false
-                                });
-                                setLocation({
-                                    ...location,
-                                    end_location_id: address.place_name
-                                });
-                            }
-                        }}
-                    >
-                        {" "}
-                        {address.place_name}
-                    </li>
-                ))}
-            </ul>
-        );
+    useEffect(() => {
+        if (
+            suggestions.end_location_id.length > 1 &&
+            suggestions.start_location_id.length > 1
+        ) {
+            getRides({
+                start_location: {
+                    long: 0,
+                    lat: 0
+                },
+                end_location: {
+                    long: 1,
+                    lat: 1
+                }
+            });
+        }
+    }, [suggestions.start_location_id, suggestions.end_location_id]);
+
+    const getRides = (latlong) => {
+        api()
+            .get("/rides", latlong)
+            .then((res) => {
+                setRides(res.data);
+            })
+            .catch((err) => {
+                console.error(err.message);
+            });
     };
+
     return (
         <div className="search-ride-container">
             <div className="search-display">
@@ -142,9 +130,19 @@ function RideFind(props) {
                             autoComplete="off"
                         />
 
-                        {suggestSection.start &&
-                            features.length > 1 &&
-                            renderAutoSuggest(features, suggestSection)}
+                        {suggestSection.start && features.length > 1 && (
+                            <AutoSuggest
+                                features={features}
+                                suggestSection={suggestSection}
+                                setSuggestions={setSuggestions}
+                                setLocation={setLocation}
+                                setSuggestSection={setSuggestSection}
+                                suggestions={suggestions}
+                                setAuto={setAuto}
+                                auto={auto}
+                                location={location}
+                            />
+                        )}
                     </div>
 
                     <div className="search-ride-input">
@@ -156,9 +154,19 @@ function RideFind(props) {
                             value={location.end_location_id}
                             autoComplete="off"
                         />
-                        {suggestSection.end &&
-                            features.length > 1 &&
-                            renderAutoSuggest(features, suggestSection)}
+                        {suggestSection.end && features.length > 1 && (
+                            <AutoSuggest
+                                features={features}
+                                suggestSection={suggestSection}
+                                setSuggestions={setSuggestions}
+                                setLocation={setLocation}
+                                setSuggestSection={setSuggestSection}
+                                suggestions={suggestions}
+                                setAuto={setAuto}
+                                auto={auto}
+                                location={location}
+                            />
+                        )}
                     </div>
                     <button type="submit">Find a ride</button>
                 </form>
@@ -174,7 +182,14 @@ function RideFind(props) {
                                 {/* map over rides that match our query */}
 
                                 {/* test ride card */}
-                                <RiderCard name="Test Ride" />
+                                {rides.length > 1 &&
+                                    rides.map((ride, index) => (
+                                        <RiderCard
+                                            key={index}
+                                            name={ride.driver_name}
+                                            ride_id={ride.id}
+                                        />
+                                    ))}
                             </div>
                         </div>
                     )}
@@ -185,6 +200,7 @@ function RideFind(props) {
                 <RideMap
                     start={suggestions.start_location_id}
                     end={suggestions.end_location_id}
+                    setProximityCords={setProximityCords}
                 />
             </div>
         </div>

@@ -5,8 +5,10 @@ import {
     SET_USER,
     SET_EDITING,
     SET_PROFILE_UPDATE,
-    SET_FAVORITE_LOCATION,
-    ADD_LOCATION
+    HANDLE_INCOMING_REQUESTS,
+    HANDLE_OUTGOING_REQUESTS,
+    CANCEL_RIDE_REQUEST,
+    UPDATE_RIDE_REQUEST
 } from "../Actions/UserAction";
 
 const initialState = {
@@ -23,40 +25,30 @@ const initialState = {
         audioDislikes: [],
         favoriteLocation: [
             {
-                latitude: 32.715736,
-                longitude: -117.161087
+                latitude: 0,
+                longitude: 0
             }
         ],
-        savedRides: [
-            {
-                id: 1,
-                name: "Path to Work"
-            },
-            {
-                id: 2,
-                name: "Grocery Run"
-            }
+
+
+        rides: [{
+            id: 1,
+            name: 'Path to Work',
+            status: 'pending'
+        },
+        {
+            id: 2,
+            name: 'Grocery Run',
+            status: 'accepted'
+        },
+        {
+            id: 3,
+            name: 'Liquor store',
+            status: 'saved',
+        }
         ],
-        incoming_ride_requests: [
-            {
-                rider_name: "test ride"
-            },
-            {
-                rider_name: "test ride 2"
-            }
-        ],
-        outgoing_ride_requests: [
-            {
-                driver_name: "test driver",
-                status: "pending",
-                ride_id: 1
-            },
-            {
-                driver_name: "test driver 2",
-                status: "approved",
-                ride_id: 2
-            }
-        ]
+        incoming_ride_requests: [],
+        outgoing_ride_requests: []
     },
     isEditing: false
 };
@@ -100,23 +92,55 @@ export function UserReducer(state = initialState, action) {
                 ...state,
                 user: action.payload
             };
-        case SET_FAVORITE_LOCATION:
+
+        
+        case HANDLE_INCOMING_REQUESTS:
             return {
                 ...state,
                 user: {
                     ...state.user,
-                    favoriteLocation: [
-                        ...state.user.favoriteLocation,
-                        action.payload
+                    incoming_ride_requests: [
+                        // ...state.user.incoming_ride_requests,
+                        ...action.payload
                     ]
                 }
             };
-        case ADD_LOCATION:
+
+        case HANDLE_OUTGOING_REQUESTS:
             return {
                 ...state,
                 user: {
                     ...state.user,
-                    savedRides: [...state.user.savedRides, action.payload]
+                    outgoing_ride_requests: [
+                        // ...state.user.outgoing_ride_requests,
+                        ...action.payload
+                    ]
+                }
+            };
+
+        case CANCEL_RIDE_REQUEST:
+            const cancelledId = action.payload.request_id;
+            // console.log(action.payload.request_id, "cancel");
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    // outgoing_ride_requests: [
+                    //     ...state.user.outgoing_ride_requests,
+                    //     action.payload
+                    // ]
+                    outgoing_ride_requests: state.user.outgoing_ride_requests.filter(
+                        (outgoing_rides) => outgoing_rides.id !== cancelledId
+                    )
+                }
+            };
+
+        case UPDATE_RIDE_REQUEST:
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    incoming_ride_requests: [...action.payload]
                 }
             };
         default:

@@ -1,16 +1,14 @@
+@import "../../../index.scss";
 
-.saved-rides{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    
+.saved-rides {
+    .my-saved {
+        padding: 40px 5%;
+        width: 100%;
+
+        @include respond-to("mobile") {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+    }
 }
-
-.my-saved{
-    margin-top: 50px;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-

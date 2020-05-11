@@ -1,4 +1,5 @@
 /////////// NAVIGATION ////////////
+@import "../../index.scss";
 // topnav navicon
 // starting navicon "three line"
 .top-nav {
@@ -16,10 +17,19 @@
     margin-bottom: 70px;
 
     a {
-        color: white;
+        color: $carpalWhite;
         text-decoration: none;
         font-size: 3rem;
         padding: 0 10px;
+
+        &:hover {
+            color: $carpalWhite;
+        }
+    }
+
+    .nav-link-carpal {
+        font-style: italic;
+        font-weight: 600;
     }
 
     .hamburger {
@@ -32,7 +42,7 @@
         .navicon {
             width: 35px;
             height: 5px;
-            background: white;
+            background: $carpalWhite;
             margin: 6px 0;
             transition: 0.4s;
         }
