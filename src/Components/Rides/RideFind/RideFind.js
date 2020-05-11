@@ -35,13 +35,22 @@ function RideFind(props) {
         end_ride_addy: ""
     });
     const [rides, setRides] = useState([]);
+
+    // State to handle proximity search based on the users geolocation
+    const [proximityCords, setProximityCords ] = useState({
+        longitude: 0,
+        latitude: 0
+    });
+
+
     //Fetch user location depending on which form the user is filling to be able to correctly set the feature state
     const fetchSuggestions = (search_term, placement) => {
         if (placement === "") return;
 
+
         //Axios call for fetching locations based on what the user is typing
         Axios.get(
-            `https://api.mapbox.com/geocoding/v5/mapbox.places/${search_term}.json?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`
+            `https://api.mapbox.com/geocoding/v5/mapbox.places/${search_term}.json?proximity=${proximityCords.longitude},${proximityCords.latitude}&access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`
         )
             .then((response) => {
                 setFeatures(response.data.features);
@@ -73,6 +82,7 @@ function RideFind(props) {
             ...location,
             [e.target.name]: e.target.value
         });
+
         fetchSuggestions(e.target.value, e.target.name);
     };
 
@@ -190,6 +200,7 @@ function RideFind(props) {
                 <RideMap
                     start={suggestions.start_location_id}
                     end={suggestions.end_location_id}
+                    setProximityCords={setProximityCords}
                 />
             </div>
         </div>

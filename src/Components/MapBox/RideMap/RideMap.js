@@ -9,7 +9,7 @@ import Axios from "axios";
 const mapboxAPI = process.env.REACT_APP_MAPBOX_TOKEN;
 
 function RideMap(props) {
-    // console.log(props)
+    
     const [viewport, setViewport] = useState({
         latitude: 0,
         longitude: 0,
@@ -59,7 +59,12 @@ function RideMap(props) {
             latitude: crd.latitude,
             longitude: crd.longitude
         });
-
+        
+        //Set proximity coordinates to prioritize search location result based on users current location
+        props.setProximityCords({
+            longitude: crd.longitude,
+            latitude: crd.latitude,
+        })
         //When we Get users location we set the marker to the users current location
         setMarker([crd.longitude, crd.latitude]);
     };
