@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import RiderCardMapping from "./RiderCardMapping";
+import { useHistory } from "react-router-dom";
 import "./RiderCard.scss";
 import Api from "./../../../Utils/Api";
+
+
 export default function RiderCard(props) {
+    console.log(props)
     const [open, setOpen] = useState(false);
+    const history = useHistory();
 
     const handleClick = () => {
         setOpen(!open);
@@ -20,6 +25,7 @@ export default function RiderCard(props) {
             })
             .then((res) => {
                 console.log(res);
+                history.push("/requests")
             })
             .catch((err) => {
                 console.log(err.message);

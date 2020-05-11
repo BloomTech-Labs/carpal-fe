@@ -3,3 +3,11 @@
     margin: 0 auto;
     padding: 70px 0;
 }
+
+input:focus{
+    outline: none;
+}
+
+button:focus{
+    outline: none;
+}

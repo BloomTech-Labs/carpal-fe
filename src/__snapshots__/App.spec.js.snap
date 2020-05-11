@@ -227,30 +227,30 @@ Object {
           class="bottom-nav"
         >
           <a
-            href="/signup"
+            href="/login"
           >
             <img
-              alt="Request"
+              alt="My Rides"
               class="profilePic"
-              src="CarPalReq-Inverted.png"
+              src="icon-saved.png"
             />
           </a>
           <a
             href="/login"
           >
             <img
-              alt="Patchy"
+              alt="Find a Ride"
               class="profilePic"
-              src="HomeIcon.png"
+              src="icon-home.png"
             />
           </a>
           <a
             href="/login"
           >
             <img
-              alt="Patchy"
+              alt="Ride Requests"
               class="profilePic"
-              src="RideRequest-Inverse.png"
+              src="icon-requests.png"
             />
           </a>
         </nav>
@@ -480,30 +480,30 @@ Object {
         class="bottom-nav"
       >
         <a
-          href="/signup"
+          href="/login"
         >
           <img
-            alt="Request"
+            alt="My Rides"
             class="profilePic"
-            src="CarPalReq-Inverted.png"
+            src="icon-saved.png"
           />
         </a>
         <a
           href="/login"
         >
           <img
-            alt="Patchy"
+            alt="Find a Ride"
             class="profilePic"
-            src="HomeIcon.png"
+            src="icon-home.png"
           />
         </a>
         <a
           href="/login"
         >
           <img
-            alt="Patchy"
+            alt="Ride Requests"
             class="profilePic"
-            src="RideRequest-Inverse.png"
+            src="icon-requests.png"
           />
         </a>
       </nav>
