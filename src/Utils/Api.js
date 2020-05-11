@@ -18,9 +18,6 @@ export default function () {
             }
         });
     }
-    console.log(process.env.NODE_ENV);
-    console.log(process.env.AWS_BRANCH);
-    console.log(AWS_BRANCH);
     if (process.env.NODE_ENV === "development") {
         const url = "https://staging-carpal.herokuapp.com/";
         return axiosInstance("development", url);
