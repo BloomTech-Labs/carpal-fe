@@ -14,7 +14,7 @@ import SavedRide from "./Components/Rides/SavedRide/SavedRide";
 import RideRequests from "./Components/Rides/RideRequests/RideRequests";
 
 import "./App.scss";
-import profileImage from "./Components/Profile-Pages/Profile-img-upload";
+import profileImage from "./Components/Profile-Pages/Profile-Image/Profile-img-upload";
 
 //TODO: update app to include loader if isLoading
 

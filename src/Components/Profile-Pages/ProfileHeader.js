@@ -5,7 +5,7 @@ import {
     SetUserAction,
     EditProfileAction
 } from "../../Redux/Actions/UserAction";
-import profileImage from "./Profile-img-upload";
+import profileImage from "./Profile-Image/Profile-img-upload";
 import { Link } from "react-router-dom";
 
 function ProfileHeader(props) {

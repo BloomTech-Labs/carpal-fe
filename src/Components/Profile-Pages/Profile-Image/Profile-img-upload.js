@@ -1,4 +1,11 @@
 import React, { Component } from "react";
+import Cropper from "react-cropper";
+import { connect } from "react-redux";
+import {
+    UPLOAD_PROFILE_IMG_START,
+    UPLOAD_PROFILE_IMG_SUCCESS,
+    UPLOAD_PROFILE_IMG_ERROR
+} from "../../../Redux/Actions/UserAction";
 import axios from "axios";
 import $ from "jquery";
 
@@ -123,6 +130,14 @@ class profileImage extends Component {
                             <p className="card-text">
                                 Please upload an image for your profile
                             </p>
+                            {/* crop image */}
+                            {/* <Cropper
+                                ref="cropper"
+                                src={this.state.image}
+                                style={{ height: 400, width: "100%" }}
+                                aspectRatio={16 / 9}
+                                guides={false}
+                            /> */}
                             <img id="target" src={this.state.image} />
                             <input
                                 id="profile-img"
@@ -146,4 +161,9 @@ class profileImage extends Component {
         );
     }
 }
-export default profileImage;
+const mapStateToProps = (state ) => ({
+
+})
+export default connect(mapStateToProps,{UPLOAD_PROFILE_IMG_START,
+UPLOAD_PROFILE_IMG_SUCCESS,
+UPLOAD_PROFILE_IMG_ERROR})(profileImage);
