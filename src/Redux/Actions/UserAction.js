@@ -21,7 +21,7 @@ export function SignUpAction(user, props) {
                 dispatch({ type: REQUEST_SUCCESS });
                 localStorage.setItem("token", res.data.token);
                 dispatch({ type: SET_USER, payload: res.data });
-                props.history.push("/profilepage");
+                props.history.push("/home");
             })
             .catch((error) => {
                 dispatch({
@@ -41,7 +41,7 @@ export function LogInAction(user, props) {
                 dispatch({ type: REQUEST_SUCCESS });
                 localStorage.setItem("token", res.data.token);
                 dispatch({ type: SET_USER, payload: res.data });
-                props.history.push("/profilepage");
+                props.history.push("/home");
             })
             .catch((error) => {
                 dispatch({
