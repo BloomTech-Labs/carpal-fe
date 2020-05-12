@@ -55,8 +55,8 @@ function SavedRides(props) {
         <div>
             {show ? (<AddLocationName toggle={toggleShow} />) : (< div className='saved-rides' >
                 <section className='my-saved'>
-                    <h1>My saved rides...</h1>
-                    <button onClick={toggleShow}>Add New ride</button>
+                    <h1>My favorite locations...</h1>
+                    <button onClick={toggleShow}>Add New Location</button>
                 </section>
 
                 {favoriteLocations && favoriteLocations
