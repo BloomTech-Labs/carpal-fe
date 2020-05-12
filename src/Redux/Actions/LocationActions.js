@@ -8,11 +8,10 @@ export const REQUEST_ERROR = "REQUEST_ERROR"
 
 export function getFavorites() {
     return (dispatch) => {
-        dispatch({ type: REQUEST_START });
+        // dispatch({ type: REQUEST_START });
         api()
             .get('/locations/favorites')
             .then(response => {
-                console.log(response)
                 dispatch({ type: SET_FAVORITE_LOCATIONS, payload: response.data })
             })
             .catch((error) => {
@@ -28,14 +27,10 @@ export function DeleteLocation(location_id) {
         dispatch(
             { type: DELETE_LOCATION, payload: location_id }
         )
+        console.log(location_id)
         api()
-            .delete('/locations/favorites/', location_id)
-            .then(res => {
-                console.log(res)
-                dispatch(
-                    { type: DELETE_LOCATION, payload: location_id }
-                )
-            })
+            .delete(`/locations/favorites/${location_id}`)
+            .then(resp => dispatch({ type: DELETE_LOCATION, payload: location_id }))
 
     }
 }
@@ -81,10 +76,17 @@ export function AddFavoriteLocation(location) {
 
 
 
-export function EditLocation(id, payload) {
+export function EditLocation(location) {
     return (dispatch) => {
-        dispatch({
-            type: EDIT_LOCATION, payload
-        })
+        api().put(`locations/favorites/${location.id}`, location)
+            .then(res => dispatch(
+                { type: EDIT_LOCATION, payload: location }
+            ))
+            .catch(err => {
+                dispatch(
+                    { type: REQUEST_ERROR }
+                )
+            })
+
     }
 }

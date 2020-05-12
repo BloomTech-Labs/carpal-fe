@@ -1,17 +1,19 @@
 @import "../../../index.scss";
 
-.incoming-request-card {
+.incoming-request-card,
+.outgoing-request-card {
     max-width: 800px;
     padding: 10px 20px;
     margin: 0 auto;
     &:hover {
         background-color: $carpalLightGreen;
     }
-    .incoming-request-overview {
+    .incoming-request-overview,
+    .outgoing-request-overview {
         .request-card-upper {
             display: flex;
             flex-direction: row;
-            justify-content: center;
+            justify-content: space-around;
             align-items: center;
             .profilePic {
                 padding-right: 20px;
@@ -49,84 +51,37 @@
             }
         }
     }
-    .request-card-details {
-        display: flex;
-        flex-direction: column;
-        padding: 20px 0px 0px 0px;
-        @include respond-to("mobile") {
-            align-items: center;
-        }
-        h3 {
-            font-size: 1.5rem;
-            padding: 8px 10px;
-            @include respond-to("tablet") {
-                font-size: 1.8rem;
-            }
-        }
-    }
-}
-//incoming request card div.
-///outgoing requests card div
-.outgoing-request-card {
-    max-width: 800px;
-    padding: 10px 20px;
-    margin: 0 auto;
-    &:hover {
-        background-color: $carpalLightGreen;
-    }
 
-    .outgoing-request-overview {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        .profilePic {
-            padding-right: 5px;
-        }
-        .name-status {
-            h3 {
-                font-size: 1.5rem;
-                padding: 2px 2px;
-                margin: 0px 10px;
-                @include respond-to("tablet") {
-                    font-size: 2rem;
-                }
-            }
-        }
-        .outgoing-request-card-bottom {
-            display: flex;
-            flex-direction: row;
-            button {
-                border-color: $carpalGreen;
-                color: $carpalGreen;
-                background-color: $carpalWhite;
-                font-size: 1.5rem;
-                padding: 5px 10px;
-                margin: 2px;
-                &:hover {
-                    color: $carpalBlack;
-                    background-color: $carpalLightGreen;
-                }
-                &:active {
-                    background-color: $carpalWhite;
-                    color: $carpalGreen;
-                    border: 1px solid $carpalWhite;
-                }
-            }
-        }
-    }
     .request-card-details {
         display: flex;
-        flex-direction: column;
+        justify-content: space-around;
         padding: 20px 0px 0px 0px;
-        @include respond-to("mobile") {
-            align-items: center;
+        align-items: center;
+        @include respond-to("tablet") {
+            align-items: flex-start;
         }
-        h3 {
-            font-size: 1.5rem;
-            padding: 8px 10px;
-            @include respond-to("tablet") {
-                font-size: 1.8rem;
+        .flexContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 5px;
+
+            h2 {
+                font-size: 1.2rem;
+                padding: 8px 10px;
+                @include respond-to("tablet") {
+                    font-size: 1.8rem;
+                }
+            }
+            .bubble {
+                background: $carpalGrey;
+                -webkit-border-radius: 20px;
+                -moz-border-radius: 20px;
+                border-radius: 20px;
+                font-size: 1.2rem;
+                text-transform: capitalize;
+                padding: 5px;
+                margin: 5px auto 10px;
             }
         }
     }

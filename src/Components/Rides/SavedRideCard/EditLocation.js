@@ -1,37 +1,65 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import "./AddLocationName.scss"
-import { EditLocation } from '../../../Redux/Actions/LocationActions'
+import { EditLocation, getFavorites } from '../../../Redux/Actions/LocationActions'
+import api from '../../../Utils/Api'
+import geocode from '../../../Utils/geocoder'
 
 function EditLocationForm(props) {
-    const [currentLocation, setCurrentLocation] = useState()
 
-
-    const [newLocation, setNewLocation] = useState({
+    const [updatedLocation, setUpdatedLocation] = useState({
         name: '',
+        lat: 0,
+        long: 0,
         address: ''
+
     })
+    //sets the state for the current location
+    const { onUpdate } = props
 
-    console.log(props)
+    useEffect(() => {
+        api().get(`/locations/favorites/`).then(resp => {
+            resp.data.filter(location => {
+                if (location.id === props.location_id) {
+                    setUpdatedLocation(location)
+                }
+            })
+        })
 
-    // useEffect(() => {
-    //     setCurrentLocation(props.favoriteLocations)
-    // }, [])
+    }, [])
 
-    // console.log(currentLocation)
+
+
+    //geocodes the updated input
+    useEffect(() => {
+        let point = geocode(updatedLocation)
+        const coords = Promise.resolve(point)
+        coords.then(resp => {
+            {
+                resp ? (setUpdatedLocation({
+                    ...updatedLocation,
+                    lat: resp[0],
+                    long: resp[1]
+                })) : (resp = null)
+            }
+        })
+    }, [updatedLocation.address])
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        props.EditLocation(newLocation)
+        props.setCurrentLocation(updatedLocation)
+        props.EditLocation(updatedLocation)
         props.toggle()
 
     }
 
     const handleChange = e => {
-        setNewLocation({
-            ...newLocation,
+        setUpdatedLocation({
+            ...updatedLocation,
             [e.target.name]: e.target.value
         })
+
     }
 
     return (
@@ -51,8 +79,8 @@ function EditLocationForm(props) {
 
 
 const mapStateToProps = (state) => ({
-    favoriteLocations: state.locations.favoriteLocations
+    location: state.locations.favoriteLocations
 })
 
 
-export default connect(mapStateToProps, { EditLocation })(EditLocationForm)
+export default connect(mapStateToProps, { EditLocation, getFavorites })(EditLocationForm)
