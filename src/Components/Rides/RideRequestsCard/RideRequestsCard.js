@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./RideRequestsCard.scss";
 import Patchy from "../../../img/logos/Patchyv2.0.png";
+import UserDetail from "../../Profile-Pages/userDetail";
 
 function RideRequestsCard(props) {
     const [isDetailsOpen, setIsDetailsOpen] = useState(false);
@@ -8,8 +9,6 @@ function RideRequestsCard(props) {
     function toggleDetails() {
         setIsDetailsOpen(!isDetailsOpen);
     }
-
-    console.log(props, "props.request in card");
     return (
         <div>
             {props.incoming ? (
@@ -68,22 +67,36 @@ function RideRequestsCard(props) {
                     </div>
                     {isDetailsOpen && (
                         <div className="request-card-details">
-                            <h3>Hobbies</h3>
-                            <h3>Audio I Like</h3>
-                            <h3>Audio I Dislike</h3>
+                            <UserDetail
+                                title="Hobbies"
+                                item={props.requests.hobbies}
+                            />
+
+                            <UserDetail
+                                title="Audio I love"
+                                item={props.requests.audio_likes}
+                            />
+
+                            <UserDetail
+                                title="Audio I hate"
+                                item={props.requests.audio_dislikes}
+                            />
                         </div>
                     )}
                 </div>
             ) : (
                 <div className="outgoing-request-card">
                     <div className="outgoing-request-overview">
-                        <img className="profilePic" src={Patchy} alt="Patchy" />
-                        <div className="name-status">
+                        <div className="request-card-upper">
+                            <img
+                                className="profilePic"
+                                src={Patchy}
+                                alt="Patchy"
+                            />
                             <h3>{props.requests.driver_name}</h3>
                             <h3>{props.requests.status}</h3>
                         </div>
-
-                        <div className="outgoing-request-card-bottom">
+                        <div className="request-card-lower">
                             <button onClick={toggleDetails}>Details</button>
 
                             <button
@@ -95,9 +108,20 @@ function RideRequestsCard(props) {
                     </div>
                     {isDetailsOpen ? (
                         <div className="request-card-details">
-                            <h3>Hobbies</h3>
-                            <h3>Audio I Like</h3>
-                            <h3>Audio I Dislike</h3>
+                            <UserDetail
+                                title="Hobbies"
+                                item={props.requests.hobbies}
+                            />
+
+                            <UserDetail
+                                title="Audio I love"
+                                item={props.requests.audio_likes}
+                            />
+
+                            <UserDetail
+                                title="Audio I hate"
+                                item={props.requests.audio_dislikes}
+                            />
                         </div>
                     ) : null}
                 </div>

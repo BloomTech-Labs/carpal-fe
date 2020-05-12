@@ -7,7 +7,7 @@ const UserDetail = (props) => {
             {props.item &&
                 props.item.map((cur, i) => (
                     <div className="bubble" key={i}>
-                        {cur.name}
+                        {cur}
                     </div>
                 ))}
         </div>
