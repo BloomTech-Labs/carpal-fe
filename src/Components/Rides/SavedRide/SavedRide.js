@@ -32,10 +32,6 @@ function SavedRides(props) {
     //else faveLocation = prevObj
     //run this in a useEffect because it is based on order (synchro rules)
 
-    // useEffect(()=>{
-    //     {compare(favoriteLocations, newobj) ? (return favoriteLocations): (setFavoriteLocations(newObj))}
-    // },[])
-
     useEffect(() => {
         //sets the global state store
         props.getFavorites()
@@ -46,23 +42,6 @@ function SavedRides(props) {
             .then(resp => setFavoriteLocations(resp.payload))
             .catch(err => console.error(err))
     }, [prev])
-
-    // console.log('prev location', favoriteLocations)
-    // console.log('current', props.favorites)
-
-
-    // function compare(obj1, obj2) {
-    //     const obj1keys = Object.keys(obj1)
-    //     const obj2keys = Object.keys(obj2)
-    //     console.log('obj1keys', obj1keys)
-    //     console.log('obj2keys', obj2keys)
-
-    //     console.log(JSON.stringify(obj2) === JSON.stringify(obj2))
-    // }
-
-    // compare(favoriteLocations, props.favorites)
-
-
 
 
     const toggleShow = () => {
