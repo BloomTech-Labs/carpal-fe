@@ -37,16 +37,14 @@ function RideFind(props) {
     const [rides, setRides] = useState([]);
 
     // State to handle proximity search based on the users geolocation
-    const [proximityCords, setProximityCords ] = useState({
+    const [proximityCords, setProximityCords] = useState({
         longitude: 0,
         latitude: 0
     });
 
-
     //Fetch user location depending on which form the user is filling to be able to correctly set the feature state
     const fetchSuggestions = (search_term, placement) => {
         if (placement === "") return;
-
 
         //Axios call for fetching locations based on what the user is typing
         Axios.get(
@@ -93,12 +91,12 @@ function RideFind(props) {
         ) {
             getRides({
                 start_location: {
-                    long: 0,
-                    lat: 0
+                    "long": suggestions.start_location_id[0],
+                    "lat": suggestions.start_location_id[1]
                 },
                 end_location: {
-                    long: 1,
-                    lat: 1
+                    "long": suggestions.end_location_id[0],
+                    "lat": suggestions.end_location_id[1]
                 }
             });
         }
@@ -106,7 +104,7 @@ function RideFind(props) {
 
     const getRides = (latlong) => {
         api()
-            .get("/rides", latlong)
+            .get("/rides", { params: latlong })
             .then((res) => {
                 setRides(res.data);
             })
