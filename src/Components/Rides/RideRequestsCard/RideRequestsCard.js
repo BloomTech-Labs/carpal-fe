@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./RideRequestsCard.scss";
 import Patchy from "../../../img/logos/Patchyv2.0.png";
+import UserDetail from "../../Profile-Pages/userDetail";
 
 function RideRequestsCard(props) {
     const [isDetailsOpen, setIsDetailsOpen] = useState(false);
@@ -68,9 +69,23 @@ function RideRequestsCard(props) {
                     </div>
                     {isDetailsOpen && (
                         <div className="request-card-details">
-                            <h3>Hobbies</h3>
+                            {/* <h3>Hobbies</h3>
                             <h3>Audio I Like</h3>
-                            <h3>Audio I Dislike</h3>
+                            <h3>Audio I Dislike</h3> */}
+                            <UserDetail
+                                title="Hobbies"
+                                item={props.requests.hobbies}
+                            />
+
+                            <UserDetail
+                                title="Audio I love"
+                                item={props.requests.audio_likes}
+                            />
+
+                            <UserDetail
+                                title="Audio I hate"
+                                item={props.requests.audio_dislikes}
+                            />
                         </div>
                     )}
                 </div>
@@ -95,9 +110,20 @@ function RideRequestsCard(props) {
                     </div>
                     {isDetailsOpen ? (
                         <div className="request-card-details">
-                            <h3>Hobbies</h3>
-                            <h3>Audio I Like</h3>
-                            <h3>Audio I Dislike</h3>
+                            <UserDetail
+                                title="Hobbies"
+                                item={props.requests.hobbies}
+                            />
+
+                            <UserDetail
+                                title="Audio I love"
+                                item={props.requests.audio_likes}
+                            />
+
+                            <UserDetail
+                                title="Audio I hate"
+                                item={props.requests.audio_dislikes}
+                            />
                         </div>
                     ) : null}
                 </div>

@@ -13,12 +13,10 @@ import {
 import "./RideRequests.scss";
 
 function RideRequests(props) {
-    
     const [user, setUser] = useState({});
     // const [isIncomingRequestsOpen, setIsIncomingRequestsOpen] = useState(false);
     // const [isOutgoingRequestsOpen, setIsOutgoingRequestsOpen] = useState(false);
     const [isCancelled, setIsCancelled] = useState(false);
-    console.log(isCancelled);
     useEffect(() => {
         props.handleIncomingRideRequest();
         props.handleOutgoingRideRequest();
@@ -26,8 +24,6 @@ function RideRequests(props) {
         setUser({
             ...props.user
         });
-
-        console.log(props.user.outgoing_ride_requests);
     }, [isCancelled]);
 
     function cancelRequest(item) {
@@ -66,6 +62,7 @@ function RideRequests(props) {
                                         handleRequest={
                                             props.handleUpdateRideRequest
                                         }
+                                        user={props.user}
                                     />
                                 )
                             )}
