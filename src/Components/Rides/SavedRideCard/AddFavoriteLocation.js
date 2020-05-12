@@ -44,7 +44,6 @@ function AddLocationName(props) {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(newLocation)
         props.AddFavoriteLocation(newLocation)
         props.toggle()
 

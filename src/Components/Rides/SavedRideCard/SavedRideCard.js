@@ -25,13 +25,11 @@ function SavedRideCard(props) {
     console.log(currentLocation)
 
     const handleDelete = (id) => {
-        console.log(props)
         props.DeleteLocation(props.id)
         props.onUpdate()
     }
 
     const handleEdit = (id) => {
-        console.log(props.data.id)
         setShow(!show)
     }
 

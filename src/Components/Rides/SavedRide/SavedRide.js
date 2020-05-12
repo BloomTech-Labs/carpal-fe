@@ -25,8 +25,6 @@ function SavedRides(props) {
     }
 
     const prev = usePrevious(favoriteLocations)
-    console.log('prev state', prev)
-    console.log('current state', props.favorites)
 
 
     //create an object deep comparison checker function.

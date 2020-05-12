@@ -15,12 +15,10 @@ function EditLocationForm(props) {
 
     })
     //sets the state for the current location
-    console.log(props)
     const { onUpdate } = props
 
     useEffect(() => {
         api().get(`/locations/favorites/`).then(resp => {
-            console.log(resp)
             resp.data.filter(location => {
                 if (location.id === props.location_id) {
                     setUpdatedLocation(location)
@@ -31,7 +29,6 @@ function EditLocationForm(props) {
     }, [])
 
 
-    console.log(updatedLocation)
 
     //geocodes the updated input
     useEffect(() => {
@@ -51,7 +48,6 @@ function EditLocationForm(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(updatedLocation)
         props.setCurrentLocation(updatedLocation)
         props.EditLocation(updatedLocation)
         props.toggle()
