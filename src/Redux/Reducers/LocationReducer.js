@@ -32,7 +32,6 @@ export function locationReducer(state = initState, action) {
             return {
                 ...state,
                 favoriteLocation: [
-                    ...state.favoriteLocation,
                     ...action.payload
                 ]
             };
@@ -46,7 +45,10 @@ export function locationReducer(state = initState, action) {
             return {
                 ...state,
                 favoriteLocation: [...state.favoriteLocation.map(place => {
-                    return
+                    if (place.id === action.payload.id) {
+                        place = action.payload
+
+                    }
                 })]
             };
 

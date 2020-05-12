@@ -1,20 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './SavedRideCard.scss'
 import { DeleteLocation } from '../../../Redux/Actions/LocationActions'
 import { connect } from 'react-redux'
 import EditLocationForm from './EditLocation'
+import { getFavorites } from '../../../Redux/Actions/LocationActions'
+
 
 
 function SavedRideCard(props) {
     const [show, setShow] = useState(false)
+    const [currentLocation, setCurrentLocation] = useState()
+
+    const { onUpdate } = props
+
+    useEffect(() => {
+        const place = props.loc.filter(location => {
+            if (location.id === props.id) {
+                setCurrentLocation(location)
+            }
+        })
+    }, [])
+
+
+    console.log(currentLocation)
 
     const handleDelete = (id) => {
-        console.log(props)
-        props.DeleteLocation(props.data.name)
+        props.DeleteLocation(props.id)
+        props.onUpdate()
     }
 
     const handleEdit = (id) => {
-        console.log(props.data.id)
         setShow(!show)
     }
 
@@ -22,10 +37,9 @@ function SavedRideCard(props) {
         setShow(!show)
     }
 
-    console.log(props)
     return (
         <div className='saved-card'>
-            {show ? (<EditLocationForm toggle={handleShow} />) : (<section className='saved-card'>
+            {show ? (<EditLocationForm setCurrentLocation={setCurrentLocation} toggle={handleShow} location_id={props.data.id} onUpdate={onUpdate} />) : (<section className='saved-card'>
                 <h3>{props.data.name}</h3>
                 <button onClick={handleEdit}> Edit </button>
                 <button onClick={handleDelete}> Delete </button>
@@ -37,9 +51,9 @@ function SavedRideCard(props) {
 }
 
 const mapStateToProps = (state) => ({
-    location: state.locations.favoriteLocation
+    loc: state.locations.favoriteLocation
 })
 
 
 
-export default connect(mapStateToProps, { DeleteLocation })(SavedRideCard);
+export default connect(mapStateToProps, { DeleteLocation, getFavorites })(SavedRideCard);
