@@ -1,6 +1,14 @@
-.location-edit-form{
-    display: block;
-    flex-direction: column;
+@import "../../../index.scss";
+
+.edit-location-modal {
+    padding: 40px 0;
+    max-width: 800px;
+    margin: 0 auto;
+
+    .location-edit-form {
+        button {
+            margin: 0 auto;
+            display: block;
+        }
+    }
 }
-
-

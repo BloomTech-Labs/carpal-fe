@@ -1,51 +1,45 @@
-import configureMockStore from 'redux-mock-store'
-import * as actions from '../Actions/UserAction'
-import thunk from 'redux-thunk'
-import fetchMock from 'fetch-mock'
-import expect from 'expect'
+import * as actions from "../Actions/UserAction";
+import thunk from "redux-thunk";
+import configureStore from "redux-mock-store";
+import MockAdapter from "axios-mock-adapter";
+import Api from "./../../Utils/Api";
+import expect from "expect";
+import axios from "axios";
 
+const middlewares = [thunk];
 
-const middlewares = [thunk]
-const mockStore = configureMockStore(middlewares)
-const store = mockStore()
+const mock = new MockAdapter(Api());
+const mockStore = configureStore(middlewares);
+const store = mockStore({});
 
-
-describe('testing user actions', () => {
-
+describe("testing user actions", () => {
     beforeEach(() => {
         store.clearActions();
-    })
+    });
 
-    test('tests editing action', () => {
+    test("tests editing action", () => {
         const expectedAction = {
-            type: 'SET_EDITING'
-        }
-        store.dispatch(actions.EditProfileAction())
-        expect(store.getActions()).toEqual([expectedAction])
-    })
+            type: "SET_EDITING"
+        };
+        store.dispatch(actions.EditProfileAction());
+        expect(store.getActions()).toEqual([expectedAction]);
+    });
 
-    test('tests login  action', () => {
+    test("tests login  action", () => {
         const expectedAction = {
-            type: 'REQUEST_SUCCESS'
-        }
-        store.dispatch(actions.SignUpAction)
-        console.log(store.dispatch(actions.SignUpAction))
-    })
+            type: "REQUEST_SUCCESS"
+        };
+        store.dispatch(actions.SignUpAction);
+        // console.log(store.dispatch(actions.SignUpAction))
+    });
 
-    test('tests editing action', () => {
-        const expectedAction = {
-            type: 'REQUEST_START'
-        }
-        store.dispatch(actions.LogInAction())
-        expect(store.getActions()).toEqual([expectedAction])
-    })
+    test("tests editing action", () => {
+        const expectedAction = [
+            {
+                type: "REQUEST_START"
+            }
+        ];
+        store.dispatch(actions.SetUserAction);
 
-    test('tests editing action', () => {
-        const expectedAction = {
-            type: 'REQUEST_START'
-        }
-        store.dispatch(actions.SetUserAction())
-        expect(store.getActions()).toEqual([expectedAction])
-    })
-
-})
+    });
+});

@@ -1,74 +1,50 @@
-// variables/mixins file path "importing your global styles."
-@import "../Styles/_variables.scss";
-/////////////OVERIDES DEFAULT BROWSER INPUT STYLING
-@include formWebKit;
-// //body of component
+@import "../../index.scss";
+////////////////////body of component
 .signup-container {
-    @include pageBody;
-    background-color: $carpalGreen;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     max-width: 800px;
+    width: 100%;
+    height: 100%;
     padding: 20px;
-    margin-top: 50px;
-
-    //tablet media breakpoint
-    @include respond-to("tablet") {
-        border-radius: 20px;
-    }
+    margin: 0px auto 70px;
     //desktop media breakpoint
     @include respond-to("desktop") {
         flex-direction: row;
-        border-radius: 20px;
     }
     //////////////////form container
     .formik-container {
-        @include formContainer;
-        background-color: $carpalGreen;
         margin: 20px;
-        ////////////////// signup form title
-        .signup-p {
-            @include formTitle;
-        }
-        ////////////////// Field Labels
-        .field-label {
-            @include formLabel;
-
-            /////////////// Form Error Msg
-            .form-error {
-                @include formError;
-            }
-            /////////////// fields input styling
-            .formik-fields {
-                @include formikFields;
-            }
-        }
-        ///// submit button styling
-        .form-btn {
-            @include formButton;
-            text-transform: none;
-        }
     }
-    //login container for ppl already a user.
+    ////////////////// signup form title
+    .signup-p {
+        color: $carpalDarkGrey;
+        font-size: 3rem;
+    }
     .module-nav {
-        @include modelNav;
-        @include modelBackIMG;
-        @include respond-to("tablet") {
-            background-position: 50% 50%;
-        }
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+        width: 100%;
+
         @include respond-to("desktop") {
             justify-content: center;
             align-items: center;
             background-position: cover;
             height: 300px;
         }
-        //// already a user? lets go!
+        .module-cuties {
+            max-width: 300px;
+        }
+        ////// New to the website? signup/login p tag
         .module-p {
-            @include formTitle;
+            color: $carpalDarkGrey;
             font-size: 2rem;
             margin-bottom: 5px;
-        }
-        // signup button / link
-        .login-link {
-            @include Link;
         }
     }
 }

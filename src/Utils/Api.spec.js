@@ -21,6 +21,7 @@ describe("axios calls appropriate Backend pending environment", () => {
 
     test("axios calls localhost when environment is not development or production", () => {
         process.env.NODE_ENV = "staging";
-        expect(api().defaults.baseURL).toBe("localhost:3000/");
+        console.log(api())
+        expect(api().defaults.baseURL).toBe("https://staging-carpal.herokuapp.com/");
     });
 });

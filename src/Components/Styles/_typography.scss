@@ -1,0 +1,65 @@
+// variables/mixins file path "importing your global styles."
+@import "../Styles/_variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+//////////////////signup/login link
+a {
+    color: $carpalDarkGrey;
+    border-bottom: solid $carpalGreen;
+    border-bottom-width: thin;
+    text-decoration: none !important;
+    padding-bottom: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+
+    //////////////////changes border-bottom color
+    &:hover {
+        color: $carpalGreen;
+        transition: 0.5s;
+    }
+
+    //////////////////onclick/active highlights entire Link.
+    &:active {
+        color: $carpalGreen;
+    }
+}
+
+em {
+    font-style: italic;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    color: $carpalDarkGrey;
+}
+
+h1 {
+    color: #474747;
+    font-size: 2.4rem;
+    margin: 10px;
+
+    @include respond-to("mobile") {
+        font-size: 3rem;
+    }
+}
+
+h2 {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 2rem;
+    padding: 10px 0 15px;
+}
+
+p {
+    font-size: 1.6rem;
+    line-height: 1.6em;
+    padding: 10px 0 15px;
+}

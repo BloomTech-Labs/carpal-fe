@@ -6,9 +6,13 @@ export const SET_USER = "SET_USER";
 export const SET_EDITING = "SET_EDITING";
 export const SET_PROFILE_UPDATE = "SET_PROFILE_UPDATE";
 
+export const CANCEL_RIDE_REQUEST = "CANCEL_RIDE_REQUEST";
+export const HANDLE_INCOMING_REQUESTS = "HANDLE_INCOMING_REQUESTS";
+export const HANDLE_OUTGOING_REQUESTS = "HANDLE_OUTGOING_REQUESTS";
+export const UPDATE_RIDE_REQUEST = "UPDATE_RIDE_REQUEST";
 
 
-export function SignUpAction(user) {
+export function SignUpAction(user, props) {
     return (dispatch) => {
         dispatch({ type: REQUEST_START });
         api()
@@ -17,15 +21,18 @@ export function SignUpAction(user) {
                 dispatch({ type: REQUEST_SUCCESS });
                 localStorage.setItem("token", res.data.token);
                 dispatch({ type: SET_USER, payload: res.data });
-                // props.history.push("/dashboard");
+                props.history.push("/home");
             })
-            .catch((err) => {
-                dispatch({ type: REQUEST_ERROR, payload: err });
+            .catch((error) => {
+                dispatch({
+                    type: REQUEST_ERROR,
+                    payload: error
+                });
             });
     };
 }
 
-export function LogInAction(user) {
+export function LogInAction(user, props) {
     return (dispatch) => {
         dispatch({ type: REQUEST_START });
         api()
@@ -34,10 +41,13 @@ export function LogInAction(user) {
                 dispatch({ type: REQUEST_SUCCESS });
                 localStorage.setItem("token", res.data.token);
                 dispatch({ type: SET_USER, payload: res.data });
-                // props.props.history.push("/dashboard");
+                props.history.push("/home");
             })
-            .catch((err) => {
-                dispatch({ type: REQUEST_ERROR, payload: err });
+            .catch((error) => {
+                dispatch({
+                    type: REQUEST_ERROR,
+                    payload: error
+                });
             });
     };
 }
@@ -51,7 +61,12 @@ export function SetUserAction() {
                 dispatch({ type: REQUEST_SUCCESS });
                 dispatch({ type: SET_USER, payload: res.data });
             })
-            .catch((err) => dispatch({ type: REQUEST_ERROR, payload: err }));
+            .catch((error) => {
+                dispatch({
+                    type: REQUEST_ERROR,
+                    payload: error
+                });
+            });
     };
 }
 
@@ -70,11 +85,108 @@ export function SetProfileUpdate(user) {
                 dispatch({ type: SET_USER, payload: res.data });
                 dispatch({ type: REQUEST_SUCCESS });
             })
-            .catch((err) => {
-                dispatch({ type: REQUEST_ERROR, payload: err });
+            .catch((error) => {
+                dispatch({
+                    type: REQUEST_ERROR,
+                    payload: error
+                });
             });
     };
 }
 
 
+export function CancelRideRequest(payload) {
+    return (dispatch) => {
+        dispatch({ type: REQUEST_START });
+        console.log(payload);
+        api()
+            .delete(`/rides/requests/${payload.request_id}`)
+            .then((res) => {
+                dispatch({ type: CANCEL_RIDE_REQUEST, payload });
+                dispatch({ type: REQUEST_SUCCESS });
+                // dispatch({ type: SET_USER });
+            })
+            .catch((error) => {
+                dispatch({
+                    type: REQUEST_ERROR,
+                    payload: error
+                });
+            });
+    };
+}
 
+export function handleIncomingRideRequest() {
+    return (dispatch) => {
+        dispatch({ type: REQUEST_START });
+
+        api()
+            .get(`/rides/requests/driver`)
+            .then((res) => {
+                dispatch({ type: REQUEST_SUCCESS });
+                dispatch({
+                    type: HANDLE_INCOMING_REQUESTS,
+                    payload: res.data
+                });
+            })
+            .catch((error) => {
+                dispatch({
+                    type: REQUEST_ERROR,
+                    payload: error
+                });
+            });
+    };
+}
+
+export function handleOutgoingRideRequest() {
+    return (dispatch) => {
+        dispatch({ type: REQUEST_START });
+
+        api()
+            .get(`/rides/requests/rider`)
+            .then((res) => {
+                dispatch({ type: REQUEST_SUCCESS });
+                dispatch({
+                    type: HANDLE_OUTGOING_REQUESTS,
+                    payload: res.data
+                });
+            })
+            .catch((error) => {
+                dispatch({
+                    type: REQUEST_ERROR,
+                    payload: error
+                });
+            });
+    };
+}
+
+export function handleUpdateRideRequest(payload) {
+    return (dispatch) => {
+        dispatch({ type: REQUEST_START });
+        console.log(payload);
+        api()
+            .put("/rides/requests", payload)
+            .then((res) => {
+                dispatch({ type: REQUEST_SUCCESS });
+                api()
+                    .get("/rides/requests/driver")
+                    .then((res) => {
+                        dispatch({
+                            type: UPDATE_RIDE_REQUEST,
+                            payload: res.data
+                        });
+                    })
+                    .catch((error) => {
+                        dispatch({
+                            type: REQUEST_ERROR,
+                            payload: error
+                        });
+                    });
+            })
+            .catch((error) => {
+                dispatch({
+                    type: REQUEST_ERROR,
+                    payload: error
+                });
+            });
+    };
+}

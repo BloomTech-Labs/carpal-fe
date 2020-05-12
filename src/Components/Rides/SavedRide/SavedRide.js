@@ -6,11 +6,8 @@ import { getFavorites } from '../../../Redux/Actions/LocationActions'
 import "./SavedRide.scss";
 import api from '../../../Utils/Api'
 
-
-
-
-
 function SavedRides(props) {
+
     const [show, setShow] = useState(false)
     const [favoriteLocations, setFavoriteLocations] = useState()
 
@@ -65,20 +62,16 @@ function SavedRides(props) {
                 {favoriteLocations && favoriteLocations
                     .map((rideData, index) => <SavedRideCard key={index} data={rideData} id={rideData.id} onUpdate={() => handleUpdate()} />)}
 
-            </div >)}
+            </div >)}       
         </div>
-    )
-
+    );
 }
 
 const mapStateToProps = (state) => ({
+
 
     favorites: state.locations.favoriteLocation
 
 });
 
-export default connect(mapStateToProps, { getFavorites })(SavedRides)
-
-
-
-
+export default connect(mapStateToProps, { getFavorites })(SavedRides);

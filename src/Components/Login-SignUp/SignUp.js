@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { withFormik, Form, Field } from "formik";
+import { withFormik, Form } from "formik";
 import * as Yup from "yup";
 import "./SignUp.scss";
 import LabelField from "../Form-Components/LabelField";
+import cuties from "../../img/background/Cutie-Trio-Bckgrnd.png";
+import getGoogleRoute from "../../Utils/GoogleRoute";
 
 import { SignUpAction } from "../../Redux/Actions/UserAction";
 
@@ -56,17 +58,16 @@ function SignUp(props) {
                     error={errors.password}
                 />
 
-                <button className="form-btn" type="submit">
-                    Submit
-                </button>
+                <button type="submit">Submit</button>
                 <a
-                    className="form-btn"
-                    href="https://staging-carpal.herokuapp.com/auth/google/testing"
+                    className="btn"
+                    href={getGoogleRoute()}
                 >
                     Signup With Google
                 </a>
             </Form>
             <div className="module-nav">
+                <img className="module-cuties" src={cuties} alt="cuties" />
                 <p className="module-p">
                     Already a user?
                     <Link className="login-link" to="/login">
@@ -98,7 +99,7 @@ const SignUpForm = withFormik({
             .required("Please enter your password.")
     }),
     handleSubmit(values, { props }) {
-        props.SignUpAction(values);
+        props.SignUpAction(values, props);
     }
 })(SignUp);
 
