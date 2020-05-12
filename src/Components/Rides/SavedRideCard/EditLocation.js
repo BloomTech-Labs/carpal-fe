@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import "./AddLocationName.scss"
-import { EditLocation } from '../../../Redux/Actions/LocationActions'
+import { EditLocation, getFavorites } from '../../../Redux/Actions/LocationActions'
 import api from '../../../Utils/Api'
 import geocode from '../../../Utils/geocoder'
 
@@ -15,14 +15,24 @@ function EditLocationForm(props) {
 
     })
     //sets the state for the current location
+    console.log(props)
+    const { onUpdate } = props
+
     useEffect(() => {
         api().get(`/locations/favorites/`).then(resp => {
             console.log(resp)
-            setUpdatedLocation(resp.data[0])
-            console.log(updatedLocation)
+            resp.data.filter(location => {
+                if (location.id === props.location_id) {
+                    setUpdatedLocation(location)
+                }
+            })
         })
 
     }, [])
+
+
+    console.log(updatedLocation)
+
     //geocodes the updated input
     useEffect(() => {
         let point = geocode(updatedLocation)
@@ -42,6 +52,7 @@ function EditLocationForm(props) {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(updatedLocation)
+        props.setCurrentLocation(updatedLocation)
         props.EditLocation(updatedLocation)
         props.toggle()
 
@@ -76,4 +87,4 @@ const mapStateToProps = (state) => ({
 })
 
 
-export default connect(mapStateToProps, { EditLocation })(EditLocationForm)
+export default connect(mapStateToProps, { EditLocation, getFavorites })(EditLocationForm)

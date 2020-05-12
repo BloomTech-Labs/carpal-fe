@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import SavedRideCard from '../SavedRideCard/SavedRideCard'
 import { connect } from 'react-redux'
 import AddLocationName from '../SavedRideCard/AddFavoriteLocation'
 import { getFavorites } from '../../../Redux/Actions/LocationActions'
 import "./SavedRide.scss";
+import api from '../../../Utils/Api'
 
 
 
@@ -11,21 +12,69 @@ import "./SavedRide.scss";
 
 function SavedRides(props) {
     const [show, setShow] = useState(false)
-    // const [favoriteLocations, setFavoriteLocations] = useState()
+    const [favoriteLocations, setFavoriteLocations] = useState()
+
+
+    function usePrevious(value) {
+        const ref = useRef(value);
+        useEffect(() => {
+            ref.current = value
+        });
+        return ref.current
+
+    }
+
+    const prev = usePrevious(favoriteLocations)
+    console.log('prev state', prev)
+    console.log('current state', props.favorites)
+
+
+    //create an object deep comparison checker function.
+    //if return value is false, set favelocation = current
+    //else faveLocation = prevObj
+    //run this in a useEffect because it is based on order (synchro rules)
+
+    // useEffect(()=>{
+    //     {compare(favoriteLocations, newobj) ? (return favoriteLocations): (setFavoriteLocations(newObj))}
+    // },[])
 
     useEffect(() => {
+        //sets the global state store
         props.getFavorites()
 
-    }, [(props.favoriteLocation.name || props.favoriteLocation.address) && props.favoriteLocation.length])
+        //sets the local state
+        const locs = new Promise(getFavorites())
+        locs
+            .then(resp => setFavoriteLocations(resp.payload))
+            .catch(err => console.error(err))
+    }, [prev])
 
-    console.log(props.favoriteLocation)
+    // console.log('prev location', favoriteLocations)
+    // console.log('current', props.favorites)
+
+
+    // function compare(obj1, obj2) {
+    //     const obj1keys = Object.keys(obj1)
+    //     const obj2keys = Object.keys(obj2)
+    //     console.log('obj1keys', obj1keys)
+    //     console.log('obj2keys', obj2keys)
+
+    //     console.log(JSON.stringify(obj2) === JSON.stringify(obj2))
+    // }
+
+    // compare(favoriteLocations, props.favorites)
+
+
+
 
     const toggleShow = () => {
         setShow(!show)
         console.log(show)
     }
 
-    console.log(props)
+    const handleUpdate = () => {
+        props.getFavorites()
+    }
 
 
     return (
@@ -36,8 +85,8 @@ function SavedRides(props) {
                     <button onClick={toggleShow}>Add New ride</button>
                 </section>
 
-                {props.favoriteLocation
-                    .map((rideData, index) => <SavedRideCard key={index} data={rideData} />)}
+                {favoriteLocations && favoriteLocations
+                    .map((rideData, index) => <SavedRideCard key={index} data={rideData} id={rideData.id} onUpdate={() => handleUpdate()} />)}
 
             </div >)}
         </div>
@@ -47,7 +96,7 @@ function SavedRides(props) {
 
 const mapStateToProps = (state) => ({
 
-    favoriteLocation: state.locations.favoriteLocation
+    favorites: state.locations.favoriteLocation
 
 });
 

@@ -8,7 +8,7 @@ export const REQUEST_ERROR = "REQUEST_ERROR"
 
 export function getFavorites() {
     return (dispatch) => {
-        dispatch({ type: REQUEST_START });
+        // dispatch({ type: REQUEST_START });
         api()
             .get('/locations/favorites')
             .then(response => {
@@ -87,5 +87,6 @@ export function EditLocation(location) {
                     { type: REQUEST_ERROR }
                 )
             })
+
     }
 }

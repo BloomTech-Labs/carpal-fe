@@ -32,7 +32,6 @@ export function locationReducer(state = initState, action) {
             return {
                 ...state,
                 favoriteLocation: [
-                    ...state.favoriteLocation,
                     ...action.payload
                 ]
             };
@@ -45,9 +44,10 @@ export function locationReducer(state = initState, action) {
         case EDIT_LOCATION:
             return {
                 ...state,
-                favoriteLocation: [...state.favoriteLocation.filter(place => {
+                favoriteLocation: [...state.favoriteLocation.map(place => {
                     if (place.id === action.payload.id) {
-                        return action.payload
+                        place = action.payload
+
                     }
                 })]
             };
