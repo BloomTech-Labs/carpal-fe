@@ -1,5 +1,5 @@
 const post = (url) => {
-    return Promise.resolve({ [dispatch.type] : "REQUEST START"})
-}
+    return Promise.resolve({ [dispatch.type]: "REQUEST START" });
+};
 
-exports.post = post
+exports.post = post;
