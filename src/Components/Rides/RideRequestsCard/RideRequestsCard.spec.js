@@ -9,12 +9,15 @@ const props = {
     user: { ...mockUerStore() }
 };
 
-test("Should Render the request Card component",  async () => {
+test("Should Render the request Card component", async () => {
     const Wrapper = render(
         <RideRequestsCard
+            key={props.index}
             incoming={props.incoming}
+            requests={props.requests}
             user={props.user}
             index={props.index}
+            handleRequest={props.handleUpdateRideRequest}
         />
     );
     const patchy = Wrapper.getAllByAltText("Patchy");
@@ -26,7 +29,7 @@ test("Should Render the request Card component",  async () => {
     expect(buttons).toBeDefined();
     expect(buttons2).toBeDefined();
     expect(buttons3).toBeDefined();
-    
+
     //Toggle isDetailsOpen to open
     await fireEvent.click(buttons);
     const hobbies = Wrapper.getByText("Hobbies");

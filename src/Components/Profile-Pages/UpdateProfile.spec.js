@@ -9,9 +9,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import thunk from "redux-thunk";
 import * as actionMock from "../../Redux/Actions/UserAction";
 import { getByPlaceholderText } from "@testing-library/react";
-import {mockGeolocation} from "./../../../__mocks__/geolocationMock"
-
-
+import { mockGeolocation } from "./../../../__mocks__/geolocationMock";
 
 //assign geolocation the mockGeolocation obj
 navigator.geolocation = mockGeolocation;
@@ -27,7 +25,6 @@ jest.mock("../../Redux/Actions/UserAction", () => {
         )
     };
 });
-
 
 //create a mock redux store with thunk middleware applied
 const mockStore = configureStore([thunk]);
@@ -65,7 +62,7 @@ afterEach(rtl.cleanup);
 describe("Update Profile", () => {
     test("Renders without crashing", () => {
         const div = document.createElement("div");
-         
+
         ReactDOM.render(
             <Provider store={store}>
                 <Router>
