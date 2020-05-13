@@ -11,7 +11,6 @@ export const HANDLE_INCOMING_REQUESTS = "HANDLE_INCOMING_REQUESTS";
 export const HANDLE_OUTGOING_REQUESTS = "HANDLE_OUTGOING_REQUESTS";
 export const UPDATE_RIDE_REQUEST = "UPDATE_RIDE_REQUEST";
 
-
 export function SignUpAction(user, props) {
     return (dispatch) => {
         dispatch({ type: REQUEST_START });
@@ -93,7 +92,6 @@ export function SetProfileUpdate(user) {
             });
     };
 }
-
 
 export function CancelRideRequest(payload) {
     return (dispatch) => {
