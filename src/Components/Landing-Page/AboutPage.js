@@ -28,7 +28,7 @@ function AboutPage() {
                 <div className="awesome-aliens-box">
                     <div className="left">
                         <h2>Dennis Padiernos</h2>
-                        <h3 className="team-title">Cheif Dad Joke Officer</h3>
+                        <h3 className="team-title">Chief Dad Joke Officer</h3>
                         <div className="hide-tablet show-desktop">
                             <div className="img-container">
                                 <img
@@ -99,7 +99,7 @@ function AboutPage() {
                 <div className="awesome-aliens-box">
                     <div className="left">
                         <h2>Dang Lu</h2>
-                        <h3 className="team-title">Title</h3>
+                        <h3 className="team-title">Chief</h3>
                         <div className="hide-tablet show-desktop">
                             <div className="img-container">
                                 <img
@@ -165,7 +165,7 @@ function AboutPage() {
                 <div className="awesome-aliens-box">
                     <div className="left">
                         <h2>Carl Redding</h2>
-                        <h3 className="team-title">Cheif Cutie Creator</h3>
+                        <h3 className="team-title">Chief Cutie Creator</h3>
                         <div className="hide-tablet show-desktop">
                             <div className="img-container">
                                 <img
@@ -235,7 +235,7 @@ function AboutPage() {
                 <div className="awesome-aliens-box">
                     <div className="left">
                         <h2>Daniel Martin</h2>
-                        <h3 className="team-title">Cheif Back-end Guru</h3>
+                        <h3 className="team-title">Chief Back-end Guru</h3>
                         <div className="hide-tablet show-desktop">
                             <div className="img-container">
                                 <img
@@ -302,7 +302,7 @@ function AboutPage() {
                 <div className="awesome-aliens-box">
                     <div className="left">
                         <h2>Darren Angus</h2>
-                        <h3 className="team-title">Cheif Front-end Guru</h3>
+                        <h3 className="team-title">Chief Front-end Guru</h3>
                         <div className="hide-tablet show-desktop">
                             <div className="img-container">
                                 <img
@@ -372,7 +372,7 @@ function AboutPage() {
                 <div className="awesome-aliens-box">
                     <div className="left">
                         <h2>Lesley Banadzem</h2>
-                        <h3 className="team-title">Cheif</h3>
+                        <h3 className="team-title">Chief</h3>
                         <div className="hide-tablet show-desktop">
                             <div className="img-container">
                                 <img
@@ -509,7 +509,7 @@ function AboutPage() {
                 <div className="awesome-aliens-box">
                     <div className="left">
                         <h2>Steven Vandenburg</h2>
-                        <h3 className="team-title">Cheif Driver</h3>
+                        <h3 className="team-title">Chief Driver</h3>
                         <div className="hide-tablet show-desktop">
                             <div className="img-container">
                                 <img
