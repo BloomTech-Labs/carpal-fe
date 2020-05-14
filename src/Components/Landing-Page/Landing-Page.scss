@@ -57,16 +57,6 @@
             padding: 36px 15%;
         }
 
-        h1 {
-            font-weight: 700;
-            font-size: 5rem;
-            padding: 30px 0 20px;
-
-            @include respond-to("tablet") {
-                font-size: 8rem;
-            }
-        }
-
         p {
             margin: 15px auto;
             text-align: left;

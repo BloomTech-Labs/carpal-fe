@@ -7,6 +7,7 @@ import SignUp from "./Components/Login-SignUp/SignUp";
 import Dashboard from "./Components/Dashboards/Dashboard";
 import ProfilePage from "./Components/Profile-Pages/Profile-Pages";
 import LandingPage from "./Components/Landing-Page/Landing-Page";
+import AboutPage from "./Components/Landing-Page/AboutPage";
 import ProtectedRoute from "./Utils/ProtectedRoute";
 import RideFind from "./Components/Rides/RideFind/RideFind";
 import Logout from "./Components/Login-SignUp/Logout";
@@ -34,6 +35,7 @@ function App() {
 
                 <ProtectedRoute exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/" component={LandingPage} />
+                <Route exact path="/about" component={AboutPage} />
                 <ProtectedRoute exact path="/Home" component={RideFind} />
                 <ProtectedRoute
                     exact

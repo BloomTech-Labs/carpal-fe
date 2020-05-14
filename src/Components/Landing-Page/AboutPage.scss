@@ -1,0 +1,78 @@
+// variables/mixins file path "importing your global styles."
+@import "../../index.scss";
+
+.about-page {
+    .carpallers {
+        @include respond-to("desktop") {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-evenly;
+        }
+
+        .awesome-aliens-box {
+            background-color: $carpalGrey;
+            padding: 20px 5% 50px;
+            margin: 4rem auto 8rem;
+
+            .team-title {
+                font-style: italic;
+            }
+
+            .img-container {
+                width: 200px;
+                margin: 10px auto 20px;
+                position: relative;
+                -webkit-clip-path: circle(120px at center);
+                clip-path: circle(120px at center);
+                .under {
+                    border-radius: 50%;
+                    z-index: 1;
+                }
+
+                .over {
+                    max-width: 200px;
+                    z-index: 2;
+                    opacity: 0.7;
+                    position: absolute;
+                    bottom: -85px;
+                    left: 45px;
+                    overflow: hidden;
+                }
+            }
+
+            .socials {
+                display: flex;
+                justify-content: center;
+                a {
+                    border-bottom: none;
+                    margin: 5px 10px;
+                }
+            }
+
+            @include respond-to("tablet") {
+                display: flex;
+                align-items: center;
+                text-align: left;
+                padding: 10px 25px;
+                margin: 4rem auto 8rem;
+                max-width: 900px;
+                border-radius: 20px;
+
+                .left {
+                    padding: 0 15px;
+                    flex: 1;
+                }
+
+                .right {
+                    padding: 0 15px;
+                }
+            }
+
+            @include respond-to("desktop") {
+                margin: 50px 14px;
+                max-width: 475px;
+                display: block;
+            }
+        }
+    }
+}
