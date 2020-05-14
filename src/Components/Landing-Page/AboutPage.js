@@ -377,7 +377,7 @@ function AboutPage() {
                             <div className="img-container">
                                 <img
                                     className="over"
-                                    src={redCutie}
+                                    src={yellowOrangeCutie}
                                     alt="CarPal cutie"
                                 />
                                 <img
@@ -413,7 +413,7 @@ function AboutPage() {
                         <div className="img-container">
                             <img
                                 className="over"
-                                src={redCutie}
+                                src={yellowOrangeCutie}
                                 alt="CarPal cutie"
                             />
                             <img
@@ -514,7 +514,7 @@ function AboutPage() {
                             <div className="img-container">
                                 <img
                                     className="over"
-                                    src={yellowOrangeCutie}
+                                    src={redCutie}
                                     alt="CarPal cutie"
                                 />
                                 <img
@@ -546,7 +546,7 @@ function AboutPage() {
                         <div className="img-container">
                             <img
                                 className="over"
-                                src={yellowOrangeCutie}
+                                src={redCutie}
                                 alt="CarPal cutie"
                             />
                             <img
