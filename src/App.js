@@ -15,6 +15,7 @@ import RideRequests from "./Components/Rides/RideRequests/RideRequests";
 
 import "./App.scss";
 import profileImage from "./Components/Profile-Pages/Profile-Image/Profile-img-upload";
+import RideInProgress from "./Components/Rides/RideInProgress/RideInProgress";
 
 //TODO: update app to include loader if isLoading
 
@@ -42,6 +43,7 @@ function App() {
                     path="/requests"
                     component={RideRequests}
                 />
+                <ProtectedRoute path="/route" component={RideInProgress} />
             </div>
             <Nav />
         </div>

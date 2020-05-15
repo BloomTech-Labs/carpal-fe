@@ -4,3 +4,4 @@ export const mockGeolocation = {
 
 //assign geolocation the mockGeolocation obj
 
+navigator.geolocation = mockGeolocation;

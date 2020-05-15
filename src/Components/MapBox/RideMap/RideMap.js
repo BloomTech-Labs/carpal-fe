@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactMapGL, { Marker, FlyToInterpolator } from "react-map-gl";
 import Logo from "../../../img/Logo.png";
+import pin from "../../../img/logos/pin.jpg"
 import "./RideMap.scss";
 import "mapbox-gl/dist/mapbox-gl.css";
 import PolyLineOverlay from "../../Rides/RideFind/PolyLineOverlay";
@@ -9,7 +10,6 @@ import Axios from "axios";
 const mapboxAPI = process.env.REACT_APP_MAPBOX_TOKEN;
 
 function RideMap(props) {
-    
     const [viewport, setViewport] = useState({
         latitude: 0,
         longitude: 0,
@@ -25,8 +25,6 @@ function RideMap(props) {
 
     const [marker, setMarker] = useState([-122.457827, 37.718436]);
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition(getUserLocation);
-
         flyTo();
 
         if (props.start.length > 1 && props.end.length > 1) {
@@ -34,6 +32,8 @@ function RideMap(props) {
             const end = props.end.join(",");
 
             getDirections(start, end);
+        } else {
+            navigator.geolocation.getCurrentPosition(getUserLocation);
         }
     }, [props.start, props.end, locations.length]);
 
@@ -59,12 +59,12 @@ function RideMap(props) {
             latitude: crd.latitude,
             longitude: crd.longitude
         });
-        
+
         //Set proximity coordinates to prioritize search location result based on users current location
         props.setProximityCords({
             longitude: crd.longitude,
-            latitude: crd.latitude,
-        })
+            latitude: crd.latitude
+        });
         //When we Get users location we set the marker to the users current location
         setMarker([crd.longitude, crd.latitude]);
     };
@@ -93,7 +93,7 @@ function RideMap(props) {
     };
 
     // Function to render A Marker
-    const renderMarker = (longLat, index = 0) => {
+    const renderMarker = (longLat, index = 0, pins=false) => {
         return (
             <Marker
                 key={index}
@@ -105,12 +105,14 @@ function RideMap(props) {
                 onDragEnd={(e) => console.log(e)}
             >
                 <img
-                    src={`${Logo}`}
+                    src={pins ? `${pin}` : `${Logo}`}
                     alt="marker"
                     style={{
-                        width: "20px",
+                        width: `${!pins && "20px"}`,
                         height: "20px",
-                        borderRadius: "50%"
+                        borderRadius: "50%",
+                        position: `${pins && "relative"}`,
+                        bottom: `${pins && "11px"}`
                     }}
                 />
             </Marker>
@@ -132,6 +134,9 @@ function RideMap(props) {
                           renderMarker([cur[0], cur[1]], index)
                       )
                     : renderMarker(marker)}
+
+                {props.stops &&
+                    props.stops.map((cur, i) => renderMarker(cur, i, true))}
 
                 <PolyLineOverlay points={locations} />
             </ReactMapGL>
