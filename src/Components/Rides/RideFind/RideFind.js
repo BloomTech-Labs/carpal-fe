@@ -91,12 +91,12 @@ function RideFind(props) {
         ) {
             getRides({
                 start_location: {
-                    "long": suggestions.start_location_id[0],
-                    "lat": suggestions.start_location_id[1]
+                    long: suggestions.start_location_id[0],
+                    lat: suggestions.start_location_id[1]
                 },
                 end_location: {
-                    "long": suggestions.end_location_id[0],
-                    "lat": suggestions.end_location_id[1]
+                    long: suggestions.end_location_id[0],
+                    lat: suggestions.end_location_id[1]
                 }
             });
         }
@@ -186,6 +186,7 @@ function RideFind(props) {
                                             key={index}
                                             name={ride.driver_name}
                                             ride_id={ride.id}
+                                            rides={rides[index]}
                                         />
                                     ))}
                             </div>

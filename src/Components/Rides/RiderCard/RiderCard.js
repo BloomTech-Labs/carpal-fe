@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import RiderCardMapping from "./RiderCardMapping";
+import UserDetail from "../../Profile-Pages/userDetail"
 import { useHistory } from "react-router-dom";
 import "./RiderCard.scss";
 import Api from "./../../../Utils/Api";
 
-
 export default function RiderCard(props) {
-    console.log(props)
+    console.log(props);
     const [open, setOpen] = useState(false);
     const history = useHistory();
 
@@ -25,7 +24,7 @@ export default function RiderCard(props) {
             })
             .then((res) => {
                 console.log(res);
-                history.push("/requests")
+                history.push("/requests");
             })
             .catch((err) => {
                 console.log(err.message);
@@ -42,26 +41,32 @@ export default function RiderCard(props) {
                         Details
                     </button>
                     <button /* onClick to send request to BE*/>Request</button>
-                    {/* <RiderCardMapping name="Hobbies" items={props.hobbies} />
+                    <div className="request-card-details">
+                        <UserDetail
+                            title="Hobbies"
+                            item={props.rides.hobbies}
+                        />
 
-                    <RiderCardMapping
-                        name="Audio Likes"
-                        items={props.audioLikes}
-                    />
+                        <UserDetail
+                            title="Audio I love"
+                            item={props.rides.audio_likes}
+                        />
 
-                    <RiderCardMapping
-                        name="Audio Dislikes"
-                        items={props.audioDislikes}
-                    /> */}
+                        <UserDetail
+                            title="Audio I hate"
+                            item={props.rides.audio_dislikes}
+                        />
+                    </div>
                 </div>
             ) : (
                 <div className="rideCardDiv">
                     {/* profile picture */}
                     <h2 data-testid="nameField">{props.name}</h2>
-                    {/* <button data-testid="detailsButton" onClick={handleClick}>
+
+                    <button data-testid="detailsButton" onClick={handleClick}>
                         Details
-                    </button> */}
-                    {/*  */}
+                    </button>
+
                     <button /* onClick to send request to BE*/
                         onClick={makeRequest}
                     >
