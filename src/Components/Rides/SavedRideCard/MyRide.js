@@ -1,0 +1,49 @@
+import React, { useState, useEffect } from "react";
+// import { connect } from "react-redux";
+
+//need to search all drivers locations
+function MyRide(props) {
+    const [ride, setRide] = useState({
+        start: 0,
+        end: 0
+    });
+
+    const handleChange = (e) => {
+        setRide({
+            ...ride,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    return (
+        <div className="myride-container">
+            <div>
+                <h2>My Rides</h2>
+                <button className="add-button"> Add Ride +</button>
+            </div>
+
+            <form>
+                <input
+                    type="text"
+                    name="start"
+                    placeholder="Start Location ID"
+                    onChange={handleChange}
+                ></input>
+                <input
+                    type="text"
+                    name="end"
+                    placeholder="End Location ID"
+                    onChange={handleChange}
+                >
+                    {/* End Location ID */}
+                </input>
+            </form>
+            <button>Edit</button>
+            <button>Delete</button>
+            <button>Start</button>
+        </div>
+    );
+}
+
+// export default connect(MapStateToProps, {}(MyRide);
+export default MyRide;
