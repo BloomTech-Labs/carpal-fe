@@ -11,6 +11,10 @@ export const HANDLE_INCOMING_REQUESTS = "HANDLE_INCOMING_REQUESTS";
 export const HANDLE_OUTGOING_REQUESTS = "HANDLE_OUTGOING_REQUESTS";
 export const UPDATE_RIDE_REQUEST = "UPDATE_RIDE_REQUEST";
 
+export const UPLOAD_PROFILE_IMG_START = "UPLOAD_START";
+export const UPLOAD_PROFILE_IMG_SUCCESS = "UPLOAD_SUCCESS";
+export const UPLOAD_PROFILE_IMG_ERROR = "UPLOAD_ERROR";
+
 export function SignUpAction(user, props) {
     return (dispatch) => {
         dispatch({ type: REQUEST_START });

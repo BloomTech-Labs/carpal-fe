@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function RiderCardMapping(props) {
+    console.log(props)
     return (
         <ul data-testid="riderUl">
             {props.name}
@@ -13,3 +14,5 @@ export default function RiderCardMapping(props) {
         </ul>
     );
 }
+
+
