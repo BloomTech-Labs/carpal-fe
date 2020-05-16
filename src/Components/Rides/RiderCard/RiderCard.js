@@ -1,22 +1,23 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import UserDetail from "../../Profile-Pages/userDetail"
 import { useHistory } from "react-router-dom";
 import "./RiderCard.scss";
 import Api from "./../../../Utils/Api";
 
-export default function RiderCard(props) {
-    console.log(props);
+import { setStops } from "../../../Redux/Actions/LocationActions";
+
+function RiderCard(props) {
     const [open, setOpen] = useState(false);
     const history = useHistory();
 
     const handleClick = () => {
         setOpen(!open);
-        console.log(props);
+        props.setStops([[props.ride.start_location.long, props.ride.start_location.lat], [props.ride.end_location.long, props.ride.end_location.lat]])
     };
 
     const makeRequest = (e) => {
         e.preventDefault();
-        console.log(props);
         Api()
             .post("/rides/requests", {
                 ride_id: props.ride_id,
@@ -44,17 +45,17 @@ export default function RiderCard(props) {
                     <div className="request-card-details">
                         <UserDetail
                             title="Hobbies"
-                            item={props.rides.hobbies}
+                            item={props.ride.hobbies}
                         />
 
                         <UserDetail
                             title="Audio I love"
-                            item={props.rides.audio_likes}
+                            item={props.ride.audio_likes}
                         />
 
                         <UserDetail
                             title="Audio I hate"
-                            item={props.rides.audio_dislikes}
+                            item={props.ride.audio_dislikes}
                         />
                     </div>
                 </div>
@@ -77,3 +78,9 @@ export default function RiderCard(props) {
         </div>
     );
 }
+
+const mapStateToProps = (state) => ({
+    stops: state.locations.route.stops
+});
+
+export default connect(mapStateToProps, { setStops })(RiderCard);

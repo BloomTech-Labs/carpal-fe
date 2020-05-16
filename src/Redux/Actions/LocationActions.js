@@ -6,6 +6,7 @@ export const EDIT_LOCATION = "EDIT_LOCATION";
 export const REQUEST_START = "REQUEST_START";
 export const REQUEST_ERROR = "REQUEST_ERROR";
 export const SAVE_ROUTE = "SAVE_ROUTE";
+export const SET_STOPS = "SET_STOPS";
 
 export function getFavorites() {
     return (dispatch) => {
@@ -82,4 +83,10 @@ export function currentRoute(start, end) {
     return (dispatch) => {
         dispatch({ type: SAVE_ROUTE, payload: { start, end } });
     };
+}
+
+export function setStops(stopsArray) {
+    return (dispatch) => {
+        dispatch({type: SET_STOPS, payload: stopsArray})
+    }
 }

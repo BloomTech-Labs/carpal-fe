@@ -7,7 +7,7 @@ import "./RideFind.scss";
 import RiderCard from "../RiderCard/RiderCard";
 import api from "./../../../Utils/Api";
 import AutoSuggest from "./../../AutoSuggest/AutoSuggest";
-import { currentRoute } from "../../../Redux/Actions/LocationActions";
+import { currentRoute, setStops } from "../../../Redux/Actions/LocationActions";
 
 function RideFind(props) {
     //hold long and lat for both location
@@ -42,6 +42,9 @@ function RideFind(props) {
         longitude: 0,
         latitude: 0
     });
+
+    // State to handle stops for the selected ride
+    // const [stops, setStops] = useState([])
 
     //Fetch user location depending on which form the user is filling to be able to correctly set the feature state
     const fetchSuggestions = (search_term, placement) => {
@@ -190,9 +193,10 @@ function RideFind(props) {
                                             key={index}
                                             name={ride.driver_name}
                                             ride_id={ride.id}
-                                            rides={rides[index]}
+                                            ride={ride}
                                         />
                                     ))}
+                                {console.log(props.stops)}
                             </div>
                         </div>
                     )}
@@ -204,10 +208,15 @@ function RideFind(props) {
                     start={suggestions.start_location_id}
                     end={suggestions.end_location_id}
                     setProximityCords={setProximityCords}
+                    stops={props.stops}
                 />
             </div>
         </div>
     );
 }
 
-export default connect(null, { currentRoute })(RideFind);
+const mapStateToProps = (state) => ({
+    stops: state.locations.route.stops
+});
+
+export default connect(mapStateToProps, { currentRoute, setStops })(RideFind);
