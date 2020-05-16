@@ -166,7 +166,6 @@ function RideFind(props) {
                             />
                         )}
                     </div>
-                    <button type="submit">Find a ride</button>
                 </form>
 
                 {props.favoriteLocations &&
