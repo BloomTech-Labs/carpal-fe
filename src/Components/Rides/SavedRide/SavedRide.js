@@ -5,10 +5,12 @@ import AddLocationName from "../SavedRideCard/AddFavoriteLocation";
 import { getFavorites } from "../../../Redux/Actions/LocationActions";
 import "./SavedRide.scss";
 import api from "../../../Utils/Api";
+import MyRide from "../SavedRideCard/MyRide";
 
 function SavedRides(props) {
     const [show, setShow] = useState(false);
     const [favoriteLocations, setFavoriteLocations] = useState();
+    const [startLocation, setStartLocation] = useState();
 
     function usePrevious(value) {
         const ref = useRef(value);
@@ -19,7 +21,6 @@ function SavedRides(props) {
     }
 
     const prev = usePrevious(favoriteLocations);
-
     //create an object deep comparison checker function.
     //if return value is false, set favelocation = current
     //else faveLocation = prevObj
@@ -45,6 +46,8 @@ function SavedRides(props) {
         props.getFavorites();
     };
 
+    console.log(startLocation);
+
     return (
         <div>
             {show ? (
@@ -62,11 +65,15 @@ function SavedRides(props) {
                                 key={index}
                                 data={rideData}
                                 id={rideData.id}
+                                setStartLocation={setStartLocation}
                                 onUpdate={() => handleUpdate()}
                             />
                         ))}
                 </div>
             )}
+            <div className="my-rides">
+                <MyRide startLoc={startLocation} />
+            </div>
         </div>
     );
 }

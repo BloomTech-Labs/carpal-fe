@@ -4,7 +4,6 @@ import { DeleteLocation } from "../../../Redux/Actions/LocationActions";
 import { connect } from "react-redux";
 import EditLocationForm from "./EditLocation";
 import { getFavorites } from "../../../Redux/Actions/LocationActions";
-import MyRide from "./MyRide";
 
 // const [requestedRide, setRequestedRide] = useState();
 // have a hook for the drivers requested ride
@@ -56,7 +55,11 @@ function SavedRideCard(props) {
     const handleShow = () => {
         setShow(!show);
     };
+    const handleStart = () => {
+        props.setStartLocation(currentLocation);
+    };
 
+    console.log(props);
     return (
         <div className="saved-card">
             {show ? (
@@ -71,11 +74,9 @@ function SavedRideCard(props) {
                     <h3>{props.data.name}</h3>
                     <button onClick={handleEdit}> Edit </button>
                     <button onClick={handleDelete}> Delete </button>
+                    <button onClick={handleStart}>Use as Start</button>
                 </section>
             )}
-            <div className="my-rides">
-                <MyRide />
-            </div>
         </div>
     );
 }

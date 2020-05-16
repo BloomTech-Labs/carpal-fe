@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 
 //need to search all drivers locations
 function MyRide(props) {
+    const [startLocationID, setStartLocationID] = useState();
+    const [endLocationID, setEndLocationID] = useState();
     const [ride, setRide] = useState({
         start: 0,
         end: 0
@@ -14,28 +16,44 @@ function MyRide(props) {
             [e.target.name]: e.target.value
         });
     };
+    //startID
+    // useEffect(() => {
+    // const
+    // }, [])
+    //endID
+
+    console.log(props.startLoc);
 
     return (
         <div className="myride-container">
             <div>
                 <h2>My Rides</h2>
-                <button className="add-button"> Add Ride +</button>
+                {/* <button className="add-button"> Add Ride +</button> */}
             </div>
 
             <form>
+                {/* setEndLocationID() */}
+                <button
+                    className="add-button"
+                    onClick={() => setStartLocationID()}
+                >
+                    Add Ride +
+                </button>
                 <input
                     type="text"
                     name="start"
                     placeholder="Start Location ID"
                     onChange={handleChange}
-                ></input>
+                >
+                    {startLocationID}
+                </input>
                 <input
                     type="text"
                     name="end"
                     placeholder="End Location ID"
                     onChange={handleChange}
                 >
-                    {/* End Location ID */}
+                    {/* {endLocationID} */}
                 </input>
             </form>
             <button>Edit</button>
