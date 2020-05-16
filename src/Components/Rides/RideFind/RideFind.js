@@ -120,7 +120,7 @@ function RideFind(props) {
                 console.error(err.message);
             });
     };
-    rides.sort((a, b) => a.score - b.score)
+    rides.sort((a, b) => a.score - b.score)    
     return (
         <div className="search-ride-container">
             <div className="search-display">
@@ -195,9 +195,11 @@ function RideFind(props) {
                                             name={ride.driver_name}
                                             ride_id={ride.id}
                                             ride={ride}
+                                            stops={props.stops}
+                                            setStops={props.setStops}
+                                            history={props.history}
                                         />
                                     ))}
-                                {console.log(rides)}
                             </div>
                         </div>
                     )}

@@ -1,15 +1,11 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
 import UserDetail from "../../Profile-Pages/userDetail"
 import { useHistory } from "react-router-dom";
 import "./RiderCard.scss";
 import Api from "./../../../Utils/Api";
 
-import { setStops } from "../../../Redux/Actions/LocationActions";
-
 function RiderCard(props) {
     const [open, setOpen] = useState(false);
-    const history = useHistory();
 
     const handleClick = () => {
         setOpen(!open);
@@ -25,7 +21,7 @@ function RiderCard(props) {
             })
             .then((res) => {
                 console.log(res);
-                history.push("/requests");
+                props.history.push("/requests");
             })
             .catch((err) => {
                 console.log(err.message);
@@ -42,7 +38,7 @@ function RiderCard(props) {
                         Details
                     </button>
                     <button /* onClick to send request to BE*/>Request</button>
-                    <div className="request-card-details">
+                    <div className="request-card-details" data-testid="riderUl">
                         <UserDetail
                             title="Hobbies"
                             item={props.ride.hobbies}
@@ -79,8 +75,5 @@ function RiderCard(props) {
     );
 }
 
-const mapStateToProps = (state) => ({
-    stops: state.locations.route.stops
-});
 
-export default connect(mapStateToProps, { setStops })(RiderCard);
+export default RiderCard;
