@@ -129,13 +129,13 @@ function RideMap(props) {
                     setViewport(viewport);
                 }}
             >
-                // start and end of route
+                {/* start and end of route */}
                 {Array.isArray(marker[0]) && Array.isArray(marker[1])
                     ? marker.map((cur, index) =>
                           renderMarker([cur[0], cur[1]], index)
                       )
                     : renderMarker(marker)}
-                // stops along the way
+                {/* stops along the way */}
                 {props.stops &&
                     props.stops.map((cur, i) => renderMarker(cur, i, true))}
 

@@ -120,7 +120,7 @@ function RideFind(props) {
                 console.error(err.message);
             });
     };
-
+    rides.sort((a, b) => a.score - b.score)
     return (
         <div className="search-ride-container">
             <div className="search-display">
@@ -187,6 +187,7 @@ function RideFind(props) {
                                 {/* map over rides that match our query */}
 
                                 {/* test ride card */}
+
                                 {rides.length > 1 &&
                                     rides.map((ride, index) => (
                                         <RiderCard
@@ -196,7 +197,7 @@ function RideFind(props) {
                                             ride={ride}
                                         />
                                     ))}
-                                {console.log(props.stops)}
+                                {console.log(rides)}
                             </div>
                         </div>
                     )}
@@ -220,3 +221,4 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { currentRoute, setStops })(RideFind);
+
