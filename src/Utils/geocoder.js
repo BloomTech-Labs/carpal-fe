@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export function geocode(location) {
+export default function geocode(location) {
     let long;
     let lat;
     return axios
@@ -19,6 +19,8 @@ export function geocode(location) {
         .catch((err) => console.log(err));
 }
 
-export default function reverseGeocode(location) {
-    return;
-}
+// function reverseGeocode(location) {
+//     return;
+// }
+
+// export default reverseGeocode;
