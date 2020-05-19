@@ -11,28 +11,6 @@ import {
 import { connect } from "react-redux";
 import EditLocationForm from "./EditLocation";
 
-// const [requestedRide, setRequestedRide] = useState();
-// have a hook for the drivers requested ride
-
-// onclick set the status to pending then accepted.
-
-// how are we going to relate locationID to requestRideID
-// right now in SavedRides we can pull lcoation ID, but we need to make sure that the favorite location ID and requestedID match
-// START BUTTON
-// sets your pickup coordinates, post then take the returned start_location_id = location id, currently defaulting to 1
-// ASYNC setRequestedRide with the new obj
-// post new object with start_location_id from POST request above, end_location_id is from selected location
-// props.history.push(/requests)
-// useState({
-//     id: autoincrements,
-//     start_location_id: 1, (default to a value),
-//     driver_id: null,
-//     rider_id: (comes from token -- gets user ID from token),
-//     end_location_id: currentLocation.id,
-//     status: 'pending',
-// })
-// ^^ this will be POSTed to /rides/requests
-
 function SavedRideCard(props) {
     const [show, setShow] = useState(false);
     const [currentLocation, setCurrentLocation] = useState();
@@ -60,13 +38,12 @@ function SavedRideCard(props) {
         setShow(!show);
     };
     const handleStart = () => {
-        console.log("in handle start", currentLocation);
-        props.setStartLocation(currentLocation);
+        // console.log("in handle start", currentLocation);
+        props.setStartLocation(props.data);
     };
-
     const handleEnd = () => {
-        console.log("in handle end", currentLocation);
-        props.setEndLocation(currentLocation);
+        // console.log("in handle end", currentLocation);
+        props.setEndLocation(props.data);
     };
 
     return (
@@ -87,7 +64,6 @@ function SavedRideCard(props) {
                     <button onClick={handleEnd}>Use as End</button>
                 </section>
             )}
-            {console.log(props.data)};
         </div>
     );
 }

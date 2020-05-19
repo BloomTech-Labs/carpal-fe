@@ -198,12 +198,12 @@ export function handleUpdateRideRequest(payload) {
 
 export function setStartLocation(payload) {
     return (dispatch) => {
-        // dispatch({ type: SET_START_LOCATION, payload: payload.id });
+        dispatch({ type: SET_START_LOCATION, payload: payload.id });
     };
 }
 
 export function setEndLocation(payload) {
     return (dispatch) => {
-        // dispatch({ type: SET_END_LOCATION, payload: payload.id });
+        dispatch({ type: SET_END_LOCATION, payload: payload.id });
     };
 }
