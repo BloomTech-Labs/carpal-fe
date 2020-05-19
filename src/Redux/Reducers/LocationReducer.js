@@ -6,16 +6,18 @@ import {
     DELETE_LOCATION,
     SET_FAVORITE_LOCATIONS,
     SAVE_ROUTE,
-    SET_STOPS
+    SET_STOPS,
+    SAVE_RIDE
 } from "./../Actions/LocationActions";
 
 const initState = {
     favoriteLocation: [],
     route: {
         start: [],
-        end: [], 
+        end: [],
         stops: []
-    }
+    },
+    rides: []
 };
 
 export function locationReducer(state = initState, action) {
@@ -73,14 +75,20 @@ export function locationReducer(state = initState, action) {
                 }
             };
 
-            case SET_STOPS:
-                return {
-                    ...state,
-                    route: {
-                        ...state.route,
-                        stops: action.payload
-                    }
+        case SET_STOPS:
+            return {
+                ...state,
+                route: {
+                    ...state.route,
+                    stops: action.payload
                 }
+            };
+
+        case SAVE_RIDE:
+            return {
+                ...state,
+                rides: [...state.rides, action.payload]
+            };
 
         default:
             return state;

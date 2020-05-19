@@ -7,7 +7,11 @@ import "./RideFind.scss";
 import RiderCard from "../RiderCard/RiderCard";
 import api from "./../../../Utils/Api";
 import AutoSuggest from "./../../AutoSuggest/AutoSuggest";
-import { currentRoute, setStops } from "../../../Redux/Actions/LocationActions";
+import {
+    currentRoute,
+    setStops,
+    saveRide
+} from "../../../Redux/Actions/LocationActions";
 
 function RideFind(props) {
     //hold long and lat for both location
@@ -120,7 +124,7 @@ function RideFind(props) {
                 console.error(err.message);
             });
     };
-    rides.sort((a, b) => a.score - b.score)    
+    rides.sort((a, b) => a.score - b.score);
     return (
         <div className="search-ride-container">
             <div className="search-display">
@@ -204,7 +208,13 @@ function RideFind(props) {
                         </div>
                     )}
                 <p>Want to offer this ride instead?</p>
-                <button /*  save ride function  */>Save Ride</button>
+                <button
+                    onClick={() => {
+                        props.saveRide(suggestions, props);
+                    }}
+                >
+                    Save Ride
+                </button>
             </div>
             <div className="map-search">
                 <RideMap
@@ -222,5 +232,6 @@ const mapStateToProps = (state) => ({
     stops: state.locations.route.stops
 });
 
-export default connect(mapStateToProps, { currentRoute, setStops })(RideFind);
-
+export default connect(mapStateToProps, { currentRoute, setStops, saveRide })(
+    RideFind
+);
