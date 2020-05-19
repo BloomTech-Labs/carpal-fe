@@ -10,7 +10,10 @@ import {
     CANCEL_RIDE_REQUEST,
     UPDATE_RIDE_REQUEST,
     SET_START_LOCATION,
-    SET_END_LOCATION
+    SET_END_LOCATION,
+    UPLOAD_PROFILE_IMG_START,
+    UPLOAD_PROFILE_IMG_SUCCESS,
+    UPLOAD_PROFILE_IMG_ERROR
 } from "../Actions/UserAction";
 
 const initialState = {
@@ -106,10 +109,7 @@ export function UserReducer(state = initialState, action) {
                 ...state,
                 user: {
                     ...state.user,
-                    incoming_ride_requests: [
-                        // ...state.user.incoming_ride_requests,
-                        ...action.payload
-                    ]
+                    incoming_ride_requests: [...action.payload]
                 }
             };
 
@@ -118,24 +118,16 @@ export function UserReducer(state = initialState, action) {
                 ...state,
                 user: {
                     ...state.user,
-                    outgoing_ride_requests: [
-                        // ...state.user.outgoing_ride_requests,
-                        ...action.payload
-                    ]
+                    outgoing_ride_requests: [...action.payload]
                 }
             };
 
         case CANCEL_RIDE_REQUEST:
             const cancelledId = action.payload.request_id;
-            // console.log(action.payload.request_id, "cancel");
             return {
                 ...state,
                 user: {
                     ...state.user,
-                    // outgoing_ride_requests: [
-                    //     ...state.user.outgoing_ride_requests,
-                    //     action.payload
-                    // ]
                     outgoing_ride_requests: state.user.outgoing_ride_requests.filter(
                         (outgoing_rides) => outgoing_rides.id !== cancelledId
                     )
@@ -174,6 +166,26 @@ export function UserReducer(state = initialState, action) {
                     }
                 }
             };
+        //img url upload
+        // case UPLOAD_PROFILE_IMG_START:
+        //     return {
+        //         ...state,
+        //         isLoading: true,
+        //         error: null
+        //     };
+        // case UPLOAD_PROFILE_IMG_SUCCESS:
+        //     return {
+        //         ...state,
+        //         isLoading: false,
+        //         error: null
+        //     };
+        // case UPLOAD_PROFILE_IMG_ERROR:
+        //     return {
+        //         ...state,
+        //         isLoading: false,
+        //         error: action.payload
+        //     };
+        // add ADD RIDE case
 
         default:
             return state;

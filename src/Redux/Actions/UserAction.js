@@ -14,6 +14,10 @@ export const UPDATE_RIDE_REQUEST = "UPDATE_RIDE_REQUEST";
 export const SET_START_LOCATION = "SET_START_LOCATION";
 export const SET_END_LOCATION = "SET_END_LOCATION";
 
+export const UPLOAD_PROFILE_IMG_START = "UPLOAD_START";
+export const UPLOAD_PROFILE_IMG_SUCCESS = "UPLOAD_SUCCESS";
+export const UPLOAD_PROFILE_IMG_ERROR = "UPLOAD_ERROR";
+
 export function SignUpAction(user, props) {
     return (dispatch) => {
         dispatch({ type: REQUEST_START });
