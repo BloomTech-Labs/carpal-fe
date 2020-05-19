@@ -10,7 +10,7 @@ import MyRide from "../SavedRideCard/MyRide";
 function SavedRides(props) {
     const [show, setShow] = useState(false);
     const [favoriteLocations, setFavoriteLocations] = useState();
-    const [startLocation, setStartLocation] = useState();
+    // const [startLocation, setStartLocation] = useState();
 
     function usePrevious(value) {
         const ref = useRef(value);
@@ -39,14 +39,11 @@ function SavedRides(props) {
 
     const toggleShow = () => {
         setShow(!show);
-        console.log(show);
     };
 
     const handleUpdate = () => {
         props.getFavorites();
     };
-
-    console.log(startLocation);
 
     return (
         <div>
@@ -65,14 +62,13 @@ function SavedRides(props) {
                                 key={index}
                                 data={rideData}
                                 id={rideData.id}
-                                setStartLocation={setStartLocation}
                                 onUpdate={() => handleUpdate()}
                             />
                         ))}
                 </div>
             )}
             <div className="my-rides">
-                <MyRide startLoc={startLocation} />
+                <MyRide />
             </div>
         </div>
     );

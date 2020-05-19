@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./SavedRideCard.scss";
-import { DeleteLocation } from "../../../Redux/Actions/LocationActions";
+import {
+    DeleteLocation,
+    getFavorites
+} from "../../../Redux/Actions/LocationActions";
+import {
+    setStartLocation,
+    setEndLocation
+} from "../../../Redux/Actions/UserAction";
 import { connect } from "react-redux";
 import EditLocationForm from "./EditLocation";
-import { getFavorites } from "../../../Redux/Actions/LocationActions";
 
 // const [requestedRide, setRequestedRide] = useState();
 // have a hook for the drivers requested ride
@@ -41,8 +47,6 @@ function SavedRideCard(props) {
         });
     }, []);
 
-    console.log(currentLocation);
-
     const handleDelete = (id) => {
         props.DeleteLocation(props.id);
         props.onUpdate();
@@ -56,10 +60,15 @@ function SavedRideCard(props) {
         setShow(!show);
     };
     const handleStart = () => {
+        console.log("in handle start", currentLocation);
         props.setStartLocation(currentLocation);
     };
 
-    console.log(props);
+    const handleEnd = () => {
+        console.log("in handle end", currentLocation);
+        props.setEndLocation(currentLocation);
+    };
+
     return (
         <div className="saved-card">
             {show ? (
@@ -75,8 +84,10 @@ function SavedRideCard(props) {
                     <button onClick={handleEdit}> Edit </button>
                     <button onClick={handleDelete}> Delete </button>
                     <button onClick={handleStart}>Use as Start</button>
+                    <button onClick={handleEnd}>Use as End</button>
                 </section>
             )}
+            {console.log(props.data)};
         </div>
     );
 }
@@ -85,6 +96,9 @@ const mapStateToProps = (state) => ({
     loc: state.locations.favoriteLocation
 });
 
-export default connect(mapStateToProps, { DeleteLocation, getFavorites })(
-    SavedRideCard
-);
+export default connect(mapStateToProps, {
+    DeleteLocation,
+    getFavorites,
+    setStartLocation,
+    setEndLocation
+})(SavedRideCard);

@@ -8,7 +8,9 @@ import {
     HANDLE_INCOMING_REQUESTS,
     HANDLE_OUTGOING_REQUESTS,
     CANCEL_RIDE_REQUEST,
-    UPDATE_RIDE_REQUEST
+    UPDATE_RIDE_REQUEST,
+    SET_START_LOCATION,
+    SET_END_LOCATION
 } from "../Actions/UserAction";
 
 const initialState = {
@@ -30,23 +32,29 @@ const initialState = {
             }
         ],
 
-
-        rides: [{
-            id: 1,
-            name: 'Path to Work',
-            status: 'pending'
-        },
-        {
-            id: 2,
-            name: 'Grocery Run',
-            status: 'accepted'
-        },
-        {
-            id: 3,
-            name: 'Liquor store',
-            status: 'saved',
-        }
+        rides: [
+            {
+                id: 1,
+                name: "Path to Work",
+                status: "pending"
+            },
+            {
+                id: 2,
+                name: "Grocery Run",
+                status: "accepted"
+            },
+            {
+                id: 3,
+                name: "Liquor store",
+                status: "saved"
+            }
         ],
+
+        rideCreator: {
+            start_location_id: 0,
+            end_location_id: 0
+        },
+
         incoming_ride_requests: [],
         outgoing_ride_requests: []
     },
@@ -93,7 +101,6 @@ export function UserReducer(state = initialState, action) {
                 user: action.payload
             };
 
-        
         case HANDLE_INCOMING_REQUESTS:
             return {
                 ...state,
@@ -143,6 +150,31 @@ export function UserReducer(state = initialState, action) {
                     incoming_ride_requests: [...action.payload]
                 }
             };
+        /////// RIDE CREATOR ACTIONS
+        case SET_START_LOCATION:
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    rideCreator: {
+                        ...state.rideCreator,
+                        start_location_id: action.payload
+                    }
+                }
+            };
+
+        case SET_END_LOCATION:
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    rideCreator: {
+                        ...state.rideCreator,
+                        end_location_id: action.payload
+                    }
+                }
+            };
+
         default:
             return state;
     }

@@ -16,14 +16,16 @@ function MyRide(props) {
             [e.target.name]: e.target.value
         });
     };
-    //startID
-    // useEffect(() => {
-    // const
-    // }, [])
-    //endID
 
-    console.log(props.startLoc);
+    useEffect(() => {
+        setRide({
+            ...ride,
+            end: endLocationID,
+            start: startLocationID
+        });
+    }, [startLocationID, endLocationID]);
 
+    // console.log(ride);
     return (
         <div className="myride-container">
             <div>

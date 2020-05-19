@@ -10,6 +10,9 @@ export const CANCEL_RIDE_REQUEST = "CANCEL_RIDE_REQUEST";
 export const HANDLE_INCOMING_REQUESTS = "HANDLE_INCOMING_REQUESTS";
 export const HANDLE_OUTGOING_REQUESTS = "HANDLE_OUTGOING_REQUESTS";
 export const UPDATE_RIDE_REQUEST = "UPDATE_RIDE_REQUEST";
+///CREATE RIDE
+export const SET_START_LOCATION = "SET_START_LOCATION";
+export const SET_END_LOCATION = "SET_END_LOCATION";
 
 export function SignUpAction(user, props) {
     return (dispatch) => {
@@ -186,5 +189,17 @@ export function handleUpdateRideRequest(payload) {
                     payload: error
                 });
             });
+    };
+}
+
+export function setStartLocation(payload) {
+    return (dispatch) => {
+        // dispatch({ type: SET_START_LOCATION, payload: payload.id });
+    };
+}
+
+export function setEndLocation(payload) {
+    return (dispatch) => {
+        // dispatch({ type: SET_END_LOCATION, payload: payload.id });
     };
 }
