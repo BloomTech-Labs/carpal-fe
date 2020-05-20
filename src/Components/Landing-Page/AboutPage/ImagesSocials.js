@@ -3,7 +3,7 @@ import React from "react";
 const ImagesSocials = (props) => {
     return (
         <>
-            <div className="img-container">
+            <div className="img-container" data-testid="img-container">
                 <img
                     className="over"
                     src={props.carpaller.cutieImg}
@@ -16,8 +16,12 @@ const ImagesSocials = (props) => {
                 />
             </div>
 
-            <div className="socials">
-                <a href={props.carpaller.githubURL} target="_blank">
+            <div className="socials" data-testid="socials">
+                <a
+                    href={props.carpaller.githubURL}
+                    target="_blank"
+                    data-testid="github-url"
+                >
                     <i className="fab fa-github fa-3x"></i>
                 </a>
                 <a href={props.carpaller.linkedinURL} target="_blank">
