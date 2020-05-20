@@ -10,6 +10,7 @@ import {
 } from "../../../Redux/Actions/UserAction";
 import { connect } from "react-redux";
 import EditLocationForm from "./EditLocation";
+import reverseGeocoder from "../../../Utils/reverseGeocoder";
 
 function SavedRideCard(props) {
     const [show, setShow] = useState(false);
@@ -37,9 +38,19 @@ function SavedRideCard(props) {
     const handleShow = () => {
         setShow(!show);
     };
+
     const handleStart = () => {
         // console.log("in handle start", currentLocation);
         props.setStartLocation(props.data);
+        // console.log(currentLocation);
+        Promise.resolve(
+            currentLocation && reverseGeocoder(currentLocation)
+        ).then((resp) => {
+            props.setRideLocations({
+                ...props.rideLocations,
+                startLocation: resp
+            });
+        });
     };
     const handleEnd = () => {
         // console.log("in handle end", currentLocation);
@@ -60,8 +71,8 @@ function SavedRideCard(props) {
                     <h3>{props.data.name}</h3>
                     <button onClick={handleEdit}> Edit </button>
                     <button onClick={handleDelete}> Delete </button>
-                    <button onClick={handleStart}>Use as Start</button>
-                    <button onClick={handleEnd}>Use as End</button>
+                    <button onClick={handleStart}> Start </button>
+                    <button onClick={handleEnd}> End</button>
                 </section>
             )}
         </div>

@@ -1,57 +1,54 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { createRide } from "../../../Redux/Actions/UserAction";
+import geocode from "../../../Utils/geocoder";
 //need to search all drivers locations
 function MyRide(props) {
-    const [startLocationID, setStartLocationID] = useState();
-    const [endLocationID, setEndLocationID] = useState();
-    // const [ride, setRide] = useState({
-    //     start: 0,
-    //     end: 0
-    // });
+    const [ride, setRide] = useState({
+        startLocation: "",
+        endLocation: ""
+    });
 
-    // const handleChange = (e) => {
-    //     setRide({
-    //         ...ride,
-    //         [e.target.name]: e.target.value
-    //   };
-
-    // useEffect(() => {
-    //     setRide({
-    //         ...ride,
-    //         end: endLocationID,
-    //         start: startLocationID
-    //     });
-    // }, [startLocationID, endLocationID]);
-
-    console.log(props.createdRide);
+    const handleChange = (e) => {
+        setRide({
+            ...ride,
+            [e.target.name]: e.target.value
+        });
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
         props.createRide(props.rideCreated);
         console.log(props.rideCreated);
     };
-    // users types in a new address and doesn't exist insert locations table insert it =>
 
+    useEffect(() => {
+        console.log(props.rides);
+        props.rides && setRide(props.rides);
+    }, [props.rides]);
+
+    useEffect(() => {
+        geocode(ride);
+    }, [ride]);
+    // not passing props how we want. we need ridesLocation info to populate
     return (
         <div className="myride-container">
-            <div>
+            <div className="myride-header">
                 <h2>My Rides</h2>
             </div>
-
             <form>
                 <button className="add-button">Add Ride +</button>
                 <input
                     type="text"
                     name="start"
-                    placeholder="Start Location ID"
-                    // onChange={handleChange}
+                    value={ride.startLocation}
+                    onChange={handleChange}
                 ></input>
                 <input
                     type="text"
                     name="end"
-                    placeholder="End Location ID"
-                    // onChange={handleChange}
+                    value={ride.endLocation}
+                    onChange={handleChange}
                 ></input>
             </form>
             <button>Edit</button>
