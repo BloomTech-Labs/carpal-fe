@@ -11,13 +11,12 @@ import Login from "./Login";
 
 import { render, cleanup, fireEvent, wait } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import logger from "redux-logger";
 
 afterEach(cleanup);
 
 function renderWithRedux(
     ui,
-    { store = createStore(reducer, applyMiddleware(thunk, logger)) } = {}
+    { store = createStore(reducer, applyMiddleware(thunk)) } = {}
 ) {
     return {
         ...render(<Provider store={store}>{<Router>{ui}</Router>}</Provider>),
@@ -65,12 +64,15 @@ describe("login user", () => {
         fireEvent.change(Email, { target: { value: "lesley@gmail.com" } });
         fireEvent.submit(submit);
 
+
         await wait(() => {
             expect(actions.LogInAction).toHaveBeenCalled();
             // expect(actions.LogInAction).toHaveBeenCalledWith({
             //     email: "lesley@gmail.com",
             //     password: "lesley"
+
             // });
+
             expect(actions.LogInAction).toHaveBeenCalledTimes(1);
         });
     });

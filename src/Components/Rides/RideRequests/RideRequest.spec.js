@@ -1,17 +1,18 @@
 import React from "react";
 import { Provider } from "react-redux";
 import ReactDOM from "react-dom";
-import { render } from "@testing-library/react";
+import { render, cleanup } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
 import * as actionMock from "../../../Redux/Actions/UserAction";
 import RideRequests from "./RideRequests";
-import { UserReducer } from "./../../../Redux/Reducers/UserReducer";
+import { UserReducer as reducer } from "./../../../Redux/Reducers/UserReducer";
 
+beforeEach(cleanup);
 // mock actions that are used in handleriderequests
-jest.mock("../../Redux/Actions/UserAction", () => {
+jest.mock("../../../Redux/Actions/UserAction", () => {
     return {
         SetUserAction: jest.fn((vals) => (dispatch) =>
             dispatch({ type: "SET_USER", payload: vals })
@@ -33,21 +34,33 @@ jest.mock("../../Redux/Actions/UserAction", () => {
 
 //mock redux
 
+function renderWithRedux(
+    ui,
+    {
+        store = createStore(
+            combineReducers({
+                user: reducer
+            }),
+            applyMiddleware(thunk, logger)
+        )
+    } = {}
+) {
+    
+    return {
+        ...render(<Provider store={store}>{<Router>{ui}</Router>}</Provider>),
+        store
+    };
+}
+
 //init store?
 
 describe("RideRequest", () => {
     test("Renders without crashing", () => {
-        const div = document.createElement("div");
-        ReactDOM.render(
-            <Provider store={store}>
-                <Router>{ui}</Router>
-            </Provider>,
-            div
-        );
+        const {getByText} = renderWithRedux(<RideRequests />);
+
+        expect(getByText("Requests")).toBeDefined();
+        expect(getByText("Requests").nodeName).toEqual("H1");
+        expect(getByText("Incoming")).toBeDefined();
+        expect(getByText("Outgoing")).toBeDefined();
     });
 });
-
-// expect(getByText("Requests")).toBeDefined();
-// expect(getByText("Requests").nodeName).toEqual("H1");
-// expect(getByText("Incoming")).toBeDefined();
-// expect(getByText("Outgoing")).toBeDefined();
