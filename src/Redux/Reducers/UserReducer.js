@@ -8,7 +8,10 @@ import {
     HANDLE_INCOMING_REQUESTS,
     HANDLE_OUTGOING_REQUESTS,
     CANCEL_RIDE_REQUEST,
-    UPDATE_RIDE_REQUEST
+    UPDATE_RIDE_REQUEST,
+    UPLOAD_PROFILE_IMG_START,
+    UPLOAD_PROFILE_IMG_SUCCESS,
+    UPLOAD_PROFILE_IMG_ERROR
 } from "../Actions/UserAction";
 
 const initialState = {
@@ -30,22 +33,22 @@ const initialState = {
             }
         ],
 
-
-        rides: [{
-            id: 1,
-            name: 'Path to Work',
-            status: 'pending'
-        },
-        {
-            id: 2,
-            name: 'Grocery Run',
-            status: 'accepted'
-        },
-        {
-            id: 3,
-            name: 'Liquor store',
-            status: 'saved',
-        }
+        rides: [
+            {
+                id: 1,
+                name: "Path to Work",
+                status: "pending"
+            },
+            {
+                id: 2,
+                name: "Grocery Run",
+                status: "accepted"
+            },
+            {
+                id: 3,
+                name: "Liquor store",
+                status: "saved"
+            }
         ],
         incoming_ride_requests: [],
         outgoing_ride_requests: []
@@ -100,7 +103,6 @@ export function UserReducer(state = initialState, action) {
                 user: {
                     ...state.user,
                     incoming_ride_requests: [
-                        // ...state.user.incoming_ride_requests,
                         ...action.payload
                     ]
                 }
@@ -112,7 +114,6 @@ export function UserReducer(state = initialState, action) {
                 user: {
                     ...state.user,
                     outgoing_ride_requests: [
-                        // ...state.user.outgoing_ride_requests,
                         ...action.payload
                     ]
                 }
@@ -120,15 +121,10 @@ export function UserReducer(state = initialState, action) {
 
         case CANCEL_RIDE_REQUEST:
             const cancelledId = action.payload.request_id;
-            // console.log(action.payload.request_id, "cancel");
             return {
                 ...state,
                 user: {
                     ...state.user,
-                    // outgoing_ride_requests: [
-                    //     ...state.user.outgoing_ride_requests,
-                    //     action.payload
-                    // ]
                     outgoing_ride_requests: state.user.outgoing_ride_requests.filter(
                         (outgoing_rides) => outgoing_rides.id !== cancelledId
                     )
@@ -143,6 +139,27 @@ export function UserReducer(state = initialState, action) {
                     incoming_ride_requests: [...action.payload]
                 }
             };
+            //img url upload
+        // case UPLOAD_PROFILE_IMG_START:
+        //     return {
+        //         ...state,
+        //         isLoading: true,
+        //         error: null
+        //     };
+        // case UPLOAD_PROFILE_IMG_SUCCESS:
+        //     return {
+        //         ...state,
+        //         isLoading: false,
+        //         error: null
+        //     };
+        // case UPLOAD_PROFILE_IMG_ERROR:
+        //     return {
+        //         ...state,
+        //         isLoading: false,
+        //         error: action.payload
+        //     };
+        // add ADD RIDE case
+
         default:
             return state;
     }
