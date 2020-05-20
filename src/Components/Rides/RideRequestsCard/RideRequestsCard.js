@@ -12,7 +12,13 @@ function RideRequestsCard(props) {
     return (
         <div>
             {props.incoming ? (
-                <div className="incoming-request-card">
+                <div
+                    className={
+                        isDetailsOpen
+                            ? "incoming-request-card selected"
+                            : "incoming-request-card"
+                    }
+                >
                     <div className="incoming-request-overview">
                         <div className="request-card-upper">
                             <img
@@ -85,7 +91,13 @@ function RideRequestsCard(props) {
                     )}
                 </div>
             ) : (
-                <div className="outgoing-request-card">
+                <div
+                    className={
+                        isDetailsOpen
+                            ? "outgoing-request-card selected"
+                            : "outgoing-request-card"
+                    }
+                >
                     <div className="outgoing-request-overview">
                         <div className="request-card-upper">
                             <img

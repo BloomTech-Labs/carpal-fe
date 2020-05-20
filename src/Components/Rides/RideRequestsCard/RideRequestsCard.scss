@@ -5,7 +5,7 @@
     max-width: 800px;
     padding: 10px 20px;
     margin: 0 auto;
-    &:hover {
+    &.selected {
         background-color: $carpalLightGreen;
     }
     .incoming-request-overview,

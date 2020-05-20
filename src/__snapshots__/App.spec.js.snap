@@ -27,31 +27,6 @@ Object {
           >
             CarPal
           </a>
-          <nav
-            class="hamburger-nav"
-            id="hamburger-nav"
-          >
-            <a
-              href="/"
-            >
-              Home
-            </a>
-            <a
-              href="/about"
-            >
-              Meet the Team
-            </a>
-            <a
-              href="/login"
-            >
-              Login
-            </a>
-            <a
-              href="/signup"
-            >
-              Sign Up
-            </a>
-          </nav>
           <button
             class="hamburger"
             id="hamburger"
@@ -290,31 +265,6 @@ Object {
         >
           CarPal
         </a>
-        <nav
-          class="hamburger-nav"
-          id="hamburger-nav"
-        >
-          <a
-            href="/"
-          >
-            Home
-          </a>
-          <a
-            href="/about"
-          >
-            Meet the Team
-          </a>
-          <a
-            href="/login"
-          >
-            Login
-          </a>
-          <a
-            href="/signup"
-          >
-            Sign Up
-          </a>
-        </nav>
         <button
           class="hamburger"
           id="hamburger"
