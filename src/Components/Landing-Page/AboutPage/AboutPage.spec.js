@@ -15,4 +15,23 @@ describe("about page renders without crashing", () => {
         );
         expect(wrapper).toMatchSnapshot();
     });
+    test("header displays", () => {
+        const { getByTestId } = rtl.render(
+            <Router>
+                <About />
+            </Router>
+        );
+        expect(getByTestId("about-header")).toBeVisible();
+        expect(getByTestId("about-header")).toHaveTextContent(
+            /Meet the CarPallers/
+        );
+    });
+    test("carpallers section displays", () => {
+        const { getByTestId } = rtl.render(
+            <Router>
+                <About />
+            </Router>
+        );
+        expect(getByTestId("carpallers-section")).toBeVisible();
+    });
 });
