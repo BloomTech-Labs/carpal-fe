@@ -21,7 +21,7 @@ function LandingPage() {
             </section>
             <section className="main">
                 <div className="intro">
-                    <h1 data-testid="welcomeh1" className="introTitle">
+                    <h1 data-testid="welcomeh1" className="landing-header">
                         Welcome to CarPal
                     </h1>
                     <p data-testid="firstptag">

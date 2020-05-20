@@ -52,24 +52,32 @@
 .profileDetails {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     max-width: 800px;
     border-radius: 20px;
     padding: 10px 5px;
     margin: 10px auto 0;
+
     h2 {
         text-transform: initial;
         font-weight: initial;
         font-size: 2.2rem;
         padding: 10px;
-        margin: auto;
+        // margin: auto;
         color: $carpalDarkGrey;
     }
     .profileSection {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
         padding: 0.5rem 0;
+
+        @include respond-to("mobile") {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
         .flexContainer {
             display: flex;
             flex-direction: column;
@@ -78,7 +86,7 @@
             padding: 10px;
             //////////// change to a different element and can push this to the typography file.
             .bubble {
-                background: $carpalGrey;
+                background: $carpalLightGreen;
                 -webkit-border-radius: 20px;
                 -moz-border-radius: 20px;
                 border-radius: 20px;
@@ -89,5 +97,9 @@
                 margin: 5px auto 10px;
             }
         }
+    }
+
+    .buttonContainer {
+        margin: 0 auto;
     }
 }
