@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-
+import { createRide } from "../../../Redux/Actions/UserAction";
 //need to search all drivers locations
 function MyRide(props) {
     const [startLocationID, setStartLocationID] = useState();
@@ -28,40 +28,31 @@ function MyRide(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(props.createdRide);
+        props.createRide(props.rideCreated);
+        console.log(props.rideCreated);
     };
+    // users types in a new address and doesn't exist insert locations table insert it =>
 
     return (
         <div className="myride-container">
             <div>
                 <h2>My Rides</h2>
-                {/* <button className="add-button"> Add Ride +</button> */}
             </div>
 
             <form>
-                {/* setEndLocationID() */}
-                <button
-                    className="add-button"
-                    // onClick={() => setStartLocationID()}
-                >
-                    Add Ride +
-                </button>
+                <button className="add-button">Add Ride +</button>
                 <input
                     type="text"
                     name="start"
                     placeholder="Start Location ID"
                     // onChange={handleChange}
-                >
-                    {/* {startLocationID} */}
-                </input>
+                ></input>
                 <input
                     type="text"
                     name="end"
                     placeholder="End Location ID"
                     // onChange={handleChange}
-                >
-                    {/* {endLocationID} */}
-                </input>
+                ></input>
             </form>
             <button>Edit</button>
             <button>Delete</button>
@@ -71,6 +62,6 @@ function MyRide(props) {
 }
 
 const mapStateToProps = (state) => ({
-    createdRide: state.user.user.rideCreator
+    rideCreated: state.user.user.rideCreator
 });
-export default connect(mapStateToProps)(MyRide);
+export default connect(mapStateToProps, { createRide })(MyRide);

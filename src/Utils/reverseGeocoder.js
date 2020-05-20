@@ -1,11 +1,10 @@
 import axios from "axios";
 
 export default function geocode(location) {
-    let long;
-    let lat;
-    return axios
+    const lat = location.lat;
+    const long = location.long
         .get(
-            `https://api.mapbox.com/geocoding/v5/mapbox.places/${location.address}.json?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`
+            `https://api.mapbox.com/geocoding/v5/mapbox.places/-122.463%2C%2037.7648.json?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`
         )
         .then((response) => {
             const match = response.data.features.filter(

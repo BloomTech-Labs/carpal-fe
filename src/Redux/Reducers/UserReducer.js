@@ -11,6 +11,7 @@ import {
     UPDATE_RIDE_REQUEST,
     SET_START_LOCATION,
     SET_END_LOCATION,
+    CREATE_RIDE,
     UPLOAD_PROFILE_IMG_START,
     UPLOAD_PROFILE_IMG_SUCCESS,
     UPLOAD_PROFILE_IMG_ERROR
@@ -149,7 +150,7 @@ export function UserReducer(state = initialState, action) {
                 user: {
                     ...state.user,
                     rideCreator: {
-                        ...state.rideCreator,
+                        ...state.user.rideCreator,
                         start_location_id: action.payload
                     }
                 }
@@ -161,11 +162,17 @@ export function UserReducer(state = initialState, action) {
                 user: {
                     ...state.user,
                     rideCreator: {
-                        ...state.rideCreator,
+                        ...state.user.rideCreator,
                         end_location_id: action.payload
                     }
                 }
             };
+        //// CREATE_RIDE
+        case CREATE_RIDE:
+            return {
+                ...state
+            };
+
         //img url upload
         // case UPLOAD_PROFILE_IMG_START:
         //     return {

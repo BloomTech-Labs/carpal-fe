@@ -13,6 +13,7 @@ export const UPDATE_RIDE_REQUEST = "UPDATE_RIDE_REQUEST";
 ///CREATE RIDE
 export const SET_START_LOCATION = "SET_START_LOCATION";
 export const SET_END_LOCATION = "SET_END_LOCATION";
+export const CREATE_RIDE = "CREATE_RIDE";
 
 export const UPLOAD_PROFILE_IMG_START = "UPLOAD_START";
 export const UPLOAD_PROFILE_IMG_SUCCESS = "UPLOAD_SUCCESS";
@@ -205,5 +206,19 @@ export function setStartLocation(payload) {
 export function setEndLocation(payload) {
     return (dispatch) => {
         dispatch({ type: SET_END_LOCATION, payload: payload.id });
+    };
+}
+
+export function createRide(payload) {
+    return (dispatch) => {
+        dispatch({ type: CREATE_RIDE, payload });
+        api()
+            .post("/users/rides", payload)
+            .catch((error) => {
+                dispatch({
+                    type: REQUEST_ERROR,
+                    payload: error
+                });
+            });
     };
 }
