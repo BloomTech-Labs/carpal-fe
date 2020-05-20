@@ -20,11 +20,15 @@ Object {
         >
           <div
             class="awesome-aliens-box"
+            data-testid="awesome-aliens-box"
           >
             <div
               class="left"
+              data-testid="left"
             >
-              <h2>
+              <h2
+                data-testid="carpaller-name"
+              >
                 Dennis Padiernos
               </h2>
               <h3
@@ -37,6 +41,7 @@ Object {
               >
                 <div
                   class="img-container"
+                  data-testid="img-container"
                 >
                   <img
                     alt="CarPal cutie"
@@ -51,8 +56,10 @@ Object {
                 </div>
                 <div
                   class="socials"
+                  data-testid="socials"
                 >
                   <a
+                    data-testid="github-url"
                     href="https://github.com/depadiernos"
                     target="_blank"
                   >
@@ -75,10 +82,12 @@ Object {
               </p>
             </div>
             <div
-              class="right  show-tablet hide-desktop"
+              class="right show-tablet hide-desktop"
+              data-testid="right"
             >
               <div
                 class="img-container"
+                data-testid="img-container"
               >
                 <img
                   alt="CarPal cutie"
@@ -93,8 +102,10 @@ Object {
               </div>
               <div
                 class="socials"
+                data-testid="socials"
               >
                 <a
+                  data-testid="github-url"
                   href="https://github.com/depadiernos"
                   target="_blank"
                 >
@@ -115,11 +126,15 @@ Object {
           </div>
           <div
             class="awesome-aliens-box"
+            data-testid="awesome-aliens-box"
           >
             <div
               class="left"
+              data-testid="left"
             >
-              <h2>
+              <h2
+                data-testid="carpaller-name"
+              >
                 Dang Lu
               </h2>
               <h3
@@ -132,6 +147,7 @@ Object {
               >
                 <div
                   class="img-container"
+                  data-testid="img-container"
                 >
                   <img
                     alt="CarPal cutie"
@@ -146,8 +162,10 @@ Object {
                 </div>
                 <div
                   class="socials"
+                  data-testid="socials"
                 >
                   <a
+                    data-testid="github-url"
                     href="https://github.com/dangnlu18"
                     target="_blank"
                   >
@@ -170,10 +188,12 @@ Object {
               </p>
             </div>
             <div
-              class="right  show-tablet hide-desktop"
+              class="right show-tablet hide-desktop"
+              data-testid="right"
             >
               <div
                 class="img-container"
+                data-testid="img-container"
               >
                 <img
                   alt="CarPal cutie"
@@ -188,8 +208,10 @@ Object {
               </div>
               <div
                 class="socials"
+                data-testid="socials"
               >
                 <a
+                  data-testid="github-url"
                   href="https://github.com/dangnlu18"
                   target="_blank"
                 >
@@ -210,11 +232,15 @@ Object {
           </div>
           <div
             class="awesome-aliens-box"
+            data-testid="awesome-aliens-box"
           >
             <div
               class="left"
+              data-testid="left"
             >
-              <h2>
+              <h2
+                data-testid="carpaller-name"
+              >
                 Carl Redding
               </h2>
               <h3
@@ -227,6 +253,7 @@ Object {
               >
                 <div
                   class="img-container"
+                  data-testid="img-container"
                 >
                   <img
                     alt="CarPal cutie"
@@ -241,8 +268,10 @@ Object {
                 </div>
                 <div
                   class="socials"
+                  data-testid="socials"
                 >
                   <a
+                    data-testid="github-url"
                     href="https://github.com/miklo88"
                     target="_blank"
                   >
@@ -265,10 +294,12 @@ Object {
               </p>
             </div>
             <div
-              class="right  show-tablet hide-desktop"
+              class="right show-tablet hide-desktop"
+              data-testid="right"
             >
               <div
                 class="img-container"
+                data-testid="img-container"
               >
                 <img
                   alt="CarPal cutie"
@@ -283,8 +314,10 @@ Object {
               </div>
               <div
                 class="socials"
+                data-testid="socials"
               >
                 <a
+                  data-testid="github-url"
                   href="https://github.com/miklo88"
                   target="_blank"
                 >
@@ -305,11 +338,15 @@ Object {
           </div>
           <div
             class="awesome-aliens-box"
+            data-testid="awesome-aliens-box"
           >
             <div
               class="left"
+              data-testid="left"
             >
-              <h2>
+              <h2
+                data-testid="carpaller-name"
+              >
                 Daniel Martin
               </h2>
               <h3
@@ -322,6 +359,7 @@ Object {
               >
                 <div
                   class="img-container"
+                  data-testid="img-container"
                 >
                   <img
                     alt="CarPal cutie"
@@ -336,8 +374,10 @@ Object {
                 </div>
                 <div
                   class="socials"
+                  data-testid="socials"
                 >
                   <a
+                    data-testid="github-url"
                     href="https://github.com/ohfr"
                     target="_blank"
                   >
@@ -360,10 +400,12 @@ Object {
               </p>
             </div>
             <div
-              class="right  show-tablet hide-desktop"
+              class="right show-tablet hide-desktop"
+              data-testid="right"
             >
               <div
                 class="img-container"
+                data-testid="img-container"
               >
                 <img
                   alt="CarPal cutie"
@@ -378,8 +420,10 @@ Object {
               </div>
               <div
                 class="socials"
+                data-testid="socials"
               >
                 <a
+                  data-testid="github-url"
                   href="https://github.com/ohfr"
                   target="_blank"
                 >
@@ -400,11 +444,15 @@ Object {
           </div>
           <div
             class="awesome-aliens-box"
+            data-testid="awesome-aliens-box"
           >
             <div
               class="left"
+              data-testid="left"
             >
-              <h2>
+              <h2
+                data-testid="carpaller-name"
+              >
                 Darren Angus
               </h2>
               <h3
@@ -417,6 +465,7 @@ Object {
               >
                 <div
                   class="img-container"
+                  data-testid="img-container"
                 >
                   <img
                     alt="CarPal cutie"
@@ -431,8 +480,10 @@ Object {
                 </div>
                 <div
                   class="socials"
+                  data-testid="socials"
                 >
                   <a
+                    data-testid="github-url"
                     href="https://github.com/dangus1924"
                     target="_blank"
                   >
@@ -455,10 +506,12 @@ Object {
               </p>
             </div>
             <div
-              class="right  show-tablet hide-desktop"
+              class="right show-tablet hide-desktop"
+              data-testid="right"
             >
               <div
                 class="img-container"
+                data-testid="img-container"
               >
                 <img
                   alt="CarPal cutie"
@@ -473,8 +526,10 @@ Object {
               </div>
               <div
                 class="socials"
+                data-testid="socials"
               >
                 <a
+                  data-testid="github-url"
                   href="https://github.com/dangus1924"
                   target="_blank"
                 >
@@ -495,11 +550,15 @@ Object {
           </div>
           <div
             class="awesome-aliens-box"
+            data-testid="awesome-aliens-box"
           >
             <div
               class="left"
+              data-testid="left"
             >
-              <h2>
+              <h2
+                data-testid="carpaller-name"
+              >
                 Lesley Banadzem
               </h2>
               <h3
@@ -512,6 +571,7 @@ Object {
               >
                 <div
                   class="img-container"
+                  data-testid="img-container"
                 >
                   <img
                     alt="CarPal cutie"
@@ -526,8 +586,10 @@ Object {
                 </div>
                 <div
                   class="socials"
+                  data-testid="socials"
                 >
                   <a
+                    data-testid="github-url"
                     href="https://github.com/lesleyfon"
                     target="_blank"
                   >
@@ -550,10 +612,12 @@ Object {
               </p>
             </div>
             <div
-              class="right  show-tablet hide-desktop"
+              class="right show-tablet hide-desktop"
+              data-testid="right"
             >
               <div
                 class="img-container"
+                data-testid="img-container"
               >
                 <img
                   alt="CarPal cutie"
@@ -568,8 +632,10 @@ Object {
               </div>
               <div
                 class="socials"
+                data-testid="socials"
               >
                 <a
+                  data-testid="github-url"
                   href="https://github.com/lesleyfon"
                   target="_blank"
                 >
@@ -590,11 +656,15 @@ Object {
           </div>
           <div
             class="awesome-aliens-box"
+            data-testid="awesome-aliens-box"
           >
             <div
               class="left"
+              data-testid="left"
             >
-              <h2>
+              <h2
+                data-testid="carpaller-name"
+              >
                 Ruth Poliakon
               </h2>
               <h3
@@ -607,6 +677,7 @@ Object {
               >
                 <div
                   class="img-container"
+                  data-testid="img-container"
                 >
                   <img
                     alt="CarPal cutie"
@@ -621,8 +692,10 @@ Object {
                 </div>
                 <div
                   class="socials"
+                  data-testid="socials"
                 >
                   <a
+                    data-testid="github-url"
                     href="https://github.com/rupol"
                     target="_blank"
                   >
@@ -645,10 +718,12 @@ Object {
               </p>
             </div>
             <div
-              class="right  show-tablet hide-desktop"
+              class="right show-tablet hide-desktop"
+              data-testid="right"
             >
               <div
                 class="img-container"
+                data-testid="img-container"
               >
                 <img
                   alt="CarPal cutie"
@@ -663,8 +738,10 @@ Object {
               </div>
               <div
                 class="socials"
+                data-testid="socials"
               >
                 <a
+                  data-testid="github-url"
                   href="https://github.com/rupol"
                   target="_blank"
                 >
@@ -685,11 +762,15 @@ Object {
           </div>
           <div
             class="awesome-aliens-box"
+            data-testid="awesome-aliens-box"
           >
             <div
               class="left"
+              data-testid="left"
             >
-              <h2>
+              <h2
+                data-testid="carpaller-name"
+              >
                 Steven Vandenburg
               </h2>
               <h3
@@ -702,6 +783,7 @@ Object {
               >
                 <div
                   class="img-container"
+                  data-testid="img-container"
                 >
                   <img
                     alt="CarPal cutie"
@@ -716,8 +798,10 @@ Object {
                 </div>
                 <div
                   class="socials"
+                  data-testid="socials"
                 >
                   <a
+                    data-testid="github-url"
                     href="https://github.com/smv5047"
                     target="_blank"
                   >
@@ -740,10 +824,12 @@ Object {
               </p>
             </div>
             <div
-              class="right  show-tablet hide-desktop"
+              class="right show-tablet hide-desktop"
+              data-testid="right"
             >
               <div
                 class="img-container"
+                data-testid="img-container"
               >
                 <img
                   alt="CarPal cutie"
@@ -758,8 +844,10 @@ Object {
               </div>
               <div
                 class="socials"
+                data-testid="socials"
               >
                 <a
+                  data-testid="github-url"
                   href="https://github.com/smv5047"
                   target="_blank"
                 >
@@ -798,11 +886,15 @@ Object {
       >
         <div
           class="awesome-aliens-box"
+          data-testid="awesome-aliens-box"
         >
           <div
             class="left"
+            data-testid="left"
           >
-            <h2>
+            <h2
+              data-testid="carpaller-name"
+            >
               Dennis Padiernos
             </h2>
             <h3
@@ -815,6 +907,7 @@ Object {
             >
               <div
                 class="img-container"
+                data-testid="img-container"
               >
                 <img
                   alt="CarPal cutie"
@@ -829,8 +922,10 @@ Object {
               </div>
               <div
                 class="socials"
+                data-testid="socials"
               >
                 <a
+                  data-testid="github-url"
                   href="https://github.com/depadiernos"
                   target="_blank"
                 >
@@ -853,10 +948,12 @@ Object {
             </p>
           </div>
           <div
-            class="right  show-tablet hide-desktop"
+            class="right show-tablet hide-desktop"
+            data-testid="right"
           >
             <div
               class="img-container"
+              data-testid="img-container"
             >
               <img
                 alt="CarPal cutie"
@@ -871,8 +968,10 @@ Object {
             </div>
             <div
               class="socials"
+              data-testid="socials"
             >
               <a
+                data-testid="github-url"
                 href="https://github.com/depadiernos"
                 target="_blank"
               >
@@ -893,11 +992,15 @@ Object {
         </div>
         <div
           class="awesome-aliens-box"
+          data-testid="awesome-aliens-box"
         >
           <div
             class="left"
+            data-testid="left"
           >
-            <h2>
+            <h2
+              data-testid="carpaller-name"
+            >
               Dang Lu
             </h2>
             <h3
@@ -910,6 +1013,7 @@ Object {
             >
               <div
                 class="img-container"
+                data-testid="img-container"
               >
                 <img
                   alt="CarPal cutie"
@@ -924,8 +1028,10 @@ Object {
               </div>
               <div
                 class="socials"
+                data-testid="socials"
               >
                 <a
+                  data-testid="github-url"
                   href="https://github.com/dangnlu18"
                   target="_blank"
                 >
@@ -948,10 +1054,12 @@ Object {
             </p>
           </div>
           <div
-            class="right  show-tablet hide-desktop"
+            class="right show-tablet hide-desktop"
+            data-testid="right"
           >
             <div
               class="img-container"
+              data-testid="img-container"
             >
               <img
                 alt="CarPal cutie"
@@ -966,8 +1074,10 @@ Object {
             </div>
             <div
               class="socials"
+              data-testid="socials"
             >
               <a
+                data-testid="github-url"
                 href="https://github.com/dangnlu18"
                 target="_blank"
               >
@@ -988,11 +1098,15 @@ Object {
         </div>
         <div
           class="awesome-aliens-box"
+          data-testid="awesome-aliens-box"
         >
           <div
             class="left"
+            data-testid="left"
           >
-            <h2>
+            <h2
+              data-testid="carpaller-name"
+            >
               Carl Redding
             </h2>
             <h3
@@ -1005,6 +1119,7 @@ Object {
             >
               <div
                 class="img-container"
+                data-testid="img-container"
               >
                 <img
                   alt="CarPal cutie"
@@ -1019,8 +1134,10 @@ Object {
               </div>
               <div
                 class="socials"
+                data-testid="socials"
               >
                 <a
+                  data-testid="github-url"
                   href="https://github.com/miklo88"
                   target="_blank"
                 >
@@ -1043,10 +1160,12 @@ Object {
             </p>
           </div>
           <div
-            class="right  show-tablet hide-desktop"
+            class="right show-tablet hide-desktop"
+            data-testid="right"
           >
             <div
               class="img-container"
+              data-testid="img-container"
             >
               <img
                 alt="CarPal cutie"
@@ -1061,8 +1180,10 @@ Object {
             </div>
             <div
               class="socials"
+              data-testid="socials"
             >
               <a
+                data-testid="github-url"
                 href="https://github.com/miklo88"
                 target="_blank"
               >
@@ -1083,11 +1204,15 @@ Object {
         </div>
         <div
           class="awesome-aliens-box"
+          data-testid="awesome-aliens-box"
         >
           <div
             class="left"
+            data-testid="left"
           >
-            <h2>
+            <h2
+              data-testid="carpaller-name"
+            >
               Daniel Martin
             </h2>
             <h3
@@ -1100,6 +1225,7 @@ Object {
             >
               <div
                 class="img-container"
+                data-testid="img-container"
               >
                 <img
                   alt="CarPal cutie"
@@ -1114,8 +1240,10 @@ Object {
               </div>
               <div
                 class="socials"
+                data-testid="socials"
               >
                 <a
+                  data-testid="github-url"
                   href="https://github.com/ohfr"
                   target="_blank"
                 >
@@ -1138,10 +1266,12 @@ Object {
             </p>
           </div>
           <div
-            class="right  show-tablet hide-desktop"
+            class="right show-tablet hide-desktop"
+            data-testid="right"
           >
             <div
               class="img-container"
+              data-testid="img-container"
             >
               <img
                 alt="CarPal cutie"
@@ -1156,8 +1286,10 @@ Object {
             </div>
             <div
               class="socials"
+              data-testid="socials"
             >
               <a
+                data-testid="github-url"
                 href="https://github.com/ohfr"
                 target="_blank"
               >
@@ -1178,11 +1310,15 @@ Object {
         </div>
         <div
           class="awesome-aliens-box"
+          data-testid="awesome-aliens-box"
         >
           <div
             class="left"
+            data-testid="left"
           >
-            <h2>
+            <h2
+              data-testid="carpaller-name"
+            >
               Darren Angus
             </h2>
             <h3
@@ -1195,6 +1331,7 @@ Object {
             >
               <div
                 class="img-container"
+                data-testid="img-container"
               >
                 <img
                   alt="CarPal cutie"
@@ -1209,8 +1346,10 @@ Object {
               </div>
               <div
                 class="socials"
+                data-testid="socials"
               >
                 <a
+                  data-testid="github-url"
                   href="https://github.com/dangus1924"
                   target="_blank"
                 >
@@ -1233,10 +1372,12 @@ Object {
             </p>
           </div>
           <div
-            class="right  show-tablet hide-desktop"
+            class="right show-tablet hide-desktop"
+            data-testid="right"
           >
             <div
               class="img-container"
+              data-testid="img-container"
             >
               <img
                 alt="CarPal cutie"
@@ -1251,8 +1392,10 @@ Object {
             </div>
             <div
               class="socials"
+              data-testid="socials"
             >
               <a
+                data-testid="github-url"
                 href="https://github.com/dangus1924"
                 target="_blank"
               >
@@ -1273,11 +1416,15 @@ Object {
         </div>
         <div
           class="awesome-aliens-box"
+          data-testid="awesome-aliens-box"
         >
           <div
             class="left"
+            data-testid="left"
           >
-            <h2>
+            <h2
+              data-testid="carpaller-name"
+            >
               Lesley Banadzem
             </h2>
             <h3
@@ -1290,6 +1437,7 @@ Object {
             >
               <div
                 class="img-container"
+                data-testid="img-container"
               >
                 <img
                   alt="CarPal cutie"
@@ -1304,8 +1452,10 @@ Object {
               </div>
               <div
                 class="socials"
+                data-testid="socials"
               >
                 <a
+                  data-testid="github-url"
                   href="https://github.com/lesleyfon"
                   target="_blank"
                 >
@@ -1328,10 +1478,12 @@ Object {
             </p>
           </div>
           <div
-            class="right  show-tablet hide-desktop"
+            class="right show-tablet hide-desktop"
+            data-testid="right"
           >
             <div
               class="img-container"
+              data-testid="img-container"
             >
               <img
                 alt="CarPal cutie"
@@ -1346,8 +1498,10 @@ Object {
             </div>
             <div
               class="socials"
+              data-testid="socials"
             >
               <a
+                data-testid="github-url"
                 href="https://github.com/lesleyfon"
                 target="_blank"
               >
@@ -1368,11 +1522,15 @@ Object {
         </div>
         <div
           class="awesome-aliens-box"
+          data-testid="awesome-aliens-box"
         >
           <div
             class="left"
+            data-testid="left"
           >
-            <h2>
+            <h2
+              data-testid="carpaller-name"
+            >
               Ruth Poliakon
             </h2>
             <h3
@@ -1385,6 +1543,7 @@ Object {
             >
               <div
                 class="img-container"
+                data-testid="img-container"
               >
                 <img
                   alt="CarPal cutie"
@@ -1399,8 +1558,10 @@ Object {
               </div>
               <div
                 class="socials"
+                data-testid="socials"
               >
                 <a
+                  data-testid="github-url"
                   href="https://github.com/rupol"
                   target="_blank"
                 >
@@ -1423,10 +1584,12 @@ Object {
             </p>
           </div>
           <div
-            class="right  show-tablet hide-desktop"
+            class="right show-tablet hide-desktop"
+            data-testid="right"
           >
             <div
               class="img-container"
+              data-testid="img-container"
             >
               <img
                 alt="CarPal cutie"
@@ -1441,8 +1604,10 @@ Object {
             </div>
             <div
               class="socials"
+              data-testid="socials"
             >
               <a
+                data-testid="github-url"
                 href="https://github.com/rupol"
                 target="_blank"
               >
@@ -1463,11 +1628,15 @@ Object {
         </div>
         <div
           class="awesome-aliens-box"
+          data-testid="awesome-aliens-box"
         >
           <div
             class="left"
+            data-testid="left"
           >
-            <h2>
+            <h2
+              data-testid="carpaller-name"
+            >
               Steven Vandenburg
             </h2>
             <h3
@@ -1480,6 +1649,7 @@ Object {
             >
               <div
                 class="img-container"
+                data-testid="img-container"
               >
                 <img
                   alt="CarPal cutie"
@@ -1494,8 +1664,10 @@ Object {
               </div>
               <div
                 class="socials"
+                data-testid="socials"
               >
                 <a
+                  data-testid="github-url"
                   href="https://github.com/smv5047"
                   target="_blank"
                 >
@@ -1518,10 +1690,12 @@ Object {
             </p>
           </div>
           <div
-            class="right  show-tablet hide-desktop"
+            class="right show-tablet hide-desktop"
+            data-testid="right"
           >
             <div
               class="img-container"
+              data-testid="img-container"
             >
               <img
                 alt="CarPal cutie"
@@ -1536,8 +1710,10 @@ Object {
             </div>
             <div
               class="socials"
+              data-testid="socials"
             >
               <a
+                data-testid="github-url"
                 href="https://github.com/smv5047"
                 target="_blank"
               >

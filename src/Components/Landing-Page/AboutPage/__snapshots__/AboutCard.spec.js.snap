@@ -28,6 +28,7 @@ Object {
           >
             <div
               class="img-container"
+              data-testid="img-container"
             >
               <img
                 alt="CarPal cutie"
@@ -42,8 +43,10 @@ Object {
             </div>
             <div
               class="socials"
+              data-testid="socials"
             >
               <a
+                data-testid="github-url"
                 href="https://github.com/depadiernos"
                 target="_blank"
               >
@@ -71,6 +74,7 @@ Object {
         >
           <div
             class="img-container"
+            data-testid="img-container"
           >
             <img
               alt="CarPal cutie"
@@ -85,8 +89,10 @@ Object {
           </div>
           <div
             class="socials"
+            data-testid="socials"
           >
             <a
+              data-testid="github-url"
               href="https://github.com/depadiernos"
               target="_blank"
             >
@@ -131,6 +137,7 @@ Object {
         >
           <div
             class="img-container"
+            data-testid="img-container"
           >
             <img
               alt="CarPal cutie"
@@ -145,8 +152,10 @@ Object {
           </div>
           <div
             class="socials"
+            data-testid="socials"
           >
             <a
+              data-testid="github-url"
               href="https://github.com/depadiernos"
               target="_blank"
             >
@@ -174,6 +183,7 @@ Object {
       >
         <div
           class="img-container"
+          data-testid="img-container"
         >
           <img
             alt="CarPal cutie"
@@ -188,8 +198,10 @@ Object {
         </div>
         <div
           class="socials"
+          data-testid="socials"
         >
           <a
+            data-testid="github-url"
             href="https://github.com/depadiernos"
             target="_blank"
           >

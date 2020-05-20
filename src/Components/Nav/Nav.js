@@ -6,7 +6,6 @@ import iconHome from "../../img/footer-icons/icon-home.png";
 import iconRequests from "../../img/footer-icons/icon-requests.png";
 import iconSaved from "../../img/footer-icons/icon-saved.png";
 
-
 import "./Nav.scss";
 
 function Nav() {

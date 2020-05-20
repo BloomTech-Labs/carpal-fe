@@ -32,6 +32,16 @@ Object {
             id="hamburger-nav"
           >
             <a
+              href="/"
+            >
+              Home
+            </a>
+            <a
+              href="/about"
+            >
+              Meet the Team
+            </a>
+            <a
               href="/login"
             >
               Login
@@ -284,6 +294,16 @@ Object {
           class="hamburger-nav"
           id="hamburger-nav"
         >
+          <a
+            href="/"
+          >
+            Home
+          </a>
+          <a
+            href="/about"
+          >
+            Meet the Team
+          </a>
           <a
             href="/login"
           >
