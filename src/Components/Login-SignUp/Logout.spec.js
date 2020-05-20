@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import * as rtl from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import { Provider } from "react-redux";
@@ -9,14 +8,13 @@ import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { UserReducer as reducer } from "./../../Redux/Reducers/UserReducer";
 
-import { render, wait } from "@testing-library/react";
+import { render, wait, cleanup, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import logger from "redux-logger";
 
 import Logout from "./Logout";
 import TopNav from "../Nav/TopNav";
 
-afterEach(rtl.cleanup);
+afterEach(cleanup);
 
 describe("renders without crashing", () => {
     const div = document.createElement("div");
@@ -30,7 +28,7 @@ describe("renders without crashing", () => {
 
 function renderWithRedux(
     ui,
-    { store = createStore(reducer, applyMiddleware(thunk, logger)) } = {}
+    { store = createStore(reducer, applyMiddleware(thunk)) } = {}
 ) {
     return {
         ...render(<Provider store={store}>{<Router>{ui}</Router>}</Provider>),
@@ -50,7 +48,7 @@ describe("logout user", () => {
 
         const logout = wrapper.queryByText("Logout");
 
-        rtl.fireEvent.click(logout);
+        fireEvent.click(logout);
 
         await wait(() => {
             const noToken = localStorage.getItem("token");

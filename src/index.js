@@ -5,7 +5,6 @@ import App from "./App";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import { BrowserRouter as Router } from "react-router-dom";
-import logger from "redux-logger";
 import thunk from "redux-thunk";
 import { UserReducer } from "./Redux/Reducers/UserReducer";
 import { locationReducer } from "./Redux/Reducers/LocationReducer";
@@ -15,7 +14,7 @@ const rootReducer = combineReducers({
     locations: locationReducer
 });
 
-const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
     <Provider store={store}>
@@ -25,3 +24,4 @@ ReactDOM.render(
     </Provider>,
     document.getElementById("root")
 );
+

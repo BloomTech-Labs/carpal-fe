@@ -3,19 +3,14 @@ import * as rtl from "@testing-library/react";
 import configureStore from "redux-mock-store";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
-import renderer from "react-test-renderer";
 import MapBox from "./MapBox";
 import "@testing-library/jest-dom/extend-expect";
 
 afterEach(rtl.cleanup);
 
-// mock mapbox map, not in use currently
-// jest.mock("mapbox-gl/dist/mapbox-gl", () => ({
-//     Map: () => ({})
-// }));
-
 //mock navigator's getCurrentPosition function
 const mockGeolocation = {
+
     getCurrentPosition: jest.fn().mockImplementationOnce((vals) => vals)
 };
 
@@ -27,7 +22,7 @@ let store;
 const mockstore = configureStore([thunk]);
 
 beforeEach(() => {
-    //user obj in the mockstore.
+    //user obj in the mockStore.
     store = mockstore({
         user: {
             user: {
@@ -62,18 +57,19 @@ describe("display mapbox", () => {
         expect(label).toBeInTheDocument();
         expect(label).toBeVisible();
     });
+    
     //snapshot testing props being passed to the component. OH SNAP
     test("matches snapshot", () => {
-        const tree = renderer.create(
+        const tree = rtl.render(
             <Provider store={store}>
                 <MapBox />
             </Provider>
         );
         expect(tree).toMatchSnapshot();
-        // returning obj
-        console.log(tree.toJSON());
     });
     test("Navigator function working", () => {
-        expect(navigator.geolocation.getCurrentPosition).toHaveBeenCalled();
+
+        navigator.geolocation.getCurrentPosition();
+    expect( navigator.geolocation.getCurrentPosition).toHaveBeenCalled();
     });
 });
