@@ -32,11 +32,21 @@ function TopNav() {
             >
                 {!loggedIn ? (
                     <>
+                        <Link to="/">Home</Link>
+                        <Link to="/about">Meet the Team</Link>
                         <Link to="/login">Login</Link>
                         <Link to="/signup">Sign Up</Link>
                     </>
                 ) : (
-                    <Link to="/logout">Logout</Link>
+                    <>
+                        <Link to="/home">Find a Ride</Link>
+                        <Link to="/profilepage">Profile</Link>
+                        <Link to="/saved">Saved Rides</Link>
+                        <Link to="/requests">Requests</Link>
+                        <Link to="/">Home</Link>
+                        <Link to="/about">Meet the Team</Link>
+                        <Link to="/logout">Logout</Link>
+                    </>
                 )}
             </nav>
 
