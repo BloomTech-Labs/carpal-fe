@@ -1,0 +1,1614 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`about page renders without crashing <AboutPage /> snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="landing-page about-page"
+      >
+        <h1
+          class="landing-header"
+          data-testid="about-header"
+        >
+          Meet the CarPallers
+        </h1>
+        <section
+          class="carpallers"
+          data-testid="carpallers-section"
+        >
+          <div
+            class="awesome-aliens-box"
+          >
+            <div
+              class="left"
+            >
+              <h2>
+                Dennis Padiernos
+              </h2>
+              <h3
+                class="team-title"
+              >
+                Chief Dad Joke Officer
+              </h3>
+              <div
+                class="hide-tablet show-desktop"
+              >
+                <div
+                  class="img-container"
+                >
+                  <img
+                    alt="CarPal cutie"
+                    class="over"
+                    src="blue.png"
+                  />
+                  <img
+                    alt="Dennis Padiernos"
+                    class="under"
+                    src="dennis.jpg"
+                  />
+                </div>
+                <div
+                  class="socials"
+                >
+                  <a
+                    href="https://github.com/depadiernos"
+                    target="_blank"
+                  >
+                    <i
+                      class="fab fa-github fa-3x"
+                    />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/dennispadiernos"
+                    target="_blank"
+                  >
+                    <i
+                      class="fab fa-linkedin-in fa-3x"
+                    />
+                  </a>
+                </div>
+              </div>
+              <p>
+                Dennis is a software engineer who also loves music and mechanical keyboards and in his free time, he likes long walks by the beach and being a secret agent of OWCA (Organization Without a Cool Acronym)
+              </p>
+            </div>
+            <div
+              class="right  show-tablet hide-desktop"
+            >
+              <div
+                class="img-container"
+              >
+                <img
+                  alt="CarPal cutie"
+                  class="over"
+                  src="blue.png"
+                />
+                <img
+                  alt="Dennis Padiernos"
+                  class="under"
+                  src="dennis.jpg"
+                />
+              </div>
+              <div
+                class="socials"
+              >
+                <a
+                  href="https://github.com/depadiernos"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-github fa-3x"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/dennispadiernos"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-linkedin-in fa-3x"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="awesome-aliens-box"
+          >
+            <div
+              class="left"
+            >
+              <h2>
+                Dang Lu
+              </h2>
+              <h3
+                class="team-title"
+              >
+                Chief Front-end Guru
+              </h3>
+              <div
+                class="hide-tablet show-desktop"
+              >
+                <div
+                  class="img-container"
+                >
+                  <img
+                    alt="CarPal cutie"
+                    class="over"
+                    src="golden.png"
+                  />
+                  <img
+                    alt="Dang Lu"
+                    class="under"
+                    src="dang.jpg"
+                  />
+                </div>
+                <div
+                  class="socials"
+                >
+                  <a
+                    href="https://github.com/dangnlu18"
+                    target="_blank"
+                  >
+                    <i
+                      class="fab fa-github fa-3x"
+                    />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/dang-lu"
+                    target="_blank"
+                  >
+                    <i
+                      class="fab fa-linkedin-in fa-3x"
+                    />
+                  </a>
+                </div>
+              </div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+            <div
+              class="right  show-tablet hide-desktop"
+            >
+              <div
+                class="img-container"
+              >
+                <img
+                  alt="CarPal cutie"
+                  class="over"
+                  src="golden.png"
+                />
+                <img
+                  alt="Dang Lu"
+                  class="under"
+                  src="dang.jpg"
+                />
+              </div>
+              <div
+                class="socials"
+              >
+                <a
+                  href="https://github.com/dangnlu18"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-github fa-3x"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/dang-lu"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-linkedin-in fa-3x"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="awesome-aliens-box"
+          >
+            <div
+              class="left"
+            >
+              <h2>
+                Carl Redding
+              </h2>
+              <h3
+                class="team-title"
+              >
+                Chief Cutie Creator
+              </h3>
+              <div
+                class="hide-tablet show-desktop"
+              >
+                <div
+                  class="img-container"
+                >
+                  <img
+                    alt="CarPal cutie"
+                    class="over"
+                    src="gray.png"
+                  />
+                  <img
+                    alt="Carl Redding"
+                    class="under"
+                    src="carl.jpg"
+                  />
+                </div>
+                <div
+                  class="socials"
+                >
+                  <a
+                    href="https://github.com/miklo88"
+                    target="_blank"
+                  >
+                    <i
+                      class="fab fa-github fa-3x"
+                    />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/carl-redding-000a4281"
+                    target="_blank"
+                  >
+                    <i
+                      class="fab fa-linkedin-in fa-3x"
+                    />
+                  </a>
+                </div>
+              </div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+            <div
+              class="right  show-tablet hide-desktop"
+            >
+              <div
+                class="img-container"
+              >
+                <img
+                  alt="CarPal cutie"
+                  class="over"
+                  src="gray.png"
+                />
+                <img
+                  alt="Carl Redding"
+                  class="under"
+                  src="carl.jpg"
+                />
+              </div>
+              <div
+                class="socials"
+              >
+                <a
+                  href="https://github.com/miklo88"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-github fa-3x"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/carl-redding-000a4281"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-linkedin-in fa-3x"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="awesome-aliens-box"
+          >
+            <div
+              class="left"
+            >
+              <h2>
+                Daniel Martin
+              </h2>
+              <h3
+                class="team-title"
+              >
+                Chief Cutie Creator
+              </h3>
+              <div
+                class="hide-tablet show-desktop"
+              >
+                <div
+                  class="img-container"
+                >
+                  <img
+                    alt="CarPal cutie"
+                    class="over"
+                    src="light-green.png"
+                  />
+                  <img
+                    alt="Daniel Martin"
+                    class="under"
+                    src="daniel.jpg"
+                  />
+                </div>
+                <div
+                  class="socials"
+                >
+                  <a
+                    href="https://github.com/ohfr"
+                    target="_blank"
+                  >
+                    <i
+                      class="fab fa-github fa-3x"
+                    />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/daniel-p-martin"
+                    target="_blank"
+                  >
+                    <i
+                      class="fab fa-linkedin-in fa-3x"
+                    />
+                  </a>
+                </div>
+              </div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+            <div
+              class="right  show-tablet hide-desktop"
+            >
+              <div
+                class="img-container"
+              >
+                <img
+                  alt="CarPal cutie"
+                  class="over"
+                  src="light-green.png"
+                />
+                <img
+                  alt="Daniel Martin"
+                  class="under"
+                  src="daniel.jpg"
+                />
+              </div>
+              <div
+                class="socials"
+              >
+                <a
+                  href="https://github.com/ohfr"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-github fa-3x"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/daniel-p-martin"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-linkedin-in fa-3x"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="awesome-aliens-box"
+          >
+            <div
+              class="left"
+            >
+              <h2>
+                Darren Angus
+              </h2>
+              <h3
+                class="team-title"
+              >
+                Chief Director of Sabotage and Obfuscation
+              </h3>
+              <div
+                class="hide-tablet show-desktop"
+              >
+                <div
+                  class="img-container"
+                >
+                  <img
+                    alt="CarPal cutie"
+                    class="over"
+                    src="OG-turquoise.png"
+                  />
+                  <img
+                    alt="Darren Angus"
+                    class="under"
+                    src="darren.jpg"
+                  />
+                </div>
+                <div
+                  class="socials"
+                >
+                  <a
+                    href="https://github.com/dangus1924"
+                    target="_blank"
+                  >
+                    <i
+                      class="fab fa-github fa-3x"
+                    />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/darren-angus-441b7b188"
+                    target="_blank"
+                  >
+                    <i
+                      class="fab fa-linkedin-in fa-3x"
+                    />
+                  </a>
+                </div>
+              </div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+            <div
+              class="right  show-tablet hide-desktop"
+            >
+              <div
+                class="img-container"
+              >
+                <img
+                  alt="CarPal cutie"
+                  class="over"
+                  src="OG-turquoise.png"
+                />
+                <img
+                  alt="Darren Angus"
+                  class="under"
+                  src="darren.jpg"
+                />
+              </div>
+              <div
+                class="socials"
+              >
+                <a
+                  href="https://github.com/dangus1924"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-github fa-3x"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/darren-angus-441b7b188"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-linkedin-in fa-3x"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="awesome-aliens-box"
+          >
+            <div
+              class="left"
+            >
+              <h2>
+                Lesley Banadzem
+              </h2>
+              <h3
+                class="team-title"
+              >
+                Chief Code Fixer
+              </h3>
+              <div
+                class="hide-tablet show-desktop"
+              >
+                <div
+                  class="img-container"
+                >
+                  <img
+                    alt="CarPal cutie"
+                    class="over"
+                    src="yellow-orange.png"
+                  />
+                  <img
+                    alt="Lesley Banadzem"
+                    class="under"
+                    src="lesley.jpg"
+                  />
+                </div>
+                <div
+                  class="socials"
+                >
+                  <a
+                    href="https://github.com/lesleyfon"
+                    target="_blank"
+                  >
+                    <i
+                      class="fab fa-github fa-3x"
+                    />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/lesley-banadzem"
+                    target="_blank"
+                  >
+                    <i
+                      class="fab fa-linkedin-in fa-3x"
+                    />
+                  </a>
+                </div>
+              </div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+            <div
+              class="right  show-tablet hide-desktop"
+            >
+              <div
+                class="img-container"
+              >
+                <img
+                  alt="CarPal cutie"
+                  class="over"
+                  src="yellow-orange.png"
+                />
+                <img
+                  alt="Lesley Banadzem"
+                  class="under"
+                  src="lesley.jpg"
+                />
+              </div>
+              <div
+                class="socials"
+              >
+                <a
+                  href="https://github.com/lesleyfon"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-github fa-3x"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/lesley-banadzem"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-linkedin-in fa-3x"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="awesome-aliens-box"
+          >
+            <div
+              class="left"
+            >
+              <h2>
+                Ruth Poliakon
+              </h2>
+              <h3
+                class="team-title"
+              >
+                Chief Zoom Host
+              </h3>
+              <div
+                class="hide-tablet show-desktop"
+              >
+                <div
+                  class="img-container"
+                >
+                  <img
+                    alt="CarPal cutie"
+                    class="over"
+                    src="rose.png"
+                  />
+                  <img
+                    alt="Ruth Poliakon"
+                    class="under"
+                    src="ruth.jpg"
+                  />
+                </div>
+                <div
+                  class="socials"
+                >
+                  <a
+                    href="https://github.com/rupol"
+                    target="_blank"
+                  >
+                    <i
+                      class="fab fa-github fa-3x"
+                    />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/ruthpoliakon"
+                    target="_blank"
+                  >
+                    <i
+                      class="fab fa-linkedin-in fa-3x"
+                    />
+                  </a>
+                </div>
+              </div>
+              <p>
+                Ruth is an entomologist, master gardener, and chicken enthusiast who applies the skills she gained in biological research to front end development.
+              </p>
+            </div>
+            <div
+              class="right  show-tablet hide-desktop"
+            >
+              <div
+                class="img-container"
+              >
+                <img
+                  alt="CarPal cutie"
+                  class="over"
+                  src="rose.png"
+                />
+                <img
+                  alt="Ruth Poliakon"
+                  class="under"
+                  src="ruth.jpg"
+                />
+              </div>
+              <div
+                class="socials"
+              >
+                <a
+                  href="https://github.com/rupol"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-github fa-3x"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/ruthpoliakon"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-linkedin-in fa-3x"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="awesome-aliens-box"
+          >
+            <div
+              class="left"
+            >
+              <h2>
+                Steven Vandenburg
+              </h2>
+              <h3
+                class="team-title"
+              >
+                Chief Driver
+              </h3>
+              <div
+                class="hide-tablet show-desktop"
+              >
+                <div
+                  class="img-container"
+                >
+                  <img
+                    alt="CarPal cutie"
+                    class="over"
+                    src="red.png"
+                  />
+                  <img
+                    alt="Steven Vandenburg"
+                    class="under"
+                    src="steven.jpg"
+                  />
+                </div>
+                <div
+                  class="socials"
+                >
+                  <a
+                    href="https://github.com/smv5047"
+                    target="_blank"
+                  >
+                    <i
+                      class="fab fa-github fa-3x"
+                    />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/stevenvandenburg"
+                    target="_blank"
+                  >
+                    <i
+                      class="fab fa-linkedin-in fa-3x"
+                    />
+                  </a>
+                </div>
+              </div>
+              <p>
+                Debonair Dad, DJ, and Developer.
+              </p>
+            </div>
+            <div
+              class="right  show-tablet hide-desktop"
+            >
+              <div
+                class="img-container"
+              >
+                <img
+                  alt="CarPal cutie"
+                  class="over"
+                  src="red.png"
+                />
+                <img
+                  alt="Steven Vandenburg"
+                  class="under"
+                  src="steven.jpg"
+                />
+              </div>
+              <div
+                class="socials"
+              >
+                <a
+                  href="https://github.com/smv5047"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-github fa-3x"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/stevenvandenburg"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-linkedin-in fa-3x"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="landing-page about-page"
+    >
+      <h1
+        class="landing-header"
+        data-testid="about-header"
+      >
+        Meet the CarPallers
+      </h1>
+      <section
+        class="carpallers"
+        data-testid="carpallers-section"
+      >
+        <div
+          class="awesome-aliens-box"
+        >
+          <div
+            class="left"
+          >
+            <h2>
+              Dennis Padiernos
+            </h2>
+            <h3
+              class="team-title"
+            >
+              Chief Dad Joke Officer
+            </h3>
+            <div
+              class="hide-tablet show-desktop"
+            >
+              <div
+                class="img-container"
+              >
+                <img
+                  alt="CarPal cutie"
+                  class="over"
+                  src="blue.png"
+                />
+                <img
+                  alt="Dennis Padiernos"
+                  class="under"
+                  src="dennis.jpg"
+                />
+              </div>
+              <div
+                class="socials"
+              >
+                <a
+                  href="https://github.com/depadiernos"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-github fa-3x"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/dennispadiernos"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-linkedin-in fa-3x"
+                  />
+                </a>
+              </div>
+            </div>
+            <p>
+              Dennis is a software engineer who also loves music and mechanical keyboards and in his free time, he likes long walks by the beach and being a secret agent of OWCA (Organization Without a Cool Acronym)
+            </p>
+          </div>
+          <div
+            class="right  show-tablet hide-desktop"
+          >
+            <div
+              class="img-container"
+            >
+              <img
+                alt="CarPal cutie"
+                class="over"
+                src="blue.png"
+              />
+              <img
+                alt="Dennis Padiernos"
+                class="under"
+                src="dennis.jpg"
+              />
+            </div>
+            <div
+              class="socials"
+            >
+              <a
+                href="https://github.com/depadiernos"
+                target="_blank"
+              >
+                <i
+                  class="fab fa-github fa-3x"
+                />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/dennispadiernos"
+                target="_blank"
+              >
+                <i
+                  class="fab fa-linkedin-in fa-3x"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="awesome-aliens-box"
+        >
+          <div
+            class="left"
+          >
+            <h2>
+              Dang Lu
+            </h2>
+            <h3
+              class="team-title"
+            >
+              Chief Front-end Guru
+            </h3>
+            <div
+              class="hide-tablet show-desktop"
+            >
+              <div
+                class="img-container"
+              >
+                <img
+                  alt="CarPal cutie"
+                  class="over"
+                  src="golden.png"
+                />
+                <img
+                  alt="Dang Lu"
+                  class="under"
+                  src="dang.jpg"
+                />
+              </div>
+              <div
+                class="socials"
+              >
+                <a
+                  href="https://github.com/dangnlu18"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-github fa-3x"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/dang-lu"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-linkedin-in fa-3x"
+                  />
+                </a>
+              </div>
+            </div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+          </div>
+          <div
+            class="right  show-tablet hide-desktop"
+          >
+            <div
+              class="img-container"
+            >
+              <img
+                alt="CarPal cutie"
+                class="over"
+                src="golden.png"
+              />
+              <img
+                alt="Dang Lu"
+                class="under"
+                src="dang.jpg"
+              />
+            </div>
+            <div
+              class="socials"
+            >
+              <a
+                href="https://github.com/dangnlu18"
+                target="_blank"
+              >
+                <i
+                  class="fab fa-github fa-3x"
+                />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/dang-lu"
+                target="_blank"
+              >
+                <i
+                  class="fab fa-linkedin-in fa-3x"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="awesome-aliens-box"
+        >
+          <div
+            class="left"
+          >
+            <h2>
+              Carl Redding
+            </h2>
+            <h3
+              class="team-title"
+            >
+              Chief Cutie Creator
+            </h3>
+            <div
+              class="hide-tablet show-desktop"
+            >
+              <div
+                class="img-container"
+              >
+                <img
+                  alt="CarPal cutie"
+                  class="over"
+                  src="gray.png"
+                />
+                <img
+                  alt="Carl Redding"
+                  class="under"
+                  src="carl.jpg"
+                />
+              </div>
+              <div
+                class="socials"
+              >
+                <a
+                  href="https://github.com/miklo88"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-github fa-3x"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/carl-redding-000a4281"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-linkedin-in fa-3x"
+                  />
+                </a>
+              </div>
+            </div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+          </div>
+          <div
+            class="right  show-tablet hide-desktop"
+          >
+            <div
+              class="img-container"
+            >
+              <img
+                alt="CarPal cutie"
+                class="over"
+                src="gray.png"
+              />
+              <img
+                alt="Carl Redding"
+                class="under"
+                src="carl.jpg"
+              />
+            </div>
+            <div
+              class="socials"
+            >
+              <a
+                href="https://github.com/miklo88"
+                target="_blank"
+              >
+                <i
+                  class="fab fa-github fa-3x"
+                />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/carl-redding-000a4281"
+                target="_blank"
+              >
+                <i
+                  class="fab fa-linkedin-in fa-3x"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="awesome-aliens-box"
+        >
+          <div
+            class="left"
+          >
+            <h2>
+              Daniel Martin
+            </h2>
+            <h3
+              class="team-title"
+            >
+              Chief Cutie Creator
+            </h3>
+            <div
+              class="hide-tablet show-desktop"
+            >
+              <div
+                class="img-container"
+              >
+                <img
+                  alt="CarPal cutie"
+                  class="over"
+                  src="light-green.png"
+                />
+                <img
+                  alt="Daniel Martin"
+                  class="under"
+                  src="daniel.jpg"
+                />
+              </div>
+              <div
+                class="socials"
+              >
+                <a
+                  href="https://github.com/ohfr"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-github fa-3x"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/daniel-p-martin"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-linkedin-in fa-3x"
+                  />
+                </a>
+              </div>
+            </div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+          </div>
+          <div
+            class="right  show-tablet hide-desktop"
+          >
+            <div
+              class="img-container"
+            >
+              <img
+                alt="CarPal cutie"
+                class="over"
+                src="light-green.png"
+              />
+              <img
+                alt="Daniel Martin"
+                class="under"
+                src="daniel.jpg"
+              />
+            </div>
+            <div
+              class="socials"
+            >
+              <a
+                href="https://github.com/ohfr"
+                target="_blank"
+              >
+                <i
+                  class="fab fa-github fa-3x"
+                />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/daniel-p-martin"
+                target="_blank"
+              >
+                <i
+                  class="fab fa-linkedin-in fa-3x"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="awesome-aliens-box"
+        >
+          <div
+            class="left"
+          >
+            <h2>
+              Darren Angus
+            </h2>
+            <h3
+              class="team-title"
+            >
+              Chief Director of Sabotage and Obfuscation
+            </h3>
+            <div
+              class="hide-tablet show-desktop"
+            >
+              <div
+                class="img-container"
+              >
+                <img
+                  alt="CarPal cutie"
+                  class="over"
+                  src="OG-turquoise.png"
+                />
+                <img
+                  alt="Darren Angus"
+                  class="under"
+                  src="darren.jpg"
+                />
+              </div>
+              <div
+                class="socials"
+              >
+                <a
+                  href="https://github.com/dangus1924"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-github fa-3x"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/darren-angus-441b7b188"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-linkedin-in fa-3x"
+                  />
+                </a>
+              </div>
+            </div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+          </div>
+          <div
+            class="right  show-tablet hide-desktop"
+          >
+            <div
+              class="img-container"
+            >
+              <img
+                alt="CarPal cutie"
+                class="over"
+                src="OG-turquoise.png"
+              />
+              <img
+                alt="Darren Angus"
+                class="under"
+                src="darren.jpg"
+              />
+            </div>
+            <div
+              class="socials"
+            >
+              <a
+                href="https://github.com/dangus1924"
+                target="_blank"
+              >
+                <i
+                  class="fab fa-github fa-3x"
+                />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/darren-angus-441b7b188"
+                target="_blank"
+              >
+                <i
+                  class="fab fa-linkedin-in fa-3x"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="awesome-aliens-box"
+        >
+          <div
+            class="left"
+          >
+            <h2>
+              Lesley Banadzem
+            </h2>
+            <h3
+              class="team-title"
+            >
+              Chief Code Fixer
+            </h3>
+            <div
+              class="hide-tablet show-desktop"
+            >
+              <div
+                class="img-container"
+              >
+                <img
+                  alt="CarPal cutie"
+                  class="over"
+                  src="yellow-orange.png"
+                />
+                <img
+                  alt="Lesley Banadzem"
+                  class="under"
+                  src="lesley.jpg"
+                />
+              </div>
+              <div
+                class="socials"
+              >
+                <a
+                  href="https://github.com/lesleyfon"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-github fa-3x"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/lesley-banadzem"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-linkedin-in fa-3x"
+                  />
+                </a>
+              </div>
+            </div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+          </div>
+          <div
+            class="right  show-tablet hide-desktop"
+          >
+            <div
+              class="img-container"
+            >
+              <img
+                alt="CarPal cutie"
+                class="over"
+                src="yellow-orange.png"
+              />
+              <img
+                alt="Lesley Banadzem"
+                class="under"
+                src="lesley.jpg"
+              />
+            </div>
+            <div
+              class="socials"
+            >
+              <a
+                href="https://github.com/lesleyfon"
+                target="_blank"
+              >
+                <i
+                  class="fab fa-github fa-3x"
+                />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/lesley-banadzem"
+                target="_blank"
+              >
+                <i
+                  class="fab fa-linkedin-in fa-3x"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="awesome-aliens-box"
+        >
+          <div
+            class="left"
+          >
+            <h2>
+              Ruth Poliakon
+            </h2>
+            <h3
+              class="team-title"
+            >
+              Chief Zoom Host
+            </h3>
+            <div
+              class="hide-tablet show-desktop"
+            >
+              <div
+                class="img-container"
+              >
+                <img
+                  alt="CarPal cutie"
+                  class="over"
+                  src="rose.png"
+                />
+                <img
+                  alt="Ruth Poliakon"
+                  class="under"
+                  src="ruth.jpg"
+                />
+              </div>
+              <div
+                class="socials"
+              >
+                <a
+                  href="https://github.com/rupol"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-github fa-3x"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/ruthpoliakon"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-linkedin-in fa-3x"
+                  />
+                </a>
+              </div>
+            </div>
+            <p>
+              Ruth is an entomologist, master gardener, and chicken enthusiast who applies the skills she gained in biological research to front end development.
+            </p>
+          </div>
+          <div
+            class="right  show-tablet hide-desktop"
+          >
+            <div
+              class="img-container"
+            >
+              <img
+                alt="CarPal cutie"
+                class="over"
+                src="rose.png"
+              />
+              <img
+                alt="Ruth Poliakon"
+                class="under"
+                src="ruth.jpg"
+              />
+            </div>
+            <div
+              class="socials"
+            >
+              <a
+                href="https://github.com/rupol"
+                target="_blank"
+              >
+                <i
+                  class="fab fa-github fa-3x"
+                />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/ruthpoliakon"
+                target="_blank"
+              >
+                <i
+                  class="fab fa-linkedin-in fa-3x"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="awesome-aliens-box"
+        >
+          <div
+            class="left"
+          >
+            <h2>
+              Steven Vandenburg
+            </h2>
+            <h3
+              class="team-title"
+            >
+              Chief Driver
+            </h3>
+            <div
+              class="hide-tablet show-desktop"
+            >
+              <div
+                class="img-container"
+              >
+                <img
+                  alt="CarPal cutie"
+                  class="over"
+                  src="red.png"
+                />
+                <img
+                  alt="Steven Vandenburg"
+                  class="under"
+                  src="steven.jpg"
+                />
+              </div>
+              <div
+                class="socials"
+              >
+                <a
+                  href="https://github.com/smv5047"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-github fa-3x"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/stevenvandenburg"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-linkedin-in fa-3x"
+                  />
+                </a>
+              </div>
+            </div>
+            <p>
+              Debonair Dad, DJ, and Developer.
+            </p>
+          </div>
+          <div
+            class="right  show-tablet hide-desktop"
+          >
+            <div
+              class="img-container"
+            >
+              <img
+                alt="CarPal cutie"
+                class="over"
+                src="red.png"
+              />
+              <img
+                alt="Steven Vandenburg"
+                class="under"
+                src="steven.jpg"
+              />
+            </div>
+            <div
+              class="socials"
+            >
+              <a
+                href="https://github.com/smv5047"
+                target="_blank"
+              >
+                <i
+                  class="fab fa-github fa-3x"
+                />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/stevenvandenburg"
+                target="_blank"
+              >
+                <i
+                  class="fab fa-linkedin-in fa-3x"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

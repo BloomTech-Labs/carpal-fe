@@ -7,7 +7,7 @@ import SignUp from "./Components/Login-SignUp/SignUp";
 import Dashboard from "./Components/Dashboards/Dashboard";
 import ProfilePage from "./Components/Profile-Pages/Profile-Pages";
 import LandingPage from "./Components/Landing-Page/Landing-Page";
-import AboutPage from "./Components/Landing-Page/AboutPage";
+import AboutPage from "./Components/Landing-Page/AboutPage/AboutPage";
 import ProtectedRoute from "./Utils/ProtectedRoute";
 import RideFind from "./Components/Rides/RideFind/RideFind";
 import Logout from "./Components/Login-SignUp/Logout";

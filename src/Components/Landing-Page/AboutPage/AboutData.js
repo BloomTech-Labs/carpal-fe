@@ -1,20 +1,20 @@
-import blueCutie from "../../img/logos/cutie-colors/blue.png";
-import goldenCutie from "../../img/logos/cutie-colors/golden.png";
-import grayCutie from "../../img/logos/cutie-colors/gray.png";
-import lightGreenCutie from "../../img/logos/cutie-colors/light-green.png";
-import turquoiseCutie from "../../img/logos/cutie-colors/OG-turquoise.png";
-import redCutie from "../../img/logos/cutie-colors/red.png";
-import roseCutie from "../../img/logos/cutie-colors/rose.png";
-import yellowOrangeCutie from "../../img/logos/cutie-colors/yellow-orange.png";
+import blueCutie from "../../../img/logos/cutie-colors/blue.png";
+import goldenCutie from "../../../img/logos/cutie-colors/golden.png";
+import grayCutie from "../../../img/logos/cutie-colors/gray.png";
+import lightGreenCutie from "../../../img/logos/cutie-colors/light-green.png";
+import turquoiseCutie from "../../../img/logos/cutie-colors/OG-turquoise.png";
+import redCutie from "../../../img/logos/cutie-colors/red.png";
+import roseCutie from "../../../img/logos/cutie-colors/rose.png";
+import yellowOrangeCutie from "../../../img/logos/cutie-colors/yellow-orange.png";
 
-import carl from "../../img/team/carl.jpg";
-import dang from "../../img/team/dang.jpg";
-import daniel from "../../img/team/daniel.jpg";
-import darren from "../../img/team/darren.jpg";
-import dennis from "../../img/team/dennis.jpg";
-import lesley from "../../img/team/lesley.jpg";
-import ruth from "../../img/team/ruth.jpg";
-import steven from "../../img/team/steven.jpg";
+import carl from "../../../img/team/carl.jpg";
+import dang from "../../../img/team/dang.jpg";
+import daniel from "../../../img/team/daniel.jpg";
+import darren from "../../../img/team/darren.jpg";
+import dennis from "../../../img/team/dennis.jpg";
+import lesley from "../../../img/team/lesley.jpg";
+import ruth from "../../../img/team/ruth.jpg";
+import steven from "../../../img/team/steven.jpg";
 
 export const AboutData = [
     {

@@ -1,5 +1,5 @@
 // variables/mixins file path "importing your global styles."
-@import "../../index.scss";
+@import "../../../index.scss";
 
 .about-page {
     .carpallers {
@@ -10,7 +10,6 @@
         }
 
         .awesome-aliens-box {
-            background-color: $carpalGrey;
             padding: 20px 5% 50px;
             margin: 4rem auto 8rem;
 

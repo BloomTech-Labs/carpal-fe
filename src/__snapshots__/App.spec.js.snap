@@ -95,7 +95,7 @@ Object {
                 class="intro"
               >
                 <h1
-                  class="introTitle"
+                  class="landing-header"
                   data-testid="welcomeh1"
                 >
                   Welcome to CarPal
@@ -348,7 +348,7 @@ Object {
               class="intro"
             >
               <h1
-                class="introTitle"
+                class="landing-header"
                 data-testid="welcomeh1"
               >
                 Welcome to CarPal
