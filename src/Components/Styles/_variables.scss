@@ -43,6 +43,20 @@ $breakpoints: (
     }
 }
 
+.show-desktop {
+    display: none;
+    @include respond-to("desktop") {
+        display: block;
+    }
+}
+
+.hide-desktop {
+    display: block;
+    @include respond-to("desktop") {
+        display: none;
+    }
+}
+
 //////////////////////// div applied styles and spacers
 .center {
     margin: 0 auto;

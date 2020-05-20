@@ -26,7 +26,7 @@ describe("what should be on the screen at all time", () => {
         expect(getByTestId("welcomeh1")).toHaveTextContent(
             /^Welcome to CarPal$/
         );
-        expect(getByText("Welcome to CarPal")).toHaveClass("introTitle");
+        expect(getByText("Welcome to CarPal")).toHaveClass("landing-header");
     });
 
     test("each box title", () => {
@@ -48,6 +48,6 @@ describe("what should be on the screen at all time", () => {
                 <Page />
             </Router>
         );
-        expect(findByRole('image'));
+        expect(findByRole("image"));
     });
 });

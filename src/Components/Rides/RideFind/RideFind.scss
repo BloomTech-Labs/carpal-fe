@@ -31,7 +31,7 @@
         text-align: center;
         padding: 10px;
         margin: 100px auto 0;
-        background-color: $carpalGrey;
+        background-color: rgba(255, 255, 255, 0.8);
 
         @include respond-to("mobile") {
             max-width: 400px;
@@ -47,6 +47,11 @@
         .search-ride-input {
             input {
                 margin: 10px auto;
+                background-color: $carpalWhite;
+                color: $carpalBlack;
+                &::placeholder {
+                    color: $carpalBlack;
+                }
             }
             ul {
                 z-index: 10;

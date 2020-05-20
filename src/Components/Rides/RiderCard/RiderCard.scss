@@ -1,3 +1,5 @@
+@import "../../../index.scss";
+
 .rideCardDiv {
     display: flex;
     flex-wrap: wrap;
@@ -6,11 +8,14 @@
     width: 100%;
     padding: 11px 0;
     margin: 10px auto 0;
+    &.selected {
+        background-color: $carpalLightGreen;
+    }
 
     button {
-        color: #04ccbb;
-        border: 1px solid #04ccbb;
-        background-color: transparent;
+        color: $carpalGreen;
+        border: 1px solid $carpalGreen;
+        background-color: $carpalWhite;
         padding: 5px;
         text-transform: none;
     }
