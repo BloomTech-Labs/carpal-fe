@@ -9,13 +9,16 @@ afterEach(rtl.cleanup);
 
 describe("userDetail renders without crashing", () => {
     const testObject = {
-        hobbies: [{ name: "sing" }, { name: "dance" }, { name: "act" }]
+        item: [ "sing" , "dance",  "act" ]
     };
 
     test("userDetails renders to screen array that is passed to it via props", () => {
 
-        const wrapper = rtl.render(<UserDetail item={testObject.hobbies} />);
+        const wrapper = rtl.render(<UserDetail item={testObject.item} />);
+        console.log(testObject)
         const title = wrapper.getByText("sing");
+
+
 
         expect(title).toBeInTheDocument();
         expect(title).toBeTruthy();

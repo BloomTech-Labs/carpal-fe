@@ -28,6 +28,11 @@ beforeEach(() => {
     store = mockStore({
         user: {
             user: {}
+        },
+        locations: {
+            route: {
+                stops: []
+            }
         }
     });
 });

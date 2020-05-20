@@ -7,6 +7,11 @@ import "./RideFind.scss";
 import RiderCard from "../RiderCard/RiderCard";
 import api from "./../../../Utils/Api";
 import AutoSuggest from "./../../AutoSuggest/AutoSuggest";
+import {
+    currentRoute,
+    setStops,
+    saveRide
+} from "../../../Redux/Actions/LocationActions";
 
 function RideFind(props) {
     //hold long and lat for both location
@@ -41,6 +46,9 @@ function RideFind(props) {
         longitude: 0,
         latitude: 0
     });
+
+    // State to handle stops for the selected ride
+    // const [stops, setStops] = useState([])
 
     //Fetch user location depending on which form the user is filling to be able to correctly set the feature state
     const fetchSuggestions = (search_term, placement) => {
@@ -91,14 +99,18 @@ function RideFind(props) {
         ) {
             getRides({
                 start_location: {
-                    "long": suggestions.start_location_id[0],
-                    "lat": suggestions.start_location_id[1]
+                    long: suggestions.start_location_id[0],
+                    lat: suggestions.start_location_id[1]
                 },
                 end_location: {
-                    "long": suggestions.end_location_id[0],
-                    "lat": suggestions.end_location_id[1]
+                    long: suggestions.end_location_id[0],
+                    lat: suggestions.end_location_id[1]
                 }
             });
+            props.currentRoute(
+                suggestions.start_location_id,
+                suggestions.end_location_id
+            );
         }
     }, [suggestions.start_location_id, suggestions.end_location_id]);
 
@@ -112,7 +124,7 @@ function RideFind(props) {
                 console.error(err.message);
             });
     };
-
+    rides.sort((a, b) => a.score - b.score);
     return (
         <div className="search-ride-container">
             <div className="search-display">
@@ -166,7 +178,6 @@ function RideFind(props) {
                             />
                         )}
                     </div>
-                    <button type="submit">Find a ride</button>
                 </form>
 
                 {props.favoriteLocations &&
@@ -180,29 +191,47 @@ function RideFind(props) {
                                 {/* map over rides that match our query */}
 
                                 {/* test ride card */}
+
                                 {rides.length > 1 &&
                                     rides.map((ride, index) => (
                                         <RiderCard
                                             key={index}
                                             name={ride.driver_name}
                                             ride_id={ride.id}
+                                            ride={ride}
+                                            stops={props.stops}
+                                            setStops={props.setStops}
+                                            history={props.history}
                                         />
                                     ))}
                             </div>
                         </div>
                     )}
                 <p>Want to offer this ride instead?</p>
-                <button /*  save ride function  */>Save Ride</button>
+                <button
+                    onClick={() => {
+                        props.saveRide(suggestions, props);
+                    }}
+                >
+                    Save Ride
+                </button>
             </div>
             <div className="map-search">
                 <RideMap
                     start={suggestions.start_location_id}
                     end={suggestions.end_location_id}
                     setProximityCords={setProximityCords}
+                    stops={props.stops}
                 />
             </div>
         </div>
     );
 }
 
-export default connect(null, {})(RideFind);
+const mapStateToProps = (state) => ({
+    stops: state.locations.route.stops
+});
+
+export default connect(mapStateToProps, { currentRoute, setStops, saveRide })(
+    RideFind
+);
