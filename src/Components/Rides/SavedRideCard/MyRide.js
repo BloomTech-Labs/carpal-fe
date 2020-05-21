@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { createRide } from "../../../Redux/Actions/UserAction";
 import geocode from "../../../Utils/geocoder";
+import "./MyRide.scss";
 //need to search all drivers locations
 function MyRide(props) {
     const [ride, setRide] = useState(props.rides);
