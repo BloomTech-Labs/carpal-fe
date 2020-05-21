@@ -39,18 +39,18 @@ function SavedRideCard(props) {
         setShow(!show);
     };
 
-    const handleStart = () => {
+    const handleStart = async () => {
         // console.log("in handle start", currentLocation);
         props.setStartLocation(props.data);
         // console.log(currentLocation);
-        Promise.resolve(
-            currentLocation && reverseGeocoder(currentLocation)
-        ).then((resp) => {
-            props.setRideLocations({
-                ...props.rideLocations,
-                startLocation: resp
-            });
-        });
+        // adding text to field input --
+        // const resp = currentLocation && reverseGeocoder(currentLocation);
+        // console.log(resp);
+        // props.setRideLocations({
+        //     ...props.rideLocations,
+        //     startLocation: resp
+        // });
+        // console.log(props.data);
     };
     const handleEnd = () => {
         // console.log("in handle end", currentLocation);
