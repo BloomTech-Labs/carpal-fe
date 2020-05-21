@@ -6,13 +6,43 @@ import UserDetail from "../../Profile-Pages/userDetail";
 function RideRequestsCard(props) {
     const [isDetailsOpen, setIsDetailsOpen] = useState(false);
 
+    const requestCardDetails = (
+        <div className="request-card-details">
+            <UserDetail title="Hobbies" item={props.requests.hobbies} />
+
+            <UserDetail
+                title="Audio I love"
+                item={props.requests.audio_likes}
+            />
+
+            <UserDetail
+                title="Audio I hate"
+                item={props.requests.audio_dislikes}
+            />
+        </div>
+    );
+
+    function handleRequest(statusType) {
+        props.handleRequest({
+            ride_id: props.requests.ride_id,
+            request_id: props.requests.id,
+            status: statusType
+        });
+    }
+
     function toggleDetails() {
         setIsDetailsOpen(!isDetailsOpen);
     }
     return (
         <div>
             {props.incoming ? (
-                <div className="incoming-request-card">
+                <div
+                    className={
+                        isDetailsOpen
+                            ? "incoming-request-card selected"
+                            : "incoming-request-card"
+                    }
+                >
                     <div className="incoming-request-overview">
                         <div className="request-card-upper">
                             <img
@@ -27,65 +57,30 @@ function RideRequestsCard(props) {
                             <button onClick={toggleDetails}>Details</button>
                             {props.requests.status === "pending" ? (
                                 <>
-                                    <button
-                                        onClick={() =>
-                                            props.handleRequest({
-                                                ride_id: props.requests.ride_id,
-                                                request_id: props.requests.id,
-                                                status: "accepted"
-                                            })
-                                        }
-                                    >
+                                    <button onClick={handleRequest("accepted")}>
                                         Accept
                                     </button>
-                                    <button
-                                        onClick={() =>
-                                            props.handleRequest({
-                                                ride_id: props.requests.ride_id,
-                                                request_id: props.requests.id,
-                                                status: "declined"
-                                            })
-                                        }
-                                    >
+                                    <button onClick={handleRequest("decline")}>
                                         Decline
                                     </button>
                                 </>
                             ) : (
-                                <button
-                                    onClick={() =>
-                                        props.handleRequest({
-                                            ride_id: props.requests.ride_id,
-                                            request_id: props.requests.id,
-                                            status: "declined"
-                                        })
-                                    }
-                                >
+                                <button onClick={handleRequest("declined")}>
                                     Decline
                                 </button>
                             )}
                         </div>
                     </div>
-                    {isDetailsOpen && (
-                        <div className="request-card-details">
-                            <UserDetail
-                                title="Hobbies"
-                                item={props.requests.hobbies}
-                            />
-
-                            <UserDetail
-                                title="Audio I love"
-                                item={props.requests.audio_likes}
-                            />
-
-                            <UserDetail
-                                title="Audio I hate"
-                                item={props.requests.audio_dislikes}
-                            />
-                        </div>
-                    )}
+                    {isDetailsOpen && requestCardDetails}
                 </div>
             ) : (
-                <div className="outgoing-request-card">
+                <div
+                    className={
+                        isDetailsOpen
+                            ? "outgoing-request-card selected"
+                            : "outgoing-request-card"
+                    }
+                >
                     <div className="outgoing-request-overview">
                         <div className="request-card-upper">
                             <img
@@ -106,28 +101,10 @@ function RideRequestsCard(props) {
                             </button>
                         </div>
                     </div>
-                    {isDetailsOpen ? (
-                        <div className="request-card-details">
-                            <UserDetail
-                                title="Hobbies"
-                                item={props.requests.hobbies}
-                            />
-
-                            <UserDetail
-                                title="Audio I love"
-                                item={props.requests.audio_likes}
-                            />
-
-                            <UserDetail
-                                title="Audio I hate"
-                                item={props.requests.audio_dislikes}
-                            />
-                        </div>
-                    ) : null}
+                    {isDetailsOpen ? requestCardDetails : null}
                 </div>
             )}
         </div>
     );
 }
-
 export default RideRequestsCard;

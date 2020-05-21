@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import UserDetail from "../../Profile-Pages/userDetail"
+import UserDetail from "../../Profile-Pages/userDetail";
 import { useHistory } from "react-router-dom";
 import "./RiderCard.scss";
 import Api from "./../../../Utils/Api";
@@ -9,7 +9,10 @@ function RiderCard(props) {
 
     const handleClick = () => {
         setOpen(!open);
-        props.setStops([[props.ride.start_location.long, props.ride.start_location.lat], [props.ride.end_location.long, props.ride.end_location.lat]])
+        props.setStops([
+            [props.ride.start_location.long, props.ride.start_location.lat],
+            [props.ride.end_location.long, props.ride.end_location.lat]
+        ]);
     };
 
     const makeRequest = (e) => {
@@ -31,7 +34,7 @@ function RiderCard(props) {
     return (
         <div>
             {open ? (
-                <div className="rideCardDiv">
+                <div className={open ? "rideCardDiv selected" : "rideCardDiv"}>
                     {/* profile picture */}
                     <h2 data-testid="nameField">{props.name}</h2>
                     <button data-testid="detailsButton" onClick={handleClick}>
@@ -39,10 +42,7 @@ function RiderCard(props) {
                     </button>
                     <button /* onClick to send request to BE*/>Request</button>
                     <div className="request-card-details" data-testid="riderUl">
-                        <UserDetail
-                            title="Hobbies"
-                            item={props.ride.hobbies}
-                        />
+                        <UserDetail title="Hobbies" item={props.ride.hobbies} />
 
                         <UserDetail
                             title="Audio I love"
@@ -74,6 +74,5 @@ function RiderCard(props) {
         </div>
     );
 }
-
 
 export default RiderCard;

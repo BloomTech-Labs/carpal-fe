@@ -5,7 +5,6 @@ import App from "./App";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, combineReducers, compose } from "redux";
 import { BrowserRouter as Router } from "react-router-dom";
-import logger from "redux-logger";
 import thunk from "redux-thunk";
 import { UserReducer } from "./Redux/Reducers/UserReducer";
 import { locationReducer } from "./Redux/Reducers/LocationReducer";
@@ -14,6 +13,7 @@ const rootReducer = combineReducers({
     user: UserReducer,
     locations: locationReducer
 });
+
 //Redux Dev Tools extension debugger // don't forget compose on redux import.
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
@@ -29,3 +29,4 @@ ReactDOM.render(
     </Provider>,
     document.getElementById("root")
 );
+

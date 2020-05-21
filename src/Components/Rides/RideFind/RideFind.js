@@ -40,15 +40,13 @@ function RideFind(props) {
         end_ride_addy: ""
     });
     const [rides, setRides] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     // State to handle proximity search based on the users geolocation
     const [proximityCords, setProximityCords] = useState({
         longitude: 0,
         latitude: 0
     });
-
-    // State to handle stops for the selected ride
-    // const [stops, setStops] = useState([])
 
     //Fetch user location depending on which form the user is filling to be able to correctly set the feature state
     const fetchSuggestions = (search_term, placement) => {
@@ -74,12 +72,6 @@ function RideFind(props) {
             })
             .catch((error) => new Error(error));
         //error handle
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        //axios call to BE
     };
 
     //Handle user typing
@@ -115,13 +107,16 @@ function RideFind(props) {
     }, [suggestions.start_location_id, suggestions.end_location_id]);
 
     const getRides = (latlong) => {
+        setLoading(true);
         api()
             .get("/rides", { params: latlong })
             .then((res) => {
                 setRides(res.data);
+                setLoading(false);
             })
             .catch((err) => {
                 console.error(err.message);
+                setLoading(false);
             });
     };
     rides.sort((a, b) => a.score - b.score);
@@ -129,7 +124,7 @@ function RideFind(props) {
         <div className="search-ride-container">
             <div className="search-display">
                 <h1>Start a Ride</h1>
-                <form onSubmit={handleSubmit}>
+                <form>
                     <div className="search-ride-input">
                         <input
                             onChange={handleChange}
@@ -189,10 +184,7 @@ function RideFind(props) {
                         <div className="ridesContainer">
                             <div className="searchedRides">
                                 {/* map over rides that match our query */}
-
-                                {/* test ride card */}
-
-                                {rides.length > 1 &&
+                                {rides.length > 1 ? (
                                     rides.map((ride, index) => (
                                         <RiderCard
                                             key={index}
@@ -203,18 +195,27 @@ function RideFind(props) {
                                             setStops={props.setStops}
                                             history={props.history}
                                         />
-                                    ))}
+                                    ))
+                                ) : loading ? (
+                                    <p>Searching for matching rides...</p>
+                                ) : (
+                                    <p>No rides found in your area.</p>
+                                )}
                             </div>
                         </div>
                     )}
-                <p>Want to offer this ride instead?</p>
-                <button
-                    onClick={() => {
-                        props.saveRide(suggestions, props);
-                    }}
-                >
-                    Save Ride
-                </button>
+                {location.start_location_id && location.end_location_id && (
+                    <div className="offer-ride">
+                        <p>Want to offer this ride instead?</p>
+                        <button
+                            onClick={() => {
+                                props.saveRide(suggestions, props);
+                            }}
+                        >
+                            Save Ride
+                        </button>
+                    </div>
+                )}
             </div>
             <div className="map-search">
                 <RideMap

@@ -53,14 +53,16 @@ const viewport = {
 };
 
 describe("PolyLineOverlay", () => {
-    test("Renders without crashing", () => {
+    test("Touchzoom is undefined", () => {
         const div = document.createElement("div");
 
-        ReactDOM.render(
+        const wrapper = ReactDOM.render(
             <ReactMapGl {...viewport} mapboxApiAccessToken={mapboxAPI}>
                 <PolyLineOverlay points={points} />
             </ReactMapGl>,
             div
         );
+
+        expect(wrapper.touchZoom).toBeUndefined();
     });
 });

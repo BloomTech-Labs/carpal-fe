@@ -1,35 +1,35 @@
-import React from 'react';
-import { withFormik, Form, Field }  from 'formik'
+import React from "react";
+import { withFormik, Form, Field } from "formik";
 
 function SearchInput(props) {
     return (
-        <div className='search-ride-input'> 
+        <div data-testid="input-field" className="search-ride-input">
             <Form>
-                <Field 
+                <Field
                     className="formik-search-fields"
-                    type='text'
-                    name='pickup'
-                    placeholder= 'Pick up...'
+                    type="text"
+                    name="pickup"
+                    placeholder="Pick up..."
                 />
-                <Field 
+                <Field
                     className="formik-search-fields"
-                    type='text'
-                    name='dropof'
-                    placeholder= 'Destination...'
+                    type="text"
+                    name="dropof"
+                    placeholder="Destination..."
                 />
             </Form>
         </div>
-    )
+    );
 }
 
 const SearchInputFormik = withFormik({
     mapPropsToValues: (values) => ({
-        pickup: values.pickup || '',
-        dropof: values.dropof || '',
+        pickup: values.pickup || "",
+        dropof: values.dropof || ""
     }),
 
     handleSubmit: (values) => {
-        console.log(values)
+        console.log(values);
     }
 })(SearchInput);
-export default SearchInputFormik
+export default SearchInputFormik;
