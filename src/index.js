@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.scss";
 import App from "./App";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware, combineReducers } from "redux";
+import { createStore, applyMiddleware, combineReducers, compose } from "redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import thunk from "redux-thunk";
 import { UserReducer } from "./Redux/Reducers/UserReducer";
@@ -14,7 +14,12 @@ const rootReducer = combineReducers({
     locations: locationReducer
 });
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+//Redux Dev Tools extension debugger // don't forget compose on redux import.
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(
+    rootReducer,
+    composeEnhancers(applyMiddleware(thunk, logger))
+);
 
 ReactDOM.render(
     <Provider store={store}>

@@ -22,17 +22,15 @@ function SearchMap() {
     //State for keeping track of the Markers long/lat
     const [marker, setMarker] = useState({
         latitude: 0,
-        longitude: 0,
+        longitude: 0
     });
     useEffect(() => {
         // without this test will fail from not being able to run this function
-            navigator.geolocation.getCurrentPosition(getUserLocation);
-    
+        navigator.geolocation.getCurrentPosition(getUserLocation);
     }, []);
-    console.log('Corsd')
     const getUserLocation = (position) => {
         var crd = position.coords;
-       
+
         setViewport({
             ...viewport,
             latitude: crd.latitude,
@@ -88,6 +86,5 @@ function SearchMap() {
         </div>
     );
 }
-
 
 export default SearchMap;

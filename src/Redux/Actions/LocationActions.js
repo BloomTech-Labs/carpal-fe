@@ -9,6 +9,7 @@ export const REQUEST_ERROR = "REQUEST_ERROR";
 export const SAVE_ROUTE = "SAVE_ROUTE";
 export const SET_STOPS = "SET_STOPS";
 export const SAVE_RIDE = "SAVE_RIDE";
+export const RIDER_START = "RIDER_START";
 
 export function getFavorites() {
     return (dispatch) => {
@@ -116,6 +117,21 @@ export function saveRide({ start_location_id, end_location_id }, props) {
             dispatch({ type: SAVE_RIDE, payload: savedRide.data });
             dispatch({ type: REQUEST_SUCCESS });
             props.history.push("/saved");
+        } catch (err) {
+            dispatch({ type: REQUEST_ERROR, payload: err });
+        }
+    };
+}
+
+export function getRiderStart(id) {
+    return async (dispatch) => {
+        dispatch({ type: REQUEST_START });
+
+        try {
+            const res = await api().get(`/rides/riderStart/${id}`);
+
+            dispatch({ type: REQUEST_SUCCESS });
+            dispatch({ type: RIDER_START, payload: res.data });
         } catch (err) {
             dispatch({ type: REQUEST_ERROR, payload: err });
         }

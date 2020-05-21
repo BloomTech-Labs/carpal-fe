@@ -9,6 +9,9 @@ import {
     HANDLE_OUTGOING_REQUESTS,
     CANCEL_RIDE_REQUEST,
     UPDATE_RIDE_REQUEST,
+    SET_START_LOCATION,
+    SET_END_LOCATION,
+    CREATE_RIDE,
     UPLOAD_PROFILE_IMG_START,
     UPLOAD_PROFILE_IMG_SUCCESS,
     UPLOAD_PROFILE_IMG_ERROR
@@ -50,6 +53,12 @@ const initialState = {
                 status: "saved"
             }
         ],
+
+        rideCreator: {
+            start_location_id: 0,
+            end_location_id: 0
+        },
+
         incoming_ride_requests: [],
         outgoing_ride_requests: []
     },
@@ -96,15 +105,12 @@ export function UserReducer(state = initialState, action) {
                 user: action.payload
             };
 
-        
         case HANDLE_INCOMING_REQUESTS:
             return {
                 ...state,
                 user: {
                     ...state.user,
-                    incoming_ride_requests: [
-                        ...action.payload
-                    ]
+                    incoming_ride_requests: [...action.payload]
                 }
             };
 
@@ -113,9 +119,7 @@ export function UserReducer(state = initialState, action) {
                 ...state,
                 user: {
                     ...state.user,
-                    outgoing_ride_requests: [
-                        ...action.payload
-                    ]
+                    outgoing_ride_requests: [...action.payload]
                 }
             };
 
@@ -139,7 +143,37 @@ export function UserReducer(state = initialState, action) {
                     incoming_ride_requests: [...action.payload]
                 }
             };
-            //img url upload
+        /////// RIDE CREATOR ACTIONS
+        case SET_START_LOCATION:
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    rideCreator: {
+                        ...state.user.rideCreator,
+                        start_location_id: action.payload
+                    }
+                }
+            };
+
+        case SET_END_LOCATION:
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    rideCreator: {
+                        ...state.user.rideCreator,
+                        end_location_id: action.payload
+                    }
+                }
+            };
+        //// CREATE_RIDE
+        case CREATE_RIDE:
+            return {
+                ...state
+            };
+
+        //img url upload
         // case UPLOAD_PROFILE_IMG_START:
         //     return {
         //         ...state,
