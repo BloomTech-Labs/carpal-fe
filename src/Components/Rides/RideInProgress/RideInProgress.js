@@ -13,13 +13,20 @@ function RideInProgress(props) {
         return <Redirect to="/home" />;
     }
     return (
-        <div>
+        <div className="search-ride-container">
             {/* give  stops prop for a marker to mark user to pick up*/}
-            <RideMap
-                start={props.route.start}
-                end={props.route.end}
-                setProximityCords={setProximityCords}
-            />
+
+            {/* add card for current persont to pick up */}
+            <div className="search-display"></div>
+
+            <div className="map-search">
+                <RideMap
+                    start={props.route.start}
+                    end={props.route.end}
+                    setProximityCords={setProximityCords}
+                    stops={props.routes.riders}
+                />
+            </div>
         </div>
     );
 }
