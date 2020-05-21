@@ -1,8 +1,8 @@
 import React from "react";
 import Slider from "../../img/CarPal.mp4";
-import Imgone from "../../img/logos/happy-cutie.png";
-import Imgtwo from "../../img/logos/cutie-in-car.png";
-import Imgthree from "../../img/logos/cuties-duo-in-car.png";
+import Imgone from "../../img/logos/yellow-orange.png";
+import Imgtwo from "../../img/logos/driver-blue-pink.png";
+import Imgthree from "../../img/logos/redpink-combo.png";
 // import dashboard from "../../App";
 import { Link } from "react-router-dom";
 
