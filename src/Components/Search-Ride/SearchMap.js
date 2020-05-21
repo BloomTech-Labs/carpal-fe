@@ -28,7 +28,6 @@ function SearchMap() {
         // without this test will fail from not being able to run this function
         navigator.geolocation.getCurrentPosition(getUserLocation);
     }, []);
-    console.log("Corsd");
     const getUserLocation = (position) => {
         var crd = position.coords;
 
