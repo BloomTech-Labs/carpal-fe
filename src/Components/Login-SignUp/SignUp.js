@@ -5,7 +5,7 @@ import { withFormik, Form } from "formik";
 import * as Yup from "yup";
 import "./SignUp.scss";
 import LabelField from "../Form-Components/LabelField";
-import cuties from "../../img/logos/cutie-trio.png";
+import cuties from "../../img/logos/Cutie-Trio.png";
 import getGoogleRoute from "../../Utils/GoogleRoute";
 
 import { SignUpAction } from "../../Redux/Actions/UserAction";
