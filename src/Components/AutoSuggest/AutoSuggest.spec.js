@@ -50,6 +50,4 @@ test("Should render the Auto Sugest Component", () => {
     const wrapper = render(<AutoSuggest {...props} />);
 
     expect(wrapper.touchZoom).toBeUndefined();
-
-    console.log(wrapper);
 });
