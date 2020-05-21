@@ -8,6 +8,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import thunk from "redux-thunk";
 import { UserReducer } from "./Redux/Reducers/UserReducer";
 import { locationReducer } from "./Redux/Reducers/LocationReducer";
+import logger from "redux-logger";
 
 const rootReducer = combineReducers({
     user: UserReducer,
