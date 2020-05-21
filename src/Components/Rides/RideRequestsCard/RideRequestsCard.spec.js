@@ -41,7 +41,7 @@ afterEach(rtl.cleanup);
 
 test("Should Render the request Card component", () => {
     const div = document.createElement("div");
-    ReactDOM.render(
+    const Wrapper = ReactDOM.render(
         <Provider store={store}>
             <Router history={customHistory}>
                 <RideRequests>
@@ -51,10 +51,10 @@ test("Should Render the request Card component", () => {
         </Provider>,
         div
     );
+    expect(Wrapper).toBeNull();
 });
 
 //Additional testing ideas
-
 // const patchy = Wrapper.getAllByAltText("Patchy");
 // const buttons = Wrapper.getByText("Details");
 // const buttons2 = Wrapper.findByDisplayValue("Accept");

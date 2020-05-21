@@ -1,6 +1,6 @@
 import React from "React";
 import AutoSuggest from "./AutoSuggest";
-import { cleanup, render } from "@testing-library/react";
+import { cleanup, render, getByTestId } from "@testing-library/react";
 
 beforeEach(cleanup);
 
@@ -49,5 +49,5 @@ test("Should render the Auto Sugest Component", () => {
 
     const wrapper = render(<AutoSuggest {...props} />);
 
-    console.log(wrapper.debug());
+    expect(wrapper.touchZoom).toBeUndefined();
 });
