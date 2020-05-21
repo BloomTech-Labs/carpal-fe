@@ -3,14 +3,9 @@ import { connect } from "react-redux";
 import { createRide } from "../../../Redux/Actions/UserAction";
 import geocode from "../../../Utils/geocoder";
 import "./MyRide.scss";
-//need to search all drivers locations
+
 function MyRide(props) {
     const [ride, setRide] = useState(props.rides);
-
-    // const [ride, setRide] = useState({
-    //     startLocation: "",
-    //     endLocation: ""
-    // });
 
     const handleChange = (e) => {
         setRide({
@@ -22,7 +17,6 @@ function MyRide(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
         props.createRide(props.rideCreated);
-        console.log(props.rideCreated);
     };
 
     useEffect(() => {
@@ -53,10 +47,11 @@ function MyRide(props) {
                     onChange={handleChange}
                 ></input>
             </form>
-            {console.log(ride)}
-            <button>Edit</button>
-            <button>Delete</button>
-            <button onClick={handleSubmit}>Start</button>
+            <button className="btn edit">Edit</button>
+            <button className="btn delete">Delete</button>
+            <button className="btn start" onClick={handleSubmit}>
+                Start
+            </button>
         </div>
     );
 }
