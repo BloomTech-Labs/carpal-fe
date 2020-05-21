@@ -5,7 +5,7 @@ import { withFormik, Form } from "formik";
 import * as Yup from "yup";
 import "./Login.scss";
 import LabelField from "../Form-Components/LabelField";
-import cuties from "../../img/logos/altTrio.png";
+// import cuties from "../../img/logos/altTrio.png";
 import getGoogleRoute from "../../Utils/GoogleRoute";
 
 import { LogInAction } from "../../Redux/Actions/UserAction";
@@ -66,7 +66,7 @@ function Login(props) {
             </Form>
 
             <div className="module-nav">
-                <img className="module-cuties" src={cuties} alt="cuties" />
+                {/* <img className="module-cuties" src={cuties} alt="cuties" /> */}
 
                 <p className="module-p">
                     New to the website?
