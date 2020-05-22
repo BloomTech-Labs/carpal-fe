@@ -23,7 +23,6 @@ function RiderCard(props) {
                 status: "pending"
             })
             .then((res) => {
-                console.log(res);
                 props.history.push("/requests");
             })
             .catch((err) => {

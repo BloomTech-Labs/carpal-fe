@@ -9,6 +9,10 @@ export const REQUEST_ERROR = "REQUEST_ERROR";
 export const SAVE_ROUTE = "SAVE_ROUTE";
 export const SET_STOPS = "SET_STOPS";
 export const SAVE_RIDE = "SAVE_RIDE";
+export const DEL_RIDE = "DEL_RIDE";
+export const EDIT_RIDE = "EDIT_RIDE";
+export const START_RIDE = "START_RIDE"
+export const GET_RIDES = "GET_RIDES";
 export const RIDER_START = "RIDER_START";
 
 export function getFavorites() {
@@ -39,26 +43,6 @@ export function DeleteLocation(location_id) {
             );
     };
 }
-
-// export function setFavoriteLocation(payload) {
-//     return (dispatch) => {
-//         dispatch({ type: REQUEST_START });
-//         api()
-//             .post("/locations/favorites", payload)
-//             .then((response) => {
-//                 dispatch({ type: REQUEST_START });
-//                 dispatch({
-//                     type: SET_FAVORITE_LOCATION,
-//                     payload
-//                 });
-//             })
-//             .catch((error) => {
-//                 dispatch({
-//                     type: REQUEST_ERROR
-//                 });
-//             });
-//     };
-// }
 
 export function AddFavoriteLocation(location) {
     return (dispatch) => {
@@ -135,5 +119,71 @@ export function getRiderStart(id) {
         } catch (err) {
             dispatch({ type: REQUEST_ERROR, payload: err });
         }
+    };
+}
+
+export function getSavedRides() {
+    return async (dispatch) => {
+        dispatch({ type: REQUEST_START });
+
+        try {
+            const res = await api().get("/users/rides");
+
+            dispatch({ type: REQUEST_SUCCESS });
+
+            dispatch({ type: GET_RIDES, payload: res.data });
+        } catch (err) {
+            dispatch({ type: REQUEST_ERROR, payload: err });
+        }
+    };
+}
+
+export function deleteRide(id) {
+    return async (dispatch) => {
+        dispatch({ type: REQUEST_START });
+        try {
+            const res = await api().delete(`/users/rides/${id}`);
+            res && dispatch({ type: DEL_RIDE, payload: id });
+            dispatch({ type: REQUEST_SUCCESS });
+        } catch (err) {
+            dispatch({ type: REQUEST_ERROR, payload: err });
+        }
+    };
+}
+
+export function editRide(newRide) {
+    return async (dispatch) => {
+        dispatch({ type: REQUEST_START });
+        try {
+            const res = await api().put("/users/rides", newRide);
+            res && dispatch({ type: EDIT_RIDE, payload: newRide });
+            dispatch({ type: REQUEST_SUCCESS });
+        } catch (err) {
+            dispatch({ type: REQUEST_ERROR, payload: err });
+        }
+    };
+}
+
+export function startRide(ride, history) {
+    return (dispatch) => {
+
+        dispatch({ type: REQUEST_START });
+        // api()
+        //     .put(`/users/rides`, {ride, status: "started"})
+        api()
+            .get(`/users/rides/riderstart/${ride.id}`)
+            .then((res) => {
+                console.log(res.data.riderStops);
+                dispatch({ type: START_RIDE, payload: res.data.riderStops });
+                dispatch({ type: SAVE_ROUTE, payload:{ start: [res.data.driverRoute[0].start_long, res.data.driverRoute[0].start_lat], end:[res.data.driverRoute[0].end_long, res.data.driverRoute[0].end_lat] } })
+                dispatch({ type: REQUEST_SUCCESS });
+                history.push("/start");
+            })
+            .catch((error) => {
+                dispatch({
+                    type: REQUEST_ERROR,
+                    payload: error
+                });
+            });
     };
 }

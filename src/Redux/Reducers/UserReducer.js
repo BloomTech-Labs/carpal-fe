@@ -12,9 +12,7 @@ import {
     SET_START_LOCATION,
     SET_END_LOCATION,
     CREATE_RIDE,
-    UPLOAD_PROFILE_IMG_START,
-    UPLOAD_PROFILE_IMG_SUCCESS,
-    UPLOAD_PROFILE_IMG_ERROR
+    
 } from "../Actions/UserAction";
 
 const initialState = {
@@ -173,26 +171,7 @@ export function UserReducer(state = initialState, action) {
                 ...state
             };
 
-        //img url upload
-        // case UPLOAD_PROFILE_IMG_START:
-        //     return {
-        //         ...state,
-        //         isLoading: true,
-        //         error: null
-        //     };
-        // case UPLOAD_PROFILE_IMG_SUCCESS:
-        //     return {
-        //         ...state,
-        //         isLoading: false,
-        //         error: null
-        //     };
-        // case UPLOAD_PROFILE_IMG_ERROR:
-        //     return {
-        //         ...state,
-        //         isLoading: false,
-        //         error: action.payload
-        //     };
-        // add ADD RIDE case
+        
 
         default:
             return state;

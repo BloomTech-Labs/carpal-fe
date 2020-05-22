@@ -137,7 +137,7 @@ function RideMap(props) {
                     : renderMarker(marker)}
                 {/* stops along the way */}
                 {props.stops &&
-                    props.stops.map((cur, i) => renderMarker(cur, i, true))}
+                    props.stops.map((cur, i) => renderMarker([cur.long, cur.lat], i, true))}
 
                 <PolyLineOverlay points={locations} />
             </ReactMapGL>

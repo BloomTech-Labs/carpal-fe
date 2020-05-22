@@ -5,7 +5,7 @@ import { withFormik, Form } from "formik";
 import * as Yup from "yup";
 import "./SignUp.scss";
 import LabelField from "../Form-Components/LabelField";
-import cuties from "../../img/background/Cutie-Trio-Bckgrnd.png";
+import cuties from "../../img/logos/Cutie-Trio.png";
 import getGoogleRoute from "../../Utils/GoogleRoute";
 
 import { SignUpAction } from "../../Redux/Actions/UserAction";
@@ -59,10 +59,7 @@ function SignUp(props) {
                 />
 
                 <button type="submit">Submit</button>
-                <a
-                    className="btn"
-                    href={getGoogleRoute()}
-                >
+                <a className="btn" href={getGoogleRoute()}>
                     Signup With Google
                 </a>
             </Form>
