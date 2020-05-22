@@ -1,11 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
+import SavedLocationCard from "../SavedRideCard/SavedLocationCard";
 import SavedRideCard from "../SavedRideCard/SavedRideCard";
 import { connect } from "react-redux";
 import AddLocationName from "../SavedRideCard/AddFavoriteLocation";
-import { getFavorites } from "../../../Redux/Actions/LocationActions";
+import {
+    getFavorites,
+    getSavedRides,
+    deleteRide,
+    editRide,
+    startRide
+} from "../../../Redux/Actions/LocationActions";
 import "./SavedRide.scss";
-import api from "../../../Utils/Api";
-import MyRide from "../SavedRideCard/MyRide";
+import { Link } from "react-router-dom";
+
 
 function SavedRides(props) {
     const [show, setShow] = useState(false);
@@ -32,6 +39,7 @@ function SavedRides(props) {
     useEffect(() => {
         //sets the global state store
         props.getFavorites();
+        props.getSavedRides();
 
         //sets the local state
         const locs = new Promise(getFavorites());
@@ -48,6 +56,19 @@ function SavedRides(props) {
         props.getFavorites();
     };
 
+    const handleRideStart = (ride) => {
+        props.startRide(ride, props.history)
+       
+    };
+
+    const handleRideEdit = () => {
+        props.editRide();
+    };
+
+    const handleRideDelete = (id) => {
+        props.deleteRide(id);
+    };
+
     return (
         <div>
             {show ? (
@@ -61,7 +82,7 @@ function SavedRides(props) {
 
                     {favoriteLocations &&
                         favoriteLocations.map((rideData, index) => (
-                            <SavedRideCard
+                            <SavedLocationCard
                                 key={index}
                                 data={rideData}
                                 id={rideData.id}
@@ -72,15 +93,36 @@ function SavedRides(props) {
                         ))}
                 </div>
             )}
-            <div className="my-rides">
-                <MyRide rides={rideLocations} />
+            <div className="saved-rides">
+                <section className="my-saved">
+                    <h1>My saved rides...</h1>
+                    <Link to="/home" className="btn">Add Ride +</Link>
+                </section>
+                {props.rides &&
+                    props.rides.map((ride, index) => (
+                        <SavedRideCard
+                            key={index}
+                            ride={ride}
+                            handleRideEdit={handleRideEdit}
+                            handleRideDelete={handleRideDelete}
+                            handleRideStart={handleRideStart}
+                        />
+                    ))}
+                {/* <MyRide rides={rideLocations} /> */}
             </div>
         </div>
     );
 }
 
 const mapStateToProps = (state) => ({
-    favorites: state.locations.favoriteLocation
+    favorites: state.locations.favoriteLocation,
+    rides: state.locations.rides
 });
 
-export default connect(mapStateToProps, { getFavorites })(SavedRides);
+export default connect(mapStateToProps, {
+    getFavorites,
+    getSavedRides,
+    deleteRide,
+    editRide,
+    startRide
+})(SavedRides);

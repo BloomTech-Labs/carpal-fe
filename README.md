@@ -10,13 +10,13 @@ You can find the deployed project at https://www.letscarpal.com/.
 
 |                                                        [Carl Redding](https://github.com/miklo88)                                                         |                                   [Ruth Poliakon](https://github.com/rupol)                                    |                                                      [Steven Vandenburg](https://github.com/smv5047)                                                      |                                                       [Darren Angus](https://github.com/dangus1924)                                                       |
 | :-------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| [<img src="https://avatars2.githubusercontent.com/u/22805035?s=400&u=48ef0886ccbd54e1b9f3e7a4044a04399383be6a&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars0.githubusercontent.com/u/47793431?s=400&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars2.githubusercontent.com/u/38800900?s=400&u=17c5530465f41f0b845f3467536d81a9cb5b76bd&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars1.githubusercontent.com/u/51095136?s=400&u=2640b17ebe699ccc1c50732308244f6865411986&v=4" width = "200" />](https://github.com/) | 
+| [<img src="https://avatars2.githubusercontent.com/u/22805035?s=400&u=48ef0886ccbd54e1b9f3e7a4044a04399383be6a&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars0.githubusercontent.com/u/47793431?s=400&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars2.githubusercontent.com/u/38800900?s=400&u=17c5530465f41f0b845f3467536d81a9cb5b76bd&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars1.githubusercontent.com/u/51095136?s=400&u=2640b17ebe699ccc1c50732308244f6865411986&v=4" width = "200" />](https://github.com/) |
 |                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                                       |             [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)             |                                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)                                  |                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)                                 |
 
-|                                                          [Dang Lu](https://github.com/dangnlu18)                                                          |                                                      [Lesley Banadzem](https://github.com/lesleyfon)                                                      |                                                         [Daniel Martin](https://github.com/ohfr)                                                          |                                                      [Dennis Padiernos](https://github.com/depadiernos)                                                      |
-| :-------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------: |:------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| [<img src="https://avatars1.githubusercontent.com/u/38761634?s=400&u=8c35a92a5e96c65004cd08d31a3a375151d53ba5&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars0.githubusercontent.com/u/35934525?s=400&u=3e098b80a62cf119686c5abb955c401d175c505c&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars1.githubusercontent.com/u/50638483?s=400&u=c24e178de825b9f6c8f0700e0be617a0e73e3dd7&v=4" width = "200" />](https://github.com/) |                        [<img src="https://avatars0.githubusercontent.com/u/9113313?s=400&v=4" width="200"/>](https://github.com)                             | 
-|                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                                       |                                  [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)                                   |                                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)                                  |                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                                          | 
+|                                                          [Dang Lu](https://github.com/dangnlu18)                                                          |                                                      [Lesley Banadzem](https://github.com/lesleyfon)                                                      |                                                         [Daniel Martin](https://github.com/ohfr)                                                          |                            [Dennis Padiernos](https://github.com/depadiernos)                             |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------: |
+| [<img src="https://avatars1.githubusercontent.com/u/38761634?s=400&u=8c35a92a5e96c65004cd08d31a3a375151d53ba5&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars0.githubusercontent.com/u/35934525?s=400&u=3e098b80a62cf119686c5abb955c401d175c505c&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars1.githubusercontent.com/u/50638483?s=400&u=c24e178de825b9f6c8f0700e0be617a0e73e3dd7&v=4" width = "200" />](https://github.com/) | [<img src="https://avatars0.githubusercontent.com/u/9113313?s=400&v=4" width="200"/>](https://github.com) |
+|                                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                                       |                                  [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)                                   |                                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)                                  |               [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)               |
 
 <br>
 <br>
@@ -64,8 +64,6 @@ Karen is not making enough to finance her commute. The wear and tear on her car 
 
 To safely connect communities and commuters going in the same direction living in the same area to save money, reduce environmental & infrastructural impact by CarPalling.
 
-### Key Features
-
 ### Basic Features
 
 ## Login/Signup
@@ -80,14 +78,14 @@ To safely connect communities and commuters going in the same direction living i
 -   Upload Profile Picture
 -   Save Favorite Locations (Such as Home and Work) [Via Mapbox]
 
-## Ride request (Currently Unavailable)
+## Ride request
 
 -   Request a Ride
 -   Accept or Reject Ride Requests
 -   Text Alerts to Riders [via Twilio]
 -   Driver Arrival ETA
 
-### Advanced Features (Currently Unavailable)
+## Advanced Features (Currently Unavailable)
 
 -   Payment System [via Stripe]
 -   Driver/passenger ratings
@@ -107,7 +105,14 @@ To safely connect communities and commuters going in the same direction living i
 
 -   React was choosen due to its ability to setup an SPA efficiently and in a ascalable manner.
 
-🚫List the rest of the front end features and libraries in the same format as the framework above.
+#### Framework and Libraries
+
+-   Formik
+-   Axios
+-   Redux
+-   Yup
+-   Sass
+-   Jest
 
 #### Front end deployed to AWS `https://www.letscarpal.com/`
 
@@ -122,7 +127,17 @@ To safely connect communities and commuters going in the same direction living i
 
 -   Postgres enable the carpals app to build a persistent and scalable SQL DB
 
-🚫 List the rest of the back end end features and libraries in the same format as the framework above
+#### Framework and Libraries
+
+-   AWS
+-   Axios
+-   Body Parser
+-   Express
+-   Passport
+-   Postgres
+-   Twilio
+-   JQuery
+-   Multer
 
 # APIs
 
@@ -151,7 +166,7 @@ The Location API enables CRUD actions related to user's favorite locations. Favo
 | PUT    | `/locations/:id`       | owner          | Allows user to enter to update a location  |
 | DELETE | `/locations/:id`       | owner          | Delete a location                          |
 
-## 2️⃣ Payment API here
+<!-- ## 2️⃣ Payment API here
 
 🚫Replace text below with a description of the API
 
@@ -161,13 +176,13 @@ This is the way you take out your flustrations. Get away from those little Chris
 
 🚫Replace text below with a description of the API
 
-When you do it your way you can go anywhere you choose. Let your heart take you to wherever you want to be. If I paint something, I don't want to have to explain what it is. A tree needs to be your friend if you're going to paint him. That's a son of a gun of a cloud. Even the worst thing we can do here is good.
+When you do it your way you can go anywhere you choose. Let your heart take you to wherever you want to be. If I paint something, I don't want to have to explain what it is. A tree needs to be your friend if you're going to paint him. That's a son of a gun of a cloud. Even the worst thing we can do here is good. -->
 
-## 3️⃣ Misc API here
+<!-- ## 3️⃣ Misc API here
 
 🚫Replace text below with a description of the API
 
-Volunteering your time; it pays you and your whole community fantastic dividends. Maybe there's a happy little waterfall happening over here. You can spend all day playing with mountains. We don't have to be committed. We are just playing here. You have freedom here. The only guide is your heart. It's cold, but it's beautiful.
+Volunteering your time; it pays you and your whole community fantastic dividends. Maybe there's a happy little waterfall happening over here. You can spend all day playing with mountains. We don't have to be committed. We are just playing here. You have freedom here. The only guide is your heart. It's cold, but it's beautiful. -->
 
 # 3️⃣ Environment Variables
 

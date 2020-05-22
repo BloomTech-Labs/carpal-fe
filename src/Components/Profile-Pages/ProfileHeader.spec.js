@@ -38,7 +38,6 @@ describe("ProfileHeader renders without crashing", () => {
             </Provider>
         );
 
-        console.log(wrapper.baseElement);
         const imgAlt = wrapper.queryByText("Upload Image");
         expect(imgAlt).toBeInTheDocument();
         expect(imgAlt).toBeVisible();

@@ -9,8 +9,6 @@ function AutoSuggest(props) {
         setSuggestSection,
         suggestions,
         location,
-        auto,
-        setAuto
     } = props;
 
     return (

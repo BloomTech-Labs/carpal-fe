@@ -10,7 +10,7 @@ export default function reverseGeocoder(location) {
         .then((response) => {
             console.log(response.data);
 
-            return response.data.features[0].place_name;
+            return response.data.features[0]?.place_name;
         })
         .catch((err) => console.log(err));
 }

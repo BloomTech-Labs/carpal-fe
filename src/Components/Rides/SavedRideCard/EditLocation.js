@@ -15,8 +15,7 @@ function EditLocationForm(props) {
 
     })
     //sets the state for the current location
-    const { onUpdate } = props
-
+    
     useEffect(() => {
         api().get(`/locations/favorites/`).then(resp => {
             resp.data.filter(location => {
