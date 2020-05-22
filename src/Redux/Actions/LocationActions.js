@@ -168,8 +168,19 @@ export function startRide(ride, history) {
     return (dispatch) => {
 
         dispatch({ type: REQUEST_START });
-        // api()
-        //     .put(`/users/rides`, {ride, status: "started"})
+        api()
+            .put(`/users/rides`, {ride_id: ride.id, driver_id: ride.driver_id, status: "started"})
+            .then((res) => {
+                console.log(res)
+                dispatch({ type: REQUEST_SUCCESS });
+            })
+            .catch((error) => {
+                dispatch({
+                    type: REQUEST_ERROR,
+                    payload: error
+                });
+            });
+    
         api()
             .get(`/users/rides/riderstart/${ride.id}`)
             .then((res) => {

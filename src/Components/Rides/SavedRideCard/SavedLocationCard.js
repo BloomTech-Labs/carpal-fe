@@ -47,12 +47,12 @@ function SavedLocationCard(props) {
                 <EditLocationForm
                     setCurrentLocation={setCurrentLocation}
                     toggle={handleShow}
-                    location_id={props.data.id}
+                    location_id={props.loc.id}
                     onUpdate={onUpdate}
                 />
             ) : (
                 <section className="saved-card">
-                    <h3>{props.data.name}</h3>
+                    <h3>{props.loc.name}</h3>
                     <button onClick={handleEdit}> Edit </button>
                     <button onClick={handleDelete}> Delete </button>                    
                 </section>
