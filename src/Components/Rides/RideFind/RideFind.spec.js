@@ -63,7 +63,9 @@ describe("RideFind", () => {
         expect(queryByTestId("rideCardDiv")).toBeFalsy();
         expect(queryByTestId("rideCardDiv")).not.toBeInTheDocument();
     });
-
+    
+   
+    
     test("Cards should display after search", () => {
         const {
             getAllByTestId,
@@ -88,6 +90,18 @@ describe("RideFind", () => {
 
         expect(getCall).toHaveBeenCalled();
 
-        // debug()
+        
     });
+    
+    test("<RideFind/> snapshot", () => {
+        const wrapper = rtl.render(
+            <Provider store={store}>
+                <Router>
+                    <RideFind />
+                </Router>
+            </Provider>
+        );
+        expect(wrapper).toMatchSnapshot();
+    });
+    
 });
