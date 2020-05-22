@@ -70,7 +70,6 @@ describe("Checking header fields", () => {
 
 
         const name = wrapper.getByText(/edit profile/i);
-        console.log(name);
 
         expect(name).toBeInTheDocument();
         expect(name).toBeVisible();

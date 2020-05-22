@@ -11,11 +11,10 @@ import getGoogleRoute from "../../Utils/GoogleRoute";
 import { LogInAction } from "../../Redux/Actions/UserAction";
 
 function Login(props) {
-    // console.log("props:", props);
     const { errors, touched } = props;
     useEffect(() => {
         let token = document.cookie.replace(
-            /(?:(?:^|.*;\s*)auth\s*\=\s*([^;]*).*$)|^.*$/,
+            /(?:(?:^|.*;\s*)auth\s*\s*([^;]*).*$)|^.*$/,
             "$1"
         );
         if (token) {

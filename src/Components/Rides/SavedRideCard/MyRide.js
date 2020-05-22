@@ -14,10 +14,10 @@ function MyRide(props) {
         });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        props.createRide(props.rideCreated);
-    };
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     // props.createRide(props.rideCreated);
+    // };
 
     useEffect(() => {
         props.rides && setRide(props.rides);
@@ -28,12 +28,11 @@ function MyRide(props) {
     }, [ride]);
 
     return (
-        <div className="myride-container">
-            <div className="myride-header">
-                <h2>My Rides</h2>
+        <div data-testid="myRideContainer" className="myride-container">
+            <div data-testid="myRideHeader" className="myride-header">
+                <h2 data-testid="myRideH2">My Rides</h2>
             </div>
             <form>
-                <button className="add-button">Add Ride +</button>
                 <input
                     type="text"
                     name="startLocation"
@@ -47,11 +46,6 @@ function MyRide(props) {
                     onChange={handleChange}
                 ></input>
             </form>
-            <button className="btn edit">Edit</button>
-            <button className="btn delete">Delete</button>
-            <button className="btn start" onClick={handleSubmit}>
-                Start
-            </button>
         </div>
     );
 }

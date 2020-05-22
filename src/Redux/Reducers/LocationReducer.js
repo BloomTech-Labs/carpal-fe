@@ -8,7 +8,11 @@ import {
     SAVE_ROUTE,
     SET_STOPS,
     SAVE_RIDE,
-    RIDER_START
+    DEL_RIDE,
+    EDIT_RIDE,
+    GET_RIDES,
+    RIDER_START,
+    START_RIDE
 } from "./../Actions/LocationActions";
 
 const initState = {
@@ -93,8 +97,45 @@ export function locationReducer(state = initState, action) {
                 rides: [...state.rides, action.payload]
             };
 
+        case DEL_RIDE:
+            return {
+                ...state,
+                rides: state.rides.filter((ride) => {
+                    return ride.id != action.payload;
+                })
+            };
+
+        case EDIT_RIDE:
+            return {
+                ...state,
+                rides: [
+                    ...state.rides.map((ride) => {
+                        if (ride.id === action.payload.ride_id) {
+                            ride = action.payload;
+                        } else {
+                            return ride;
+                        }
+                    })
+                ]
+            };
+
         case RIDER_START:
             return {
+                ...state,
+                route: {
+                    ...state.route,
+                    riders: action.payload
+                }
+            };
+
+        case GET_RIDES:
+            return {
+                ...state,
+                rides: action.payload
+            };
+
+        case START_RIDE:
+            return{
                 ...state,
                 route: {
                     ...state.route,
