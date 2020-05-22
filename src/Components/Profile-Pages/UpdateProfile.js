@@ -24,32 +24,7 @@ function UpdateProfile(props) {
     const { errors, touched } = props;
     const [user, setUser] = useState({});
 
-    // const handleInput = (e) => {
-    //     if (e.key === "Enter" && e.target.value) {
-    //         if (
-    //             user[e.target.name].find(
-    //                 (tag) => tag.toLowerCase() === e.target.value.toLowerCase()
-    //             )
-    //         ) {
-    //             window.alert(
-    //                 `${e.target.value} is already added to your ${e.target.name}`
-    //             );
-    //             e.target.value = null;
-    //             return;
-    //         }
-    //         setUser({
-    //             ...user,
-    //             [e.target.name]: [...user[e.target.name], e.target.value]
-    //         });
-    //         e.target.value = null;
-    //     }
-    // };
 
-    // const removeTag = (e, i, name) => {
-    //     const newTags = [...user[name]];
-    //     newTags.splice(i, 1);
-    //     setUser({ ...user, [name]: newTags });
-    // };
 
     useEffect(() => {
         setUser({ ...props.user });
@@ -110,24 +85,6 @@ function UpdateProfile(props) {
                     <option value={false}>No</option>
                 </Field>
 
-                {/* <InputTags
-                    handleInput={handleInput}
-                    name="hobbies"
-                    items={user.hobbies}
-                    removeTag={removeTag}
-                />
-                <InputTags
-                    handleInput={handleInput}
-                    name="audioLikes"
-                    items={user.audioLikes}
-                    removeTag={removeTag}
-                />
-                <InputTags
-                    handleInput={handleInput}
-                    name="audioDislikes"
-                    items={user.audioDislikes}
-                    removeTag={removeTag}
-                /> */}
                 <MapBox />
                 {user.phone_number ? (
                     // if user already has a phone number (stand in for profile), button displays "Update Profile", else "Save Profile"

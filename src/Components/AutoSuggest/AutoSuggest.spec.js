@@ -4,8 +4,8 @@ import { cleanup, render, getByTestId } from "@testing-library/react";
 
 beforeEach(cleanup);
 
-//axiosMock = jest.fn()
 
+describe("autosuggest", () => {
 test("Should render the Auto Sugest Component", () => {
     const props = {
         features: [
@@ -51,3 +51,7 @@ test("Should render the Auto Sugest Component", () => {
 
     expect(wrapper.touchZoom).toBeUndefined();
 });
+
+})
+
+
