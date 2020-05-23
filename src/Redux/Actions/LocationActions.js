@@ -168,10 +168,11 @@ export function startRide(ride, history) {
     return (dispatch) => {
 
         dispatch({ type: REQUEST_START });
+        // console.log("ride", ride)
         api()
-            .put(`/users/rides`, {ride_id: ride.id, driver_id: ride.driver_id, status: "started"})
+            .put(`/users/rides`, {ride_id: ride.id, driver_id: ride.driver_id, start_location_id: ride.start_location_id, end_location_id: ride.end_location_id, status: "started"})
             .then((res) => {
-                console.log(res)
+                // console.log("users/rides res", res)
                 dispatch({ type: REQUEST_SUCCESS });
             })
             .catch((error) => {
@@ -184,7 +185,7 @@ export function startRide(ride, history) {
         api()
             .get(`/users/rides/riderstart/${ride.id}`)
             .then((res) => {
-                console.log(res.data.riderStops);
+                console.log("riderStops", res.data.riderStops);
                 dispatch({ type: START_RIDE, payload: res.data.riderStops });
                 dispatch({ type: SAVE_ROUTE, payload:{ start: [res.data.driverRoute[0].start_long, res.data.driverRoute[0].start_lat], end:[res.data.driverRoute[0].end_long, res.data.driverRoute[0].end_lat] } })
                 dispatch({ type: REQUEST_SUCCESS });

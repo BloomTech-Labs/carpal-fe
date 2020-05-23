@@ -12,6 +12,7 @@ import {
     setStops,
     saveRide
 } from "../../../Redux/Actions/LocationActions";
+import { createRideRequest } from "../../../Redux/Actions/UserAction";
 
 function RideFind(props) {
     //hold long and lat for both location
@@ -194,6 +195,9 @@ function RideFind(props) {
                                             stops={props.stops}
                                             setStops={props.setStops}
                                             history={props.history}
+                                            createRideRequest={
+                                                props.createRideRequest
+                                            }
                                         />
                                     ))
                                 ) : loading ? (
@@ -233,6 +237,9 @@ const mapStateToProps = (state) => ({
     stops: state.locations.route.stops
 });
 
-export default connect(mapStateToProps, { currentRoute, setStops, saveRide })(
-    RideFind
-);
+export default connect(mapStateToProps, {
+    currentRoute,
+    setStops,
+    saveRide,
+    createRideRequest
+})(RideFind);
