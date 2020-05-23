@@ -45,17 +45,17 @@ export const AboutData = [
         githubURL: "https://github.com/miklo88",
         linkedinURL: "https://www.linkedin.com/in/carl-redding-000a4281",
         bio:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "Carl is obsessed with stealing moments from people. By utilizing visual design and his developing knowledge. He elaborates on creating content rich applications and websites."
     },
     {
         name: "Daniel Martin",
-        title: "Chief Cutie Creator",
+        title: "Chief Keyboard",
         cutieImg: lightGreenCutie,
         profileImg: daniel,
         githubURL: "https://github.com/ohfr",
         linkedinURL: "https://www.linkedin.com/in/daniel-p-martin",
         bio:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "Daniel is a keyboard enthusiast who loves to code. He also spends his time working on cars."
     },
     {
         name: "Darren Angus",
