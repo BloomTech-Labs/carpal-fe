@@ -65,7 +65,7 @@ export const AboutData = [
         githubURL: "https://github.com/dangus1924",
         linkedinURL: "https://www.linkedin.com/in/darren-angus-441b7b188",
         bio:
-            "Darren is software and sabotage engineer. If you're not on his team you better watch out! Even if you're on his team you should probably still watch out."
+            "Darren is a software and sabotage engineer. If you're not on his team you better watch out! Even if you're on his team you should probably still watch out."
     },
     {
         name: "Lesley Banadzem",
@@ -75,7 +75,7 @@ export const AboutData = [
         githubURL: "https://github.com/lesleyfon",
         linkedinURL: "https://www.linkedin.com/in/lesley-banadzem",
         bio:
-            "Lesley is an experienced software engineer. Leslet laughs at your testing coverage. He writes the tests that the testing libraries rely on."
+            "Lesley is an experienced software engineer. Lesley laughs at your testing coverage. He writes the tests that the testing libraries rely on."
     },
     {
         name: "Ruth Poliakon",
