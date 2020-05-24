@@ -35,7 +35,7 @@ export const AboutData = [
         githubURL: "https://github.com/dangnlu18",
         linkedinURL: "https://www.linkedin.com/in/dang-lu",
         bio:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "Dang is a developer who spends his time creating redux actions or action while piloting biplanes across the West Coast sunset. Sometimes he does both at the same time!"
     },
     {
         name: "Carl Redding",
@@ -65,7 +65,7 @@ export const AboutData = [
         githubURL: "https://github.com/dangus1924",
         linkedinURL: "https://www.linkedin.com/in/darren-angus-441b7b188",
         bio:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "Darren is software and sabotage engineer. If you're not on his team you better watch out! Even if you're on his team you should probably still watch out."
     },
     {
         name: "Lesley Banadzem",
@@ -75,7 +75,7 @@ export const AboutData = [
         githubURL: "https://github.com/lesleyfon",
         linkedinURL: "https://www.linkedin.com/in/lesley-banadzem",
         bio:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "Lesley is an experienced software engineer. Leslet laughs at your testing coverage. He writes the tests that the testing libraries rely on."
     },
     {
         name: "Ruth Poliakon",
