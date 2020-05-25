@@ -57,15 +57,15 @@ function RideRequestsCard(props) {
                             <button onClick={toggleDetails}>Details</button>
                             {props.requests.status === "pending" ? (
                                 <>
-                                    <button onClick={handleRequest("accepted")}>
+                                    <button onClick={() => handleRequest("accepted")}>
                                         Accept
                                     </button>
-                                    <button onClick={handleRequest("decline")}>
+                                    <button onClick={() => handleRequest("decline")}>
                                         Decline
                                     </button>
                                 </>
                             ) : (
-                                <button onClick={handleRequest("declined")}>
+                                <button onClick={() => handleRequest("declined")}>
                                     Decline
                                 </button>
                             )}
