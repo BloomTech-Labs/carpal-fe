@@ -38,8 +38,8 @@ describe("ProfileHeader renders without crashing", () => {
             </Provider>
         );
 
-        const imgAlt = wrapper.queryByText("Upload Image");
-        expect(imgAlt).toBeInTheDocument();
-        expect(imgAlt).toBeVisible();
+        const email = wrapper.queryByText("dang@carpal.com");
+        expect(email).toBeInTheDocument();
+        expect(email).toBeVisible();
     });
 });

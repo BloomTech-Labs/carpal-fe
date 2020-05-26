@@ -46,9 +46,13 @@ describe("logout user", () => {
 
         const wrapper = renderWithRedux(<TopNav />);
 
+        const menu = wrapper.queryByText("Menu")
+        fireEvent.click(menu);
+        
         const logout = wrapper.queryByText("Logout");
-
+        
         fireEvent.click(logout);
+        wrapper.debug()
 
         await wait(() => {
             const noToken = localStorage.getItem("token");

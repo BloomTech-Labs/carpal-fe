@@ -25,9 +25,14 @@ beforeEach(() => {
     rides: []
     })
 })
+
+const location = {
+    name: "Home"
+}
+
 test("Renders SavedCard without crashing", () => {
     const card = render(<Provider store={store}>
-        <SavedLocationCard />
+        <SavedLocationCard location={location} />
         </Provider>);
 
     const editButton = card.getByText("Edit");

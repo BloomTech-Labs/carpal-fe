@@ -11,13 +11,13 @@ import { locationReducer } from "./Redux/Reducers/LocationReducer";
 import { createStore, applyMiddleware, combineReducers } from "redux";
 
 
-
 const rootReducer = combineReducers({
     user: UserReducer,
     locations: locationReducer
 });
 
 jest.mock("react-dom", () => ({ render: jest.fn() }));
+
 
 const mockStore = configureStore([thunk]);
 
@@ -39,7 +39,16 @@ describe("App root", () => {
         </Provider>,
         div)
      
-                    
+                  
         expect(ReactDOM.render).toHaveBeenCalled()
-    });
+        expect(ReactDOM.render).toHaveBeenCalledTimes(1)
+    });  
+    it('should return twice', () => {
+        let react = jest.fn(() => true)
+
+        react()
+        react()
+
+        expect(react).toHaveBeenCalledTimes(2)
+    })
 });
