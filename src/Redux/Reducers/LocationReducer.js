@@ -103,7 +103,7 @@ export function locationReducer(state = initState, action) {
             return {
                 ...state,
                 rides: state.rides.filter((ride) => {
-                    return ride.id != action.payload;
+                    return ride.id !== action.payload;
                 })
             };
 

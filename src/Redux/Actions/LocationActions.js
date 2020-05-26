@@ -56,7 +56,6 @@ export function AddFavoriteLocation(location) {
 
 export function EditLocation(location) {
     return (dispatch) => {
-        console.log(location, "locationActions");
         api()
             .put(`locations/favorites/${location.id}`, location)
             .then((res) => dispatch({ type: EDIT_LOCATION, payload: location }))
