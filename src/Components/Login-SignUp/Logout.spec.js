@@ -52,7 +52,6 @@ describe("logout user", () => {
         const logout = wrapper.queryByText("Logout");
         
         fireEvent.click(logout);
-        wrapper.debug()
 
         await wait(() => {
             const noToken = localStorage.getItem("token");
