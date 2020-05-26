@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import RideMap from "../../MapBox/RideMap/RideMap";
 import { connect } from "react-redux";
-import { Redirect, Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 function RideInProgress(props) {
     const [proximityCords, setProximityCords] = useState({
@@ -18,8 +18,24 @@ function RideInProgress(props) {
 
             {/* add card for current person to pick up */}
             <div className="search-display">
-    <h1>On your way to pick up <em>{props.route.riders[0].rider}</em></h1>
-    <a href={`tel:${props.route.riders[0].rider_number}`}>{props.route.riders[0].rider_number} </a>
+                {props.route.riders[0] ? (
+                    <>
+                        <h1>
+                            On your way to pick up &nbsp;
+                            <strong>{props.route.riders[0].rider}</strong>
+                        </h1>
+                        <a href={`tel:${props.route.riders[0].rider_number}`}>
+                            {props.route.riders[0].rider_number}
+                        </a>
+                    </>
+                ) : (
+                    <>
+                        <h1>
+                            No rider has requested this ride. Enjoy your empty
+                            car!
+                        </h1>
+                    </>
+                )}
             </div>
 
             <div className="map-search">

@@ -166,7 +166,7 @@ export function editRide(newRide) {
 export function startRide(ride, history) {
     return (dispatch) => {
         dispatch({ type: REQUEST_START });
-        // console.log("ride", ride)
+        console.log("ride", ride);
         api()
             .put(`/users/rides`, {
                 ride_id: ride.id,
