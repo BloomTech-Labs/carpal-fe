@@ -12,7 +12,7 @@ import {
     SET_START_LOCATION,
     SET_END_LOCATION,
     CREATE_RIDE,
-    
+    CREATE_RIDE_REQUEST
 } from "../Actions/UserAction";
 
 const initialState = {
@@ -171,7 +171,17 @@ export function UserReducer(state = initialState, action) {
                 ...state
             };
 
-        
+        case CREATE_RIDE_REQUEST:
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    outgoing_ride_requests: [
+                        ...state.user.outgoing_ride_requests,
+                        action.payload
+                    ]
+                }
+            };
 
         default:
             return state;

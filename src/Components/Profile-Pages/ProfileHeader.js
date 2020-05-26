@@ -27,9 +27,10 @@ function ProfileHeader(props) {
                     src="https://pbs.twimg.com/profile_images/1232869769013014535/iwN5kET4_400x400.jpg"
                     alt="img1"
                 ></img>
-                <Link className="overlaybutton" to="/upload">
+                {/* This Routes to a blank page */}
+                {/* <Link className="overlaybutton" to="/upload">
                     Upload Image
-                </Link>
+                </Link> */}
                 {/* <a className="overlaybutton" href="#" alt="Profile">
                     Upload Image
                 </a> */}

@@ -1,85 +1,80 @@
-import React, { useState, useEffect } from 'react'
-import { connect } from 'react-redux'
-import "./AddLocationName.scss"
-import { EditLocation, getFavorites } from '../../../Redux/Actions/LocationActions'
-import api from '../../../Utils/Api'
-import geocode from '../../../Utils/geocoder'
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import "./AddLocationName.scss";
+import { EditLocation } from "../../../Redux/Actions/LocationActions";
+import geocode from "../../../Utils/geocoder";
 
 function EditLocationForm(props) {
-
     const [updatedLocation, setUpdatedLocation] = useState({
-        name: '',
+        name: "",
         lat: 0,
         long: 0,
-        address: ''
+        address: ""
+    });
 
-    })
     //sets the state for the current location
-    
     useEffect(() => {
-        api().get(`/locations/favorites/`).then(resp => {
-            resp.data.filter(location => {
-                if (location.id === props.location_id) {
-                    setUpdatedLocation(location)
-                }
-            })
-        })
-
-    }, [])
-
-
+        setUpdatedLocation({
+            ...updatedLocation,
+            name: props.location.name,
+            lat: props.location.lat,
+            long: props.location.long,
+            id: props.location.id
+        });
+    }, []);
 
     //geocodes the updated input
     useEffect(() => {
-        let point = geocode(updatedLocation)
-        const coords = Promise.resolve(point)
-        coords.then(resp => {
+        let point = geocode(updatedLocation);
+        const coords = Promise.resolve(point);
+        coords.then((resp) => {
             {
-                resp ? (setUpdatedLocation({
-                    ...updatedLocation,
-                    lat: resp[0],
-                    long: resp[1]
-                })) : (resp = null)
+                resp
+                    ? setUpdatedLocation({
+                          ...updatedLocation,
+                          lat: resp[0],
+                          long: resp[1]
+                      })
+                    : (resp = null);
             }
-        })
-    }, [updatedLocation.address])
-
+        });
+    }, [updatedLocation.address]);
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        props.setCurrentLocation(updatedLocation)
-        props.EditLocation(updatedLocation)
-        props.toggle()
+        e.preventDefault();
+        props.EditLocation(updatedLocation);
+        props.toggle();
+    };
 
-    }
-
-    const handleChange = e => {
+    const handleChange = (e) => {
         setUpdatedLocation({
             ...updatedLocation,
             [e.target.name]: e.target.value
-        })
-
-    }
+        });
+    };
 
     return (
-        <div className='edit-form'>
+        <div className="edit-form">
             <h1>Edit Location</h1>
-            <form className='location-edit-form' onSubmit={handleSubmit}>
-                <input type='text' name='name' placeholder='name' onChange={handleChange}></input>
-                <input type='text' name='address' placeholder='address' onChange={handleChange}></input>
-                <button type="submit" >Save and Close</button>
+            <form className="location-edit-form" onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="name"
+                    value={updatedLocation.name}
+                    onChange={handleChange}
+                ></input>
+                <input
+                    type="text"
+                    name="address"
+                    placeholder="address"
+                    value={updatedLocation.address}
+                    onChange={handleChange}
+                ></input>
+                <button type="submit">Save and Close</button>
             </form>
         </div>
-
-    )
-
-
+    );
 }
 
-
-const mapStateToProps = (state) => ({
-    location: state.locations.favoriteLocations
-})
-
-
-export default connect(mapStateToProps, { EditLocation, getFavorites })(EditLocationForm)
+export default connect(null, { EditLocation })(EditLocationForm);

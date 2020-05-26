@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactMapGL, { Marker, FlyToInterpolator } from "react-map-gl";
 import Logo from "../../../img/Logo.png";
-import pin from "../../../img/logos/pin.jpg"
+import pin from "../../../img/logos/pin.jpg";
 import "./RideMap.scss";
 import "mapbox-gl/dist/mapbox-gl.css";
 import PolyLineOverlay from "../../Rides/RideFind/PolyLineOverlay";
@@ -93,7 +93,7 @@ function RideMap(props) {
     };
 
     // Function to render A Marker
-    const renderMarker = (longLat, index = 0, pins=false) => {
+    const renderMarker = (longLat, index = 0, pins = false) => {
         return (
             <Marker
                 key={index}
@@ -137,7 +137,10 @@ function RideMap(props) {
                     : renderMarker(marker)}
                 {/* stops along the way */}
                 {props.stops &&
-                    props.stops.map((cur, i) => renderMarker([cur.long, cur.lat], i, true))}
+                    props.stops.map((cur, i) => {
+                        // console.log(cur);
+                        renderMarker([cur.long, cur.lat], i, true);
+                    })}
 
                 <PolyLineOverlay points={locations} />
             </ReactMapGL>

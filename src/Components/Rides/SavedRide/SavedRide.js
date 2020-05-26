@@ -13,7 +13,6 @@ import {
 import "./SavedRide.scss";
 import { Link } from "react-router-dom";
 
-
 function SavedRides(props) {
     const [show, setShow] = useState(false);
     const [favoriteLocations, setFavoriteLocations] = useState();
@@ -57,8 +56,7 @@ function SavedRides(props) {
     };
 
     const handleRideStart = (ride) => {
-        props.startRide(ride, props.history)
-       
+        props.startRide(ride, props.history);
     };
 
     const handleRideEdit = () => {
@@ -80,12 +78,11 @@ function SavedRides(props) {
                         <button onClick={toggleShow}>Add New Location</button>
                     </section>
 
-                    {favoriteLocations &&
-                        favoriteLocations.map((rideData, index) => (
+                    {props.favorites &&
+                        props.favorites.map((location, index) => (
                             <SavedLocationCard
                                 key={index}
-                                data={rideData}
-                                id={rideData.id}
+                                location={location}
                                 onUpdate={() => handleUpdate()}
                                 setRideLocations={setRideLocations}
                                 rideLocations={rideLocations}
@@ -96,7 +93,9 @@ function SavedRides(props) {
             <div className="saved-rides">
                 <section className="my-saved">
                     <h1>My saved rides...</h1>
-                    <Link to="/home" className="btn">Add Ride +</Link>
+                    <Link to="/home" className="btn">
+                        Add Ride +
+                    </Link>
                 </section>
                 {props.rides &&
                     props.rides.map((ride, index) => (

@@ -14,6 +14,7 @@ export const UPDATE_RIDE_REQUEST = "UPDATE_RIDE_REQUEST";
 export const SET_START_LOCATION = "SET_START_LOCATION";
 export const SET_END_LOCATION = "SET_END_LOCATION";
 export const CREATE_RIDE = "CREATE_RIDE";
+export const CREATE_RIDE_REQUEST = "CREATE_RIDE_REQUEST";
 
 export function SignUpAction(user, props) {
     return (dispatch) => {
@@ -215,6 +216,21 @@ export function createRide(payload) {
                     type: REQUEST_ERROR,
                     payload: error
                 });
+            });
+    };
+}
+
+export function createRideRequest(payload, whatever) {
+    return (dispatch) => {
+        api()
+            .post("/rides/requests", payload)
+            .then((res) => {
+                console.log(res);
+                dispatch({ type: CREATE_RIDE_REQUEST, payload: res.data });
+                whatever.push("/requests");
+            })
+            .catch((err) => {
+                console.log(err.message);
             });
     };
 }

@@ -15,19 +15,16 @@ function RiderCard(props) {
         ]);
     };
 
-    const makeRequest = (e) => {
-        e.preventDefault();
-        Api()
-            .post("/rides/requests", {
-                ride_id: props.ride_id,
-                status: "pending"
-            })
-            .then((res) => {
-                props.history.push("/requests");
-            })
-            .catch((err) => {
-                console.log(err.message);
-            });
+    const makeRequest = () => {
+        const payload = {
+            ride_id: props.ride_id,
+            status: "pending",
+            rider_end_lat: props.stops[1][1],
+            rider_end_long: props.stops[1][0],
+            rider_start_lat: props.stops[0][1],
+            rider_start_long: props.stops[0][0]
+        };
+        props.createRideRequest(payload, props.history);
     };
 
     return (
@@ -39,7 +36,7 @@ function RiderCard(props) {
                     <button data-testid="detailsButton" onClick={handleClick}>
                         Details
                     </button>
-                    <button /* onClick to send request to BE*/>Request</button>
+                    <button onClick={makeRequest}>Request</button>
                     <div className="request-card-details" data-testid="riderUl">
                         <UserDetail title="Hobbies" item={props.ride.hobbies} />
 
@@ -61,12 +58,6 @@ function RiderCard(props) {
 
                     <button data-testid="detailsButton" onClick={handleClick}>
                         Details
-                    </button>
-
-                    <button /* onClick to send request to BE*/
-                        onClick={makeRequest}
-                    >
-                        Request
                     </button>
                 </div>
             )}

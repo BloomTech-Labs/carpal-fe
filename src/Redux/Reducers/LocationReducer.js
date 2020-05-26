@@ -56,7 +56,9 @@ export function locationReducer(state = initState, action) {
                 favoriteLocation: [
                     ...state.favoriteLocation.map((place) => {
                         if (place.id === action.payload.id) {
-                            place = action.payload;
+                            return action.payload;
+                        } else {
+                            return place;
                         }
                     })
                 ]
@@ -101,7 +103,7 @@ export function locationReducer(state = initState, action) {
             return {
                 ...state,
                 rides: state.rides.filter((ride) => {
-                    return ride.id != action.payload;
+                    return ride.id !== action.payload;
                 })
             };
 
@@ -111,7 +113,7 @@ export function locationReducer(state = initState, action) {
                 rides: [
                     ...state.rides.map((ride) => {
                         if (ride.id === action.payload.ride_id) {
-                            ride = action.payload;
+                            return action.payload;
                         } else {
                             return ride;
                         }
@@ -135,7 +137,7 @@ export function locationReducer(state = initState, action) {
             };
 
         case START_RIDE:
-            return{
+            return {
                 ...state,
                 route: {
                     ...state.route,

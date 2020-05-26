@@ -35,7 +35,7 @@ export const AboutData = [
         githubURL: "https://github.com/dangnlu18",
         linkedinURL: "https://www.linkedin.com/in/dang-lu",
         bio:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "Dang is a developer who spends his time creating redux actions or action while piloting biplanes across the West Coast sunset. Sometimes he does both at the same time!"
     },
     {
         name: "Carl Redding",
@@ -45,17 +45,17 @@ export const AboutData = [
         githubURL: "https://github.com/miklo88",
         linkedinURL: "https://www.linkedin.com/in/carl-redding-000a4281",
         bio:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "Carl is obsessed with stealing moments from people. By utilizing visual design and his developing knowledge. He elaborates on creating content rich applications and websites."
     },
     {
         name: "Daniel Martin",
-        title: "Chief Cutie Creator",
+        title: "Chief Keyboard",
         cutieImg: lightGreenCutie,
         profileImg: daniel,
         githubURL: "https://github.com/ohfr",
         linkedinURL: "https://www.linkedin.com/in/daniel-p-martin",
         bio:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "Daniel is a keyboard enthusiast who loves to code. He also spends his time working on cars."
     },
     {
         name: "Darren Angus",
@@ -65,7 +65,7 @@ export const AboutData = [
         githubURL: "https://github.com/dangus1924",
         linkedinURL: "https://www.linkedin.com/in/darren-angus-441b7b188",
         bio:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "Darren is a software and sabotage engineer. If you're not on his team you better watch out! Even if you're on his team you should probably still watch out."
     },
     {
         name: "Lesley Banadzem",
@@ -75,7 +75,7 @@ export const AboutData = [
         githubURL: "https://github.com/lesleyfon",
         linkedinURL: "https://www.linkedin.com/in/lesley-banadzem",
         bio:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "Lesley is an experienced software engineer. Lesley laughs at your testing coverage. He writes the tests that the testing libraries rely on."
     },
     {
         name: "Ruth Poliakon",
