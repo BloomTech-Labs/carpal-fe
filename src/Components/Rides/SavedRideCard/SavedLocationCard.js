@@ -1,37 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./SavedRideCard.scss";
-import {
-    DeleteLocation,
-    getFavorites
-} from "../../../Redux/Actions/LocationActions";
-import {
-    setStartLocation,
-    setEndLocation
-} from "../../../Redux/Actions/UserAction";
+import { DeleteLocation } from "../../../Redux/Actions/LocationActions";
 import { connect } from "react-redux";
 import EditLocationForm from "./EditLocation";
 
-
 function SavedLocationCard(props) {
     const [show, setShow] = useState(false);
-    const [currentLocation, setCurrentLocation] = useState();
 
-    const { onUpdate } = props;
-
-    useEffect(() => {
-        const place = props.loc.filter((location) => {
-            if (location.id === props.id) {
-                setCurrentLocation(location);
-            }
-        });
-    }, []);
-
-    const handleDelete = (id) => {
-        props.DeleteLocation(props.id);
-        props.onUpdate();
+    const handleDelete = () => {
+        props.DeleteLocation(props.location.id);
     };
 
-    const handleEdit = (id) => {
+    const handleEdit = () => {
         setShow(!show);
     };
 
@@ -39,35 +19,24 @@ function SavedLocationCard(props) {
         setShow(!show);
     };
 
-    
-
     return (
         <div className="saved-card">
             {show ? (
                 <EditLocationForm
-                    setCurrentLocation={setCurrentLocation}
                     toggle={handleShow}
-                    location_id={props.loc.id}
-                    onUpdate={onUpdate}
+                    location={props.location}
                 />
             ) : (
-                <section className="saved-card">
-                    <h3>{props.loc.name}</h3>
+                <>
+                    <h3>{props.location.name}</h3>
                     <button onClick={handleEdit}> Edit </button>
-                    <button onClick={handleDelete}> Delete </button>                    
-                </section>
+                    <button onClick={handleDelete}> Delete </button>
+                </>
             )}
         </div>
     );
 }
 
-const mapStateToProps = (state) => ({
-    loc: state.locations.favoriteLocation
-});
-
-export default connect(mapStateToProps, {
-    DeleteLocation,
-    getFavorites,
-    setStartLocation,
-    setEndLocation
+export default connect(null, {
+    DeleteLocation
 })(SavedLocationCard);
