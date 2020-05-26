@@ -11,7 +11,7 @@ export const SET_STOPS = "SET_STOPS";
 export const SAVE_RIDE = "SAVE_RIDE";
 export const DEL_RIDE = "DEL_RIDE";
 export const EDIT_RIDE = "EDIT_RIDE";
-export const START_RIDE = "START_RIDE"
+export const START_RIDE = "START_RIDE";
 export const GET_RIDES = "GET_RIDES";
 export const RIDER_START = "RIDER_START";
 
@@ -35,7 +35,6 @@ export function getFavorites() {
 export function DeleteLocation(location_id) {
     return (dispatch) => {
         dispatch({ type: DELETE_LOCATION, payload: location_id });
-        console.log(location_id);
         api()
             .delete(`/locations/favorites/${location_id}`)
             .then((resp) =>
@@ -57,6 +56,7 @@ export function AddFavoriteLocation(location) {
 
 export function EditLocation(location) {
     return (dispatch) => {
+        console.log(location, "locationActions");
         api()
             .put(`locations/favorites/${location.id}`, location)
             .then((res) => dispatch({ type: EDIT_LOCATION, payload: location }))
@@ -166,11 +166,16 @@ export function editRide(newRide) {
 
 export function startRide(ride, history) {
     return (dispatch) => {
-
         dispatch({ type: REQUEST_START });
         // console.log("ride", ride)
         api()
-            .put(`/users/rides`, {ride_id: ride.id, driver_id: ride.driver_id, start_location_id: ride.start_location_id, end_location_id: ride.end_location_id, status: "started"})
+            .put(`/users/rides`, {
+                ride_id: ride.id,
+                driver_id: ride.driver_id,
+                start_location_id: ride.start_location_id,
+                end_location_id: ride.end_location_id,
+                status: "started"
+            })
             .then((res) => {
                 // console.log("users/rides res", res)
                 dispatch({ type: REQUEST_SUCCESS });
@@ -181,13 +186,25 @@ export function startRide(ride, history) {
                     payload: error
                 });
             });
-    
+
         api()
             .get(`/users/rides/riderstart/${ride.id}`)
             .then((res) => {
                 console.log("riderStops", res.data.riderStops);
                 dispatch({ type: START_RIDE, payload: res.data.riderStops });
-                dispatch({ type: SAVE_ROUTE, payload:{ start: [res.data.driverRoute[0].start_long, res.data.driverRoute[0].start_lat], end:[res.data.driverRoute[0].end_long, res.data.driverRoute[0].end_lat] } })
+                dispatch({
+                    type: SAVE_ROUTE,
+                    payload: {
+                        start: [
+                            res.data.driverRoute[0].start_long,
+                            res.data.driverRoute[0].start_lat
+                        ],
+                        end: [
+                            res.data.driverRoute[0].end_long,
+                            res.data.driverRoute[0].end_lat
+                        ]
+                    }
+                });
                 dispatch({ type: REQUEST_SUCCESS });
                 history.push("/start");
             })

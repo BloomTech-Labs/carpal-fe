@@ -2,7 +2,7 @@ import React from "react";
 
 function SavedRideCard(props) {
     return (
-        <section className="saved-card">
+        <div className="saved-card">
             <h3>{props.ride.id}</h3>
             {/* <button className="btn edit" onClick={() => props.handleRideEdit()}>
                 Edit
@@ -19,7 +19,7 @@ function SavedRideCard(props) {
             >
                 Start
             </button>
-        </section>
+        </div>
     );
 }
 
