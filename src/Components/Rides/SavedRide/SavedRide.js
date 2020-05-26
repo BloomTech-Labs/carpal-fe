@@ -94,7 +94,7 @@ function SavedRides(props) {
                 <section className="my-saved">
                     <h1>My saved rides...</h1>
                     <Link to="/home" className="btn">
-                        Add Ride +
+                        Add Ride
                     </Link>
                 </section>
                 {props.rides &&
@@ -107,7 +107,6 @@ function SavedRides(props) {
                             handleRideStart={handleRideStart}
                         />
                     ))}
-                {/* <MyRide rides={rideLocations} /> */}
             </div>
         </div>
     );
