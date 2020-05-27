@@ -8,7 +8,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import thunk from "redux-thunk";
 import { UserReducer } from "./Redux/Reducers/UserReducer";
 import { locationReducer } from "./Redux/Reducers/LocationReducer";
-import logger from "redux-logger";
+// import logger from "redux-logger";
 
 const rootReducer = combineReducers({
     user: UserReducer,
@@ -19,7 +19,7 @@ const rootReducer = combineReducers({
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
     rootReducer,
-    composeEnhancers(applyMiddleware(thunk, logger))
+    composeEnhancers(applyMiddleware(thunk))
 );
 
 ReactDOM.render(
@@ -30,4 +30,3 @@ ReactDOM.render(
     </Provider>,
     document.getElementById("root")
 );
-

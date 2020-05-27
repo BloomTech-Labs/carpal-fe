@@ -85,18 +85,23 @@ export function saveRide({ start_location_id, end_location_id }, props) {
             dispatch({ type: REQUEST_START });
             // post start and end lat and long to /locations to obtain ids for each
             const start = await api().post("/locations", {
-                lat: start_location_id[0],
-                long: start_location_id[1]
+                lat: start_location_id[1],
+                long: start_location_id[0]
             });
             const end = await api().post("/locations", {
-                lat: end_location_id[0],
-                long: end_location_id[1]
+                lat: end_location_id[1],
+                long: end_location_id[0]
             });
             // send the two recieved start and end ids to the users rides to create a new saved ride
-            const savedRide = await api().post("/users/rides", {
+            await api().post("/users/rides", {
                 start_location_id: start.data.id,
                 end_location_id: end.data.id
             });
+
+            // Fetch all users saved rides after saving a ride ⬆️,
+            // The post call above returns just ride ID's, so we just fetch all the rides after we make a post call
+            const savedRide = await api().get("/users/rides");
+
             dispatch({ type: SAVE_RIDE, payload: savedRide.data });
             dispatch({ type: REQUEST_SUCCESS });
             props.history.push("/saved");

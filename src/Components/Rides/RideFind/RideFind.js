@@ -105,7 +105,7 @@ function RideFind(props) {
                 suggestions.end_location_id
             );
         }
-    }, [suggestions.start_location_id, suggestions.end_location_id]);
+    }, [suggestions.start_location_id, suggestions.end_location_id, props]);
 
     const getRides = (latlong) => {
         setLoading(true);
