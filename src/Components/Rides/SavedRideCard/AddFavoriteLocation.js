@@ -26,7 +26,7 @@ function AddLocationName(props) {
                     : (resp = null);
             }
         });
-    }, [newLocation.address]);
+    }, [newLocation]);
 
     const handleChange = (e) => {
         setNewLocation({

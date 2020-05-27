@@ -5,7 +5,7 @@ import {
     SetUserAction,
     EditProfileAction
 } from "../../Redux/Actions/UserAction";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function ProfileHeader(props) {
     const [user, setUser] = useState({});

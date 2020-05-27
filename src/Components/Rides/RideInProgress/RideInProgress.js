@@ -4,10 +4,10 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
 function RideInProgress(props) {
-    const [proximityCords, setProximityCords] = useState({
-        longitude: 0,
-        latitude: 0
-    });
+    // const [proximityCords, setProximityCords] = useState({
+    //     longitude: 0,
+    //     latitude: 0
+    // });
 
     if (props.route.start.length < 1 || props.route.end.length < 1) {
         return <Redirect to="/home" />;
@@ -42,7 +42,7 @@ function RideInProgress(props) {
                 <RideMap
                     start={props.route.start}
                     end={props.route.end}
-                    setProximityCords={setProximityCords}
+                    // setProximityCords={setProximityCords}
                     stops={props.route.riders}
                 />
             </div>

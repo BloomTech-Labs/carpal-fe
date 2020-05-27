@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import UserDetail from "../../Profile-Pages/userDetail";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import "./RiderCard.scss";
-import Api from "./../../../Utils/Api";
+// import Api from "./../../../Utils/Api";
 
 function RiderCard(props) {
     const [open, setOpen] = useState(false);

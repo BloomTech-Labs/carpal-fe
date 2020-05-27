@@ -96,7 +96,7 @@ export function locationReducer(state = initState, action) {
         case SAVE_RIDE:
             return {
                 ...state,
-                rides: [...state.rides, action.payload]
+                rides: [...action.payload]
             };
 
         case DEL_RIDE:
