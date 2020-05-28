@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./RideRequestsCard.scss";
-import Patchy from "../../../img/logos/Patchyv2.0.png";
+import Patchy from "../../../img/logos/Green-Patchy.png";
 import UserDetail from "../../Profile-Pages/userDetail";
 
 function RideRequestsCard(props) {
@@ -57,15 +57,23 @@ function RideRequestsCard(props) {
                             <button onClick={toggleDetails}>Details</button>
                             {props.requests.status === "pending" ? (
                                 <>
-                                    <button onClick={() => handleRequest("accepted")}>
+                                    <button
+                                        onClick={() =>
+                                            handleRequest("accepted")
+                                        }
+                                    >
                                         Accept
                                     </button>
-                                    <button onClick={() => handleRequest("decline")}>
+                                    <button
+                                        onClick={() => handleRequest("decline")}
+                                    >
                                         Decline
                                     </button>
                                 </>
                             ) : (
-                                <button onClick={() => handleRequest("declined")}>
+                                <button
+                                    onClick={() => handleRequest("declined")}
+                                >
                                     Decline
                                 </button>
                             )}

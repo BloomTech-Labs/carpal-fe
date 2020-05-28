@@ -56,9 +56,9 @@ function Login(props) {
                 )}
 
                 <button type="submit">Submit</button>
-                <a className="btn" href={getGoogleRoute()}>
+                {/* <a className="btn" href={getGoogleRoute()}>
                     Login With Google
-                </a>
+                </a> */}
                 <Link className="forgot-password" to="/signup">
                     Forgot your password?
                 </Link>
