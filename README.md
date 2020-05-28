@@ -26,8 +26,6 @@ You can find the deployed project at https://www.letscarpal.com/.
 ![AWS](https://img.shields.io/badge/AWS-Hosting-lightgrey)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-🚫 more info on using badges [here](https://github.com/badges/shields)
-
 ## Project Overview
 
 [Trello Board](https://trello.com/b/61U4A461/labspt8-carpal)
@@ -57,8 +55,8 @@ Karen is not making enough to finance her commute. The wear and tear on her car 
 -   Problem 3 - Lack of current transportation/car
 -   Problem 4 - Person concerned with impact on aging US infrastructure
 -   Problem 5 - Stressed out by commute
--   Problem 6- Wants to Meet People
--   Problem 7- Karen scored a DUI and still needs to get to work
+-   Problem 6 - Wants to Meet People
+-   Problem 7 - Karen scored a DUI and still needs to get to work
 
 ## Mission
 
@@ -70,7 +68,7 @@ To safely connect communities and commuters going in the same direction living i
 
 -   Signup and Login
 -   Signup and Login using Google Account [via PassportJS]
--   Signout (Currently Unavailable)
+-   Signout
 
 ## User profile
 
@@ -78,14 +76,25 @@ To safely connect communities and commuters going in the same direction living i
 -   Upload Profile Picture
 -   Save Favorite Locations (Such as Home and Work) [Via Mapbox]
 
-## Ride request
+## Ride requests
 
 -   Request a Ride
 -   Accept or Reject Ride Requests
 -   Text Alerts to Riders [via Twilio]
 -   Driver Arrival ETA
+-   Ad hoc ride requests
 
-## Advanced Features (Currently Unavailable)
+## Ride In-Progress Routing
+
+-   Displays Route for Driver
+-   Sends text through Twilio to the Rider to Alert them that a Ride is Coming
+
+## Favorite Locations and My Rides
+
+-   Show, Add, & Edit Favorite Locations
+-   Show, Add, & Start a Ride
+
+## Future Features (Currently Unavailable)
 
 -   Payment System [via Stripe]
 -   Driver/passenger ratings
@@ -94,7 +103,6 @@ To safely connect communities and commuters going in the same direction living i
 -   Mobile native app
 -   Gamification (user stats/point system)
 -   Driver real time location
--   Ad hoc ride requests
 -   Safety features (user verification)
 
 ## Tech Stack
@@ -103,7 +111,7 @@ To safely connect communities and commuters going in the same direction living i
 
 #### React
 
--   React was choosen due to its ability to setup an SPA efficiently and in a ascalable manner.
+-   React was choosen due to its ability to setup a SPA efficiently and in a scalable manner.
 
 #### Framework and Libraries
 
@@ -113,6 +121,7 @@ To safely connect communities and commuters going in the same direction living i
 -   Yup
 -   Sass
 -   Jest
+-   Router
 
 #### Front end deployed to AWS `https://www.letscarpal.com/`
 
@@ -127,100 +136,47 @@ To safely connect communities and commuters going in the same direction living i
 
 -   Postgres enable the carpals app to build a persistent and scalable SQL DB
 
-#### Framework and Libraries
+#### Framework, Libraries, and Integrations
 
+-   React
 -   AWS
 -   Axios
--   Body Parser
--   Express
--   Passport
--   Postgres
+-   PassportJS
 -   Twilio
--   JQuery
--   Multer
+-   Mapbox
 
 # APIs
 
-## Authentication API
+## See API Details in the Backend Documentation
 
-The User API enables interaction with Carpals user base
+[Backend Documentation](https://github.com/Lambda-School-Labs/carpal-be/blob/master/README.md)
 
-| Method | Endpoint         | Access Control | Description                                      |
-| ------ | ---------------- | -------------- | ------------------------------------------------ |
-| POST   | `/auth/register` | all users      | Allows user to create an account                 |
-| POST   | `/auth/login`    | all users      | Allows user to authenticate and log into account |
-| GET    | `/auth`          | all users      | Allows for user retrieval from a token           |
-| PUT    | `/auth/update`   | owner          | Allows user to update their account              |
-| DELETE | `/auth/delete`   | owner          | Allows user to delete their account              |
-
-## Location API
-
-The Location API enables CRUD actions related to user's favorite locations. Favorite locations are used to determine potential routes that Carpal Drivers are driving.
-
-| Method | Endpoint               | Access Control | Description                                |
-| ------ | ---------------------- | -------------- | ------------------------------------------ |
-| GET    | `/locations`           | all users      | Returns all locations entered by all users |
-| GET    | `/locations/favorites` | owner          | Returns favorirted locations for a user    |
-| GET    | `/locations/:id`       | owner          | Returns a single location entered by user  |
-| POST   | `/locations`           | owner          | Allows user to enter in a new location     |
-| PUT    | `/locations/:id`       | owner          | Allows user to enter to update a location  |
-| DELETE | `/locations/:id`       | owner          | Delete a location                          |
-
-<!-- ## 2️⃣ Payment API here
-
-🚫Replace text below with a description of the API
-
-This is the way you take out your flustrations. Get away from those little Christmas tree things we used to make in school. Isn't it fantastic that you can change your mind and create all these happy things? Everything's not great in life, but we can still find beauty in it.
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-When you do it your way you can go anywhere you choose. Let your heart take you to wherever you want to be. If I paint something, I don't want to have to explain what it is. A tree needs to be your friend if you're going to paint him. That's a son of a gun of a cloud. Even the worst thing we can do here is good. -->
-
-<!-- ## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-Volunteering your time; it pays you and your whole community fantastic dividends. Maybe there's a happy little waterfall happening over here. You can spend all day playing with mountains. We don't have to be committed. We are just playing here. You have freedom here. The only guide is your heart. It's cold, but it's beautiful. -->
-
-# 3️⃣ Environment Variables
+# Environment Variables
 
 In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
 
-    *  NODE_ENV - this is the environment in which the application is running.
+    *  REACT_APP_MAPBOX_TOKEN - API Token to Utilize Mapbox
+    *  REACT_APP_IS_STAGING - Set equal to 1 in order for axios to properly interface with the appropriate backend environment
 
-# 5️⃣ Content Licenses
+# Testing
 
-🚫For all content - images, icons, etc, use this table to document permission of use. Remove the two placeholders and add you content to this table
-
-| Image Filename  | Source / Creator | License                          |
-| --------------- | ---------------- | -------------------------------- |
-| Rectangle 8.png | TBD              | [Creative Commons](unsplash.com) |
-
-# 4️⃣ Testing
-
-For Front-end testing we're using React Testing Library(RTL) to perform testing of our components. RTL comes packed with a suite of tests.
+For Front-end testing we're using React Testing Library(RTL) & Jest to perform testing of our components. RTL comes packed with a suite of tests.
 
 We're also using code-climate (run as part of our CI/CD process) to determine test coverage and code maintainability.
 
-Yup fhas been setup or form validation
+Yup has been setup for form validation
 
-# 4️⃣ Installation Instructions
-
-🚫explain how to install the required dependencies to get this project up and running with yarn and NPM
+# Installation Instructions
 
 Use 'npm install' to install all necessary dependencies
 
 ## Other Scripts
 
-🚫replace these examples with your own
-
     * build - creates a build of the application
     * start - starts the production server after a build is created; if used locally, creates a local instance of a server at localhost:3000
     * eject - used to modify CRA dependencies
-    *coverage - runs a test coverage report that is displayed t the top of this readme
-    * test - runs tests in **tests** directory \* eject - copy the configuration files and dependencies into the project so you have full control over them
+    * coverage - runs a test coverage report that is displayed at the top of this readme
+    * test - runs tests in **tests** directory
 
 # Contributing
 
@@ -267,4 +223,4 @@ See [Backend Documentation](https://github.com/Lambda-School-Labs/carpal-be/blob
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/4f1dd34b22f62530932b/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/carpal-fe/maintainability)
 
-[![Test Coverage](https://api.codeclimate.com/v1/badges/4f1dd34b22f62530932b/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/carpal-fe/test_coverage)1
+[![Test Coverage](https://api.codeclimate.com/v1/badges/4f1dd34b22f62530932b/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/carpal-fe/test_coverage)
