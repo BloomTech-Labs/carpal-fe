@@ -15,6 +15,7 @@ import dennis from "../../../img/team/dennis.jpg";
 import lesley from "../../../img/team/lesley.jpg";
 import ruth from "../../../img/team/ruth.jpg";
 import steven from "../../../img/team/steven.jpg";
+import hira from "../../../img/team/hira.jpeg";
 
 export const AboutData = [
     {
@@ -95,5 +96,15 @@ export const AboutData = [
         githubURL: "https://github.com/smv5047",
         linkedinURL: "https://www.linkedin.com/in/stevenvandenburg",
         bio: "Debonair Dad, DJ, and Developer."
+    },
+    {
+        name: "Hira Shahid",
+        title: "Chief Tesla Alien Leader ",
+        cutieImg: grayCutie,
+        profileImg: hira,
+        githubURL: "https://github.com/hira63s",
+        linkedinURL: "https://www.linkedin.com/in/hira-shahid-991b1583/",
+        bio:
+            "Hira is a Machine Learning Scientist and enthusiastic about making autonomous cars a reality. She is also the fearless leader of the Alien51 Team that created Carpals!"
     }
 ];
