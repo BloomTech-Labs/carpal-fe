@@ -15,7 +15,7 @@ import dennis from "../../../img/team/dennis.jpg";
 import lesley from "../../../img/team/lesley.jpg";
 import ruth from "../../../img/team/ruth.jpg";
 import steven from "../../../img/team/steven.jpg";
-import hira from "../../../img/team/hira.jpeg";
+import hira from "../../../img/team/hira.jpg";
 
 export const AboutData = [
     {
